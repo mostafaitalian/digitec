@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags%}
+
+
+{% block title %} Create Area{% endblock %}
+
+{% block main %}
+<h3><em>Create an area</em></h3>
+<form method="post" action="" role="form">
+{% csrf_token %}
+{{form|crispy}}
+<button type="submit" class="btn btn-primary">Create area now</button>
+</form>
+{% endblock %}

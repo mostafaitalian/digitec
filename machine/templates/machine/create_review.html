@@ -1,0 +1,18 @@
+{% extends "machine/base_machine.html"%}
+{% load crispy_forms_tags %}
+{% block title%}assign review{% endblock %}
+
+{% block main %}
+<form method="post" action="">
+{% csrf_token %}
+{{ form|crispy }}
+<button type="submit" class="btn btn-primary">assign review</button>
+</form>
+<ul>
+{% for review in reviews %}
+{% if review.auther.engineer == user%}
+<li>{{review.review}}</li>
+{%endif%}
+{% endfor %}
+</ul>
+{% endblock %}

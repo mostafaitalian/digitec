@@ -1,0 +1,24 @@
+{% extends parent_template|default:'base_customer.html' %}
+
+{% block title %}{{block.super}}--Customer_list {% endblock %}
+
+
+{% block main %}
+{% for customer in customers %}
+<article>
+<header><h2><a>{{customer.name|title}}</a></h2>
+</header>
+<hr>
+<p>
+customer located at {{customer.location}}<br>
+you can contact us at {{customer.address}}<br> or by calling us {{customer.telephone}}</p>
+{% if customer.departments %}
+<ul>
+{% for dep in customer.departments %}
+<li><a>{{dep.department_name}} and has {{dep.no_of_machine}} machine{{dep.no_of_machine|pluralize}}</a></li>
+{% endfor%} 
+</ul>
+{% endif %}
+</article>
+{% endfor %}
+{% endblock %}

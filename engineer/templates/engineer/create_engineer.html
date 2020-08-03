@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags%}
+
+
+{% block title %}{{ block.super}} - Create Engineer{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-12 col-md-6">
+        <h3><em>Create an Engineer</em></h3>
+        <form method="post" action="" role="form">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit" class="btn btn-primary">Create engineer now</button>
+        </form>
+
+    </div>
+    <div class="col-12 col-md-6">
+        {% include "./create_area.html" %}
+    </div>
+</div>
+<h3><em>Create an Engineer</em></h3>
+<form method="post" action="" role="form">
+{% csrf_token %}
+{{form|crispy}}
+<button type="button" class="btn btn-primary">Create engineer now</button>
+</form>
+{% endblock %}

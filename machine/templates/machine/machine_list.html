@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}{{block.super}}-- machine list{% endblock %}
+
+{% block css1 %}
+    <style>
+        p{
+            background-color: yellow;
+        }
+
+        a.machine-create{
+            margin:5px;
+
+        }
+        a.machine-create:hover{
+            background-color: beige;
+            color:black;
+        }
+        
+    </style>
+
+{% endblock %}
+{% block main %}
+<a class="btn btn-primary machine-create" href="{% url 'machine:create'  %}">Create Machine</a>
+
+{% for machine in machine_list %}
+<article>
+<header>
+
+  
+<h2><a href="{% url 'machine:list'  %}">{{machine.name|title}}</a></h2>
+<p>
+Written on:<br/>
+<time datetime="{{ machine.added|date:"DATE_FORMAT" }}"></time>
+
+{{machine.added|date:"l, F j Y"}}
+
+</p>
+</header>
+<p>{{ machine.description|truncatewords:20 }}</p>
+<p>
+<a href="">
+Read more&hellip;</a>
+</p>
+</article>
+{% empty %}
+<p><em>No message added Available</em></p>
+{% endfor %}
+{% endblock %}
+{% block sidebar %}
+{% if machine_list %}
+    <div class="machine-advertisement"><a href="{{ machine.serial }}">machine.name-machine.serial</a></div>
+    </div>
+{% endif %}
+{% endblock %}

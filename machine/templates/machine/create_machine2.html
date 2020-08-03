@@ -1,0 +1,16 @@
+{% extends "machine/base_machine.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super}} - Create Machine{% endblock %}
+
+
+{% block main %}
+<h3><em>Create a new machine</em></h3>
+<form method="post" action="">
+{% csrf_token %}
+{{form|crispy}}
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock%}

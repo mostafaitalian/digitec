@@ -1,0 +1,12 @@
+{% extends parent_template|default:"base_customer.html"%}
+{% block title %} delete tag -- {{ block.super }}{% endblock %}
+{% block main %}
+<div><div>
+<form action="" method="post">
+{% csrf_token %}
+<p> Are you sure you want to delete tag {{ tag.name }}?
+</p>
+<a href="{% url 'customer:detail' slug=customer.slug%}">Cancel</a>
+<button type="submit">Delete Tag</button>
+</form></div></div>
+{% endblock %}

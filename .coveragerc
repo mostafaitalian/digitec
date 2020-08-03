@@ -1,0 +1,5 @@
+[run]
+include = digitec/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin

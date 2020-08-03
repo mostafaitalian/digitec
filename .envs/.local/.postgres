@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=digitec1
+POSTGRES_USER=aDpErzODoszKkcbUCTmSAyZcmImTbLUP
+POSTGRES_PASSWORD=7salj9xfVf34BZaA4PIgUZoaTuXS7LwBYglWyM5rCrUJOrQBqQG6ZUcQpCl9xYh2

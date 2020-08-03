@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block main %}
+    <h1>
+        start by creating category
+    </h1>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{form|crispy}}
+
+    <button type="submit" class='btn btn-secondary'>create category</button>
+  </form>
+{% endblock main %}

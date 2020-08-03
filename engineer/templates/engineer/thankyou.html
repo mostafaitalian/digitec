@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}thank you {% endblock %}
+
+{% block main %}
+<h1>Thank you</h1>
+<p> your review is waiting for approval, be patient! </p>
+{{reviews_in_queue}}
+{% if reviews_in_queue %}
+{% endif %}
+{% endblock %}

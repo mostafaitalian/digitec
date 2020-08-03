@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags%}
+
+
+{% block title %}{{ block.super}} - Create Engineer{% endblock %}
+
+{% block main %}
+<h3><em>Create an Engineer</em></h3>
+<h3><em>Create a new machine</em></h3>
+<form method="post" action="" role="form">
+{% csrf_token %}
+{{form|crispy}}
+<button type="button" class="btn btn-primary">Create machine now</button>
+</form>
+<h2>{{review|title}}</h2>
+<p>this review was done by {{review.engineer}}</p>
+{% endblock %}

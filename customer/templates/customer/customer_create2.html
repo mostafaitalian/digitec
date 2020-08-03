@@ -1,0 +1,16 @@
+{% extends parent_template|default:"base_customer.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}{{block.super}}--update customer{% endblock %}
+
+
+{% block main %}
+<h2>update and edit certain fields in cutomer</h2>
+<form method="post" action="">
+{% csrf_token %}
+{{form|crispy}}
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock%}

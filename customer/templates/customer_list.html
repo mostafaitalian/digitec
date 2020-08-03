@@ -1,0 +1,32 @@
+{% extends 'base_customer.html' %}
+
+{% block title %}{{block.super}}--Customer_list {% endblock %}
+
+
+{% block main %}
+<form action="{% url "customer:list" %}" method="GET">
+<input type="text" name="q" />
+<button type="submit">search</button>
+</form>
+{% for customer in customers %}
+<article>
+<header><h2><a>{{customer.name|title}}</a></h2>
+</header>
+<hr>
+<p>
+customer located at {{customer.location}}<br>
+you can contact us at {{customer.address}}<br>{% if customer.telephone %} or by calling us {{customer.telephone}}{% endif %}<br>{{customer.departments.all}}<br>
+total number of machines are {{customer.get_machine_number}}
+</p>
+<ul>
+{% for dep in customer.departments.all %}
+<li><a>{{dep.department_name}} and has {{dep.machines_dep.count}} machine{{dep.no_of_machine|pluralize}}</a></li>
+{% endfor%} 
+</ul>
+</article>
+{% endfor %}
+{% endblock %}
+{% block sidebar %}
+    <div class="customer-advertisement"><a href="{% url 'customer:detail' slug=cu.slug %}">{{cu.name}}-{{cu.departments}}</a></div>
+	</div>
+{% endblock %}
