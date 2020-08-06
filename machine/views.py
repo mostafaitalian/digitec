@@ -1,5 +1,5 @@
 from django.shortcuts import render, reverse
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DetailView
 from .models import Machine, Call, Category
 from .forms import CreateMachineForm, CallForm, CategoryForm
 from django.urls import reverse_lazy, reverse
@@ -48,7 +48,36 @@ class CallCreateView(CreateView):
     model = Call
     form_class = CallForm
     success_url = reverse_lazy("machine:call_create")
+class CallDetailView(DetailView):
+    template_name = 'machine/call_detail.html'
+    model = Call
+    context_object_name = 'call' 
+    def get_object(self, **kwargs):
+        call = Call.objects.get(pk=self.kwargs['pk'])
+        if self.request.user.is_superuser:
+            print(kwargs)
+            return call
+        elif self.request.user == call.engineer.user:
+            return call
+        else:
 
+            return None
+
+
+class CallListView(ListView):
+
+    model = Call
+    template_name = "machine/call_list.html"
+    context_object_name = 'call_list'
+    paginated_by=4
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            return Call.objects.all()
+
+        elif self.request.user.is_active:
+            return Call.objects.filter(engineer__user=self.request.user)
+        else:
+            return super().get_queryset()
 
 class CreateCategory(CreateView):
     template_name='machine/create_category.html'

@@ -4,9 +4,12 @@
 {% block title %}{{ block.super }}{% endblock %}
 
 {% block main %}
+<h1>
+    Create Department
+</h1>
 <form method="post" action=".">
 {% csrf_token %}
 {{ form|crispy }}
-<button type="submit" class="btn btn-primary">create customer</button>
+<button type="submit" class="btn btn-primary">create department</button>
 </form>
 {% endblock %}

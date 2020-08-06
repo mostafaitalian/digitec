@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Call Detail
+{% endblock title %}
+
+{% block main %}
+    <h2>
+        welcome {{request.user}}
+    </h2>
+    {% if request.user == call.engineer.user or request.user.is_superuser %}
+
+        {{call.notification_number}}
+        <table class="table table-hover">
+            <caption>List of users</caption>
+            <thead class="table-primary">
+              <tr class="p-auto">
+                <th scope="col">Notification_number</th>
+                <td scope="col">{{call.notification_number}}</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Engineer</th>
+                <td>{% if call.engineer %}
+                  {{call.engineer.user.username|title}} : 
+                  {{call.engineer.name}}
+                {% endif %}</td>
+        
+              </tr>
+              <tr>
+                <th scope="row">Customer name</th>
+                <td>{{call.customer_name}}</td>
+
+              </tr>
+              <tr>
+                <th scope="row">Machine-Location</th>
+                <td>{{call.machine.department.department_name}}</td>
+
+              </tr>
+              <tr>
+                <th scope="row">Department-Total-Machines</th>
+                <td>{{call.machine.department.no_of_machine}}</td>
+
+              </tr>
+              <tr>
+                <th scope="row">Assign-Date</th>
+                <td>{{call.assign_date}}</td>
+
+              </tr>
+              <tr>
+                <th scope="row">End-Date</th>
+                <td>{{call.end_date}}</td>
+
+              </tr>
+              <tr>
+                <th scope="row">Machine-Model</th>
+                <td>{{call.machine.name}}</td>
+
+              </tr>
+              <tr>
+                <th scope="row">Machine-Serial</th>
+                <td>{{call.machine.serial}}</td>
+
+              </tr>
+
+
+              <tr>
+                <th scope="row">Territory</th>
+                <td>{% if call.machine.area %}
+                    {{call.machine.area.name}}
+                
+                    {% else %}
+                    this machine has no Area assigned yet
+                    {% endif %}
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+    {% else %}
+
+        <h3>
+            you are not authorized to see this call, you are not call engineer either superuser
+        </h3>
+    {% endif %}
+    
+    <h2>
+        Previous Calls
+    </h2>
+    {% for call in call.machine.calls.all %}
+      <div class='row'>
+        {{call.notification_number}}
+      </div>
+    {% endfor %}
+{% endblock main %}

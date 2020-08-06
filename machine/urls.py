@@ -10,5 +10,7 @@ serialize_urls = [path('api/', views.MachineCreateReadView.as_view(), name='api_
 urlpatterns = [path('create', views.CreateMachineView1.as_view(), name="create"),
                path('list', views.MachineList.as_view(), name='list'),
                path('call/create', views.CallCreateView.as_view(), name="call_create"),
+               path('call/list', views.CallListView.as_view(), name='call_list'),
+               path('call/detail/<pk>/', views.CallDetailView.as_view(), name='call_detail'),
                path('category/create', views.CreateCategory.as_view(), name='create_category'),
                path('', include(serialize_urls))]

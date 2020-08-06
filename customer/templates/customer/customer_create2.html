@@ -1,4 +1,4 @@
-{% extends parent_template|default:"base_customer.html" %}
+{% extends "base_customer.html" %}
 
 {% load crispy_forms_tags %}
 
@@ -6,7 +6,7 @@
 
 
 {% block main %}
-<h2>update and edit certain fields in cutomer</h2>
+<h2>Create new customer</h2>
 <form method="post" action="">
 {% csrf_token %}
 {{form|crispy}}

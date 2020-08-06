@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+  Call list
+{% endblock title %}
+
+{% block main %}
+    {% for call in call_list %}
+      <h1>{{ call.notification_number }}</h1>
+      <a href="{% url 'machine:call_detail' call.notification_number  %}" class='btn btn-outline-primary'>Call detail</a>
+    {% empty %}
+        <h2 class='text-center bg-light'>
+            you did not add any call yet
+        </h2>
+    {% endfor %}
+{% endblock main %} 

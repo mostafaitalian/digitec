@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View, CreateView, DetailView, UpdateView, DeleteView, ListView
-from .models import Customer
-from .forms import CustomerForm
+from .models import Customer, Department
+from .forms import CustomerForm, DepartmentForm
 from django.urls import reverse_lazy
 from django.urls.base import  reverse
 from .mixin import CustemerGetObjectMixin, CustemerGetObject1Mixin, CustomerActionMixin
@@ -35,15 +35,17 @@ class CustomerCreateView1(LoginRequiredMixin,CreateView):
     #fields=('name', 'slug')
     form_class = CustomerForm
     template_name = 'customer/customer_create2.html'
-    success_url=reverse_lazy('customer:list')
+    success_url=reverse_lazy('customer:customer-detail')
     model = Customer
-    fields=('departments')
+    # fields=('departments')
 class CustomerCreateView(LoginRequiredMixin,CustomerActionMixin, CreateView):
     model = Customer
     form_class = CustomerForm
     template_name = 'customer/customer_create.html'
     success_msg='you successfuly created customer'
-
+    def get_success_url(self):
+        return reverse_lazy('customer:customer-detail', kwargs={'slug':self.object.slug})
+    
     def dispatch(self, request, *args, **kwargs):
         request = can_customer(request)
         return CreateView.dispatch(self,request, *args, **kwargs)
@@ -60,7 +62,7 @@ class CustomerUpdateView(LoginRequiredMixin,CustemerGetObject1Mixin,CustomerActi
     success_msg ='your customer is successfuly updated'
 
     def get_success_url(self):
-        return reverse_lazy('customer:detail', kwargs={'slug':self.slug})
+        return reverse_lazy('customer:customer-detail', kwargs={'slug':self.slug})
         '''self.kwargs['slug'] = self.get_object().slug
         #print('hi',object.slug, self.get_object().slug)
         return reverse("customer:detail", kwargs={'slug':self.kwargs['slug']})'''
@@ -87,3 +89,8 @@ class CustomerDeleteView(LoginRequiredMixin,CustemerGetObject1Mixin,CustomerActi
         if self.machines_dep:
             self.no_of_machine = self.macines_dep.count()
         return super().save(force_insert=force_insert, force_update=force_update, using=using, update_fields=update_fields)'''
+class DepartmentCreateView(CreateView):
+    template_name = 'customer/department_create.html'
+    form_class = DepartmentForm
+    model = Department
+    success_url = 'machine/create'

@@ -2,13 +2,14 @@ from django.db import models
 from django.urls.base import reverse_lazy
 from engineer.models import Engineer
 from engineer.models import Area
+import random
 #from machine.models import Machine
 # Create your models here.
 
 
 class CustomerDetail(models.Model):
-    name = models.CharField(max_length=100)
-    slug = models.SlugField()
+    name = models.CharField(unique=True, max_length=100)
+    slug = models.SlugField(unique=True, blank=True, help_text='donot fill this it will be filled automatically')
     class Meta:
         abstract=True
 
@@ -34,15 +35,18 @@ class Customer(CustomerDetail):
     area = models.ForeignKey(to=Area, related_name='customers',to_field='slug', on_delete=models.CASCADE)
     engineers = models.ManyToManyField(to=Engineer, related_name='customers', blank=True)
     
+    def save(self, *args, **kwargs):
+        self.slug = self.name + self.location + str(random.random())
+        super().save(*args, **kwargs)
     
     def get_absolute_url(self):
-        return reverse_lazy('customer:detail', slug=self.slug)
+        return reverse_lazy('customer:customer-detail', slug=self.slug)
     
     def get_machine_number(self):
-        if self.machine_set:
-            return self.machine_set.all().count()
+        if self.machines:
+            return self.machines.all().count()
         else:
-            return self.machine_set.all().count()
+            return 0
     
     def __str__(self):
         return self.name

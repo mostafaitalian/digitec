@@ -33,7 +33,7 @@ class MachineManager(models.Manager):
             return None 
 class Machine(MachineDetail):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer,related_name='machines', on_delete=models.CASCADE)
     department = models.ForeignKey(Department, related_name='machines_dep', on_delete=models.CASCADE)
     area = models.ForeignKey(Area, related_name='machines', on_delete=models.CASCADE, blank=True,null=True)
     engineers = models.ManyToManyField(Engineer, related_name='machines', blank=True)
@@ -41,10 +41,18 @@ class Machine(MachineDetail):
     objects = MachineManager()
     def __str__(self):
         return self.machine_model + '({})'.format(self.category)+"  "+self.customer.name+"  "+self.department.department_name
-
+    def save(self,*args,**kwargs):
+    
+        self.department.no_of_machine +=1
+        self.department.save()
+        super().save(*args,**kwargs)
 class Call(models.Model):
     #from machine.models import Machine
-
+    assigned = 'assigned'
+    unassigned = 'unassigned'
+    pending = 'pending'
+    completed =  'completed'
+    status_choices = ((assigned, 'Assigned'), (unassigned, 'Unassigned'), (pending, 'Pending'),(completed, 'Completed'))
     def customer_name(self):
         machine = Machine.objects.get(id=self.machine.id)
         customer = Customer.objects.get(id=machine.customer.id)
@@ -54,13 +62,55 @@ class Call(models.Model):
     machine = models.ForeignKey(to='Machine', related_name='calls', on_delete=models.CASCADE)
     assign_date = models.DateTimeField(auto_now_add=True)
     end_date = models.DateTimeField(help_text="the default value is 6 hours + assign_date", default=datetime.now()+timedelta(hours=6))
-    notification_number = models.PositiveIntegerField(primary_key=True)
+    notification_number = models.AutoField(primary_key=True, blank=True)
+    is_assigned = models.BooleanField("indicate wheather call has engineer or not", default=False)
+    status = models.CharField('Status', max_length=20 , choices=status_choices, default=unassigned)
 
     class Meta:
         get_latest_by=['notification_number']
    
     def __str__(self):
-        return (Engineer.objects.get(id=self.engineer.id).name)
+        if self.engineer:
+                return (Engineer.objects.get(id=self.engineer.id).name)
+        return self.machine.name + ' no engineer assigned yet'
+    def save(self, *args, **kwargs):
+        if self.engineer:
+            self.is_assigned = True
+            self.status = 'assigned'
+            self.engineer.no_of_calls += 1
+            self.engineer.save()
+            # self.engineer.no_of_calls_pending = 0
+            # self.engineer.no_ofcalls_success = 0
+            
+        super().save(*args, **kwargs)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 '''class ex(models.Field):
     def db_type(self, connection):
