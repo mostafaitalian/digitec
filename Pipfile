@@ -28,6 +28,8 @@ django-storages = {extras = ["boto3"], version = "==1.7.1"}
 django-anymail = {extras = ["mailgun"], version = "==5.0"}
 Pillow = "==5.4.1"
 Django = "==2.0.13"
+django-cors-headers = "*"
+djangorestframework-jwt = "*"
 
 [requires]
 python_version = "3.8"

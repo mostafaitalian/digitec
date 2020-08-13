@@ -4,6 +4,7 @@ from .models import Machine, Call, Category
 from .forms import CreateMachineForm, CallForm, CategoryForm
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect
+from rest_framework.permissions import IsAuthenticated
 
 from .serializers import MachineSerializer
 from rest_framework.generics import ListCreateAPIView, CreateAPIView, RetrieveUpdateDestroyAPIView 
@@ -34,11 +35,21 @@ class MachineList(ListView):
     model = Machine
     template_name = "machine/machine_list.html"
     context_object_name = 'machine_list'
-    paginated_by=4
+    paginate_by=4
 class MachineCreateReadView(ListCreateAPIView):
     queryset=Machine.objects.all()
     serializer_class = MachineSerializer
     lookup_field = 'slug'
+    # permission_classes = (IsAuthenticated,)
+    # def get_queryset(self):
+    #     if self.request.user.is_superuser:
+    #         return Machine.objects.all()
+    #     return Machine.objects.filter(engineers__in=[self.request.user.engineer.id,])
+# class MachineDetailUpdateView(RetrieveUpdateDestroyAPIView):
+#     queryset = Machine.objects.all()
+#     serializer_class = MachineSerializer
+
+
 class MachineUpdateReadView(RetrieveUpdateDestroyAPIView):
     queryset=Machine.objects.all()
     serializer_class = MachineSerializer
@@ -69,7 +80,7 @@ class CallListView(ListView):
     model = Call
     template_name = "machine/call_list.html"
     context_object_name = 'call_list'
-    paginated_by=4
+    # paginate_by=5
     def get_queryset(self):
         if self.request.user.is_superuser:
             return Call.objects.all()
@@ -77,7 +88,7 @@ class CallListView(ListView):
         elif self.request.user.is_active:
             return Call.objects.filter(engineer__user=self.request.user)
         else:
-            return super().get_queryset()
+            return None
 
 class CreateCategory(CreateView):
     template_name='machine/create_category.html'

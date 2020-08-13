@@ -7,10 +7,10 @@ from . import views
 app_name = 'machine'
 serialize_urls = [path('api/', views.MachineCreateReadView.as_view(), name='api_create'),
                   path('api/<str:slug>/update/', views.MachineUpdateReadView.as_view(), name='api_update')]
-urlpatterns = [path('create', views.CreateMachineView1.as_view(), name="create"),
-               path('list', views.MachineList.as_view(), name='list'),
-               path('call/create', views.CallCreateView.as_view(), name="call_create"),
-               path('call/list', views.CallListView.as_view(), name='call_list'),
+urlpatterns = [path('create/', views.CreateMachineView1.as_view(), name="create"),
+               path('list/', views.MachineList.as_view(), name='list'),
+               path('call/create/', views.CallCreateView.as_view(), name="call_create"),
+               path('call/list/', views.CallListView.as_view(), name='call_list'),
                path('call/detail/<pk>/', views.CallDetailView.as_view(), name='call_detail'),
-               path('category/create', views.CreateCategory.as_view(), name='create_category'),
+               path('category/create/', views.CreateCategory.as_view(), name='create_category'),
                path('', include(serialize_urls))]

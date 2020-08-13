@@ -19,6 +19,9 @@ from django.core.mail.backends.smtp import EmailBackend
 from django.core.mail import get_connection
 from django.core.mail import EmailMessage
 import datetime
+from rest_framework.generics import ListCreateAPIView
+from .serializers import EngineerSerializer
+from rest_framework.permissions import IsAdminUser
 
 
 class AreaEngineerCreateView(CreateView):
@@ -248,3 +251,9 @@ def send_rejection_email(review, new_comment):
 '''class CreateApprovalView(CreateView):
     form_class=ApproveReviewForm
     template_name='engineer/approval.html'''
+
+
+class EngineerApiView(ListCreateAPIView):
+    queryset=Engineer.objects.all()
+    serializer_class = EngineerSerializer
+    permission_classes = (IsAdminUser,)    

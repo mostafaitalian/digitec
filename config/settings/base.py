@@ -58,7 +58,7 @@ DATABASES = {
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#root-urlconf
 ROOT_URLCONF = 'config.urls'
-# https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
+# https://docs.djangoproject.com/en/dev/ref/settings/#-application
 WSGI_APPLICATION = 'config.wsgi.application'
 
 # APPS
@@ -72,13 +72,15 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
     # 'django.contrib.humanize', # Handy template tags
     'django.contrib.admin',
+    'rest_framework',
+
 ]
 THIRD_PARTY_APPS = [
+    'corsheaders',
     'crispy_forms',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'rest_framework',
 ]
 LOCAL_APPS = [
     'digitec.users.apps.UsersAppConfig',
@@ -143,9 +145,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -167,7 +172,8 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
-
+CORS_ORIGIN_WHITELIST = ('http://localhost:3000',)
+CORS_ORIGIN_ALLOW_ALL=True
 # MEDIA
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
@@ -306,3 +312,20 @@ INSTALLED_APPS += ['compressor']
 STATICFILES_FINDERS += ['compressor.finders.CompressorFinder']
 # Your stuff...
 # ------------------------------------------------------------------------------
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':[
+    'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+    'rest_framework_jwt.authentication.JSONWebTokenAuthentication',    
+    'rest_framework.authentication.SessionAuthentication',
+    'rest_framework.authentication.BasicAuthentication',
+    'rest_framework.authentication.TokenAuthentication',
+
+    ],
+
+}
+
+JWT_AUTH  = {
+    'JWT_RESPONSE_PAYLOAD_HANDLER':'config.utils.my_jwt_payload_handler'
+}

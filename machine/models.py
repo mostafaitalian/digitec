@@ -38,7 +38,8 @@ class Machine(MachineDetail):
     area = models.ForeignKey(Area, related_name='machines', on_delete=models.CASCADE, blank=True,null=True)
     engineers = models.ManyToManyField(Engineer, related_name='machines', blank=True)
     #call = models.OneToOneField()
-    objects = MachineManager()
+    objects = models.Manager()
+    objects1 = MachineManager()
     def __str__(self):
         return self.machine_model + '({})'.format(self.category)+"  "+self.customer.name+"  "+self.department.department_name
     def save(self,*args,**kwargs):

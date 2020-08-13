@@ -47,11 +47,15 @@
 li.nav-item:hover{
   border-bottom: 1px solid black;
   margin-right: 20px;
-  background-color: pink;
+  background-color: white;
   color: black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: 3px 3px 2px -2px #DDDDDD;
 }
 a.nav-link:hover{
   margin-right: 20px;
+  color:black !important;
 }
 a.navbar-brand{
   font-size: 26px;
@@ -59,13 +63,20 @@ a.navbar-brand{
   font-family: fantasy;
   margin-right: 20px;
 }
+nav{
+      background-color: red !important;
+    }
+
+div ul li a.nav-link{
+  color:white !important;
+}
   </style>
   </head>
 
   <body>
 
     <div class="mb-1 container-fluid">
-      <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <nav class="navbar navbar-expand-md navbar-light">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

@@ -4,7 +4,10 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
-
+from rest_framework_jwt.views import (obtain_jwt_token,
+ RefreshJSONWebToken,
+ ObtainJSONWebToken,
+ )
 urlpatterns = [
     path('customer/', include('customer.urls', namespace='customer')),
     path('machine/', include('machine.urls', namespace='machine')),
@@ -23,6 +26,10 @@ urlpatterns = [
         include("digitec.users.urls", namespace="users"),
     ),
     path("accounts/", include("allauth.urls")),
+    path('token-auth/', obtain_jwt_token),
+    path('api/token-auth2', ObtainJSONWebToken.as_view()),
+    path('token-auth-refresh/', RefreshJSONWebToken.as_view())
+
     # Your stuff: custom urls includes go here
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
