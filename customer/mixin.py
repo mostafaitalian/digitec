@@ -4,14 +4,14 @@ from django.utils.functional import cached_property
 from django.contrib import messages
 class CustemerGetObjectMixin:
     
-    def get_object(self, slug):
-        obj = get_object_or_404(Customer, slug=slug)
+    def get_object(self, id):
+        obj = get_object_or_404(Customer, id=id)
         return obj
 class CustemerGetObject1Mixin:
     
     def get_object(self):
-        slug = self.kwargs.get('slug')
-        obj = get_object_or_404(Customer, slug=slug)
+        id = self.kwargs.get('id')
+        obj = get_object_or_404(Customer, pk=id)
         return obj
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
@@ -32,13 +32,18 @@ class CustomerLikesUpdateMixin:
 class CustomerActionMixin:
     @property
     def success_msg(self):
-        return NotImplemented
+        return 'customer is updated-'
     def form_valid(self,form):
         slug = form.cleaned_data['slug']
-        #form.save()
+        customer = form.save()
         print(slug)
-        self.slug=slug
+        id = self.kwargs.get('id', -1)
+        # self.slug=slug
         #self.request.kwargs['slug']=slug
+        if id == -1:
+            self.id = customer.id
+        else:
+            self.id = id    
         self.kwargs.update({'slug_kwargs':slug})
         messages.info(self.request, self.success_msg)
         return super().form_valid(form)

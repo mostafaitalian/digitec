@@ -1,96 +1,324 @@
 {% extends "base.html" %}
+{% load my_templatetag %}
+{% load crispy_forms_tags %}
+{% block css1 %}
+    <style>
+      form.report-form{
+        background-color: lightgray;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
+        align-items: center;
+        width:80%;
+        margin:auto;
+        padding-top: 20px ;
+        margin-bottom: 20px;
+        border-radius: 10px;
+      }
+     .report-form .form-group{
+        width: 80%;
+        border:1px solid black;
+        border-radius: 10px;
+        background-color: lightsteelblue;
+        text-align: center;
+        opacity: 0.5;
+      }
+      .report-form .form-group:hover{
+
+        opacity: 1;
+        color:white;
+        
+
+
+      }
+
+
+     .report-form .form-control *{
+        width:100%;
+      }
+      .pre-title{
+        border-bottom: 3px solid black;
+      }
+      h5.pre-title span{
+        color:steelblue;
+      } 
+    </style>
+{% endblock css1 %}
 {% block title %}
   Call Detail
 {% endblock title %}
 
 {% block main %}
-    <h2>
-        welcome {{request.user}}
-    </h2>
-    {% if request.user == call.engineer.user or request.user.is_superuser %}
-
-        {{call.notification_number}}
-        <table class="table table-hover">
-            <caption>List of users</caption>
-            <thead class="table-primary">
-              <tr class="p-auto">
-                <th scope="col">Notification_number</th>
-                <td scope="col">{{call.notification_number}}</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Engineer</th>
-                <td>{% if call.engineer %}
-                  {{call.engineer.user.username|title}} : 
-                  {{call.engineer.name}}
-                {% endif %}</td>
-        
-              </tr>
-              <tr>
-                <th scope="row">Customer name</th>
-                <td>{{call.customer_name}}</td>
-
-              </tr>
-              <tr>
-                <th scope="row">Machine-Location</th>
-                <td>{{call.machine.department.department_name}}</td>
-
-              </tr>
-              <tr>
-                <th scope="row">Department-Total-Machines</th>
-                <td>{{call.machine.department.no_of_machine}}</td>
-
-              </tr>
-              <tr>
-                <th scope="row">Assign-Date</th>
-                <td>{{call.assign_date}}</td>
-
-              </tr>
-              <tr>
-                <th scope="row">End-Date</th>
-                <td>{{call.end_date}}</td>
-
-              </tr>
-              <tr>
-                <th scope="row">Machine-Model</th>
-                <td>{{call.machine.name}}</td>
-
-              </tr>
-              <tr>
-                <th scope="row">Machine-Serial</th>
-                <td>{{call.machine.serial}}</td>
-
-              </tr>
-
-
-              <tr>
-                <th scope="row">Territory</th>
-                <td>{% if call.machine.area %}
-                    {{call.machine.area.name}}
-                
-                    {% else %}
-                    this machine has no Area assigned yet
-                    {% endif %}
-                </td>
-
-              </tr>
-            </tbody>
-          </table>
-    {% else %}
-
-        <h3>
-            you are not authorized to see this call, you are not call engineer either superuser
-        </h3>
-    {% endif %}
-    
-    <h2>
-        Previous Calls
-    </h2>
-    {% for call in call.machine.calls.all %}
-      <div class='row'>
-        {{call.notification_number}}
-      </div>
-    {% endfor %}
+    {% with calll as call %}
+    <h5 class="pre-title">
+      Welcome {{request.user}} {% if request.user == call.engineer.user %}(<span>{{user.engineer.name}}</span>){% endif %}
+    </h5>
+      {% if request.user == call.engineer.user or request.user.is_superuser %}
+  
+          {{call.notification_number}}
+          <table class="table table-hover">
+              <caption>List of users</caption>
+              <thead class="table-primary">
+                <tr class="p-auto">
+                  <th scope="col">Notification_number</th>
+                  <td scope="col">{{call.notification_number}}</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Engineer</th>
+                  <td>{% if call.engineer %}
+                    {{call.engineer.user.username|title}} : 
+                    {{call.engineer.name}}
+                  {% endif %}</td>
+          
+                </tr>
+                <tr>
+                  <th scope="row">Customer name</th>
+                  <td>{{call.customer_name}}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">Machine-Location</th>
+                  <td>{{call.machine.department.department_name}}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">Department-Total-Machines</th>
+                  <td>{{call.machine.department.no_of_machine}}</td>
+  
+                </tr>
+  
+                <tr>
+                  <th scope="row">status</th>
+                  <td>{{call.status}}</td>
+  
+                </tr>
+  
+  
+                <tr>
+                  <th scope="row">Assign Date</th>
+                  <td>{{call.assigned_date}}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">is_assigned</th>
+                  <td>{{call.is_assigned}}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">response time</th>
+                  <td>{{call.response_time_end}}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">Completed-Date</th>
+                  <td>{{call.completed_date}}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">Machine-Model</th>
+                  <td>{{call.machine.name}}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">Machine-Serial</th>
+                  <td>{{call.machine.serial}}</td>
+  
+                </tr>
+  
+  
+                <tr>
+                  <th scope="row">Territory</th>
+                  <td>{% if call.machine.area %}
+                      {{call.machine.area.name}}
+                  
+                      {% else %}
+                      this machine has no Area assigned yet
+                      {% endif %}
+                  </td>
+  
+                </tr>
+              </tbody>
+            </table>
+      {% else %}
+  
+          <h3>
+              you are not authorized to see this call, you are not call engineer either superuser
+          </h3>
+      {% endif %}
+  
+      <h3 class="pre-title" style="color: black;">
+        Reports
+      </h3>
+  
+      {% for report in call.reports.all %}
+      {{report.call.notification_number}} -- {{report.status}} --{{report.call.status}}
+      {% empty %}
+        no reports created yet
+      {% endfor %}
+  
+  
+  
+      <h3 class="pre-title" style="color: black;">
+          Previous Calls
+      </h3>
+      <table class="table table-hover">
+      {% for call in call|matched:call.notification_number %}
+        <div class='row'>
+          <tr>
+          <th>
+            {{call.notification_number}}
+          </th>
+          <td>
+              {{call.status}}
+          </td>
+  
+        </tr>
+         
+        </div>
+      {% empty%}
+        <h5>there is no previous calls for this machine</h5>
+      {% endfor %}
+  
+  
+  
+    </table>
+  
+    <h4 class="pre-title">
+      Submit report
+  </h4>
+      <form action="{% url 'machine:create_report' %}" method="POST" class="report-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-danger" type="submit">add report</button>
+      </form>
+  
+  
+  
+      <form action="{% url 'machine:create_report' %}" method="POST" class="report-form">
+        {% csrf_token %}
+  
+        <div class="form-group">
+          <label for="call-id">
+            Call
+          </label>
+          <div class="form-control">
+            <select name="call" id="call-id"  style="width: 100%;" >
+              {% for ca in call.machine.calls.all %}
+              <option value={{ca}}  {% if ca == call %}selected {%endif%} >{{ca}} </option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="engineer-id">
+            Engineer
+          </label>
+          <div class="form-control">
+            <select name="engineer" id="call-id"  style="width: 100%;">
+              <option value={{call.engineer}} selected>{{call.engineer}} </option>
+            </select>
+          </div>
+        </div>
+  
+  
+        <div class="form-group">
+          <label for="customer-name">
+            Customer name
+          </label>
+          <div class="form-control">
+              <input id="customer-name" name="customer_name"  type="text" value={{call.machine.customer.name}} />
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="notification">
+              Notification number
+          </label>
+          <div class="form-control">
+            <input type="number" name="notiication_number" value={{call.notification_number}} id="notification"/>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="black">
+            Black impression
+          </label>
+          <div class="form-control">
+            <input type="number" id='black'/>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="color">
+            Color impression
+          </label>
+          <div class="form-control">
+            <input type="number" id="color"/>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="total">
+            Total impression
+          </label>
+          <div class="form-control">
+            <input type="number" id="total"/>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="meter1">
+            Meter-1
+          </label>
+          <div class="form-control">
+            <input type="number" id="meter1"/>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="meter2">
+            Meter-2
+          </label>
+          <div class="form-control">
+            <input type="number" id="meter2"/>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="totel-meter">
+  
+            Total 
+          </label>
+          <div class="form-control">
+            <input type="number" id="total-meter"/>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="file-input">
+            Submit a file
+          </label>
+          <div class="form-control">
+            <input type="file" id="file-input"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="image-input">
+            Submit an image
+          </label>
+          <div class="form-control">
+            <input type="file" id="image-input" multiple accept="image/*"/>
+          </div>
+        </div>
+  
+  
+  
+        <button class='btn-outline-primary' type='submit'>submit order</button>
+      </form>    
+    {% endwith %}
+  
 {% endblock main %}

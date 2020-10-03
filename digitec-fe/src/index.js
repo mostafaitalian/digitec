@@ -1,13 +1,29 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {BrowserRouter, Route} from 'react-router-dom'
+import {Provider} from 'react-redux'
+import {createStore, applyMiddleware} from 'redux'
+import reducer from './reducers/'
+import reducers from './reducers'
+import thunk from 'redux-thunk'
+import {logger} from 'redux-logger'
+
+
+
+const store = createStore(reducers, applyMiddleware(thunk,logger))
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <BrowserRouter>
+  <Provider store={store}>
+    <Route path='/' render = {(navigation)=>{return <App navigation={navigation} />}}/>
+
+  </Provider>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

@@ -1,1 +1,357 @@
 {% extends "base.html" %}
+{% block css1 %}
+  <style type="text/css">
+    #special{
+    margin-right: 100px;
+}
+.line{
+    background-color: rgb(133, 7, 7);
+    border-bottom: 1px solid black;
+    margin: 15px 0px;
+}
+span{
+    font-weight: bold;
+}
+    .container-fluid{
+        margin:0px !important;
+        padding:0px !important;
+        width:100% !important;
+    }
+    .heading-body{
+            
+            height: 500px;
+            width: 100%;
+            padding:20px;
+            background-image: url('media/files/home.jpg');
+            /* border: 1px  solid black; */
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        .heading-body1{
+            
+            height: 500px;
+            width: 100%;
+            padding:20px;
+            background-image: url('media/files/home.jpg');
+            /* border: 1px  solid black; */
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        @keyframes data {
+            from{
+                color:black;
+                background-color: white;
+            }
+            to{
+                color: white;
+                background-color: black;
+            }
+        }
+        .main-head{
+            color: white;
+            background-color: black;
+            animation-name: data;
+            animation-duration: 5s;
+        }
+
+  </style>
+{% endblock css1 %}
+
+{% block content %}
+    
+    <h1 class="text-center main-head">
+        Welcome to Digitec...
+    </h1>
+    <div class="heading-body">
+        <p>
+            let`s start our journey
+        </p>
+        
+        {% if user.is_authenticated %}
+            
+            {% if user.engineer %}
+                <h1 class="d-inline-block">
+                    Engineer :
+                </h1>
+
+            {% endif %}
+            <h2 class='d-inline-block'>
+                {{user.username}}
+            </h2>
+        {% else %}
+            <p>
+                you are not subscribed user yet
+            </p>
+        {% endif %}
+            
+    </div>
+    <!-- <div class="row">
+        <div class="col-10 offset-1">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 offset-1">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.
+            </p>
+        </div> -->
+    <!-- </div> -->
+     <!-- <div class="row">
+        <div class="col-10 offset-1">
+            <form method="GET" action="{% url 'machine:machine_list_custom' %}">
+               {% csrf_token %}
+                <label for='category-id'>search by:</label>
+                <input id='category-id' type="radio" name='category' value="name"/>
+                <input id='category-id' type="radio" name='category' value="customer"/>
+                <input id='category-id' type="radio" name='category' value="serial"/>
+        
+                <input  type="text" name="query" />
+                <button type="submit" class="btn btn-primary">
+                    search for machines
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="col-12">
+
+    </div> -->
+     <!-- <div class="row">
+        <div class="col-10 offset-1">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.
+            </p>
+        </div>
+    </div> <div class="row">
+        <div class="col-10 offset-1">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.
+            </p>
+        </div>
+    </div> 
+    <div class="row">
+        <div class="col-11 offset-1">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.
+            </p>
+        </div>
+    </div> <div class="row">
+        <div class="col-10 offset-1">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque animi autem minus aliquid.
+                 Explicabo, placeat quam dolorem voluptate ipsam unde laboriosam ab magnam,
+                 veritatis itaque nam corporis id non odit.
+            </p>
+        </div>
+    </div> -->
+    <div class="heading-body1">
+
+    </div>
+
+<div>
+    <div class='line'>
+    </div>
+    <div class='line' id='special'>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+{% block main %}
+  <div style="background-color: pink; width:100%; height: 500px;">
+
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class='content'>
+            <div class='content-p'>
+                <h2>Hassan says..</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus obcaecati cupiditate ullam voluptatibus odio earum ratione, qui nemo quod sunt inventore ad totam tempora sit? Numquam officia praesentium veritatis expedita?</div>
+            <div class='content-i'></div>
+        </div>
+    
+        <div class='content'>
+            <div class='content-p'>
+                <h2>Mostafa says..</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus obcaecati cupiditate ullam voluptatibus odio earum ratione, qui nemo quod sunt inventore ad totam tempora sit? Numquam officia praesentium veritatis expedita?</div>
+            <div class='content-i'></div>
+        </div>
+        <div class='content'>
+            <div class='content-p'>
+                <h2>Adam says..</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus obcaecati cupiditate ullam voluptatibus odio earum ratione, qui nemo quod sunt inventore ad totam tempora sit? Numquam officia praesentium veritatis expedita?</div>
+            <div class='content-i'>
+
+            </div>
+        </div>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-4">
+    <div class='content'>
+        <div class='content-p'>
+            <h2>Hassan says..</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus obcaecati cupiditate ullam voluptatibus odio earum ratione, qui nemo quod sunt inventore ad totam tempora sit? Numquam officia praesentium veritatis expedita?</div>
+        <div class='content-i'></div>
+    </div>
+
+    <div class='content'>
+        <div class='content-p'>
+            <h2>Mostafa says..</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus obcaecati cupiditate ullam voluptatibus odio earum ratione, qui nemo quod sunt inventore ad totam tempora sit? Numquam officia praesentium veritatis expedita?</div>
+        <div class='content-i'></div>
+    </div>
+    <div class='content'>
+        <div class='content-p'>
+            <h2>Adam says..</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus obcaecati cupiditate ullam voluptatibus odio earum ratione, qui nemo quod sunt inventore ad totam tempora sit? Numquam officia praesentium veritatis expedita?</div>
+        <div class='content-i'>
+
+        </div>
+    </div>
+</div>
+<div class="col-sm-12 col-md-6 col-lg-4">
+    <div class='content'>
+        <div class='content-p'>
+            <h2>Hassan says..</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus obcaecati cupiditate ullam voluptatibus odio earum ratione, qui nemo quod sunt inventore ad totam tempora sit? Numquam officia praesentium veritatis expedita?</div>
+        <div class='content-i'></div>
+    </div>
+
+    <div class='content'>
+        <div class='content-p'>
+            <h2>Mostafa says..</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus obcaecati cupiditate ullam voluptatibus odio earum ratione, qui nemo quod sunt inventore ad totam tempora sit? Numquam officia praesentium veritatis expedita?</div>
+        <div class='content-i'></div>
+    </div>
+    <div class='content'>
+        <div class='content-p'>
+            <h2>Adam says..</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus obcaecati cupiditate ullam voluptatibus odio earum ratione, qui nemo quod sunt inventore ad totam tempora sit? Numquam officia praesentium veritatis expedita?</div>
+        <div class='content-i'>
+
+        </div>
+    </div>
+</div>
+  </div>
+{% endblock main %}
+{% block sidebar %}
+  <div style="background-color: pink; width:100%; height: 500px;">
+
+  </div>
+  <div class="row">
+      <div class="col-12" style="background-color: lightgray; margin:3px 6px">
+          <div class="products">
+
+          </div>
+      </div>
+
+  </div>
+  <h5 style="border-bottom: 1px solid darkblue;">
+      Latest pending Calls
+  </h5>
+  {% for call in pending_calls %}
+  <div class="row">
+    <div class="col-12" style="background-color: lightgray; margin:3px 6px">
+      <span>Notification number: </span>{{call.notification_number}}<br><span>Created at: </span>{{call.created_date}}
+    </div>
+</div>
+    
+    {% if forloop.last %}
+        <hr>
+    {% endif %}
+        
+  {% endfor %}
+  <h5 style="border-bottom: 1px solid darkblue;">
+    Latest completed Calls
+</h5>
+{% for call in completed_calls %}
+  <div class="row">
+      <div class="col-12" style="background-color: lightgray; margin:3px 6px">
+        <span>Notification number: </span>{{call.notification_number}}<br><span>Created at: </span>{{call.created_date}}
+      </div>
+  </div>
+  {% if forloop.last %}
+  <hr>
+{% endif %}
+{% endfor %}
+{% endblock sidebar %}

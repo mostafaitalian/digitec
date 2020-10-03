@@ -1,32 +1,211 @@
 {% extends 'base_customer.html' %}
 
+{% block css1 %}
+<style type='text/css'>
+    article {
+        border: 1px solid black;
+        margin: 20px;
+        box-sizing: border-box;
+        padding: 10px;
+        box-shadow: 4px 4px 3px black;
+    }
+
+    ul {
+        list-style: none;
+
+    }
+    @keyframes first-anim {
+        from{
+            background-color: lightcoral;
+            /* color:black; */
+
+        }
+        to{
+            background-color: red;
+            /* color: white; */
+        }
+        
+    }
+    .first-ani{
+        animation-name: first-anim;
+        animation-duration: 1s;
+        background-color: lightcoral;
+    }
+    .second-ani{
+        animation-name: first-anim;
+        animation-duration: 2s;
+        animation-delay: 2s;
+        background-color: white;
+        display: inline;
+        padding: 5px;
+        box-shadow: 0px 3px 3px 2px red;
+    }
+    .span-header{
+        font-weight: bold;
+        font-size: 1.5rem;
+        
+    }
+    .summary{
+        margin-left: 5px;
+        margin-top: 10px;
+        border-left: 2px solid red;
+
+    }
+    .summary a, .summary p{
+        margin-left: 15px;
+        font-size:1.4rem;
+    }
+</style>
+
+
+{% endblock %}
+
 {% block title %}{{block.super}}--Customer_list {% endblock %}
 
 
 {% block main %}
-<form action="{% url "customer:list" %}" method="GET">
-<input type="text" name="q" />
-<button type="submit">search</button>
-</form>
+
 {% for customer in customers %}
 <article>
-<header><h2><a>{{customer.name|title}}</a></h2>
-</header>
-<hr>
-<p>
-customer located at {{customer.location}}<br>
-you can contact us at {{customer.address}}<br>{% if customer.telephone %} or by calling us {{customer.telephone}}{% endif %}<br>{{customer.departments.all}}<br>
-total number of machines are {{customer.get_machine_number}}
-</p>
-<ul>
-{% for dep in customer.departments.all %}
-<li><a>{{dep.department_name}} and has {{dep.machines_dep.count}} machine{{dep.no_of_machine|pluralize}}</a></li>
-{% endfor%} 
-</ul>
+    <header class='text-center'>
+        <h2><a>{{customer.name|title}}</a></h2>
+    </header>
+    <main>
+        <div>
+            <div>
+                <span class='span-header'>Customer Location</span> : 
+                <span class='span-content'>{{customer.location}}</span>
+            </div>
+            <div>
+                <span class='span-header'>Customer Address</span> : 
+                <span class='span-content'><a href={{customer.address}}>visit us</a></span>
+            </div>
+
+            <div>
+                <span class='span-header'>Customer Location</span> : 
+                <span class='span-content'>{{customer.location}}</span>
+
+            </div>
+            {% if customer.telephone %}
+
+            <div>
+                <span class='span-header'>Telephone number</span> : 
+                <span class='span-content'>{{customer.telephone}}</span>
+
+            </div>
+            {% endif %}            
+            <div>
+                <span class='span-header'>Customer machines number:</span> 
+                <span class='span-content'>{{customer.get_machine_number}}</span>
+
+            </div>            
+            <div>
+                <span class='span-header'>Working hours:</span>
+                <span class='span-content'>
+                    start at: <span>{{customer.begin_at}}</span>
+                    finish at: <span>{{customer.finish_at}}</span>
+                </span>
+
+            </div>
+            <div></div>
+            <div></div>
+            <div></div>
+            
+
+
+            <span class='span-header'></span> : <span class='span-content'></span>
+            <span class='span-header'></span> : <span class='span-content'></span>
+            <span class='span-header'></span> : <span class='span-content'></span>
+
+
+        </div>
+        <ul>
+            {% for dep in customer.departments.all %}
+            <li><a><span class='span-header'>{{dep.department_name}}</span> has {{dep.machines_dep.count}} machine{{dep.no_of_machine|pluralize}}</a>
+                <ul>
+                    {% for machine in dep.machines_dep.all %}
+                    <li>
+                        <a class='btn btn-outline-danger'
+                            href="{% url 'machine:machine_detail' machine.id %}">{{machine.name}}-{{machine.serial}}</a>
+                    </li>
+                    {% empty %}
+                    <h5 class='second-ani'>
+                        you do not have any machines in this department
+                    </h5>
+                    <div class='summary'>
+                        <p>
+                            There is no machine in {{dep.department_name}}
+                        </p>
+                        {% if request.user.is_superuser%}
+                        <form method="GET" action='{% url 'machine:create' %}'>
+                            <input type="text" hidden name='slug' value={{customer.slug}}>
+                            <button class='btn btn-outline-secondary' type="submit">Add Machine</a>
+
+                        </form>
+        
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+
+                </ul>
+
+            </li>
+            {% empty %}
+            <div>
+                <p class='first-ani'>
+                    Customer do not have any departments yet
+                </p>
+                {% if request.user.is_superuser%}
+                <a href="{% url 'customer:department-create' %}" class="btn btn-outline-dark">Add Department</a>
+
+                {% endif %}
+            </div>
+
+            {% endfor%}
+        </ul>
+    </main>
+    <footer>
+        <div>
+            <h4>Working Times</h4>
+            <p>from {{customer.begin_at}} to {{customer.finish_at}}</p>
+            <p>start at: <span>{{customer.begin_at}}</span></p>
+            <p>finish at: <span>{{customer.finish_at}}</span></p>
+        </div>
+    </footer>
+
 </article>
 {% endfor %}
+<br><br><br>
+<div class='row' style='position: absolute; bottom:5px; left: 40%;'> 
+    <div class='col-12 text-center text-danger'>
+    
+        <div class="pagination text-center" style='display: flex; justify-content: center;'>
+            <div  >
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+            
+                    <span class="current ">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+            
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+           
+        </div>
+    </div>
+    </div>
+
+
 {% endblock %}
 {% block sidebar %}
-    <div class="customer-advertisement"><a href="{% url 'customer:detail' slug=cu.slug %}">{{cu.name}}-{{cu.departments}}</a></div>
-	</div>
+<div class="customer-advertisement"><a
+        href="{% url 'customer:customer-detail' id=cu.id %}">{{cu.name}}-{{cu.departments.all|join:','}}</a></div>
+</div>
 {% endblock %}

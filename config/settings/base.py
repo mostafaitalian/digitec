@@ -47,7 +47,7 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'digitec2',
+        'NAME': 'digitec9',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',
@@ -58,12 +58,16 @@ DATABASES = {
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#root-urlconf
 ROOT_URLCONF = 'config.urls'
+
+ASGI_APPLICATION = 'config.routing.application'
+
 # https://docs.djangoproject.com/en/dev/ref/settings/#-application
 WSGI_APPLICATION = 'config.wsgi.application'
 
 # APPS
 # ------------------------------------------------------------------------------
 DJANGO_APPS = [
+    'channels',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -73,6 +77,7 @@ DJANGO_APPS = [
     # 'django.contrib.humanize', # Handy template tags
     'django.contrib.admin',
     'rest_framework',
+    'rest_framework.authtoken'
 
 ]
 THIRD_PARTY_APPS = [
@@ -212,8 +217,8 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
-                # 'machine.context_processors.advertisments',
-                # 'customer.context_processors.customer_adv'
+                'machine.context_processors.advertisments',
+                'customer.context_processors.customer_adv'
             ],
         },
     },
@@ -313,15 +318,22 @@ STATICFILES_FINDERS += ['compressor.finders.CompressorFinder']
 # Your stuff...
 # ------------------------------------------------------------------------------
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES':[
-    'rest_framework.permissions.IsAuthenticated',
-    ],
+
     'DEFAULT_AUTHENTICATION_CLASSES':[
     'rest_framework_jwt.authentication.JSONWebTokenAuthentication',    
     'rest_framework.authentication.SessionAuthentication',
     'rest_framework.authentication.BasicAuthentication',
-    'rest_framework.authentication.TokenAuthentication',
 
+
+
+
+    # 'rest_framework.authentication.TokenAuthentication',
+
+
+
+    ],
+        'DEFAULT_PERMISSION_CLASSES':[
+    'rest_framework.permissions.IsAuthenticated',
     ],
 
 }
@@ -329,3 +341,27 @@ REST_FRAMEWORK = {
 JWT_AUTH  = {
     'JWT_RESPONSE_PAYLOAD_HANDLER':'config.utils.my_jwt_payload_handler'
 }
+
+# SIMPLE_JWT = {
+#     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+#     'REFRESH_TOKEN_LIFETIME': timedelta(days=14),
+#     'ROTATE_REFRESH_TOKENS': True,
+#     'BLACKLIST_AFTER_ROTATION': False,
+#     'ALGORITHM': 'HS256',
+#     'SIGNING_KEY': SECRET_KEY,
+#     'VERIFYING_KEY': None,
+#     'AUTH_HEADER_TYPES': ('JWT',),
+#     'USER_ID_FIELD': 'id',
+#     'USER_ID_CLAIM': 'user_id',
+#     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+#     'TOKEN_TYPE_CLAIM': 'token_type',
+# }
+
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         'CONFIG': {
+#             'hosts': [('127.0.0.1', 6379)],
+#         },
+#     },
+# }

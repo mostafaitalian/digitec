@@ -1,7 +1,8 @@
 from django.forms import ModelForm
 from django.forms.models import inlineformset_factory
 from django import forms
-from .models import EngineerReview, Engineer, Area
+from .models import  Engineer, Area
+from machine.models import EngineerReview
 from django.contrib.auth import get_user_model
 
 class EngineerForm(forms.ModelForm):
@@ -37,7 +38,7 @@ class ReviewForm(ModelForm):
     state = forms.ChoiceField(help_text='if you do not set it it will be pending', choices=state_choices, required=True)
     class Meta:
         model=EngineerReview
-        fields = ['auther','review','state']
+        fields = '__all__'
         
 class ApproveReviewForm(forms.Form):
     new_comment = forms.CharField(widget=forms.Textarea, required=False)

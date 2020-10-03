@@ -1,34 +1,297 @@
 {% extends "base.html" %}
 {% load static %}
 
+
+{% block css1%}
+  <style type="text/css">
+      .ex{
+          margin-bottom: 20px;
+          margin-top: 10px;
+          /* background-color: aqua; */
+          border-bottom: 1px solid black;
+          border-left: 4px solid black;
+      }
+      .ex-1{
+        border-bottom: 2px solid black;
+        color: black;
+
+      }
+      tr.machine-row{
+        
+        background-color: lightgrey !important;
+        padding: 10px;
+      }
+      tr th,td{
+        /* display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center; */
+        padding: 10px;
+        border-right: 2px solid red;
+        
+
+
+      }
+      tr{
+        text-align: center;
+      }
+
+      tr th div{
+        margin-right: 10px;
+      }
+      tr td a{
+        margin-right: 10px;
+      }
+      div .call-span{
+        /* border-left: 2px solid red; */
+        /* box-shadow: -2px 0px 2px 3px red; */
+        /* box-sizing: content-box; */
+        /* display: inline-block; */
+        border-bottom: 2px solid black !important;
+        font-size: large;
+        color:white;
+        margin-left: 3px;
+        /* background-color: black; */
+      }
+
+      p .call-span p{
+        /* display: inline-block; */
+        background-color: aquamarine;
+        /* margin: 10px; */
+        /* margin-left: 2px; */
+        /* display: inline-block; */
+      }
+      .call-div{
+      background-color: white;
+
+      }
+      .call-div-p{
+        /* margin: 20px; */
+        padding: 5px 20px;
+        background-color: rgb(220, 220, 220);
+        /* border-left: 2px solid red; */
+      /* margin-left: 2px; */
+        /* padding-left: 5px; */
+      }
+      span{
+        border-bottom: 2px solid black;
+        background-color: gray;
+      }
+
+  </style>
+
+{% endblock css1 %}
+  
 {% block title %}User: {{ object.username }}{% endblock %}
 
 {% block content %}
 <div class="container">
-
-  <div class="row">
-    <div class="col-sm-12">
-
-      <h2>{{ object.username }}</h2>
-      {% if object.name %}
-        <p>{{ object.name }}</p>
-      {% endif %}
-    </div>
-  </div>
-
-{% if object == request.user %}
+  
 <!-- Action buttons -->
-<div class="row">
+<!-- <div class="row">
 
   <div class="col-sm-12">
     <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">My Info</a>
     <a class="btn btn-primary" href="{% url 'account_email' %}" role="button">E-Mail</a>
     <!-- Your Stuff: Custom user template urls -->
-  </div>
+  <!-- </div> -->
 
-</div>
+<!-- </div> -->
 <!-- End Action buttons -->
-{% endif %}
+
+  <div class="row ex">
+    <div class="col-sm-12">
+
+      <h2 class="d-inline-block">{{ object.username}} </h2><span style='font-size: 25px;'> {{engineer}}</span>
+      {% if object == request.user %}
+      <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">My Info</a>
+      <a class="btn btn-primary" href="{% url 'account_email' %}" role="button">E-Mail</a>
+      {% endif %}
+
+      {% if object.name %}
+        <p>{{ object.name }}</p>
+        
+      {% endif %}
+    </div>
+
+    {% if engineer.user == request.user %}
+    <div>
+      you have {{engineer.machines.all.count}} machine{{engineer.machines.all.count|pluralize}}
+      <br>
+      you have {{engineer.call_set.all.count}} call{{engineer.calls.all.count|pluralize}}
+      you have {{pending_calls.count}} pending calls as well as {{completed_calls.count}} completed calls 
+    </div>
+    {% endif %}
+
+
+  </div>
+  
+  {% if request.user == engineer.user %}
+  {% for machine in engineer.machines.all %}
+  
+  <table>
+
+<tr class="machine-row">
+  <th class="machine-row center">
+    <div>
+      {{machine.serial}} - {{machine.customer}} - {{machine.name}}
+
+    </div>
+  </th>
+  <td> 
+    <a href='{% url "machine:machine_detail" machine.id %}' class="btn btn-outline-danger" >View machine</a>  
+  </td>
+</tr>
+</table>
+<div class="item-data">
+
+
+<h3 class='ex-1'>Previous calls for this machine</h3>
+{% for call in machine.calls.all %}
+<table>
+<tr style="border-left: 2px solid red;">
+  <th style="width: 600px !important;padding-left: 10px;">
+    <div class="center">
+      <div class="call-div" >
+        <div class="call-div-p" >
+          <span class="call-span">Title: </span><p>{{call.notification_number}}-{{call.machine.name}}</p>
+          <br>
+          <span class="call-span">Created at: </span><p>{{call.created_date}}</p>
+          <br>
+          <span class="call-span">Status: </span><p>{{call.status}}</p>
+        </div>
+
+      </div>
+
+    </div>
+  </th>
+ <td>
+    <a href='{% url "machine:call_detail" call.notification_number %}' class="btn btn-outline-danger" >View Call</a>
+ </td> 
+
+</tr>
+</table>
+</div>
+
+  <br>
+  <hr>
+
+
+
+
+
+  {% empty %}
+    <h2>
+      there is no calls for this machine yet
+    </h2>
+
+  {% endfor %}
+  <br>
+{% endfor %}
+    
+  {% endif %}
+   
+   {% if request.user.is_superuser %}
+   {% for machine in machines %}
+  
+   <table>
+
+ <tr class="machine-row">
+   <th class="machine-row center">
+     <div>
+       {{machine.serial}} - {{machine.customer}} - {{machine.name}}
+
+     </div>
+   </th>
+   <td> 
+     <a href='{% url "machine:machine_detail" machine.id %}' class="btn btn-outline-danger" >View machine</a>  
+   </td>
+ </tr>
+</table>
+ <div class="item-data">
+
+
+ <h3 class='ex-1'>Previous calls for this machine</h3>
+ {% for call in machine.calls.all %}
+ <table>
+ <tr style="border-left: 2px solid red;">
+   <th style="width: 600px !important;padding-left: 10px;">
+     <div class="center">
+       <div class="call-div" >
+         <div class="call-div-p" >
+           <span class="call-span">Title: </span><p>{{call.notification_number}}-{{call.machine.name}}</p>
+           <br>
+           <span class="call-span">Created at: </span><p>{{call.created_date}}</p>
+           <br>
+           <span class="call-span">Status: </span><p>{{call.status}}</p>
+         </div>
+
+       </div>
+
+     </div>
+   </th>
+  <td>
+     <a href='{% url "machine:call_detail" call.notification_number %}' class="btn btn-outline-danger" >View Call</a>
+  </td> 
+
+ </tr>
+</table>
+ </div>
+ 
+   <br>
+   <hr>
+
+
+
+
+
+   {% empty %}
+     <h2>
+       there is no calls for this machine yet
+     </h2>
+
+   {% endfor %}
+   <br>
+{% endfor %}   
+   {% endif %}
+      
+  
+  {% if request.user == engineer.user %}
+  <h2>All calls for {{ engineer.name }}(you have {{engineer.call_set.all.count}} calls call{{engineer.call_set.all.count|pluralize}})</h2>
+  <table>
+  {% for call in engineer.call_set.all %}
+
+
+  <div class="space" style='border-bottom: 2px sold red;display: block;height: 20px;'>
+
+  <tr>
+    <th>
+      <p class="center m-auto bg-danger p-2">
+        {{ call.notification_number }}-{{ call.machine.name }}
+      </p>
+  </th>
+    <td>
+      <a href='{% url "machine:call_detail" call.notification_number %}' class="btn btn-outline-danger" >View Call</a>
+
+    </td>
+  </tr>
+
+      <br>
+
+    </div>
+  {% empty %}
+  <h2>
+    there is no calls assigned for you {{engineer.name}}
+  </h2>
+
+{% endfor %}
+</table>
+    
+  {% endif %}
+    
+  
+
+
 
 
 </div>

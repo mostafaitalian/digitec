@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  {{super.title}} create order
+{% endblock title %}
+
+{% block main %}
+  
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form | crispy}}
+        <button class='btn btn-primary' type="submit">submit report</button>
+    </form>
+
+
+    <div>
+      {{req}}
+    </div>
+
+{% endblock main %}

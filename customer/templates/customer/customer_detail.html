@@ -1,4 +1,4 @@
-{% extends "base_customer.html" %}
+{% extends "base.html" %}
 {% block title %}{{block.super}}--{{customer.name|title}}{% endblock %}
 {% block main %}
 <article>
@@ -16,11 +16,11 @@
 {% endif %}
 <p>{{customer.name}} organization has {{customer.get_machine_number}} machine{{total_machine|pluralize}} </p>
 <h3>If you want to create another customer click below</h3>
-<br><a href="{% url 'customer:customer-update' slug=customer.slug %}" class="btn btn-primary">update(certain fields) from customer</a>
+<br><a href="{% url 'customer:customer-update' id=customer.id %}" class="btn btn-primary">update(certain fields) from customer</a>
 </header>
 <h3>If you want to create another customer click below</h3>
-<br><a href="{% url 'customer:create' %}" class="btn btn-warning">create new customer</a>
+<br><a href="{% url 'customer:customer-create' %}" class="btn btn-warning">create new customer</a>
 <h3>If you want to delete customer click below</h3>
-<br><a href="{% url 'customer:customer-delete' slug=customer.slug %}" class="btn btn-danger">delete customer</a>
+<br><a href="{% url 'customer:customer-delete' id=customer.id %}" class="btn btn-danger">delete customer</a>
 </article>
 {% endblock %}

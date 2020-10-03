@@ -7,7 +7,10 @@
             margin:0px
         }
         p{
-            background-color: yellow;
+
+            background-color: rgb(255, 15, 15);
+            color:black;
+            padding:10px;
         }
 
         a.machine-create{
@@ -38,42 +41,76 @@
 
 {% endblock %}
 {% block main %}
+<script>
+    console.log('iam here')
+    let url = 'ws://' + window.location.host + `/machine/list1/`
+    const websocket = new WebSocket(url)
+    websocket.onopen = (event)=>{
+      console.log('connection oppened')
+      console.log(event.type)
+      websocket.send('hello')
+      console.log('message is sent from customer')
+    }
+    websocket.onmessage = (strr)=>{
+    
+
+
+        console.log('event ', strr)
+        // websocket.onopen()
+        websocket.send(data=strr['data'])
+        console.log('message is sent again')
+    }
+    websocket.onclose=()=>{
+        console.log('connection closed')
+        
+    }
+   
+    if(websocket.readyState===WebSocket.OPEN){
+        
+    }
+
+
+  </script>
+
 <div class="container-fluid">
 
 
 
 
 
-<div class='row'>
-    <a class="btn btn-primary machine-create" href="{% url 'machine:create'  %}">Create Machine</a>
-    <a class="btn btn-primary machine-create" href="{% url 'machine:call_list'  %}">Call List</a>
-    <a class="btn btn-primary machine-create" href="{% url 'machine:call_create'  %}">Create Call</a>
-    <a class="btn btn-primary machine-create" href="{% url 'machine:create'  %}">Create Machine</a>
-    <a class="btn btn-primary machine-create" href="{% url 'machine:create'  %}">Create Machine</a>
-    <a class="btn btn-primary machine-create" href="{% url 'machine:create'  %}">Create Machine</a>
 
-
-</div>
 <div class='row'>
 {% for machine in machine_list %}
 
-    <div class="col-12 col-md-6  mb-3" style=' box-sizing: border-box;'>
+    <div class="col-11 col-md-6  mb-3" style=' box-sizing: border-box;'>
         <div class="card shadow-lg rounded p-3">
             <div class="card-header text-center">
-                <h2><a href="{% url 'machine:list'  %}" style='text-decoration: none;'>{{machine.name|title}}</a></h2>
+                <h2><a href="{% url 'machine:list'  %}" style='text-decoration: none;'>{{machine.customer.name|title}}-{{machine.name}}</a></h2>
 
             </div>
             <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
+              <h5 class="card-title">Serial-{{machine.serial}}</h5>
               <p class="card-text">
                   {{ machine.description|truncatewords:20 }}   
                 </p>
-                <a href="">
+                <a href="{% url 'machine:machine_detail' machine.id %}">
                     Read more&hellip;</a>
                 <br>
-                <time datetime="{{ machine.added|date:"DATE_FORMAT" }}"></time>
+                <h5 class="border-bottom shadow-sm " >Calls</h5>
+                <ul style="list-style: none;" >
+                    {% for call in machine.calls.all %}
+                        <li>
+                           <a class="btn btn-outline-success" href='{% url "machine:call_detail" call.notification_number %}' style="color: black !important;"> {{call.notification_number}}-{{call.created_date}}
+                        </li></a>
+                    {% empty %}
+                        no calls for this machine yet
+                    {% endfor %}
+                </ul>
 
-                {{machine.added|date:"l, F j Y"}}
+
+                <time datetime="{{ machine.added|date:'DATE_FORMAT' }}"></time>
+
+                <p class='lead' style='font-size: large;font-weight: bold;font-family: Franklin Gothic Medium; display: inline;'>Added:</p>{{machine.added|date:"l, F j Y"}}
               <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
@@ -82,40 +119,53 @@
 
 
 {% empty %}
-<p><em>No message added Available</em></p>
+<p><em>There isn't any machines added Available</em></p>
 {% endfor %}
+</div>
+</div>
+<div style='height:100px;'>
+
+</div>
+<div class='row' style='position: absolute; bottom:5px; left: 40%;'> 
+<div class='col-12 text-center text-danger'>
+
+    <div class="pagination text-center" style='display: flex; justify-content: center;'>
+        <div  >
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+        
+                <span class="current ">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+       
+    </div>
 </div>
 </div>
 {% endblock %}
 {% block sidebar %}
 {% if machine_list %}
+    <div class="container">
+        <h4>Advertisment</h4>
+
+        <h5>Our biggest clients</h5>
+        <ul>
+        {% for customer in customers %}
+          <li style="text-align: justify ; color: blue;font-size: large; list-style: decimal">{{customer.name}} with {{customer.machines.count}} machine{{customer.machines.count|pluralize}}</li>
+        {% endfor %}
+        </ul>
+    </div>
     <div class="machine-advertisement">
-        {{ma}}
-        {% for machine in ma %}
-            {{machine.customer.name}}
-        {% endfor %}
-        
-        {{ma.name}}
-        {% for machine in mas %}
-            {{machine.customer.name}}
-            none
-        {% endfor %}
-
-        {% for machine in ma2 %}
-        {{machine.customer.name}}
-        'none'
-    {% endfor %}
-        <a href="{{ machine.serial }}">{{machine.name}}-{{machine.serial}}</a></div>
-            <h1>
-                {{count}}
-            </h1>
-            <h1>
-                {{name}}
-            </h1>
-
-
-            {{f.name}}
-    
     </div>
 {% endif %}
 {% endblock %}
+

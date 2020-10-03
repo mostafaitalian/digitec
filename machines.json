@@ -1,0 +1,186 @@
+[
+  {
+    "model": "machine.machine",
+    "pk": 1,
+    "fields": {
+      "first_name": "John",
+      "last_name": "Lennon"
+    }
+  },
+  {
+    "model": "machine.machine",
+    "pk": 2,
+    "fields": {
+      "category": 1,
+      "customer": 1,
+      "department":1,
+      "area":1,
+      
+    }
+  }
+]
+
+
+
+category =
+customer =
+department
+area = mod
+engineers 
+contract =
+#call = mo
+objects = 
+objects1 =
+def __str_
+    return
+def save(s
+    
+    self.d
+    self.d
+    super(
+s Call(mod
+#from mach
+unassigned
+pending = 
+completed 
+status_cho
+def custom
+    machin
+    custom
+    return
+notificati
+engineer =
+customer =
+machine = 
+is_assigne
+status = m
+created_da
+previous_s
+response_t
+assigned_d
+completed_
+def getRes
+    custom
+    custom
+    engine
+    engine
+    respon
+    call_c
+    
+#     pass
+class Meta
+    get_la
+def __str_
+    if sel
+          
+    return
+# def save
+#     if s
+#         
+#         
+#         
+#         
+#         
+#         
+#     else
+#         
+    
+#     supe
+lass ex(mo
+def db_typ
+    if con
+        re
+    else:
+        re
+def get_en
+    #d = d
+    d= sel
+    if d.h
+    
+        t 
+        pr
+        re
+    else:
+        t 
+        re
+ save(self
+    with a
+        #l
+        if
+          
+          
+          
+          
+        el
+          
+          
+ save(self
+    with a
+        #l
+        if
+          
+          
+          
+          
+        el
+          
+          
+s Report(m
+# def get_
+#     retu
+pending = 
+completed 
+status_cho
+call = mod
+customer_n
+engineer =
+notificati
+machine_se
+billing_me
+billing_me
+billing_me
+status = m
+billing_me
+billing_me
+report_cop
+image = mo
+summary = 
+notes_for_
+# def save
+#     self
+#     self
+    # self
+    # if s
+    #     
+    #     
+    #     
+    #     
+        
+    #     
+    #     
+        # 
+        # 
+        # 
+    # elif
+    #     
+    #     
+    #     
+    #     
+        
+        # 
+        # 
+        # 
+    # supe
+def __str_
+    return
+s Contract
+fsma='FSMA
+xpps='XPPS
+labour='Ti
+fm='FM'
+lis = 'LIS
+contract_c
+    
+contract_t
+s Engineer
+engineer =

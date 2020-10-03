@@ -1,5 +1,5 @@
 import random
-from .models import Customer as cu
+from .models import Customer
 from machine.models import Machine
 
 def advertisments(request):
@@ -7,6 +7,6 @@ def advertisments(request):
     mas= Machine.objects.filter(customer__name='mai').all()
     return {'ma':mas[random.randrange(0,count)]}
 def customer_adv(request):
-    count=cu.objects.all().count()
-    cus = cu.objects.all()
-    return {'cu':cus[random.randrange(0,count)]}
+    count=Customer.objects.all().count()
+    cus = Customer.objects.all()
+    return {'cu':cus[random.randint(0,count-1)]}

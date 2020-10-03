@@ -1,10 +1,11 @@
 from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
 from django.contrib.auth import get_user_model
+from rest_framework.authtoken.models import Token
 from digitec.users.forms import UserChangeForm, UserCreationForm
 
 User = get_user_model()
-
+# @admin.site.register(Token)
 @admin.register(User)
 class UserAdmin(auth_admin.UserAdmin):
 

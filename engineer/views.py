@@ -2,7 +2,7 @@ from django.shortcuts import render,get_object_or_404, redirect
 
 from .forms import ReviewForm, EngineerForm,ApproveReviewForm, AreaForm, AreaInlineFormset
 from django.db import transaction
-from .models import EngineerReview, Engineer, EngineerReview, Comment, Area
+from .models import Engineer, Area
 from django.core.mail import send_mail
 from django.conf import settings
 from django.views.generic import DetailView, View, CreateView
@@ -20,8 +20,9 @@ from django.core.mail import get_connection
 from django.core.mail import EmailMessage
 import datetime
 from rest_framework.generics import ListCreateAPIView
-from .serializers import EngineerSerializer
+from .serializers import EngineerSerializer, AreaSerializer
 from rest_framework.permissions import IsAdminUser
+from machine.models import EngineerReview, Comment
 
 
 class AreaEngineerCreateView(CreateView):
@@ -75,15 +76,15 @@ def review_create(request):
             new_review = form.save(commit=False)
             new_review.state = 'pending'
             new_review.save()
-            engineer = form.cleaned_data['engineer']
+            engineer = form.cleaned_data['auther']
             review = form.cleaned_data['review']
             subject = 'review is created waiting for checking'
-            message = 'reviews was just made by {} and is talking about\n {}'.format(engineer.name, review)
+            message = 'reviews was just made by {} and is talking about\n {}. '.format(engineer.name, review)
             send_mail(subject=subject, message=message, from_email=settings.DEFAULT_FROM_EMAIL, recipient_list=['eng_mustafa_yossef@hotmail.com'])
-            return HttpResponseRedirect('/machine/')
+            return HttpResponseRedirect('/machine/list1/')
     else:
         form = ReviewForm(request.POST)
-        render(request, 'machine/create_review.html', {'form':form})
+        return render(request, 'machine/create_review.html', {'form':form})
             
 class GetPostMixin:
     form_class = None
@@ -256,4 +257,10 @@ def send_rejection_email(review, new_comment):
 class EngineerApiView(ListCreateAPIView):
     queryset=Engineer.objects.all()
     serializer_class = EngineerSerializer
-    permission_classes = (IsAdminUser,)    
+    # permission_classes = (IsAdminUser,) 
+
+class AreaApiView(ListCreateAPIView):
+    queryset=Area.objects.all()
+    serializer_class = AreaSerializer   
+
+

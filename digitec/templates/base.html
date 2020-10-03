@@ -1,165 +1,298 @@
-{% load static i18n compress%}<!DOCTYPE html>
+{% load static i18n compress%}
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}Digitec{% endblock title %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{% block title %}Digitec{% endblock title %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
 
-    <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
+  <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
 
-    {% block css %}
-    
-    <!-- Latest compiled and minified Bootstrap 4.1.1 CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/skeleton.css' %}">
+  {% block css %}
 
-    <!-- Your stuff: Third-party CSS libraries go here -->
-    {% compress css %}
-    <!-- This file stores project-specific CSS -->
-    
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
-    
-    {% endcompress %}
-    {% endblock %}
-    {% block css1 %}
+  <!-- Latest compiled and minified Bootstrap 4.1.1 CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/skeleton.css' %}">
 
-    {% endblock %}
-  <style type="text/css" >
-  .m{
-  margin: 4px;
-  }
-  li.nav-item{
-  border-bottom: 1px solid pink;
-  margin-right: 20px;
-  text-align: center;
 
-  
-}
-li.nav-item:hover{
-  border-bottom: 1px solid black;
-  margin-right: 20px;
-  background-color: white;
-  color: black;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  box-shadow: 3px 3px 2px -2px #DDDDDD;
-}
-a.nav-link:hover{
-  margin-right: 20px;
-  color:black !important;
-}
-a.navbar-brand{
-  font-size: 26px;
-  font-weight: bold;
-  font-family: fantasy;
-  margin-right: 20px;
-}
-nav{
-      background-color: red !important;
+  <!-- Your stuff: Third-party CSS libraries go here -->
+  {% compress css %}
+  <!-- This file stores project-specific CSS -->
+
+  <link href="{% static 'css/project.css' %}" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+  {% endcompress %}
+  {% endblock %}
+  {% block css1 %}
+
+  {% endblock %}
+  <style type="text/css">
+    .m {
+      margin: 4px;
     }
 
-div ul li a.nav-link{
-  color:white !important;
-}
+    li.nav-item {
+      border-bottom: 1px solid pink;
+      margin-right: 20px;
+      text-align: center;
+
+
+    }
+
+    .form-inline button {
+
+      margin-bottom: 1.35rem !important;
+
+    }
+
+    li.nav-item:hover {
+      border-bottom: 1px solid black;
+      margin-right: 20px;
+      background-color: white;
+      color: black;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      box-shadow: 3px 3px 2px -2px #DDDDDD;
+    }
+
+    a.nav-link:hover {
+      margin-right: 20px;
+      color: black !important;
+    }
+
+    a.navbar-brand {
+      font-size: 26px;
+      font-weight: bold;
+      font-family: fantasy;
+      margin-right: 20px;
+    }
+
+    nav {
+      background-color: red !important;
+      position: relative;
+    }
+
+    div ul li a.nav-link {
+      color:
+       white !important;
+    }
+    div{
+      margin:0px;
+    }
   </style>
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <div class="mb-1 container-fluid">
-      <nav class="navbar navbar-expand-md navbar-light">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="{% url 'home' %}">Digitec</a>
+  <div class="mb-1 container-fluid">
+    <nav class="navbar navbar-expand-md navbar-light">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'home' %}">Digitec</a>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item text-center">
+            <a class="nav-link text-center" href="{% url 'machine:list' %}">Machine-list</a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link text-center" href="{% url 'customer:customer-list' %}">Customer-list</a>
+          </li>
+          <!-- <form action="{% url 'customer:customer-list' %}" method="GET">
+              <input type="text" name="q" />
+              <button type="submit" class='btn btn-outline-danger'>search</button>
+            </form> -->
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact-us' %}">contact us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'about' %}">About</a>
             </li>
-            <li class="nav-item text-center">
-              <a class="nav-link text-center" href="{% url 'machine:list' %}">Machine-list</a>
-            </li>
-            {% if request.user.is_authenticated %}
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
-              </li>
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
-              </li>
-            {% else %}
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
-              </li>
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
-              </li>
-            {% endif %}
-          </ul>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            {# URL provided by django-allauth/account/urls.py #}
+            <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
+          </li>
+
+
+          <form class="form-inline my-2 my-lg-0" action="{% url 'customer:customer-list' %}" method="GET">
+            <div class='form-group' style='display:flex; flex-direction: row;margin-top: 1rem;'>
+              <input class="form-control mr-1" type="search" placeholder="Search" aria-label="Search" name="q">
+              <button class="btn btn-outline-success" type="submit">Search Customer/s</button>
+            </div>
+
+          </form>
+
+          <li class="nav-item" style='float: right !important; position: absolute; right:2%;'>
+            {# URL provided by django-allauth/account/urls.py #}
+            <a class="nav-link " href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            {# URL provided by django-allauth/account/urls.py #}
+            <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
+          </li>
+          <li class="nav-item">
+            {# URL provided by django-allauth/account/urls.py #}
+            <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
+          </li>
+
+          <form class="form-inline my-2 my-lg-0" action="{% url 'customer:customer-list' %}" method="GET">
+            <div class='form-group' style='display:flex; flex-direction: row;'>
+              <input class="form-control mr-1" type="search" placeholder="Search" aria-label="Search" name="q">
+              <button class="btn btn-outline-success" type="submit">Search Customer/s</button>
+            </div>
+
+          </form>
+
+
+          {% endif %}
+
+        </ul>
+
+      </div>
+
+    </nav>
+
+  </div>
+
+  <div class="container-fluid">
+
+    {% if user.is_authenticated %}
+    {% block heading %}
+    <div class="container-fluid ">
+      <div class='row m-auto'>
+        <div class='col-12 m-auto text-center'>
+
+          <a class="btn btn-primary machine-create" href="{% url 'machine:create'  %}">Create Machine</a>
+          <a class="btn btn-primary machine-create" href="{% url 'machine:call_list'  %}">Call List</a>
+          <a class="btn btn-primary machine-create" href="{% url 'machine:call_create'  %}">Create Call</a>
+
+          <div class="d-inline-block bg-gray" style="background-color: gray !important;box-sizing: border-box;margin:10px;height: 44px;padding:0px 5px;">
+            <form method="GET" action="{% url 'machine:machine_list_custom' %}"  class='from-inline'>
+              
+              <div class='d-inline-block'>
+                <div class='d-inline-block'>
+                  <input id='name-id' type="radio" name='category' value="name"/>
+  
+                </div>
+                <label class='d-inline-block' for='name-id'>Name</label>
+  
+              </div>
+              
+              
+              <div class='d-inline-block'>
+                <div class='d-inline-block'>
+                  <input id='customer-id' type="radio" name='category' value="customer"/>
+  
+                </div>
+                <label class='d-inline-block' for='customer-id'>Customer</label>
+  
+              </div>
+              
+      
+              <div class='d-inline-block'>
+                <div class='d-inline-block'>
+                  <input id='serial-id' type="radio" name='category' value="serial"/>
+  
+                </div>
+                <label class='d-inline-block' for='serial-id'>Serial</label>
+  
+              </div>            
+      
+  
+              <input  type="text" name="query" />
+              <button type="submit" class="btn btn-primary">
+                  search for machines
+              </button>
+          </form>
+          </div>
+          
         </div>
-      </nav>
 
-    </div>
+      </div>
+      {% endblock heading %}
 
-    <div class="container">
-
-      {% if messages %}
-          {% for message in messages %}
-              <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
-          {% endfor %}
       {% endif %}
 
-      {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
-      {% endblock content %}
+
+
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+      <div class="container-fluid">
+        {% block content %}
+
+        {% endblock content %}
+      </div>
+
+      
 
     </div><!-- /container -->
 
-	<div class="container-fluid m">
-	<div class="row">
-	<div class="col-9">
-    {% block main %}{% endblock main %}
+    <div class="container-fluid" style="box-sizing: border-box !important;">
+      <div class="row">
+        <div class="col-9" style="width: fit-content;">
+          {% block main %}
+          
+          {% endblock main %}
+        </div>
+        <div class="col-3 border-left">
+          {% block sidebar%}
+          
+          {% endblock %}
+        </div>
+      </div>
     </div>
-    <div class="col-3 border-left">
-    {% block sidebar%}{% endblock %}
-    </div>
-    </div>
+    
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     {% block javascript %}
-      
-      <!-- Required by Bootstrap v4.1.1 -->
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
-      <!-- Your stuff: Third-party javascript libraries go here -->
-      
+    <!-- Required by Bootstrap v4.1.1 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"></script>
 
-      <!-- place project specific Javascript in this file -->
-      {% compress js %}
-      <script src="{% static 'js/project.js' %}"></script>
-      {% endcompress %}
+    <!-- Your stuff: Third-party javascript libraries go here -->
+
+
+    <!-- place project specific Javascript in this file -->
+    {% compress js %}
+    <script src="{% static 'js/project.js' %}"></script>
+    {% endcompress %}
 
     {% endblock javascript %}
-  </body>
+    {% block script %}
+
+    {% endblock %}
+</body>
+
 </html>
- 

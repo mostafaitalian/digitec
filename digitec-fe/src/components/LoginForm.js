@@ -26,6 +26,7 @@ class LoginForm extends Component {
             username:'',
             password:''
         })
+        
     }
     render() {
         return (

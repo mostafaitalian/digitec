@@ -15,7 +15,7 @@ app_name = "users"
 urlpatterns = [
     path('api/current-user/', current_user),
     path('api/token-user/', current_user2),
-    path('api/userss/', UserList1.as_view()),
+    path('api/user-list1/', UserList1.as_view()),
     path('api/user-list/', UserList.as_view()),
     path("", view=user_list_view, name="list"),
     path("~redirect/", view=user_redirect_view, name="redirect"),

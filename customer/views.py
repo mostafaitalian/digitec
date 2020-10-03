@@ -7,14 +7,30 @@ from django.urls.base import  reverse
 from .mixin import CustemerGetObjectMixin, CustemerGetObject1Mixin, CustomerActionMixin
 from .utils import can_customer, check_can_add_customer
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+from rest_framework.generics import ListCreateAPIView
+from .serializers import CustomerSerializer
+
+
+class CustomerListCreateApi(ListCreateAPIView):
+    serializer_class= CustomerSerializer
+    queryset = Customer.objects.all()
+
+
+
 # Create your views here.
+
 class CustomerListView(ListView):
-    #model = Customer
+    model = Customer
     template_name='customer_list.html'
     context_object_name='customers'
+    paginate_by=2
+    query=''
     def get_queryset(self,queryset=None):
-        #queryset=super().get_queryset()
-        q=self.request.GET.get('q')
+        # queryset=super().get_queryset()
+        q=self.request.GET.get('q',self.query)
+        
+        page=self.request.GET.get('page')
         if queryset is None:
             if q and q!='all':
                 queryset = Customer.objects.filter(name__icontains=q)
@@ -44,14 +60,14 @@ class CustomerCreateView(LoginRequiredMixin,CustomerActionMixin, CreateView):
     template_name = 'customer/customer_create.html'
     success_msg='you successfuly created customer'
     def get_success_url(self):
-        return reverse_lazy('customer:customer-detail', kwargs={'slug':self.object.slug})
+        return reverse_lazy('customer:customer-detail', kwargs={'id':self.object.id})
     
     def dispatch(self, request, *args, **kwargs):
         request = can_customer(request)
         return CreateView.dispatch(self,request, *args, **kwargs)
 '''    def get_success_url(self):
         return reverse("customer:list")'''
-class CustomerDetail(CustemerGetObject1Mixin, DetailView):
+class CustomerDetail(LoginRequiredMixin,CustemerGetObject1Mixin, DetailView):
     model = Customer
     template_name = 'customer/customer_detail.html'
 class CustomerUpdateView(LoginRequiredMixin,CustemerGetObject1Mixin,CustomerActionMixin, UpdateView):
@@ -62,7 +78,7 @@ class CustomerUpdateView(LoginRequiredMixin,CustemerGetObject1Mixin,CustomerActi
     success_msg ='your customer is successfuly updated'
 
     def get_success_url(self):
-        return reverse_lazy('customer:customer-detail', kwargs={'slug':self.slug})
+        return reverse_lazy('customer:customer-detail', kwargs={'id':self.object.id})
         '''self.kwargs['slug'] = self.get_object().slug
         #print('hi',object.slug, self.get_object().slug)
         return reverse("customer:detail", kwargs={'slug':self.kwargs['slug']})'''
@@ -93,4 +109,3 @@ class DepartmentCreateView(CreateView):
     template_name = 'customer/department_create.html'
     form_class = DepartmentForm
     model = Department
-    success_url = 'machine/create'

@@ -8,16 +8,23 @@ from rest_framework_jwt.views import (obtain_jwt_token,
  RefreshJSONWebToken,
  ObtainJSONWebToken,
  )
+from machine.models import Call
+
 urlpatterns = [
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('customer/', include('customer.urls', namespace='customer')),
     path('machine/', include('machine.urls', namespace='machine')),
     path('engineer/', include('engineer.urls', namespace='engineer')),
-    path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
+    path("", TemplateView.as_view(template_name="pages/home.html", extra_context={'pending_calls': Call.objects.filter(status='pending').order_by('-created_date')[:3],
+    'completed_calls': Call.objects.filter(status='completed').order_by('-created_date')[:3]}), name="home"),
+    
     path(
         "about/",
         TemplateView.as_view(template_name="pages/about.html"),
         name="about",
     ),
+    path("contact-us/", TemplateView.as_view(template_name="pages/contactus.html"), name="contact-us"),
+
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
@@ -27,7 +34,7 @@ urlpatterns = [
     ),
     path("accounts/", include("allauth.urls")),
     path('token-auth/', obtain_jwt_token),
-    path('api/token-auth2', ObtainJSONWebToken.as_view()),
+    path('api/token-auth2/', ObtainJSONWebToken.as_view()),
     path('token-auth-refresh/', RefreshJSONWebToken.as_view())
 
     # Your stuff: custom urls includes go here

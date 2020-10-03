@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from 'react'
+import { Link } from 'react-router-dom'
 
 
 
 class Nav extends Component {
 
   render() {
-    const userName = this.props.userName
+    const { userName, loggedIn } = this.props
     console.log('nav props', this.props)
     return (
       <nav className="navbar navbar-expand-md navbar-light">
@@ -23,19 +24,28 @@ class Nav extends Component {
               <a className='nav-link' href=''>About</a>
             </li>
             <li className='nav-item text-center'>
-              <a className='nav-link text-center' href=''>Machine-list</a>
+              <a className='nav-link text-center' href='contactus'>Contact us</a>
             </li>
             {
               this.props.loggedIn ?
-                <li className='nav-item text-center'>
-                  <a className='nav-link text-center' onClick={this.props.handleLogOut} href=''>Logout</a>
-                </li> :
                 <Fragment>
-                  <li className='nav-item text-center ' style={{ textDecorationLine: 'none' }}>
-                    <a className='nav-link text-center' href=''>Signup</a>
+                  <li className='nav-item text-center'>
+                    {/* <a className='nav-link text-center' href='machines'>Machine list</a> */}
+                    <Link to='/machines' className='nav-link text-center'>
+                      Machine List
+                    </Link>
                   </li>
                   <li className='nav-item text-center'>
-                    <a className='nav-link text-center' href=''>Login</a>
+                    <a className='nav-link text-center' onClick={this.props.handleLogOut} href=''>Logout</a>
+                  </li>
+                </Fragment>
+                :
+                <Fragment>
+                  <li className='nav-item text-center ' style={{ textDecorationLine: 'none' }}>
+                    <Link className='nav-link text-center' to='/signup' >Signup</Link>
+                  </li>
+                  <li className='nav-item text-center'>
+                    <Link className='nav-link text-center' to='/login' >login</Link>
                   </li>
                 </Fragment>
 
@@ -44,7 +54,7 @@ class Nav extends Component {
 
 
             <li className='nav-item'>
-              <a className='nav-link' href=''>welcome {userName}</a>
+              <Link to={this.props.loggedInUser?`/user/${this.props.loggedInUser.id}`:''} className='nav-link' href=''>welcome {userName}</Link>
             </li>
 
           </ul>

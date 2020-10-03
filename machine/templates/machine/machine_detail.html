@@ -1,10 +1,269 @@
 {% extends "base.html" %}
-{{ block.super }} - {{machine.npipenv shellame}}
+
+{% block css1 %}
+  <style>
+    p{
+      color: black !important;
+
+    }
+    h2{
+      color: black !important;
+    }
+  </style>
+{% endblock css1 %}
+  
 {% block title %}
-  {{ block.super }} - {{machine.name}}
+  Machine Detail
 {% endblock title %}
 
 {% block main %}
-  
+<input type="hidden" id='imp' name="id" value={{machine.pk}}/>
+    <h2>
+        welcome {{request.user}}
+    </h2>
+
+    {% for engineer in machine.area.engineer_set.all %}
+    {% if engineer.user.username == request.user.username %}
+    n1111
+    
+    {{machine.name}}
+    <div>
+      <table class="table table-hover">
+        <caption>List of users</caption>
+        <thead class="table-primary">
+          <tr class="p-auto">
+            <th scope="col">serial</th>
+            <td scope="col">{{machine.serial}}</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Engineer</th>
+            <td>{% if machine.engineers %}
+              {% for engineer in machine.engineers.all %}
+              {{engineer.user.username|title}} : 
+              {{engineer.name}}
+              {% empty %}
+              <h3>
+                no engineer has this machine yet
+              </h3>
+              {% endfor %}
+              
+            {% endif %}</td>
+    
+          </tr>
+          <tr>
+            <th scope="row">Customer name</th>
+            <td>{{machine.customer}}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Machine-Location</th>
+            <td>{{machine.department.department_name}}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Department-Total-Machines</th>
+            <td>{{machine.department.no_of_machine}}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Speed</th>
+            <td>machine.speed</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Added</th>
+            <td>{{machine.added}}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">ID</th>
+            <td id='sc'>{{machine.id}}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Machine Model</th>
+            <td>{{machine.name}}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Machine category</th>
+            <td>{{machine.category.category_type}}</td>
+
+          </tr>
+
+
+          <tr>
+            <th scope="row">Territory</th>
+            <td>{{machine.area}}
+                
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <h2>
+      Previous calls
+    </h2>
+
+      {% for calll in calls %}
+       notification number: {{calll.notification_number}}<br>created_at: {{calll.created_date}}<br>call status: {{calll.status}}<br>
+       {% if forloop.last %}
+       <hr>
+     {% endif %}
+      {% endfor %}
+
+      {% else %}
+        you are not authorized, is this machine in your area?
+      {% endif %}
+    {% empty %}
+      there is no engineer in this area{{machine.area.name}}
+  {% endfor %}
+  <h2>
+    Previous calls
+  </h2>
+
+    {% for calll in calls %}
+     notification number: {{calll.notification_number}}<br>created_at: {{calll.created_date}}<br>call status: {{calll.status}}<br>
+     
+     {% if forloop.last %}
+       <hr>
+     {% endif %}
+       
+    {% endfor %}
+
+    <!-- {% if request.user.is_superuser %}
+      n2222
+        {{machine.name}}
+        <table class="table table-hover">
+            <caption>List of users</caption>
+            <thead class="table-primary">
+              <tr class="p-auto">
+                <th scope="col">serial</th>
+                <td scope="col">{{machine.serial}}</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Engineer</th>
+                <td>{% if machine.engineers %}
+                  {% for engineer in machine.engineers.all %}
+                  {{engineer.user.username|title}} : 
+                  {{engineer.name}}
+                  {% empty %}
+                  <h3>
+                    no engineer has this machine yet
+                  </h3>
+                  {% endfor %}
+                  
+                {% endif %}</td>
+        
+              </tr>
+              <tr>
+                <th scope="row">Customer name</th>
+                <td>{{machine.customer}}</td>
+
+              </tr>
+              <tr>
+                <th scope="row">Machine-Location</th>
+                <td>{{machine.department.department_name}}</td>
+
+              </tr>
+              <tr>
+                <th scope="row">Department-Total-Machines</th>
+                <td>{{machine.department.no_of_machine}}</td>
+
+              </tr>
+              <tr>
+                <th scope="row">Speed</th>
+                <td>machine.speed</td>
+
+              </tr>
+              <tr>
+                <th scope="row">Added</th>
+                <td>{{machine.added}}</td>
+
+              </tr>
+              <tr>
+                <th scope="row">Machine-Model</th>
+                <td>{{machine.name}}</td>
+
+              </tr>
+              <tr>
+                <th scope="row">Machine category</th>
+                <td>{{machine.category.category_type}}</td>
+
+              </tr>
+
+
+              <tr>
+                <th scope="row">Territory</th>
+                <td>{{machine.area}}
+                    
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+
+
+    {% endif %} -->
+
+
 
 {% endblock main %}
+
+
+{% block script %}
+      <!-- <script>
+        
+        window.onload = ()=> {
+          setTimeout(()=>(console.log('1')),5)
+          const id_tag = document.querySelector('#imp')
+          let id = id_tag.value
+        
+        console.log('id', id_tag.value)
+        let url = 'ws://' + window.location.host + `/machine/detail/${id}`
+        console.log(url)
+        const websocket = new WebSocket(url)
+        websocket.onopen = ()=>{
+          console.log('connection oppened')
+          websocket.send('you are now connected to server')
+        }
+        websocket.onmessage = (event)=>{
+          console.log('event',event)
+        }
+        // websocket.onclose = () =>{
+        //   console.log('connection closed')
+        // }
+        if(websocket.readyState===WebSocket.OPEN){
+          
+        } -->
+
+        <!-- // $(document).ready(function(){
+        //   const id = document.getElementsByTagName("input").name
+        
+        // console.log('id', id)
+        // let url = 'ws://' + window.location.host + `/machine/detail/${id}`
+        // console.log(url)
+        // const websocket = new WebSocket(url)
+        // websocket.onopen = ()=>{
+        //   console.log('connection oppened')
+        // }
+        // websocket.onmessage = (event)=>{
+        //   console.log('event',event)
+        // }
+        // if(websocket.readyState===WebSocket.OPEN){
+
+        // }
+        // })
+        //  }
+
+
+      // </script> -->
+
+{% endblock %}

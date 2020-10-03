@@ -3,6 +3,8 @@ from django.urls.base import reverse_lazy
 from engineer.models import Engineer
 from engineer.models import Area
 import random
+import datetime
+from _datetime import timedelta
 #from machine.models import Machine
 # Create your models here.
 
@@ -34,13 +36,18 @@ class Customer(CustomerDetail):
     #machines = models.ForeignKey(Machine, on_delete=models.CASCADE)
     area = models.ForeignKey(to=Area, related_name='customers',to_field='slug', on_delete=models.CASCADE)
     engineers = models.ManyToManyField(to=Engineer, related_name='customers', blank=True)
+    begin_at = models.TimeField(default=datetime.time(hour=8, minute=0, second=0))
+    finish_at = models.TimeField(default=datetime.time(hour=16, minute=0, second=0))
+
     
+
+
     def save(self, *args, **kwargs):
-        self.slug = self.name + self.location + str(random.random())
+        self.slug = self.name + '_' + str(random.randint(a=1,b=9999999))
         super().save(*args, **kwargs)
     
     def get_absolute_url(self):
-        return reverse_lazy('customer:customer-detail', slug=self.slug)
+        return reverse_lazy('customer:customer-detail', id=self.id)
     
     def get_machine_number(self):
         if self.machines:

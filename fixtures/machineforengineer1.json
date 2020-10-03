@@ -1,0 +1,9 @@
+{"model": "machine.machine", "pk": 7,
+    "fields": {"name": "7855", "serial": 213434,
+        "serial2": "21", "machine_model": "78",
+         "slug": "213434-21",
+          "description": "this is color machine, 55 ppm, full function machine",
+           "added": "2020-09-22T20:26:26.556Z",
+            "speed": 55, "category": 1, "machine_category": null,
+             "customer": 1, "department": 1, "area": 1, "contract": null,
+              "engineers": [1]}}
