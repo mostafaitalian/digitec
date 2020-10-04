@@ -24,6 +24,8 @@ class Engineer(models.Model):
     joining_date = models.DateField()
     no_of_calls = models.PositiveIntegerField(default=0)
     no_of_calls_pending = models.PositiveIntegerField(default=0)
+    no_of_calls_dispatched = models.PositiveIntegerField(default=0)
+
     no_ofcalls_success = models.PositiveIntegerField(default=0)
     def __str__(self):
         return self.name

@@ -26,7 +26,13 @@ class CreateMachineForm(ModelForm):
         model = Machine
         fields = '__all__'
 class CallForm(ModelForm):
-    
+
+    machine = forms.ModelChoiceField(queryset=Machine.objects.all())
+    # def __init__(self, *args, **kwargs):
+    #     if self != None:
+    #         self.fields['machine'].queryset = Machine.objects.all()
+    #     else:
+    #         self.fields['machine'].queryset = Machine.objects.all()
     class Meta:
         model = Call
         fields = '__all__'
@@ -47,7 +53,7 @@ class ReportForm(ModelForm):
 
 class ReportForm1(ModelForm):
     
-    call = forms.ModelChoiceField(queryset=Call.objects.filter(Q(status='pending')|Q(status='unassigned')))
+    call = forms.ModelChoiceField(queryset=Call.objects.filter(Q(status='pending')|Q(status='unassigned')|Q(status='dispatched')))
     customer_name = forms.CharField(max_length=50)
     engineer = forms.ModelChoiceField(queryset=Engineer.objects.all())
 

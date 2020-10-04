@@ -15,7 +15,7 @@ import {addLoggedInUser, deleteLoggedInUser} from './actions/authorizeUser'
 import UserSummary from './components/UserSummary'
 
 
-export const baseUrl = "http://127.0.0.1:8000/"
+export const baseUrl = "http://178.79.144.93:8000/"
 
 LogRocket.init('mvwrjh/digitec1')
 const config = {
@@ -65,7 +65,7 @@ class App extends Component {
       })
   }
   handleSignUp = (e, data) => {
-    fetch('http://127.0.0.1:8000/users/api/user-list/', {
+    fetch(`${baseUrl}users/api/user-list/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -110,7 +110,7 @@ class App extends Component {
       console.log('navigation from app', this.props)
     }
 
-      fetch('http://127.0.0.1:8000/users/api/current-user/', {
+      fetch(`${baseUrl}users/api/current-user/`, {
         headers: {
           Authorization: `JWT ${token}`
         }
