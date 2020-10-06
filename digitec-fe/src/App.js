@@ -13,7 +13,7 @@ import {useHistory} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {addLoggedInUser, deleteLoggedInUser} from './actions/authorizeUser'
 import UserSummary from './components/UserSummary'
-
+import LikeButton from './components/Likebutton'
 
 export const baseUrl = "http://127.0.0.1:8000/"
 
@@ -171,6 +171,9 @@ class App extends Component {
           {
             JSON.stringify(this.state.users)
           }
+
+
+          <LikeButton/>
         </div>
     
 

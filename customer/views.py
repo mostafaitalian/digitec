@@ -109,3 +109,11 @@ class DepartmentCreateView(CreateView):
     template_name = 'customer/department_create.html'
     form_class = DepartmentForm
     model = Department
+
+
+    def get_success_url(self):
+        if self.object.customer:
+
+            return reverse_lazy('customer:customer-detail', kwargs={'id':self.object.customer.id})
+        else:
+            return reverse_lazy('customer:customer-list')

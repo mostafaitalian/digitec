@@ -87,6 +87,13 @@ class CallCreateView(CreateView):
     model = Call
     form_class = CallForm
     success_url = reverse_lazy("machine:call_create")
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs.update({'request':self.request})
+        return kwargs
+    # def get_context_data(self, *args,**kwargs):
+    #     ctx = super().get_context_data(*args, **kwargs)
+    #     return ctx
 
 class MachineDetailView(DetailView):
     template_name = 'machine/machine_detail.html'
