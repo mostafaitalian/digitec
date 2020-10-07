@@ -47,7 +47,7 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'digitec13',
+        'NAME': 'digitec9',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',

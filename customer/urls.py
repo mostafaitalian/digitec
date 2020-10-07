@@ -13,6 +13,6 @@ urlpatterns = [
     path('detail/<int:id>/', views.CustomerDetail.as_view(), name='customer-detail'),
     path('<int:id>/update',views.CustomerUpdateView.as_view(), name="customer-update"),
     path('<int:id>/delete', views.CustomerDeleteView.as_view(), name='customer-delete'),
-    path('department/create/', views.DepartmentCreateView.as_view(), name='deprtment-create'),
+    path('department/create/', views.DepartmentCreateView.as_view(), name='department-create'),
     path('api/', include(serializer_urls))
     ]
