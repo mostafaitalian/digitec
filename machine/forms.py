@@ -1,6 +1,6 @@
 from django.forms import Form, ModelForm
 from .models import Machine, Call, Category,Report
-from customer.models import Department
+from customer.models import Department, Customer
 from django import forms
 from engineer.models import Engineer
 from itertools import chain
@@ -27,12 +27,45 @@ class CreateMachineForm(ModelForm):
         fields = '__all__'
 class CallForm(ModelForm):
 
-    machine = forms.ModelChoiceField(queryset=Machine.objects.all())
+    # machine = forms.ModelChoiceField(queryset=Machine.objects.all())
     # def __init__(self, *args, **kwargs):
     #     if self != None:
     #         self.fields['machine'].queryset = Machine.objects.all()
     #     else:
     #         self.fields['machine'].queryset = Machine.objects.all()
+    customer = forms.ModelChoiceField(queryset=None)
+    machine = forms.ModelChoiceField(queryset=None)
+
+
+    def __init__(self,request=None, *args, **kwargs):
+        # self.request = kwargs.pop('request')
+        super().__init__(*args,**kwargs)
+        if request.GET.get('customer-name', '') != '':
+            print(request.GET['customer-name'])
+
+            customer_name = request.GET['customer-name']
+    #     initial= kwargs.get('initial', {})
+        # self.request = kwargs.pop('request')
+            self.fields['customer'].queryset=Customer.objects.filter(name__icontains=customer_name)
+            self.fields['machine'].queryset=Machine.objects.filter(customer__name__icontains=customer_name)
+        else:
+
+            self.fields['customer'].queryset = Customer.objects.all()
+            self.fields['machine'].queryset = Machine.objects.all()
+
+        
+        
+        #     kwargs['initial'] = initial
+        # print(self.request, 'hiiii',self.fields)
+        # if(self.request.GET['customer-name']):
+        # print(self.request.GET['customer-name'])
+        #     # self.fields['machine'].queryset = Machine.objects.filter(customer__name=self.request.GET['customer-name'])
+        #     self.fields['machine'].queryset = Machine.objects.all()
+
+        # if self.customer:
+        #     self.fields['machine'].queryset = Machine.objects.filter(customer=self.customer)
+        # else:
+        # self.initial.fields['machine'].queryset = Machine.objects.all()
     class Meta:
         model = Call
         fields = '__all__'

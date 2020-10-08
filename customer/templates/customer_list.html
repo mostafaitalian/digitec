@@ -72,6 +72,16 @@
     </header>
     <main>
         <div>
+            
+            {% if request.user.is_superuser %}
+            <form method="GET" action="{% url 'machine:call_create' %}">
+                <input type="hidden" name="customer-name" value={{customer.name}} />
+                <button type="submit" class="btn btn-outline-danger">Add Call</button>
+            </form>
+                
+            {% endif %}
+                
+
             <div>
                 <span class='span-header'>Customer Location</span> : 
                 <span class='span-content'>{{customer.location}}</span>
@@ -138,7 +148,7 @@
                         </p>
                         {% if request.user.is_superuser%}
                         <form method="GET" action='{% url 'machine:create' %}'>
-                            <input type="text" hidden name='slug' value={{customer.slug}}>
+                            <input type="text" hidden name='slug' value={{customer.id}}>
                             <button class='btn btn-outline-secondary' type="submit">Add Machine</a>
 
                         </form>
