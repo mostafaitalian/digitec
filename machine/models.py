@@ -14,8 +14,16 @@ def get_upload_name(instance, filename):
 
     else:
         return filename
-speed_choices=((20,20),(30,30),(35,35),(45,45),(55,55),(65,65),(75,75),(90,90))
+speed_choices=((10,10), (15,15), (20,20),(25,25),(30,30),(35,35),(45,45),(55,55),(65,65),(75,75),(90,90))
 class MachineDetail(models.Model):
+    production  = 4
+    office = 6
+    radiology = 6
+    production_return = 4
+    office_return = 7
+    radiology_return = 7
+    response_choices_hours = ((production, 'Production'),(office, 'Office'),(radiology, 'Radiology'))
+    return_choices_days = ((production_return, 'Production'), (office_return, 'Office'), (radiology_return, 'Radiology'))
     name= models.CharField(max_length=200)
     serial = models.IntegerField('standard seial', help_text='fill this if your serial is numbers only', unique=True, blank=True)
     serial2 = models.CharField('non-standard serial', max_length=10, help_text="fill this if your serial consists of numbers and letters", unique=True, blank=True)
@@ -24,7 +32,9 @@ class MachineDetail(models.Model):
     description = models.TextField()
     added = models.DateTimeField(auto_now_add=True)
     speed = models.IntegerField(blank = True, null=True, choices=speed_choices)
-    
+    machine_points = models.FloatField(default=1)
+    machine_response_time = models.IntegerField(choices=response_choices_hours, null=True, blank=True)
+    machine_return_time = models.IntegerField(choices=return_choices_days, null=True, blank=True) 
     class Meta:
         abstract=True
 class Category(models.Model):
@@ -55,12 +65,12 @@ class Machine(MachineDetail):
     department = models.ForeignKey(Department, related_name='machines_dep', on_delete=models.CASCADE)
     area = models.ForeignKey(Area, related_name='machines', on_delete=models.CASCADE, blank=True,null=True)
     engineers = models.ManyToManyField(Engineer, related_name='machines', blank=True)
-    contract = models.ForeignKey(to='Contract', on_delete=models.CASCADE,related_name='machines', null=True, blank=True)
+    contract = models.OneToOneField(to='Contract', on_delete=models.DO_NOTHING, related_name='machine', null=True, blank=True)
     #call = models.OneToOneField()
     objects = models.Manager()
     objects1 = MachineManager()
     def __str__(self):
-        return self.machine_model + '({})'.format(self.machine_category)+"  "+self.customer.name+"  "+self.department.department_name
+        return '{}'.format(self.serial) + ' ' +self.machine_model + '({})'.format(self.machine_category)+"  "+self.customer.name+"  "+self.department.department_name
     # def save(self,*args,**kwargs):
     #     department = Department.objects.get(pk=self.department.id)
     #     department.no_of_machine +=1
@@ -93,7 +103,8 @@ class Call(models.Model):
     assigned_date = models.DateTimeField(blank=True, null=True)
     optimum_completed_date = models.DateTimeField(help_text="the default value is 6 hours + assign_date", null=True, blank=True)
     completed_date = models.DateTimeField(null=True, blank=True)
-
+    real_assigned_date=models.DateTimeField(null=True, blank=True)
+    real_completed_date = models.DateTimeField(null=True, blank=True)
     def getResponseTime(self):
         customer_start_time  =  self.customer.begin_at
         customer_finish_time = self.customer.finish_at
@@ -228,11 +239,44 @@ class Contract(models.Model):
     labour='Time'
     fm='FM'
     lis = 'LIS'
-    contract_choices=((fsma, 'FSMA'), (labour, 'Time'), (lis,'LIS'),(fm, 'FM'), (xpps,'XPPS'))
+    tandm = 'T&M'
+    contract_choices=((fsma, 'FSMA'), (labour, 'Time'), (lis,'LIS'),(fm, 'FM'), (xpps,'XPPS'), (tandm, 'T&M'))
     
     contract_type = models.CharField(max_length=50,choices=contract_choices, blank=True, null=True)
+    machine_serial = models.IntegerField(null=True,  blank=True)
+    monthly_fees = models.DecimalField('monthly fees', max_digits=5, decimal_places=2, null=True, blank=True)
+    
+    start_of_contract = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    end_of_contract = models.DateTimeField(help_text="do not fill this field it will add a year automatically", null=True, blank=True)
+    # def save(self, *args, **kwargs):
+    #     if self.contract_type == 'T&M':
+    #         self.monthly_fees = 0.0
+    #     if self.start_of_contract is None:
+    #         self.start_of_contract = datetime.now()
+    #     if self.start_of_contract:
+    #         self.end_of_contarct=self.start_of_contract + relativedelta(years=1)
+                        # if instance.machine
+        # try:
+        #     uu= kwargs.pop('update_fields')
+        #     print(uu)
+        #     if self.machine.exist():
+        #         print('h1')
+        #         self.machine_serial = 3
+        #         self.save()
+
+        # except:
+        #     self.machine_serial =2
+        #     print('h2')
+        #     # instance.save()
+
+        # super().save(*args, **kwargs)
+                    
+
     def __str__(self):
-        return self.contract_type
+        return self.contract_type + " " + '{}'.format(self.monthly_fees)
+    
+
+
 
 class EngineerReview(models.Model):
     engineer = models.ForeignKey(Engineer, related_name='reviews', on_delete=models.CASCADE)

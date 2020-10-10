@@ -11,6 +11,7 @@ from rest_framework.authentication import BaseAuthentication, SessionAuthenticat
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .serializers import MachineSerializer
+from django.contrib.auth import get_user_model
 from rest_framework.generics import ListCreateAPIView, CreateAPIView, RetrieveUpdateDestroyAPIView 
 # Create your views here.
 import json
@@ -25,11 +26,11 @@ class CreateMachineView1(CreateView):
     def get(self, request):
         # customer = customer_slug
         
-        customer_s = request.GET.get('slug', None)
+        customer_s = request.GET.get('id', None)
         if customer_s:
-            customer_instance = Customer.objects.get(slug__startswith=customer_s)
-            form = self.form_class(initial={'customer':Customer.objects.get(slug__startswith=customer_s), 'area':customer_instance.area, 'engineers': Engineer.objects.filter(area=customer_instance.area)})
-            form.fields['department'].queryset = Department.objects.filter(customer__slug__startswith=customer_s)
+            customer_instance = Customer.objects.get(pk=customer_s)
+            form = self.form_class(initial={'customer':Customer.objects.get(pk=customer_s), 'area':customer_instance.area, 'engineers': Engineer.objects.filter(area=customer_instance.area)})
+            form.fields['department'].queryset = Department.objects.filter(customer__id=customer_s)
             
         else:
             form = self.form_class()
@@ -116,8 +117,9 @@ class CallDetailView(DetailView):
         if self.request.user.is_superuser:
             print(kwargs)
             return call
-        elif self.request.user == call.engineer.user:
-            return call
+        elif self.request.user.is_authenticated and hasattr(call.engineer, 'user'):
+                if self.request.user == call.engineer.user:
+                    return call
         else:
 
             return call

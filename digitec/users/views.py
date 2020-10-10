@@ -27,11 +27,13 @@ class UserDetailView(LoginRequiredMixin, DetailView):
             context['engineer'] = self.object.engineer
             context['pending_calls'] = self.object.engineer.call_set.filter(status='pending')
             context['completed_calls'] = self.object.engineer.call_set.filter(status='completed')
+            context['dispatched_calls'] = self.object.engineer.call_set.filter(status='dispatched')
 
         else:
             context['engineer'] ='not Enginner'
             context['pending_calls'] = 'not Engineer'
             context['completed_calls'] = 'not Engineer'
+            context['dispatched_calls'] = 'not Engineer'
             context['machines'] = Machine.objects.all()
             
 

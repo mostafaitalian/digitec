@@ -97,23 +97,40 @@
                 </tr>
   
   
-                <tr>
-                  <th scope="row">Assign Date</th>
-                  <td>{{call.assigned_date}}</td>
-  
-                </tr>
+                
                 <tr>
                   <th scope="row">is_assigned</th>
                   <td>{{call.is_assigned}}</td>
   
                 </tr>
                 <tr>
-                  <th scope="row">response time</th>
-                  <td>{{call.response_time_end}}</td>
+                  <th scope="row">creation Date</th>
+                  <td>{{call.created_date}}</td>
   
                 </tr>
                 <tr>
-                  <th scope="row">Completed-Date</th>
+                  <th scope="row">updated Date</th>
+                  <td>{{call.updated_date}}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">Assign Date</th>
+                  <td>{{call.assigned_date}}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">response time</th>
+                  <td>{{call.response_time_end_date}}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">optimum completed date</th>
+                  <td>{{call.optimum_completed_date}}</td>
+  
+                </tr>
+
+                <tr>
+                  <th scope="row">Completed Date</th>
                   <td>{{call.completed_date}}</td>
   
                 </tr>
@@ -140,6 +157,24 @@
                   </td>
   
                 </tr>
+                {% if call.machine.contract %}
+                <tr>
+                  <th scope="row">contract type</th>
+                  <td>{{call.machine.contract.contract_type}}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">contract end date</th>
+                  <td>{{call.machine.contract.end_of_contract}}</td>
+  
+                </tr>
+                {% else %}
+                <tr>
+                  <th scope="row">contract</th>
+                  <td>no contract</td>
+  
+                </tr>
+                {% endif %}
               </tbody>
             </table>
       {% else %}

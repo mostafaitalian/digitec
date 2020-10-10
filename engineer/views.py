@@ -76,8 +76,8 @@ def review_create(request):
             new_review = form.save(commit=False)
             new_review.state = 'pending'
             new_review.save()
-            engineer = form.cleaned_data['auther']
-            review = form.cleaned_data['review']
+            engineer = form.cleaned_data['engineer']
+            review = form.cleaned_data['review_title']
             subject = 'review is created waiting for checking'
             message = 'reviews was just made by {} and is talking about\n {}. '.format(engineer.name, review)
             send_mail(subject=subject, message=message, from_email=settings.DEFAULT_FROM_EMAIL, recipient_list=['eng_mustafa_yossef@hotmail.com'])

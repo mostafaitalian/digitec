@@ -69,7 +69,7 @@
           </tr>
           <tr>
             <th scope="row">Speed</th>
-            <td>machine.speed</td>
+            <td>{{machine.speed}}</td>
 
           </tr>
           <tr>
@@ -89,7 +89,7 @@
           </tr>
           <tr>
             <th scope="row">Machine category</th>
-            <td>{{machine.category.category_type}}</td>
+            <td>{{machine.machine_category}}</td>
 
           </tr>
 
@@ -101,6 +101,46 @@
             </td>
 
           </tr>
+          
+          {% if machine.contract %}
+          <tr>
+            <th scope="row">Contract type</th>
+            <td>{{machine.contract.contract_type}}
+                
+            </td>
+
+          </tr>
+          <tr>
+            <th scope="row">Contact creation date</th>
+            <td>{{machine.contract.start_of_contract}}
+                
+            </td>
+
+          </tr>
+          <tr>
+            <th scope="row">Contact end date</th>
+            <td>{{machine.contract.end_of_contract}}
+                
+            </td>
+
+          </tr>
+          {% else %}
+          <tr>
+            <th scope="row">Contact</th>
+            <td>No conttract
+                
+            </td>
+
+          </tr>
+                      
+          {% endif %}
+          <tr>
+            <th scope="row">machine calls</th>
+            <td>{{machine.calls.all.count}}
+                
+            </td>
+
+          </tr>  
         </tbody>
       </table>
     </div>
@@ -112,6 +152,9 @@
 
       {% for calll in calls %}
        notification number: {{calll.notification_number}}<br>created_at: {{calll.created_date}}<br>call status: {{calll.status}}<br>
+       <br/>
+       <p>For more information about this call <a href='{% url 'machine:call_detail' calll.notification_number %}' class="btn btn-outline-danger">Click here</a></p>
+
        {% if forloop.last %}
        <hr>
      {% endif %}
@@ -123,7 +166,7 @@
     {% empty %}
       there is no engineer in this area{{machine.area.name}}
   {% endfor %}
-  <h2>
+  <!-- <h2>
     Previous calls
   </h2>
 
@@ -134,7 +177,7 @@
        <hr>
      {% endif %}
        
-    {% endfor %}
+    {% endfor %} -->
 
     <!-- {% if request.user.is_superuser %}
       n2222

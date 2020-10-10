@@ -15,7 +15,11 @@ import {addLoggedInUser, deleteLoggedInUser} from './actions/authorizeUser'
 import UserSummary from './components/UserSummary'
 import LikeButton from './components/Likebutton'
 
-export const baseUrl = "http://178.79.144.93:8000/"
+
+// HOST=178.79.144.93 PORT=3000 
+
+
+export const baseUrl = "http://127.0.0.1:8000/"
 
 LogRocket.init('mvwrjh/digitec1')
 const config = {

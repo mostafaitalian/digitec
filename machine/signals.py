@@ -1,10 +1,11 @@
 from django.dispatch import receiver
 from django.db.models.signals import post_save, pre_save, post_delete
-from .models import Call, Machine
+from .models import Call, Machine, Contract
 from customer.models import Department
 import datetime
 from django.utils import timezone
-
+from django.db import transaction
+from dateutil.relativedelta import relativedelta
 
 
 
@@ -20,7 +21,19 @@ def handle_machine_save(sender, instance, created, **kwargs):
                 if instance.customer:
                         if instance.customer.organization:
                                 instance.customer.organization.save(update_fields=['organization_machines_number'])
-
+                        
+                if instance.contract:
+                        print('h3')
+                        contract = Contract.objects.get(id=instance.contract.id)
+                        contract.machine_serial=instance.serial
+                        # instance.contract = 
+                        contract.save(update_fields=['machine_serial'])
+        else:
+                if instance.contract is not None:
+                        print('h4')
+                        contract = Contract.objects.get(id=instance.contract.id)
+                        contract.machine_serial=instance.serial
+                        contract.save(update_fields=['machine_serial'])
 @receiver(post_delete, sender=Machine)
 def handle_delete_machine(sender, instance, using, **kwargs):
 
@@ -215,3 +228,63 @@ def handle_call_save(sender,instance,created, **kwargs):
         #         instance.engineer = engineer
         #         instance.is_assigned = False
         #         instance.save()
+
+
+@receiver(post_save, sender=Contract)
+def handle_contract_save(sender,instance, created,**kwargs):
+        if created:
+                # if instance.machine:
+                        if instance.contract_type == 'T&M':
+                                instance.monthly_fees = 0.0
+                        if instance.start_of_contract is None:
+                                instance.start_of_contract = datetime.now()
+                        if instance.start_of_contract:
+                                instance.end_of_contract=instance.start_of_contract + relativedelta(years=1)
+                        try:
+
+                                if instance.machine:
+                                        instance.machine_serial = instance.machine.serial
+                                        instance.save()
+
+                        except:
+                                instance.machine_serial =0
+                                instance.save()
+                                
+                        # if instance.machine. is None:
+
+                        #         instance.machine_serial = instance.machine.serial
+                        #         instance.save()
+        # else:
+        #         try:
+
+        #                 if instance.machine:
+        #                         instance.machine_serial = instance.machine.serial
+        #                         instance.save(update_fields=['machine_serial'])
+
+        #         except:
+        #                 instance.machine_serial =3
+        #                 instance.save(update_fields=['machine_serial'])
+        #         # if hasattr(instance, 'machine'):
+        #                 try:
+        #                         machine_contract = Machine.objects.get(contract__id=instance.id)
+        #                         if machine_contract:
+        #                                 print('there is a machine')                   
+        #                         if instance.machine:
+        #                                 print('h1')
+        #                                 with transaction.atomic():
+        #                                         # instance.machine_serial = instance.machine.serial
+        #                                         machine = Machine.objects.get(serial=instance.machine.serial)
+        #                                         print('{}--{}'.format(instance.machine_serial, machine.serial))
+        #                                         # instance.machine = machine
+        #                                         instance.machine_serial = machine.serial                                                                                                
+        #                                         print('{}--{}'.format(instance.machine_serial, machine.serial))
+
+        #                                         # instance.save()
+        #                                         print('{}--{}'.format(instance.machine_serial, machine.serial))
+
+
+        #                 except:
+        #                         print('h2')
+        #                         instance.machine_serial = 1
+        #                         # instance.save(update_fields=['machine_serial'])
+        #                 # instance.save()

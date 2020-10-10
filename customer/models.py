@@ -37,6 +37,17 @@ class Department(models.Model):
     def __str__(self):
         return self.department_name + "  " + self.customer.name
 class Customer(CustomerDetail):
+    Saturday = 0
+    Sunday = 1
+    Monday = 2
+    Tuesday = 3
+    Wednesday = 4
+    Thursday = 5
+    Friday = 6
+    NoDayoff = 7
+    weekday_choices = ((Saturday, 'Saturday'),(Sunday, 'Sunday'),(Monday, 'Monday'),(Tuesday, 'Tuesday'),(Wednesday, 'Wednesday'),(Thursday, 'Thursday'),(Friday, 'Friday'),(NoDayoff, 'NoDayoff'))
+
+
     #departments = models.ManyToManyField(to=Department, related_name='customer')
     location = models.CharField('Address location',max_length=255)
     address = models.URLField('address site')
@@ -47,7 +58,8 @@ class Customer(CustomerDetail):
     begin_at = models.TimeField(default=datetime.time(hour=8, minute=0, second=0))
     finish_at = models.TimeField(default=datetime.time(hour=16, minute=0, second=0))
     organization = models.ForeignKey(to='CustomerOrganization',on_delete=models.CASCADE, related_name='customers',null=True, blank=True)
-
+    first_week_dayoff = models.IntegerField(choices=weekday_choices, default=7)
+    second_week_dayoff = models.IntegerField(choices=weekday_choices, default=7)
     
 
 
@@ -99,6 +111,7 @@ class CustomerBranch(CustomerDetail):
     def __str__(self):
         return self.name
 class CustomerOrganization(CustomerDetail):
+
 
     name= models.CharField(max_length=50)
     discription = models.TextField(null=True,blank=True)
