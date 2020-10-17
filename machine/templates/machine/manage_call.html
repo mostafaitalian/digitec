@@ -8,6 +8,7 @@
 {% block main %}
     <form method="POST">
         {% csrf_token %}
+        <input type="number" value={{ notification_number }} readonly/>
         {{call_form|crispy}}
         {{formset|crispy}}
         <button class='btn btn-primary' type='submit'>

@@ -111,6 +111,7 @@ class CallForm1(ModelForm):
 
     class Meta:
         model = Call
-        fields =['customer', 'machine']
+        fields =['notification_number', 'customer', 'machine', 'fault']
+        # readonly_fields = ['notification_number',]
 
 CallFormSet  = inlineformset_factory(Call, Contact, fields=['first_name', 'last_name', 'mobile'], extra=2)

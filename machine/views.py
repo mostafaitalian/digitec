@@ -266,14 +266,15 @@ def create_update_call_formset(request, notification=None):
         # created_call_form = call_form.save(commit=False)
         created_formset = CallFormSet(request.POST, request.FILES, instance=call)
         if created_call_form.is_valid():
-            created_call= created_call_form.save(commit=False)
+            created_call= created_call_form.save()
             if created_formset.is_valid():
 
                 # created_call.save()
                 created_formset.save()
 
                 return redirect(reverse('machine:call_list'))
-    return render(request, 'machine/manage_call.html', {'call_form':call_form, 'formset':formset})
+    print('{}---{}'.format(call.notification_number, call.created_date))
+    return render(request, 'machine/manage_call.html', {'call_form':call_form, 'formset':formset, 'notification_number': call.notification_number})
 
 
 class CallUpdateView(UpdateView):

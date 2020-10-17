@@ -120,6 +120,12 @@
     <a href="{% url 'machine:call_detail' call.notification_number  %}" class='btn btn-outline-primary'>
       Call detail
     </a>
+    {% if request.user.is_superuser %}
+ 
+    <a href="{% url 'machine:call_manage_update' call.notification_number  %}" class='btn btn-outline-secondary'>
+      Add contacts to call
+    </a>
+      {% endif %}
   </div>
 </div>
  {% endfor %}
@@ -133,6 +139,14 @@
     <a href="{% url 'machine:call_detail' call.notification_number  %}" class='btn btn-outline-primary'>
       Call detail
     </a>
+    
+    {% if request.user.is_superuser %}
+ 
+  <a href="{% url 'machine:call_manage_update' call.notification_number  %}" class='btn btn-outline-secondary'>
+    Add contacts to call
+  </a>
+    {% endif %}
+      
   </div>
 </div>
 {% endfor %}

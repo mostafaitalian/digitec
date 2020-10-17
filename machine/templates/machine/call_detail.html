@@ -55,7 +55,20 @@
       Welcome {{request.user}} {% if request.user == call.engineer.user %}(<span>{{user.engineer.name}}</span>){% endif %}
     </h5>
       {% if request.user == call.engineer.user or request.user.is_superuser %}
-  
+      {% if request.user.is_superuser %}
+      
+      {% if call.status == 'unassigned' or call.status == 'dispatched' %}
+      <form method="POST" action="{% url 'machine:call_assign_engineer' call.notification_number %}">
+        {% csrf_token %}
+        {{ assign_form|crispy }}
+        <button type="submit" class='btn btn-secondary'>
+          Assign to engineer
+        </button>
+      </form>  
+      {% endif %}
+        
+      
+    {% endif %}
           {{call.notification_number}}
           <table class="table table-hover">
               <caption>List of users</caption>
