@@ -37,15 +37,15 @@ class Department(models.Model):
     def __str__(self):
         return self.department_name + "  " + self.customer.name
 class Customer(CustomerDetail):
-    Saturday = 0
-    Sunday = 1
-    Monday = 2
-    Tuesday = 3
-    Wednesday = 4
-    Thursday = 5
-    Friday = 6
+    Saturday = 5
+    Sunday = 6
+    Monday = 0
+    Tuesday = 1
+    Wednesday = 2
+    Thursday = 3
+    Friday = 4
     NoDayoff = 7
-    weekday_choices = ((Saturday, 'Saturday'),(Sunday, 'Sunday'),(Monday, 'Monday'),(Tuesday, 'Tuesday'),(Wednesday, 'Wednesday'),(Thursday, 'Thursday'),(Friday, 'Friday'),(NoDayoff, 'NoDayoff'))
+    weekday_choices = ((Monday, 'Monday'),(Tuesday, 'Tuesday'),(Wednesday, 'Wednesday'),(Thursday, 'Thursday'),(Friday, 'Friday'),(Saturday, 'Saturday'),(Sunday, 'Sunday'),(NoDayoff, 'NoDayoff'))
 
 
     #departments = models.ManyToManyField(to=Department, related_name='customer')

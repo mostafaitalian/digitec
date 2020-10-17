@@ -4,8 +4,11 @@ from engineer.models import Area, Engineer
 from django.utils import timezone
 from datetime import datetime, timedelta
 from django.db.transaction import atomic
+from django.contrib.auth import get_user_model
 # Create your models here.
 #print(datetime.now()+datetime)
+
+User = get_user_model()
 def get_upload_name(instance, filename):
     if hasattr(instance, 'review_title'):
         return u'{}/{}/{}_{}'.format(instance.engineer.name, instance.review_title, instance.review_title, filename)
@@ -16,6 +19,30 @@ def get_upload_name(instance, filename):
         return filename
 speed_choices=((10,10), (15,15), (20,20),(25,25),(30,30),(35,35),(45,45),(55,55),(65,65),(75,75),(90,90))
 class MachineDetail(models.Model):
+    model_choices = (('5855', '5855'), ('5845', '5845'), ('5955', '5955'), ('5945', '5945'),
+    ('5865', '5865'), ('5875', '5875'), ('7830', '7830'), ('7845', '7845'), ('7855', '7855'),
+    ('7835', '7835'), ('7225', '7225'), ('7120', '7120'),
+    ('c60', 'c60'), ('c70', 'c70'),
+    ('560', '560'), ('550', '550'),
+    ('j60', 'j60'),
+    ('b7025', 'b7025'), ('b7030', 'b7030'), ('b7035', 'b7035'),
+    ('5325', '5325'), ('5330', '5330'), ('5335', '5335'),
+    ('5016', '5016'), ('5020', '5020'),
+    ('5019', '5019'), ('5021', '5021'),
+    ('5022', '5022'), ('5024', '5024'),
+    ('5735', '5735'), ('5745', '5745'), ('5755', '5755'), ('5765', '5765'), ('5790', '5790'),
+    ('5635', '5635'), ('5645', '5645'), ('5655', '5655'), ('5665', '5665'), ('5690', '5690'),
+    ('3655', '3655'),
+    ('3635', '3635'),
+    ('3615', '3615'),
+    ('8880', '8880'), ('8870', '8870'),
+    ('5225', '5225'), ('5230', '5230'), ('5235', '5235'), ('5225A', '5225A'), ('5230A', '5230A'), ('5235A', '5235A'),
+    ('4150', '4150'), ('4260', '4260'),
+    ('b405', 'b405'), ('c405', 'c405'),
+    ('c7025', 'c7025'), ('c7030', 'c7030'), ('c7035', 'c7035'),
+    ('b8045', 'b8045'), ('b8055', 'b8055'),
+    ('c8035', 'c8035'), ('c8045', 'c8045'), ('c8055', 'c8055'), ('c8065', 'c8065'), ('c8075', 'c8075'),
+    ('180', '180'), ('2100', '2100'), ('3100', '3100'))
     production  = 4
     office = 6
     radiology = 6
@@ -28,6 +55,7 @@ class MachineDetail(models.Model):
     serial = models.IntegerField('standard seial', help_text='fill this if your serial is numbers only', unique=True, blank=True)
     serial2 = models.CharField('non-standard serial', max_length=10, help_text="fill this if your serial consists of numbers and letters", unique=True, blank=True)
     machine_model = models.CharField(max_length=100)
+    model_of_machine =models.CharField('model of machine',max_length=10, choices=model_choices, default='no model')
     slug = models.SlugField(unique=True)
     description = models.TextField()
     added = models.DateTimeField(auto_now_add=True)
@@ -96,6 +124,8 @@ class Call(models.Model):
     is_assigned = models.BooleanField("indicate wheather call has engineer or not", default=False)
     status = models.CharField('Status', max_length=20 , choices=status_choices, default=unassigned)
     previous_status = models.CharField(max_length=50,help_text='do not fill this anywhere', null=True, blank=True)
+    fault = models.TextField(null=True, blank=True)
+    notes_from_customer = models.TextField(null=True, blank=True)
     
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
@@ -357,3 +387,26 @@ class FileReport(FileAbstract):
 
     def __str__(self):
         return self.file_name + ' ' + self.report.call.notification_number
+
+class Contact(models.Model):
+    # user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='contact', null=True, blank=True)
+    first_name = models.CharField('First name', max_length=100)
+    last_name = models.CharField('Last name', max_length=100)
+    mobile = models.IntegerField()
+    telephone = models.PositiveIntegerField(null=True, blank=True)
+    email_address = models.EmailField(null=True,blank=True)
+    call = models.ForeignKey(Call, on_delete=models.DO_NOTHING, related_name='call_contacts')
+
+
+
+
+
+    def __str__(self):
+        # if self.user is None:
+        #     return self.first_name + " " +self.last_name
+        # else:
+        #     return self.first_name + " " +self.last_name + " " + self.user.username
+        return self.first_name+ ''+self.last_name
+
+
+

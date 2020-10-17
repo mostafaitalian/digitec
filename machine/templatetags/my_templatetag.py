@@ -21,3 +21,11 @@ def matched(obj, notify):
 @register.filter(name='get_data')
 def get_data(obj):
     pass
+
+# @register.filter(name='pending')
+# def pending(obj):
+#     return obj.filter(status__icontains='pending')
+
+@register.filter('calls_by_status')
+def calls_by_status(obj, state):
+    return obj.filter(status__icontains=state).order_by('-created_date')

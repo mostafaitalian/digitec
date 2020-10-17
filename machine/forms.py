@@ -1,10 +1,11 @@
 from django.forms import Form, ModelForm
-from .models import Machine, Call, Category,Report
+from .models import Machine, Call, Category,Report, Contact
 from customer.models import Department, Customer
 from django import forms
 from engineer.models import Engineer
 from itertools import chain
 from django.db.models import Q
+from django.forms import inlineformset_factory
 
 
 class CreateMachineForm(ModelForm):
@@ -93,3 +94,23 @@ class ReportForm1(ModelForm):
     class Meta:
         model=Report
         fields='__all__'
+class CallForm2(ModelForm):
+    class Meta:
+        model=Call
+        fields=['engineer']
+class CallForm1(ModelForm):
+
+    # machine = forms.ModelChoiceField(queryset=Machine.objects.all())
+    # def __init__(self, *args, **kwargs):
+    #     if self != None:
+    #         self.fields['machine'].queryset = Machine.objects.all()
+    #     else:
+    #         self.fields['machine'].queryset = Machine.objects.all()
+    # customer = forms.ModelChoiceField(queryset=None)
+    # machine = forms.ModelChoiceField(queryset=None)
+
+    class Meta:
+        model = Call
+        fields =['customer', 'machine']
+
+CallFormSet  = inlineformset_factory(Call, Contact, fields=['first_name', 'last_name', 'mobile'], extra=2)

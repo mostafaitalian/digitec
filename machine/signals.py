@@ -51,7 +51,8 @@ def handle_delete_machine(sender, instance, using, **kwargs):
 previous_state = ""
 @receiver(post_save, sender=Call)
 def handle_call_save(sender,instance,created, **kwargs):
-        
+        weekday_choices =['Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday','Sunday']
+
         if created:
                 if instance.engineer:
 
@@ -59,6 +60,49 @@ def handle_call_save(sender,instance,created, **kwargs):
                         # call = kwargs.get('instance')
                         instance.status='dispatched'
                         instance.assigned_date = datetime.datetime.now()
+                        print(instance.assigned_date.weekday())
+                        assigned_date_only = instance.assigned_date.date()
+                        assigned_time_real = datetime.time(8,0)
+                        result_date = datetime.datetime.combine(assigned_date_only, assigned_time_real)
+
+
+                        if instance.assigned_date.weekday() in [0, 1, 2, 3, 6]:
+                                if instance.customer.first_week_dayoff in [7,4,5] and instance.customer.second_week_dayoff in [7,4,5]:
+                                        instance.real_assigned_date = instance.assigned_date
+                                elif (instance.assigned_date.weekday() == instance.customer.first_week_dayoff and instance.customer.second_week_dayoff != instance.customer.first_week_dayoff + 1) or (instance.assigned_date.weekday() == instance.customer.second_week_dayoff and instance.customer.first_week_dayoff != instance.customer.second_week_dayoff + 1):
+                                        instance.real_assigned_date = instance.assigned_date + datetime.timedelta(days=1)
+                                elif (instance.assigned_date.weekday() == instance.customer.first_week_dayoff and instance.customer.second_week_dayoff == instance.customer.first_week_dayoff + 1) or (instance.assigned_date.weekday() == instance.customer.second_week_dayoff and instance.customer.first_week_dayoff == instance.customer.second_week_dayoff + 1):
+                                        instance.real_assigned_date = instance.assigned_date + datetime.timedelta(days=1)
+                                else:
+                                        instance.real_assigned_date = instance.assigned_date                                        
+                        elif instance.assigned_date.weekday() == 4:
+                                
+                                if instance.customer.first_week_dayoff in [7,1,2,3,0,4,5] and instance.customer.second_week_dayoff in [7,1,2,3,0,4,5]:
+
+                                        instance.real_assigned_date = result_date + datetime.timedelta(days=2)
+                                elif instance.customer.first_week_dayoff == 6 and instance.customer.second_week_dayoff == 0:
+                                        instance.real_assigned_date = result_date + datetime.timedelta(days=4)                                
+                                else:
+                                        instance.real_assigned_date = result_date + datetime.timedelta(days=3)
+                        elif instance.assigned_date.weekday() == 5:
+                                if instance.customer.first_week_dayoff in [7,1,2,3,0,4,5] and instance.customer.second_week_dayoff in [7,1,2,3,0,4,5]:
+                                        instance.real_assigned_date = result_date + datetime.timedelta(days=1)
+                                        print('route1', instance.customer.first_week_dayoff, instance.customer.second_week_dayoff)
+                                elif instance.customer.first_week_dayoff == 6 and instance.customer.second_week_dayoff == 0:
+                                        instance.real_assigned_date = result_date + datetime.timedelta(days=3)                                
+                                
+                                else:
+                                        instance.real_assigned_date = result_date + datetime.timedelta(days=2)
+                                        print('route2')
+                        else:
+                                instance.real_assigned_date = instance.assigned_date
+
+
+                        # elif instance.assigned_date.weekday()!= 4 and instance.assigned_date.weekday() !=5 and instance.customer.first_week_dayoff
+                       
+
+
+
                         # instance.previous_status = instance.status
                         engineer = instance.engineer
                         engineer.no_of_calls += 1
@@ -106,7 +150,9 @@ def handle_call_save(sender,instance,created, **kwargs):
                                 instance.save(update_fields=['engineer', 'previous_status', 'completed_date'])
                 elif instance.status == 'dispatched' and instance.previous_status!='dispatched':
                         if instance.previous_status=='unassigned':
+                                print('iam here1')
                                 if instance.engineer and instance.engineer!='no engineer assigned yet':
+                                        print('iam here2')
                                         engineer = instance.engineer
                                         engineer.no_of_calls += 1
                                         engineer.no_of_calls_dispatched += 1
@@ -116,6 +162,9 @@ def handle_call_save(sender,instance,created, **kwargs):
                                         instance.previous_status = instance.status
                                         instance.is_assigned = True
                                         instance.assigned_date = datetime.datetime.now()
+                                        
+
+
                                         instance.save(update_fields=['engineer', 'is_assigned', 'previous_status', 'assigned_date'])
 
 
@@ -158,7 +207,42 @@ def handle_call_save(sender,instance,created, **kwargs):
                                         instance.status='dispatched'
                                         instance.previous_status = 'dispatched'
                                         instance.assigned_date = datetime.datetime.now()
-                                        instance.save(update_fields=['engineer', 'is_assigned', 'status', 'previous_status', 'assigned_date'])
+                                        assigned_date_only = instance.assigned_date.date()
+                                        assigned_time_real = datetime.time(8,0)
+                                        result_date = datetime.datetime.combine(assigned_date_only, assigned_time_real)
+
+
+                                        if instance.assigned_date.weekday() in [0, 1, 2, 3, 6]:
+                                                if instance.customer.first_week_dayoff in [7,4,5] and instance.customer.second_week_dayoff in [7,4,5]:
+                                                        instance.real_assigned_date = instance.assigned_date
+                                                elif (instance.assigned_date.weekday() == instance.customer.first_week_dayoff and instance.customer.second_week_dayoff != instance.customer.first_week_dayoff + 1) or (instance.assigned_date.weekday() == instance.customer.second_week_dayoff and instance.customer.first_week_dayoff != instance.customer.second_week_dayoff + 1):
+                                                        instance.real_assigned_date = instance.assigned_date + datetime.timedelta(days=1)
+                                                elif (instance.assigned_date.weekday() == instance.customer.first_week_dayoff and instance.customer.second_week_dayoff == instance.customer.first_week_dayoff + 1) or (instance.assigned_date.weekday() == instance.customer.second_week_dayoff and instance.customer.first_week_dayoff == instance.customer.second_week_dayoff + 1):
+                                                        instance.real_assigned_date = instance.assigned_date + datetime.timedelta(days=1)
+                                                else:
+                                                        instance.real_assigned_date = instance.assigned_date                                        
+                                        elif instance.assigned_date.weekday() == 4:
+                                
+                                                if instance.customer.first_week_dayoff in [7,1,2,3,0,4,5] and instance.customer.second_week_dayoff in [7,1,2,3,0,4,5]:
+
+                                                        instance.real_assigned_date = result_date + datetime.timedelta(days=2)
+                                                elif instance.customer.first_week_dayoff == 6 and instance.customer.second_week_dayoff == 0:
+                                                        instance.real_assigned_date = result_date + datetime.timedelta(days=4)                                
+                                                else:
+                                                        instance.real_assigned_date = result_date + datetime.timedelta(days=3)
+                                        elif instance.assigned_date.weekday() == 5:
+                                                if instance.customer.first_week_dayoff in [7,1,2,3,0,4,5] and instance.customer.second_week_dayoff in [7,1,2,3,0,4,5]:
+                                                        instance.real_assigned_date = result_date + datetime.timedelta(days=1)
+                                                        print('route1', instance.customer.first_week_dayoff, instance.customer.second_week_dayoff)
+                                                elif instance.customer.first_week_dayoff == 6 and instance.customer.second_week_dayoff == 0:
+                                                        instance.real_assigned_date = result_date + datetime.timedelta(days=3)                                
+                                
+                                                else:
+                                                        instance.real_assigned_date = result_date + datetime.timedelta(days=2)
+                                                        print('route2')
+                                        else:
+                                                instance.real_assigned_date = instance.assigned_date
+                                        instance.save(update_fields=['engineer', 'is_assigned', 'status', 'previous_status', 'assigned_date','real_assigned_date'])
 
 
 

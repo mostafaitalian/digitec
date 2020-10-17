@@ -1,12 +1,170 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load my_templatetag %}
 
+
+{% block css1 %}
+<style>
+  .call-list-boot h5{
+    color: white;
+    background-color: lightgrey;
+    border-left: 1px solid red;
+  }
+  .ex h5{
+    background-color: rgb(17, 129, 194);
+    color: white;
+    border-radius: 2px;
+    box-shadow: 2px 0px 1px 0px red;
+  }
+</style>
+{% endblock css1 %}
 {% block title %}
   Call list
 {% endblock title %}
 
 {% block main %}
+
+
+
+  
+
+<div class="container-fluid">
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Dispatched calls
+          </button>
+        </h2>
+      </div>
+      
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. -->
+          {% for call in call_list|calls_by_status:'dispatched'|slice:'5'  %}
+          <div class="col-sm-10 col-md-5  col-lg-3 mt-3 p-1 shadow-sm ex offset-1" style="background-color: rgba(250, 250, 250, 0.808);">
+            <h5 class="bg-light-gray" style="text-align: center !important;">{{ call.notification_number }}({{call.status}})</h5>
+          <div class="d-block" style="text-align: center !important;">
+            <a href="{% url 'machine:call_detail' call.notification_number  %}" class='btn btn-outline-primary'>
+      Call detail
+            </a>
+          </div>
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Pending calls
+          </button>
+        </h2>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+          <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. -->
+          {% for call in call_list|calls_by_status:'pending'|slice:"5"  %}
+<div class="col-sm-10 col-md-5  col-lg-3 mt-3 p-1 shadow-sm ex " style="background-color: rgba(250, 250, 250, 0.808);">
+  <h5 class="bg-light-gray" style="text-align: center !important;">{{ call.notification_number }}({{call.status}})</h5>
+  <div class="d-block" style="text-align: center !important;">
+    <a href="{% url 'machine:call_detail' call.notification_number  %}" class='btn btn-outline-primary'>
+      Call detail
+    </a>
+  </div>
+</div>
+{% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Completed calls
+          </button>
+        </h2>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body">
+          <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. -->
+          {% for call in call_list|calls_by_status:'completed'|slice:'5'  %}
+          <div class="col-sm-10 col-md-5  col-lg-3 mt-3 p-1 shadow-sm ex offset-1" style="background-color: rgba(250, 250, 250, 0.808);">
+            <h5 class="bg-light-gray" style="text-align: center !important;">{{ call.notification_number }}({{call.status}})</h5>
+            <div class="d-block" style="text-align: center !important;">
+              <a href="{% url 'machine:call_detail' call.notification_number  %}" class='btn btn-outline-primary'>
+                Call detail
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+{% if call_list %}
+
+<div class="call-list-boot">
+  <h5 class='mt-4'>
+    Unassigned Calls
+  </h5>
+ {% for call in call_list|calls_by_status:'unassigned'  %}
+ <div class="col-sm-10 col-md-5  col-lg-3 mt-3 p-1 shadow-sm ex" style="background-color: rgba(250, 250, 250, 0.808);">
+  <h5 class="bg-light-gray" style="text-align: center !important;">{{ call.notification_number }}({{call.status}})</h5>
+  <div class="d-block" style="text-align: center !important;">
+    <a href="{% url 'machine:call_detail' call.notification_number  %}" class='btn btn-outline-primary'>
+      Call detail
+    </a>
+  </div>
+</div>
+ {% endfor %}
+ <h5 class='mt-4'>
+ Dispatched Calls
+</h5>
+{% for call in call_list|calls_by_status:'dispatched'  %}
+<div class="col-sm-10 col-md-5  col-lg-3 mt-3 p-1 shadow-sm ex offset-1" style="background-color: rgba(250, 250, 250, 0.808);">
+  <h5 class="bg-light-gray" style="text-align: center !important;">{{ call.notification_number }}({{call.status}})</h5>
+  <div class="d-block" style="text-align: center !important;">
+    <a href="{% url 'machine:call_detail' call.notification_number  %}" class='btn btn-outline-primary'>
+      Call detail
+    </a>
+  </div>
+</div>
+{% endfor %}
+<h5 class='mt-4'>
+Pending Calls
+</h5>
+{% for call in call_list|calls_by_status:'pending'  %}
+<div class="col-sm-10 col-md-5  col-lg-3 mt-3 p-1 shadow-sm ex offset-1" style="background-color: rgba(250, 250, 250, 0.808);">
+  <h5 class="bg-light-gray" style="text-align: center !important;">{{ call.notification_number }}({{call.status}})</h5>
+  <div class="d-block" style="text-align: center !important;">
+    <a href="{% url 'machine:call_detail' call.notification_number  %}" class='btn btn-outline-primary'>
+      Call detail
+    </a>
+  </div>
+</div>
+{% endfor %}
+<h5 class='mt-4'>
+  Completed Calls
+  </h5>
+  {% for call in call_list|calls_by_status:'completed'  %}
+  <div class="col-sm-10 col-md-5  col-lg-3 mt-3 p-1 shadow-sm ex offset-1" style="background-color: rgba(250, 250, 250, 0.808);">
+    <h5 class="bg-light-gray" style="text-align: center !important;">{{ call.notification_number }}({{call.status}})</h5>
+    <div class="d-block" style="text-align: center !important;">
+      <a href="{% url 'machine:call_detail' call.notification_number  %}" class='btn btn-outline-primary'>
+        Call detail
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endif %}
 <div class="container-fluid">
   {% if call_list %}
   <div class="row">
@@ -18,6 +176,7 @@
           Call detail
         </a>
       </div>
+      <!-- {{call_list.count}} -->
     </div>
     
   {% empty %}
@@ -32,6 +191,5 @@
   </h1>
   {% endif %}
 </div>
-    
     
 {% endblock main %} 

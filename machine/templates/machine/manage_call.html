@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    Assign call
+{% endblock title %}
+
+
+{% block main %}
+    <form method="POST">
+        {% csrf_token %}
+        {{call_form|crispy}}
+        {{formset|crispy}}
+        <button class='btn btn-primary' type='submit'>
+            Add Call
+        </button>
+    </form>
+{% endblock main %}

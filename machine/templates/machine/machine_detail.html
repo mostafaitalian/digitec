@@ -23,7 +23,7 @@
     </h2>
 
     {% for engineer in machine.area.engineer_set.all %}
-    {% if engineer.user.username == request.user.username %}
+    {% if engineer.user.username == request.user.username or request.user.is_superuser %}
     n1111
     
     {{machine.name}}

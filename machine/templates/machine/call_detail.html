@@ -99,17 +99,17 @@
   
                 
                 <tr>
-                  <th scope="row">is_assigned</th>
+                  <th scope="row">Is_assigned</th>
                   <td>{{call.is_assigned}}</td>
   
                 </tr>
                 <tr>
-                  <th scope="row">creation Date</th>
+                  <th scope="row">Creation Date</th>
                   <td>{{call.created_date}}</td>
   
                 </tr>
                 <tr>
-                  <th scope="row">updated Date</th>
+                  <th scope="row">Updated Date</th>
                   <td>{{call.updated_date}}</td>
   
                 </tr>
@@ -119,12 +119,12 @@
   
                 </tr>
                 <tr>
-                  <th scope="row">response time</th>
+                  <th scope="row">Response time</th>
                   <td>{{call.response_time_end_date}}</td>
   
                 </tr>
                 <tr>
-                  <th scope="row">optimum completed date</th>
+                  <th scope="row">Optimum completed date</th>
                   <td>{{call.optimum_completed_date}}</td>
   
                 </tr>
@@ -135,13 +135,18 @@
   
                 </tr>
                 <tr>
-                  <th scope="row">Machine-Model</th>
+                  <th scope="row">Machine Model</th>
                   <td>{{call.machine.name}}</td>
   
                 </tr>
                 <tr>
-                  <th scope="row">Machine-Serial</th>
+                  <th scope="row">Machine Serial</th>
                   <td>{{call.machine.serial}}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">Machine fault</th>
+                  <td>{{call.fault}}</td>
   
                 </tr>
   
@@ -159,28 +164,57 @@
                 </tr>
                 {% if call.machine.contract %}
                 <tr>
-                  <th scope="row">contract type</th>
+                  <th scope="row">Contract Type</th>
                   <td>{{call.machine.contract.contract_type}}</td>
   
                 </tr>
                 <tr>
-                  <th scope="row">contract end date</th>
+                  <th scope="row">Contract End Date</th>
                   <td>{{call.machine.contract.end_of_contract}}</td>
   
                 </tr>
                 {% else %}
                 <tr>
                   <th scope="row">contract</th>
-                  <td>no contract</td>
+                  <td>No Contract</td>
   
                 </tr>
                 {% endif %}
+                
+                {% if call.call_contacts %}
+                  <th scope="row">Contacts</th>
+                  <tr class='bg-blue text-white' style="background-color: black;">
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Mobile number</th>
+                  </tr>
+                  {% for contact in call.call_contacts.all %}
+                    <tr>
+                      <td>
+                        {{contact.first_name}}
+                      </td>
+                      <td>
+                        {{contact.last_name}}
+                      </td>
+                      <td>
+                        {{contact.mobile}}
+                      </td>
+                    </tr>
+                    
+                  {% endfor %}
+                  <table>
+
+                  </table>
+                {% else %}
+                <td>No contacts</td>
+                {% endif %}
+                  
               </tbody>
             </table>
       {% else %}
   
           <h3>
-              you are not authorized to see this call, you are not call engineer either superuser
+              You are not authorized to see this call, you are not call engineer either superuser
           </h3>
       {% endif %}
   
@@ -191,13 +225,13 @@
       {% for report in call.reports.all %}
       {{report.call.notification_number}} -- {{report.status}} --{{report.call.status}}
       {% empty %}
-        no reports created yet
+        No reports created yet
       {% endfor %}
   
   
   
       <h3 class="pre-title" style="color: black;">
-          Previous Calls
+          Other Calls for {{ call.machine.serial }}
       </h3>
       <table class="table table-hover">
       {% for call in call|matched:call.notification_number %}
@@ -214,13 +248,13 @@
          
         </div>
       {% empty%}
-        <h5>there is no previous calls for this machine</h5>
+        <h5>This is first call for this machine</h5>
       {% endfor %}
   
   
   
     </table>
-  
+  {% if call.is_assigned %}
     <h4 class="pre-title">
       Submit report
   </h4>
@@ -353,7 +387,20 @@
   
   
         <button class='btn-outline-primary' type='submit'>submit order</button>
-      </form>    
+      </form>
+      {% else %}
+        
+        {% if request.user.is_superuser %}
+          <form method="POST" action="{% url 'machine:call_assign_engineer' call.notification_number %}">
+            {% csrf_token %}
+            {{ assign_form|crispy }}
+            <button type="submit" class='btn btn-secondary'>
+              Assign to engineer
+            </button>
+          </form>
+        {% endif %}
+          
+      {% endif %}    
     {% endwith %}
   
 {% endblock main %}

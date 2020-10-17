@@ -1,7 +1,7 @@
 from django.shortcuts import render, reverse
-from django.views.generic import CreateView, ListView, DetailView
+from django.views.generic import CreateView, ListView, DetailView, UpdateView
 from .models import Machine, Call, Category, Report
-from .forms import CreateMachineForm, CallForm, CategoryForm, ReportForm, ReportForm1
+from .forms import CreateMachineForm, CallForm, CategoryForm, ReportForm, ReportForm1, CallFormSet,CallForm1, CallForm2
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect
 from engineer.models import Engineer
@@ -113,8 +113,9 @@ class CallDetailView(DetailView):
     model = Call
     context_object_name = 'calll' 
     def get_object(self, **kwargs):
-        call = Call.objects.get(pk=self.kwargs['pk'])
+        call = Call.objects.get(pk=int(self.kwargs['pk']))
         if self.request.user.is_superuser:
+            
             print(kwargs)
             return call
         elif self.request.user.is_authenticated and hasattr(call.engineer, 'user'):
@@ -126,6 +127,7 @@ class CallDetailView(DetailView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         ctx['form'] = ReportForm1()
+        ctx['assign_form'] = CallForm2()
         return ctx
 
 
@@ -249,3 +251,39 @@ def create_bulk_machines(request):
         machine = Machine(name='7845',serial=11111111+i, )
 
         pass
+def create_update_call_formset(request, notification=None):
+    if notification:
+        call =  Call.objects.get(notification_number=notification)
+    else:
+        call = Call()
+
+    call_form = CallForm1(instance=call)
+    formset = CallFormSet(instance=call)
+    if request.method =='POST':
+        created_call_form = CallForm1(request.POST, instance=call)
+        if notification:
+            created_call_form = CallForm1(request.POST, instance=call)
+        # created_call_form = call_form.save(commit=False)
+        created_formset = CallFormSet(request.POST, request.FILES, instance=call)
+        if created_call_form.is_valid():
+            created_call= created_call_form.save(commit=False)
+            if created_formset.is_valid():
+
+                # created_call.save()
+                created_formset.save()
+
+                return redirect(reverse('machine:call_list'))
+    return render(request, 'machine/manage_call.html', {'call_form':call_form, 'formset':formset})
+
+
+class CallUpdateView(UpdateView):
+    model=Call
+    form_class=CallForm2
+    template_name='machine/call_assign_engineer.html'
+    def get_success_url(self):
+        return reverse('machine:call_detail', kwargs={'pk':self.object.notification_number})
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["assign_form"] = self.get_form()
+        return context
+    

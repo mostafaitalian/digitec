@@ -29,7 +29,7 @@ class Engineer(models.Model):
     Thursday = 5
     Friday = 6
     NoDayoff = 7
-    weekday_choices = ((Saturday, 'Saturday'),(Sunday, 'Sunday'),(Monday, 'Monday'),(Tuesday, 'Tuesday'),(Wednesday, 'Wednesday'),(Thursday, 'Thursday'),(Friday, 'Friday'),(NoDayoff, 'NoDayoff'))
+    weekday_choices = ((Monday, 'Monday'),(Tuesday, 'Tuesday'),(Wednesday, 'Wednesday'),(Thursday, 'Thursday'),(Friday, 'Friday'),(Saturday, 'Saturday'),(Sunday, 'Sunday'),(NoDayoff, 'NoDayoff'))
     name=models.CharField('xerox username',max_length=255, help_text="start with 'EGD20' and followed by your number")
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     area = models.ForeignKey(Area, on_delete=models.CASCADE, blank=True, null=True)
