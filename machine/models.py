@@ -56,7 +56,6 @@ class MachineDetail(models.Model):
 
     response_choices_hours = ((production, 'Production'),(workcentre, 'Workcentre'), (phasor, 'Phasor'),(radiology, 'Radiology'))
     return_choices_days = ((production_return, 'Production'), (office_return, 'Office'), (radiology_return, 'Radiology'))
-    name= models.CharField(max_length=200)
     serial = models.IntegerField('standard seial', help_text='fill this if your serial is numbers only', unique=True, blank=True)
     serial2 = models.CharField('non-standard serial', max_length=10, help_text="fill this if your serial consists of numbers and letters", unique=True, blank=True)
     machine_model = models.CharField(max_length=100)
