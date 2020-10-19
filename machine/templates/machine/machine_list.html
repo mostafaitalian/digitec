@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}{{block.super}}-- machine list{% endblock %}
 
 {% block css1 %}
+<script src="{% static 'js/reconnecting-websocket.js' %}"></script>
+
     <style>
         body{
             margin:0px
@@ -41,13 +44,13 @@
 
 {% endblock %}
 {% block main %}
-<script>
+<!-- <script>
     console.log('iam here')
     let url = 'ws://' + window.location.host + `/machine/list1/`
-    const websocket = new WebSocket(url)
+    const websocket = new ReconnectingWebSocket(url)
     websocket.onopen = (event)=>{
       console.log('connection oppened')
-      console.log(event.type)
+      console.log('type of event',event.type)
       websocket.send('hello')
       console.log('message is sent from customer')
     }
@@ -56,11 +59,22 @@
 
 
         console.log('event ', strr)
+        let b = document.getElementById('webid')
+        let text = document.createTextNode(strr['data'])
+        b.innerText=strr['data']
+        // setInterval(()=>(1), 10000)
+        // console.log('1')
+        // setTimeout(()=>(1),1000)
+        // text = document.createTextNode('')
+        // b.appendChild(text)
+        // b.innerText = strr
         // websocket.onopen()
-        websocket.send(data=strr['data'])
-        console.log('message is sent again')
+        // websocket.send(data=strr['data'])
+        // console.log('message is sent again')
     }
     websocket.onclose=()=>{
+
+
         console.log('connection closed')
         
     }
@@ -70,7 +84,7 @@
     }
 
 
-  </script>
+  </script> -->
 
 <div class="container-fluid">
 
@@ -83,9 +97,11 @@
 
 
 
-
 <div class='row'>
+    <p id='webid' class='block'></p>
 
+</div>
+<div class='row'>
 {% for machine in machine_list %}
 
     <div class="col-11 col-md-6  mb-3" style=' box-sizing: border-box;'>

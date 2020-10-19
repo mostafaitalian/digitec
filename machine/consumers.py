@@ -1,9 +1,12 @@
 # from channels.consumers import WebSoketConsumer
 from channels.generic.websocket import WebsocketConsumer, JsonWebsocketConsumer
 from engineer.models import Engineer
+from .models import Call
 from channels.db import database_sync_to_async
 from asgiref.sync import AsyncToSync
 import json
+
+import datetime
 
 class MachineConsumer(WebsocketConsumer):
     def connect(self):
@@ -73,7 +76,7 @@ class MachineConsumer3(WebsocketConsumer):
         # engineer=Engineer.objects.get(user__id=self.scope['user'].id)
 
         # self.accept()
-        self.send(text_data=self.scope['user'])
+        # self.send(text_data=self.scope['user'].username)
 
 
     def receive(self, text_data=None, bytes_data=None):
@@ -82,12 +85,36 @@ class MachineConsumer3(WebsocketConsumer):
         # counter +=1 
         # self.send(text_data='your data is got ')
         # self.send('hhhhhhhhh')
-        self.send(text_data='hhhh')
-        self.send(text_data='kkkkkk')
-        self.send(text_data=text_data)
+        print(text_data)
+        if self.scope['user'].is_superuser:
+            total_calls = Call.objects.all().count()
+            unassigned_engineer_calls = Call.objects.filter(status='unassigned').count()
+            pending_engineer_calls = Call.objects.filter(status='pending').count()
+            dispatched_engineer_calls = Call.objects.filter(status='dispatched').count()
+            completed_engineer_calls = Call.objects.filter(status='completed').count()
+            self.send(text_data='you have {} calls, you have {} calls still at unassigned stage, you have {} calls still at dispatching stage, you have {} calls still at pending stage, you have {} calls still at completed stage'.format(total_calls, unassigned_engineer_calls, dispatched_engineer_calls, pending_engineer_calls, completed_engineer_calls))
 
-        return super().recieve(text_data=None)
+        elif self.scope['user'].engineer and self.scope['user'].is_authenticated:
+            dispatched_engineer_calls = Call.objects.filter(engineer__user=self.scope['user']).filter(status='dispatched').count()
+            
+            dispatched_engineer_calls_before_second = Call.objects.filter(engineer__user=self.scope['user']).filter(status='dispatched').filter(assigned_date__lt=datetime.datetime.now()-datetime.timedelta(seconds=1)).count()
+            self.send(text_data='you have {} calls dispatched for you'.format(dispatched_engineer_calls))
+        # if(dispatched_engineer_calls != dispatched_engineer_calls_before_second):
+        #     # i=500
+        #     # while(i<501):
+        #     #     i=i-1
+            
+        #     self.send(text_data='you got a new call')
+        # self.send(text_data='kkkkkk')
+        # self.send(text_data='{}'.format(dispatched_engineer_calls))
+
+        return super().recieve(text_data=text_data)
 
     
     def disconnect(self):
         self.close()
+    def call_update(self, event):
+        self.send({
+            'type': 'websocket.send',
+            'text':event['content'],
+        })

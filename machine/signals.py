@@ -64,7 +64,7 @@ def handle_call_save(sender,instance,created, **kwargs):
                         assigned_date_only = instance.assigned_date.date()
                         assigned_time_real = datetime.time(8,0)
                         result_date = datetime.datetime.combine(assigned_date_only, assigned_time_real)
-
+                        
 
                         if instance.assigned_date.weekday() in [0, 1, 2, 3, 6]:
                                 if instance.customer.first_week_dayoff in [7,4,5] and instance.customer.second_week_dayoff in [7,4,5]:
@@ -105,11 +105,13 @@ def handle_call_save(sender,instance,created, **kwargs):
 
                         # instance.previous_status = instance.status
                         engineer = instance.engineer
+                        
                         engineer.no_of_calls += 1
                         engineer.no_of_calls_dispatched += 1
                         # engineer.no_of_calls_pending += 1
                         engineer.save()
                         instance.engineer = engineer
+                        instance.previous_engineer=instance.engineer
                         instance.previous_status = instance.status
     
                         # print(instance.status)
@@ -167,7 +169,20 @@ def handle_call_save(sender,instance,created, **kwargs):
 
                                         instance.save(update_fields=['engineer', 'is_assigned', 'previous_status', 'assigned_date'])
 
-
+                elif instance.status == 'dispatched' and instance.previous_status=='dispatched':
+                        print('newhererrreerr')
+                        if instance.engineer != instance.previous_engineer:
+                                previous_engineer = instance.previous_engineer
+                                previous_engineer.no_of_calls -= 1
+                                previous_engineer.no_of_calls_dispatched -=1
+                                previous_engineer.save(update_fields=['no_of_calls', 'no_of_calls_dispatched'])
+                                engineer = instance.engineer
+                                engineer.no_of_calls +=1
+                                engineer.no_of_calls_dispatched += 1
+                                engineer.save(update_fields=['no_of_calls', 'no_of_calls_dispatched'])
+                                instance.previous_engineer = engineer
+                                # instance.assigned_date = datetime.datetime.now()
+                                instance.save(update_fields=['previous_engineer'])
                 elif instance.status == 'unassigned':
                         if instance.previous_status != 'unassigned':
                                 if instance.is_assigned == True:
@@ -204,6 +219,7 @@ def handle_call_save(sender,instance,created, **kwargs):
 
                                         engineer.save(update_fields=['no_of_calls', 'no_of_calls_dispatched'])
                                         instance.is_assigned=True
+                                        instance.previous_engineer = engineer
                                         instance.status='dispatched'
                                         instance.previous_status = 'dispatched'
                                         instance.assigned_date = datetime.datetime.now()
@@ -242,7 +258,7 @@ def handle_call_save(sender,instance,created, **kwargs):
                                                         print('route2')
                                         else:
                                                 instance.real_assigned_date = instance.assigned_date
-                                        instance.save(update_fields=['engineer', 'is_assigned', 'status', 'previous_status', 'assigned_date','real_assigned_date'])
+                                        instance.save(update_fields=['engineer','previous_engineer', 'is_assigned', 'status', 'previous_status', 'assigned_date','real_assigned_date'])
 
 
 

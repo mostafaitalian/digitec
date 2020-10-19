@@ -44,12 +44,17 @@ class MachineDetail(models.Model):
     ('c8035', 'c8035'), ('c8045', 'c8045'), ('c8055', 'c8055'), ('c8065', 'c8065'), ('c8075', 'c8075'),
     ('180', '180'), ('2100', '2100'), ('3100', '3100'))
     production  = 4
-    office = 6
+    workcentre = 6
     radiology = 6
+    phasor = 9
     production_return = 4
+    production_return_meter = 2000
     office_return = 7
+    office_return_meter = 5000
     radiology_return = 7
-    response_choices_hours = ((production, 'Production'),(office, 'Office'),(radiology, 'Radiology'))
+    radiology_return_meter = 5000
+
+    response_choices_hours = ((production, 'Production'),(workcentre, 'Workcentre'), (phasor, 'Phasor'),(radiology, 'Radiology'))
     return_choices_days = ((production_return, 'Production'), (office_return, 'Office'), (radiology_return, 'Radiology'))
     name= models.CharField(max_length=200)
     serial = models.IntegerField('standard seial', help_text='fill this if your serial is numbers only', unique=True, blank=True)
@@ -124,6 +129,7 @@ class Call(models.Model):
     is_assigned = models.BooleanField("indicate wheather call has engineer or not", default=False)
     status = models.CharField('Status', max_length=20 , choices=status_choices, default=unassigned)
     previous_status = models.CharField(max_length=50,help_text='do not fill this anywhere', null=True, blank=True)
+    previous_engineer = models.ForeignKey(Engineer, on_delete=models.CASCADE, null=True, blank=True, related_name='previous_engineer_calls')
     fault = models.TextField(null=True, blank=True)
     notes_from_customer = models.TextField(null=True, blank=True)
     

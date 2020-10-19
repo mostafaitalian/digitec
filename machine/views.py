@@ -15,6 +15,8 @@ from django.contrib.auth import get_user_model
 from rest_framework.generics import ListCreateAPIView, CreateAPIView, RetrieveUpdateDestroyAPIView 
 # Create your views here.
 import json
+from django.conf import settings
+from django.core.mail import send_mail
 
 
 
@@ -114,7 +116,8 @@ class CallDetailView(DetailView):
     context_object_name = 'calll' 
     def get_object(self, **kwargs):
         call = Call.objects.get(pk=int(self.kwargs['pk']))
-        if self.request.user.is_superuser:
+        print(call.notification_number)
+        if self.request.user.is_superuser or self.request.user.engineer:
             
             print(kwargs)
             return call
@@ -287,4 +290,14 @@ class CallUpdateView(UpdateView):
         context = super().get_context_data(**kwargs)
         context["assign_form"] = self.get_form()
         return context
-    
+    def form_valid(self, form):
+        engineer = form.cleaned_data['engineer']
+        form.save()
+        
+        s = 'you got a new call {}'.format(self.object.notification_number) 
+        m = 'you got a new call with notification number {} its assigned date {} you have {} to respond to machine'.format(self.object.notification_number,
+        self.object.assigned_date, self.object.machine.machine_response_time)
+        
+        send_mail(subject=s, message=m, from_email=settings.DEFAULT_FROM_EMAIL, recipient_list=['myossef@digitecxerox.com'])
+
+        return super().form_valid(form)

@@ -54,7 +54,7 @@
     <h5 class="pre-title">
       Welcome {{request.user}} {% if request.user == call.engineer.user %}(<span>{{user.engineer.name}}</span>){% endif %}
     </h5>
-      {% if request.user == call.engineer.user or request.user.is_superuser %}
+      {% if request.user == call.engineer.user or request.user.is_superuser or request.user.engineer %}
       {% if request.user.is_superuser %}
       
       {% if call.status == 'unassigned' or call.status == 'dispatched' %}
@@ -279,7 +279,7 @@
   
   
   
-      <form action="{% url 'machine:create_report' %}" method="POST" class="report-form">
+      <!-- <form action="{% url 'machine:create_report' %}" method="POST" class="report-form">
         {% csrf_token %}
   
         <div class="form-group">
@@ -400,7 +400,7 @@
   
   
         <button class='btn-outline-primary' type='submit'>submit order</button>
-      </form>
+      </form> -->
       {% else %}
         
         {% if request.user.is_superuser %}

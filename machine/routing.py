@@ -3,5 +3,6 @@ from .consumers import MachineConsumer,MachineConsumer1, MachineConsumer2,Machin
 
 websocket_urlpatterns = [
     path('machine/list1/', MachineConsumer3),
+    path('customer/list/', MachineConsumer3),
     path('machine/detail/<pk>/', MachineConsumer)   
 ]
