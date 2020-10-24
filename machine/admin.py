@@ -4,7 +4,7 @@ from .models import Machine, Category, Call, Report, Contract, EngineerReview, C
 
 @admin.register(Machine)
 class MachineAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug':('serial', 'serial2')}
+    # prepopulated_fields = {'slug':('serial', 'serial2')}
     pass
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):

@@ -1,5 +1,5 @@
 from django.forms import Form, ModelForm
-from .models import Machine, Call, Category,Report, Contact
+from .models import Machine, Call, Category,Report, Contact, Contract
 from customer.models import Department, Customer
 from django import forms
 from engineer.models import Engineer
@@ -87,9 +87,12 @@ class ReportForm(ModelForm):
 
 class ReportForm1(ModelForm):
     
-    call = forms.ModelChoiceField(queryset=Call.objects.filter(Q(status='pending')|Q(status='unassigned')|Q(status='dispatched')))
+    call = forms.ModelChoiceField(queryset=Call.objects.filter(Q(status='incomplete')|Q(status='unassigned')|Q(status='dispatched')))
     customer_name = forms.CharField(max_length=50)
     engineer = forms.ModelChoiceField(queryset=Engineer.objects.all())
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # self.fields['engineer']
 
     class Meta:
         model=Report
@@ -114,4 +117,21 @@ class CallForm1(ModelForm):
         fields =['notification_number', 'customer', 'machine', 'fault']
         # readonly_fields = ['notification_number',]
 
+class MachineForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.instance.serial:
+            self.fields['serial'].widget.attrs['readonly'] = True
+    
+    class Meta:
+        model = Machine
+        fields = ['serial','machine_model', 'customer', 'department', 'area']
+        help_texts={
+            'area':'not required'
+        }
 CallFormSet  = inlineformset_factory(Call, Contact, fields=['first_name', 'last_name', 'mobile'], extra=2)
+# MachineFormSet = inlineformset_factory(Machine, Contract, fields=['contact_type', 'monthly_fees'])
+class ContractForm(ModelForm):
+    class Meta:
+        model=Contract
+        fields='__all__'

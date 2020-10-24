@@ -9,7 +9,7 @@
         body{
             margin:0px
         }
-        p{
+        p.p-react{
 
             background-color: rgb(255, 15, 15);
             color:black;
@@ -89,25 +89,25 @@
 <div class="container-fluid">
 
 <div class='row'>
-    <p>
+    <p class='p-react'>
         for more information about machine technical information visit us at 
         <a class='btn btn-secondary' href="http://127.0.0.1:3000/">Reviews</a>
     </p>
 </div>
 
-
+<!-- 
 
 <div class='row'>
     <p id='webid' class='block'></p>
 
-</div>
+</div> -->
 <div class='row'>
 {% for machine in machine_list %}
 
     <div class="col-11 col-md-6  mb-3" style=' box-sizing: border-box;'>
         <div class="card shadow-lg rounded p-3">
             <div class="card-header text-center">
-                <h2><a href="{% url 'machine:list'  %}" style='text-decoration: none;'>{{machine.customer.name|title}}-{{machine.name}}</a></h2>
+                <h2><a href="{% url 'machine:machine_detail' machine.id %}" style='text-decoration: none;'>{{machine.customer.name|title}}-{{machine.machine_model|default_if_none:"not added yet"}}</a></h2>
 
             </div>
             <div class="card-body">

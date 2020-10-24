@@ -12,7 +12,12 @@ urlpatterns = [path('create/', views.CreateMachineView1.as_view(), name="create"
                path('list1/', views.MachineList.as_view(), name='list'),
                path('call/create/', views.CallCreateView.as_view(), name="call_create"),
                path('call/manage/<int:notification>/', views.create_update_call_formset, name="call_manage_update"),
+               path('manage/', views.create_update_machine, name="machine_manage"),
+               path('manage/<int:serial_number>/', views.create_update_machine, name="machine_manage"),
+        
                path('call/manage/', views.create_update_call_formset, name="call_manage"),
+               path('call/manage/serial/<int:serial>/', views.create_update_call_formset, name="call_manage_serial"),
+
                path('call/assign/<pk>/', views.CallUpdateView.as_view(), name='call_assign_engineer'),
                path('call/list/', views.CallListView.as_view(), name='call_list'),
                path('call/detail/<pk>/', views.CallDetailView.as_view(), name='call_detail'),

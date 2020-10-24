@@ -7,11 +7,86 @@ from django.utils import timezone
 from django.db import transaction
 from dateutil.relativedelta import relativedelta
 
+workcentre_black_category = ['b7025', 'b7030', 'b7035',
+'b405',
+'b8045', 'b8055', 'b8065',
+'5945', '5955',
+'5325', '5330', '5335', 
+'5225', '5230', '5235', '5225A', '5230A', '5235A',
+'128', '133',
+'4150', '4260',
+'255', '265', '275', '245',
+'5635', '5645', '5655', '5665', '5690',
+'5735', '5745', '5755', '5765', '5790',
+]
+workcentre_color_category = [
+     'c7025', 'c7030', 'c7035',
+     'c8035', 'c8045', 'c8055', 'c8065', 'c8075',
+     'c405',
+     '7225', '7220',
+     '7120',
+     '7835', '7845', '7855',
+     '7990',
+     'c605',
 
+]
+phasor_black_category = ['3615', '3655', '3635', '3310', '3315']
+phasor_color_category = []
+radiology_category = ['c60', '550', '560']
+production_color_category = ['180', '2100', '3100']
+production_black_category = []
 
 @receiver(post_save, sender=Machine)
 def handle_machine_save(sender, instance, created, **kwargs):
         if created:
+                print('1')
+                if instance.machine_model:
+                        if instance.machine_model in workcentre_black_category:
+                                print('2')
+                                instance.machine_category = 'mono workcentre'
+                                instance.machine_response_time = 6
+                                instance.machine_callback_time = 7
+                                pass
+                        elif instance.machine_model in workcentre_color_category:
+                                print('3')
+                                instance.machine_category = 'color workcentre'
+                                instance.machine_response_time = 6
+                                instance.machine_callback_time = 7
+                                pass
+                        elif instance.machine_model in phasor_black_category:
+                                print('4')
+                                instance.machine_category = 'mono phasor'
+                                instance.machine_response_time = 9
+                                instance.machine_callback_time = 7
+                                pass
+                        elif instance.machine_model in phasor_color_category:
+                                print('5')
+                                instance.machine_category = 'color phasor'
+                                instance.machine_response_time = 9
+                                instance.machine_callback_time = 7
+                                pass
+                        elif instance.machine_model in radiology_category:
+                                print('6')
+                                instance.machine_category = 'radiology'
+                                instance.machine_response_time = 6
+                                instance.machine_callback_time = 7
+                                pass
+                        elif instance.machine_model in production_black_category:
+                                print('7')
+                                instance.machine_category = 'mono production'
+                                instance.machine_response_time = 4
+                                instance.machine_callback_time = 4
+                                pass
+                        elif instance.machine_model in production_color_category:
+                                print('8')
+                                instance.machine_category = 'color production'
+                                instance.machine_response_time = 4
+                                instance.machine_callback_time = 4
+                                pass
+                        else:
+                                print('9')
+                                pass
+
 
                 department = Department.objects.get(pk=instance.department.id)
                 department.no_of_machine +=1
@@ -22,12 +97,36 @@ def handle_machine_save(sender, instance, created, **kwargs):
                         if instance.customer.organization:
                                 instance.customer.organization.save(update_fields=['organization_machines_number'])
                         
-                if instance.contract:
+                if instance.contract and instance.contract.contract_type != 'Warranty':
                         print('h3')
                         contract = Contract.objects.get(id=instance.contract.id)
                         contract.machine_serial=instance.serial
                         # instance.contract = 
                         contract.save(update_fields=['machine_serial'])
+                if instance.contract and instance.installation_date:
+                        print(instance.installation_date, instance.added)
+                        x = instance.installation_date.date() == instance.added.date()
+                        y = instance.installation_date + datetime.timedelta(days=365) >= datetime.datetime.now(timezone.utc)
+                        print(instance.installation_date.date, instance.added.date)
+                        print(x)
+                        if x:
+                                print('123')
+                                # if instance.installation_date + datetime.timedelta(days=365) < datetime.datetime.now():
+                                print('contact here warranty')
+                                c = Contract.objects.create(contract_type='Warranty', machine_serial=instance.serial, monthly_fees=0)
+                                print(c.contract_type)
+                                print(instance.installation_date, instance.added)
+                                print(x)
+                                instance.contract = c
+                                instance.save()
+                        elif y:
+                                c = Contract.objects.create(contract_type='Warranty', machine_serial=instance.serial, monthly_fees=0)
+                                c.start_of_contract=instance.installation_date
+                                c.end_of_contract=instance.installation_date + datetime.timedelta(days=365)
+                                c.save(update_fields=['start_of_contract', 'end_of_contract'])
+                                instance.contract = c
+                                instance.save()
+
         else:
                 if instance.contract is not None:
                         print('h4')
@@ -128,7 +227,7 @@ def handle_call_save(sender,instance,created, **kwargs):
         else:
 
                 if instance.status == 'completed' and instance.previous_status!='completed':
-                        if instance.engineer and instance.previous_status=='pending':
+                        if instance.engineer and instance.previous_status=='incomplete':
                                 engineer = instance.engineer
                                 engineer.no_of_calls_pending -= 1
                                 engineer.no_ofcalls_success = engineer.no_of_calls - engineer.no_of_calls_pending - engineer.no_of_calls_dispatched
@@ -196,7 +295,7 @@ def handle_call_save(sender,instance,created, **kwargs):
                                                         engineer.no_of_calls_pending = engineer.no_of_calls_pending
                                                         engineer.no_ofcalls_success = engineer.no_of_calls - engineer.no_of_calls_pending - engineer.no_of_calls_dispatched
 
-                                                elif instance.previous_status == 'pending':
+                                                elif instance.previous_status == 'incomplete':
                                                 
                                                         engineer.no_of_calls_pending -= 1
 
@@ -262,7 +361,7 @@ def handle_call_save(sender,instance,created, **kwargs):
 
 
 
-                elif instance.status =='pending' and instance.previous_status != 'pending':
+                elif instance.status =='incomplete' and instance.previous_status != 'incomplete':
                         if instance.is_assigned == True:
                                 if instance.engineer and instance.engineer != 'no engineer assigned yet':
                                         engineer = instance.engineer

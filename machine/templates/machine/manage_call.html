@@ -6,6 +6,10 @@
 
 
 {% block main %}
+    <form method="GET" action="{% url 'machine:call_manage' %}">
+        <input class='form-control' type="number" name="serial"/>
+        <button class='btn btn-secondary' type="submit">search by serial</button> 
+    </form>
     <form method="POST">
         {% csrf_token %}
         <input type="number" value={{ notification_number }} readonly/>
@@ -13,6 +17,11 @@
         {{formset|crispy}}
         <button class='btn btn-primary' type='submit'>
             Add Call
+            {% if notification_number_number %}
+                Update call
+            {% else %}
+                Add call
+            {% endif %}
         </button>
     </form>
 {% endblock main %}

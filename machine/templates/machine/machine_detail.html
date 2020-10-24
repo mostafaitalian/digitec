@@ -24,20 +24,16 @@
 
     {% for engineer in machine.area.engineer_set.all %}
     {% if engineer.user.username == request.user.username or request.user.is_superuser %}
-    n1111
-    
-    {{machine.name}}
     <div>
       <table class="table table-hover">
-        <caption>List of users</caption>
         <thead class="table-primary">
           <tr class="p-auto">
-            <th scope="col">serial</th>
+            <th scope="col">Serial number</th>
             <td scope="col">{{machine.serial}}</td>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <!-- <tr>
             <th scope="row">Engineer</th>
             <td>{% if machine.engineers %}
               {% for engineer in machine.engineers.all %}
@@ -51,6 +47,33 @@
               
             {% endif %}</td>
     
+          </tr> -->
+          <tr>
+            <th scope="row">Machine model</th>
+            <td>{{machine.machine_model}}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Engineer</th>
+            <td>{% if machine.area %}
+              {% for engineer in machine.area.engineer_set.all %}
+              {{engineer.user.username|title}} : 
+              {{engineer.name}}
+              {% empty %}
+              <h3>
+                no engineer has this machine yet
+              </h3>
+              {% endfor %}
+              
+            {% endif %}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Territory</th>
+            <td>{{machine.area}}
+                
+            </td>
+
           </tr>
           <tr>
             <th scope="row">Customer name</th>
@@ -58,33 +81,18 @@
 
           </tr>
           <tr>
-            <th scope="row">Machine-Location</th>
+            <th scope="row">Machine address</th>
+            <td>{{machine.customer.location}}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Machine location</th>
             <td>{{machine.department.department_name}}</td>
 
           </tr>
           <tr>
             <th scope="row">Department-Total-Machines</th>
-            <td>{{machine.department.no_of_machine}}</td>
-
-          </tr>
-          <tr>
-            <th scope="row">Speed</th>
-            <td>{{machine.speed}}</td>
-
-          </tr>
-          <tr>
-            <th scope="row">Added</th>
-            <td>{{machine.added}}</td>
-
-          </tr>
-          <tr>
-            <th scope="row">ID</th>
-            <td id='sc'>{{machine.id}}</td>
-
-          </tr>
-          <tr>
-            <th scope="row">Machine Model</th>
-            <td>{{machine.name}}</td>
+            <td>{{machine.department.machines_dep.all.count}}</td>
 
           </tr>
           <tr>
@@ -93,14 +101,80 @@
 
           </tr>
 
-
           <tr>
-            <th scope="row">Territory</th>
-            <td>{{machine.area}}
+            <th scope="row">Creation date</th>
+            <td>{{machine.added}}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Installation date</th>
+            <td>{{machine.installation_date|default_if_none:"Not added yet" }}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Machine response time</th>
+            <td id='sc'>{{machine.machine_response_time|default_if_none:"Not added yet" }} {% if machine.machine_response_time %} hours {% endif %}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Machine callback time</th>
+            <td id='sc'>{{machine.machine_callback_time|default_if_none:"Not added yet" }} {% if machine.machine_callback_time %} days {% endif %}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Customer working hours</th>
+            <td id='sc'>{{machine.customer.begin_at}} : {{ machine.customer.finish_at }}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Customer days off</th>
+            <td>
+              
+              {% if machine.customer.first_week_dayoff and machine.customer.first_week_dayoff != 7 %}
                 
+                {% if machine.customer.first_week_dayoff == 0 %}
+                Monday
+                {% elif machine.customer.first_week_dayoff == 1 %}
+                Tuesday
+                {% elif machine.customer.first_week_dayoff == 2 %}
+                Wednesday
+                {% elif machine.customer.first_week_dayoff == 3 %}
+                Thursday
+                {% elif machine.customer.first_week_dayoff == 4 %}
+                Friday
+                {% elif machine.customer.first_week_dayoff == 5 %}
+                Saturday
+                {% elif machine.customer.first_week_dayoff == 6 %}
+                Sunday  
+                {% endif %}
+                  
+              {% endif %}
+              {% if machine.customer.second_week_dayoff and machine.customer.second_week_dayoff != 7 %}
+                
+                {% if machine.customer.second_week_dayoff == 0 %}
+                , Monday
+                {% elif machine.customer.second_week_dayoff == 1 %}
+                , Tuesday
+                {% elif machine.customer.second_week_dayoff == 2 %}
+                , Wednesday
+                {% elif machine.customer.second_week_dayoff == 3 %}
+                , Thursday
+                {% elif machine.customer.second_week_dayoff == 4 %}
+                , Friday
+                {% elif machine.customer.second_week_dayoff == 5 %}
+                , Saturday
+                {% elif machine.customer.second_week_dayoff == 6 %}
+                , Sunday  
+                {% endif %}
+                  
+              {% endif %}  
             </td>
 
           </tr>
+
+
+
+
           
           {% if machine.contract %}
           <tr>
@@ -127,7 +201,7 @@
           {% else %}
           <tr>
             <th scope="row">Contact</th>
-            <td>No conttract
+            <td>No contract
                 
             </td>
 
@@ -135,12 +209,25 @@
                       
           {% endif %}
           <tr>
-            <th scope="row">machine calls</th>
+            <th scope="row">Machine calls</th>
             <td>{{machine.calls.all.count}}
                 
             </td>
 
-          </tr>  
+          </tr> 
+          
+          {% if request.user.is_superuser %}
+          <tr>
+            <th>
+              <a href="{% url 'machine:machine_manage' machine.serial %}" class="btn btn-secondary">
+                Update machine
+              </a>
+            </th>
+
+          </tr>            
+          {% endif %}
+            
+ 
         </tbody>
       </table>
     </div>

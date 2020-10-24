@@ -9,7 +9,7 @@ import datetime
 # Create your models here.
 class Area(models.Model):
     name= models.CharField('area code',max_length=100)
-    slug = models.SlugField(unique=True, blank=True)
+    # slug = models.SlugField(unique=True, blank=True)
     start = models.CharField(max_length=255)
     end = models.CharField(max_length=255)
     margin = models.URLField()

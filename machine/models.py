@@ -44,30 +44,29 @@ class MachineDetail(models.Model):
     ('c8035', 'c8035'), ('c8045', 'c8045'), ('c8055', 'c8055'), ('c8065', 'c8065'), ('c8075', 'c8075'),
     ('180', '180'), ('2100', '2100'), ('3100', '3100'))
     production  = 4
-    workcentre = 6
-    radiology = 6
+    workcentre_radiology = 6
     phasor = 9
     production_return = 4
     production_return_meter = 2000
-    office_return = 7
+    office_radiology_return = 7
     office_return_meter = 5000
-    radiology_return = 7
     radiology_return_meter = 5000
     
-    response_choices_hours = ((production, 'Production'),(workcentre, 'Workcentre'), (phasor, 'Phasor'),(radiology, 'Radiology'))
-    return_choices_days = ((production_return, 'Production'), (office_return, 'Office'), (radiology_return, 'Radiology'))
-    name= models.CharField(max_length=200)
+    response_choices_hours = ((production, 'Production'),(workcentre_radiology, 'Workcentre/radiology'), (phasor, 'Phasor'))
+    return_choices_days = ((production_return, 'Production'), (office_radiology_return, 'Office/radiology'))
+    # name= models.CharField(max_length=200)
     serial = models.IntegerField('standard seial', help_text='fill this if your serial is numbers only', unique=True, blank=True)
-    serial2 = models.CharField('non-standard serial', max_length=10, help_text="fill this if your serial consists of numbers and letters", unique=True, blank=True)
-    machine_model = models.CharField(max_length=100)
-    model_of_machine =models.CharField('model of machine',max_length=10, choices=model_choices, default='no model')
-    slug = models.SlugField(unique=True)
-    description = models.TextField()
+    serial2 = models.CharField('non-standard serial', max_length=10, help_text="fill this if your serial consists of numbers and letters", unique=True,null=True, blank=True)
+    # machine_model = models.CharField(max_length=100)
+    machine_model =models.CharField('model of machine',max_length=10, choices=model_choices, default='no model')
+    # slug = models.SlugField(unique=True)
+    description = models.TextField(null=True, blank=True)
+    installation_date = models.DateTimeField(blank=True, null=True)
     added = models.DateTimeField(auto_now_add=True)
-    speed = models.IntegerField(blank = True, null=True, choices=speed_choices)
+    # speed = models.IntegerField(blank = True, null=True, choices=speed_choices)
     machine_points = models.FloatField(default=1)
     machine_response_time = models.IntegerField(choices=response_choices_hours, null=True, blank=True)
-    machine_return_time = models.IntegerField(choices=return_choices_days, null=True, blank=True) 
+    machine_callback_time = models.IntegerField(choices=return_choices_days, null=True, blank=True) 
     class Meta:
         abstract=True
 class Category(models.Model):
@@ -88,22 +87,26 @@ class Machine(MachineDetail):
     bw_phasor = 'mono phasor'
     color_phasor = 'color phasor'
     wide_format = 'wide format'
+    radiology = 'radiology'
+    bw_production = 'mono production'
+    color_production = 'color production'
 
     category_choices = ((bw_workcentre,'B/W workcentre'),(color_workcentre,'Color workcentre'), (bw_phasor,'B/W phasor'),
-    (color_phasor,'Color phasor'), (wide_format,'Wide Format'))
+    (color_phasor,'Color phasor'), (wide_format,'Wide Format'), (bw_production, 'B/W production'), (color_production, 'Color production'), (radiology,'Radiology'))
     
     # category = models.ForeignKey(Category, on_delete=models.CASCADE,  blank=True, null=True)
     machine_category = models.CharField('Machine Category',max_length=100,choices=category_choices, blank=True,null=True)
     customer = models.ForeignKey(Customer,related_name='machines', on_delete=models.CASCADE)
     department = models.ForeignKey(Department, related_name='machines_dep', on_delete=models.CASCADE)
     area = models.ForeignKey(Area, related_name='machines', on_delete=models.CASCADE, blank=True,null=True)
-    engineers = models.ManyToManyField(Engineer, related_name='machines', blank=True)
+    # engineers = models.ManyToManyField(Engineer, related_name='machines', blank=True)
     contract = models.OneToOneField(to='Contract', on_delete=models.DO_NOTHING, related_name='machine', null=True, blank=True)
     #call = models.OneToOneField()
     objects = models.Manager()
     objects1 = MachineManager()
     def __str__(self):
-        return '{}'.format(self.serial) + ' ' +self.machine_model + '({})'.format(self.machine_category)+"  "+self.customer.name+"  "+self.department.department_name
+        
+        return '{}'.format(self.serial) + ' ' +self.machine_model + "  " + self.department.department_name
     # def save(self,*args,**kwargs):
     #     department = Department.objects.get(pk=self.department.id)
     #     department.no_of_machine +=1
@@ -114,10 +117,10 @@ class Machine(MachineDetail):
 class Call(models.Model):
     #from machine.models import Machine
     unassigned = 'unassigned'
-    pending = 'pending'
+    incomplete = 'incomplete'
     completed =  'completed'
     dispatched =  'dispatched'
-    status_choices = ((unassigned, 'Unassigned'),(dispatched, 'Dispatched'), (pending, 'Pending'),(completed, 'Completed'))
+    status_choices = ((unassigned, 'Unassigned'),(dispatched, 'Dispatched'), (incomplete, 'Incomplete'),(completed, 'Completed'))
     def customer_name(self):
         machine = Machine.objects.get(id=self.machine.id)
         customer = Customer.objects.get(id=machine.customer.id)
@@ -158,8 +161,8 @@ class Call(models.Model):
    
     def __str__(self):
         if self.engineer:
-                return (Engineer.objects.get(id=self.engineer.id).name) + ' ' + self.customer.name + ' ' + self.machine.name + ' ' +str(self.notification_number)
-        return self.machine.name + ' ' + self.customer.name + ' ' + str(self.notification_number) + ' ' + ' no engineer assigned yet'
+                return (Engineer.objects.get(id=self.engineer.id).name) + ' ' + self.customer.name + ' ' + self.machine.machine_model + ' ' +str(self.notification_number)
+        return self.machine.machine_model + ' ' + self.customer.name + ' ' + str(self.notification_number) + ' ' + ' no engineer assigned yet'
     # def save(self, *args, **kwargs):
     #     if self.engineer:
     #         self.is_assigned = True
@@ -220,25 +223,30 @@ class Call(models.Model):
 class Report(models.Model):
     # def get_customer(self):
     #     return self.call.machine.customer.name
-    pending = 'pending'
+    incomplete = 'incomplete'
     completed =  'completed'
-    status_choices = ((pending, 'Pending'),(completed, 'Completed'))
+    status_choices = ((incomplete, 'Incomplete'),(completed, 'Completed'))
 
     call = models.ForeignKey(Call, related_name='reports', on_delete=models.CASCADE)
-    customer_name = models.CharField(max_length=50,default='')
+    # customer_name = models.CharField(max_length=50,default='')
     engineer = models.ForeignKey(Engineer,related_name='calls', on_delete=models.CASCADE)
-    notification_number = models.IntegerField(null=True, blank=True)
-    machine_serial = models.IntegerField(blank=True, null=True)
+    status = models.CharField(max_length=50, choices=status_choices, default=incomplete)
+
+    # notification_number = models.IntegerField(null=True, blank=True)
+    # machine_serial = models.IntegerField(blank=True, null=True)
     billing_meter_black = models.IntegerField(blank=True, null=True)
     billing_meter_color = models.IntegerField(blank=True, null=True)
-
     billing_meter_total = models.IntegerField(blank=True, null=True)
-    status = models.CharField(max_length=50, choices=status_choices, default=pending)
+
     billing_meter1 = models.IntegerField(blank=True, null=True)
     billing_meter2 = models.IntegerField(blank=True, null=True)
+    
     report_copy = models.FileField(upload_to='files/reports/', blank=True, null=True)
+    
     image = models.ImageField(upload_to='images/reports/', blank=True, null=True)
+    
     summary = models.TextField(blank=True, null=True)
+    
     notes_for_dispatcher = models.TextField(blank=True, null=True)
     # def save(self, *args, **kwargs):
     #     self.call.status=self.status
@@ -276,7 +284,8 @@ class Contract(models.Model):
     fm='FM'
     lis = 'LIS'
     tandm = 'T&M'
-    contract_choices=((fsma, 'FSMA'), (labour, 'Time'), (lis,'LIS'),(fm, 'FM'), (xpps,'XPPS'), (tandm, 'T&M'))
+    warranty = 'Warranty'
+    contract_choices=((fsma, 'FSMA'), (labour, 'Time'), (lis,'LIS'),(fm, 'FM'), (xpps,'XPPS'), (tandm, 'T&M'), (warranty, 'Warranty'))
     
     contract_type = models.CharField(max_length=50,choices=contract_choices, blank=True, null=True)
     machine_serial = models.IntegerField(null=True,  blank=True)
@@ -309,7 +318,7 @@ class Contract(models.Model):
                     
 
     def __str__(self):
-        return self.contract_type + " " + '{}'.format(self.monthly_fees)
+        return self.contract_type + ' {}'.format(self.machine_serial)
     
 
 

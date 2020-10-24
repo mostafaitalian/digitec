@@ -92,7 +92,7 @@ class MachineConsumer3(WebsocketConsumer):
             pending_engineer_calls = Call.objects.filter(status='pending').count()
             dispatched_engineer_calls = Call.objects.filter(status='dispatched').count()
             completed_engineer_calls = Call.objects.filter(status='completed').count()
-            self.send(text_data='you have {} calls, you have {} calls still at unassigned stage, you have {} calls still at dispatching stage, you have {} calls still at pending stage, you have {} calls still at completed stage'.format(total_calls, unassigned_engineer_calls, dispatched_engineer_calls, pending_engineer_calls, completed_engineer_calls))
+            self.send(text_data='You have {} calls.\nYou have {} calls still at unassigned stage.\nYou have {} calls still at dispatching stage.\nYou have {} calls still at pending stage.\nYou have {} calls still at completed stage.'.format(total_calls, unassigned_engineer_calls, dispatched_engineer_calls, pending_engineer_calls, completed_engineer_calls))
 
         elif self.scope['user'].engineer and self.scope['user'].is_authenticated:
             dispatched_engineer_calls = Call.objects.filter(engineer__user=self.scope['user']).filter(status='dispatched').count()

@@ -53,7 +53,7 @@ class Customer(CustomerDetail):
     address = models.URLField('address site')
     telephone = models.PositiveIntegerField("telephone", null=True, blank=True)
     #machines = models.ForeignKey(Machine, on_delete=models.CASCADE)
-    area = models.ForeignKey(to=Area, related_name='customers',to_field='slug', on_delete=models.CASCADE)
+    # area = models.ForeignKey(to=Area, related_name='customers',to_field='slug', on_delete=models.CASCADE)
     engineers = models.ManyToManyField(to=Engineer, related_name='customers', blank=True)
     begin_at = models.TimeField(default=datetime.time(hour=8, minute=0, second=0))
     finish_at = models.TimeField(default=datetime.time(hour=16, minute=0, second=0))
@@ -158,8 +158,8 @@ class ContactPerson(models.Model):
     first_name=models.CharField('First Name', max_length=20)
     last_name=models.CharField('Last Name', max_length=20)
     email = models.EmailField()
-    mobile_number = models.PositiveIntegerField('Mobile Number',null=True,blank=True)
-    office_number = models.PositiveIntegerField('Office Number',null=True,blank=True)
+    mobile_number = models.IntegerField('Mobile Number',null=True,blank=True)
+    office_number = models.IntegerField('Office Number',null=True,blank=True)
     cutomer = models.ForeignKey(CustomerBranch, on_delete=models.CASCADE, related_name='contact_persons')
 
 

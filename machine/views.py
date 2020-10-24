@@ -1,10 +1,11 @@
 from django.shortcuts import render, reverse
 from django.views.generic import CreateView, ListView, DetailView, UpdateView
-from .models import Machine, Call, Category, Report
-from .forms import CreateMachineForm, CallForm, CategoryForm, ReportForm, ReportForm1, CallFormSet,CallForm1, CallForm2
+from .models import Machine, Call, Category, Report, Contract
+from .forms import CreateMachineForm, CallForm, CategoryForm, ReportForm, ReportForm1, CallFormSet,CallForm1, CallForm2, MachineForm, ContractForm
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect
 from engineer.models import Engineer
+
 from customer.models import Department, Customer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import BaseAuthentication, SessionAuthentication
@@ -12,6 +13,8 @@ from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .serializers import MachineSerializer
 from django.contrib.auth import get_user_model
+from django.shortcuts import get_object_or_404
+from django.contrib import messages
 from rest_framework.generics import ListCreateAPIView, CreateAPIView, RetrieveUpdateDestroyAPIView 
 # Create your views here.
 import json
@@ -255,10 +258,29 @@ def create_bulk_machines(request):
 
         pass
 def create_update_call_formset(request, notification=None):
-    if notification:
-        call =  Call.objects.get(notification_number=notification)
+    serial = request.GET.get('serial', None)
+    print(serial)
+    if serial:
+        print(serial)
+        try:
+            machine = Machine.objects.get(serial__icontains=serial)
+            
+        except:
+            messages.warning(request, 'No machine found with this serial')
+            return redirect('machine:call_manage')
+        # machine = get_object_or_404(Machine, serial__icontains=serial)
+
+        print(machine.serial)
+        call=Call(customer=machine.customer, machine=machine)
+        # call.save(commit=False)
+        print('{}{}'.format(machine.serial, serial))
+        
+    
     else:
-        call = Call()
+        if notification:
+            call =  Call.objects.get(notification_number=notification)
+        else:
+            call = Call()
 
     call_form = CallForm1(instance=call)
     formset = CallFormSet(instance=call)
@@ -269,6 +291,7 @@ def create_update_call_formset(request, notification=None):
         # created_call_form = call_form.save(commit=False)
         created_formset = CallFormSet(request.POST, request.FILES, instance=call)
         if created_call_form.is_valid():
+            print('inside POst valid')
             created_call= created_call_form.save()
             if created_formset.is_valid():
 
@@ -301,3 +324,74 @@ class CallUpdateView(UpdateView):
         send_mail(subject=s, message=m, from_email=settings.DEFAULT_FROM_EMAIL, recipient_list=['myossef@digitecxerox.com'])
 
         return super().form_valid(form)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def create_update_machine(request, serial_number=None):
+    serial = request.GET.get('serial', None)
+    print(serial)
+    if serial_number:
+        print(serial_number)
+        try:
+            machine = Machine.objects.get(serial__icontains=serial_number)
+            if machine.contract:
+                contract = machine.contract
+            else:
+                contract=Contract()
+            
+        except:
+            messages.warning(request, 'No machine found with this serial')
+            return redirect('machine:machine_manage')
+        # machine = get_object_or_404(Machine, serial__icontains=serial)
+
+        # print(machine.serial)
+        # call=Call(customer=machine.customer, machine=machine)
+        # # call.save(commit=False)
+        # print('{}{}'.format(machine.serial, serial))
+        
+    elif serial:
+        try:
+            machine = Machine.objects.get(serial__icontains=serial)
+            if machine.contract:
+                contract = machine.contract
+            else:
+                contract=Contract()
+        except:
+            messages.warning(request, 'No machine found with this serial')
+            return redirect('machine:machine_manage')
+    else:
+            machine= Machine()
+            contract=Contract()
+
+    machine_form = MachineForm(instance=machine)
+    contract_form = ContractForm(instance=contract)
+    if request.method =='POST':
+        created_machine_form = MachineForm(request.POST, instance=machine)
+
+        # created_call_form = call_form.save(commit=False)
+        created_contract_form = ContractForm(request.POST, request.FILES, instance=contract)
+        if created_machine_form.is_valid() and created_contract_form.is_valid():
+            print('inside POst valid')
+            created_machine= created_machine_form.save(commit=False)
+            
+            created_contract = created_contract_form.save()
+            created_machine.contract = created_contract
+            created_machine.save()
+
+
+
+            return redirect(reverse('machine:machine_detail', kwargs={'pk':created_machine.id}))
+    # print('{}---{}'.format(call.notification_number, call.created_date))
+    return render(request, 'machine/manage_machine.html', {'machine_form':machine_form, 'contract_form':contract_form, 'serial_number': machine.serial})

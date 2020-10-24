@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    machine
+{% endblock title %}
+
+
+{% block main %}
+    <form method="GET" action="{% url 'machine:machine_manage' %}">
+        <input class='form-control' type="number" name="serial"/>
+        <button class='btn btn-secondary' type="submit">search by serial</button> 
+    </form>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="number" value={{ serial_number }} readonly/>
+        
+        {% for field in machine_form.fields %}
+        
+        {% if field.name == 'serial' %}
+        {{field}}
+            
+        {% endif %}
+            
+            
+        {% endfor %}
+            
+        {{machine_form|crispy}}
+        {{contract_form|crispy}}
+        <button class='btn btn-primary' type='submit'>
+            
+            {% if serial_number %}
+                Update machine
+            {% else %}
+                Add machine
+            {% endif %}
+
+        </button>
+    </form>
+{% endblock main %}

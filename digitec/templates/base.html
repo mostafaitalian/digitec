@@ -39,6 +39,10 @@
 
   {% endblock %}
   <style type="text/css">
+
+    body{
+        background-color: rgb(230, 227, 222);
+    }
     .m {
       margin: 4px;
     }
@@ -57,10 +61,14 @@
 
     }
 
+    .dropdown button:hover {
+      color: black !important;
+    }
+
     li.nav-item:hover {
       border-bottom: 1px solid black;
       margin-right: 20px;
-      background-color: white;
+      background-color: white !important;
       color: black;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
@@ -86,10 +94,29 @@
 
     div ul li a.nav-link {
       color:
-       white !important;
+        white !important;
     }
-    div{
-      margin:0px;
+
+    div {
+      margin: 0px;
+    }
+    .btn-group .btn.btn-warning{
+      height: 3.8rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-content: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      font-size: small;
+      font-weight: bold;
+      /* font-style: oblique; */
+    }
+    .col-12 .btn-group{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
     }
   </style>
 </head>
@@ -121,12 +148,29 @@
               <input type="text" name="q" />
               <button type="submit" class='btn btn-outline-danger'>search</button>
             </form> -->
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'contact-us' %}">contact us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
-            </li>
+
+
+          <li class="nav-item">
+
+            <a class="nav-link" href="{% url 'contact-us' %}">Contact us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About</a>
+          </li>
+          <li class="nav-item" style="height: 35px !important;">
+            <div class="dropdown">
+              <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"
+                style="border-style: none !important;color:white;font-size: 12px;font-weight: normal !important;">
+                Data
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button">Inventory</button>
+                <button class="dropdown-item" type="button">Result</button>
+                <button class="dropdown-item" type="button">Unsolved Problems</button>
+              </div>
+            </div>
+          </li>
           {% if request.user.is_authenticated %}
           <li class="nav-item">
             {# URL provided by django-allauth/account/urls.py #}
@@ -134,13 +178,7 @@
           </li>
 
 
-          <form class="form-inline my-2 my-lg-0" action="{% url 'customer:customer-list' %}" method="GET">
-            <div class='form-group' style='display:flex; flex-direction: row;margin-top: 1rem;'>
-              <input class="form-control mr-1" type="search" placeholder="Search" aria-label="Search" name="q">
-              <button class="btn btn-outline-success" type="submit">Search Customer/s</button>
-            </div>
 
-          </form>
 
           <li class="nav-item" style='float: right !important; position: absolute; right:2%;'>
             {# URL provided by django-allauth/account/urls.py #}
@@ -155,14 +193,17 @@
             {# URL provided by django-allauth/account/urls.py #}
             <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
           </li>
+          <!-- <div class="d-block" style="background-color: yellow !important;">
+            <form class="form-inline my-2 my-lg-0" action="{% url 'customer:customer-list' %}" method="GET">
+              <div class='form-group' style='display:flex; flex-direction: row;'>
+                <input class="form-control mr-1" type="search" placeholder="Search" aria-label="Search" name="q">
+                <button class="btn btn-outline-success" type="submit">Search Customer/s</button>
+              </div>
 
-          <form class="form-inline my-2 my-lg-0" action="{% url 'customer:customer-list' %}" method="GET">
-            <div class='form-group' style='display:flex; flex-direction: row;'>
-              <input class="form-control mr-1" type="search" placeholder="Search" aria-label="Search" name="q">
-              <button class="btn btn-outline-success" type="submit">Search Customer/s</button>
-            </div>
+          </div>
 
-          </form>
+
+          </form> -->
 
 
           {% endif %}
@@ -182,67 +223,160 @@
     <div class="container-fluid ">
       it is {% now "jS F Y H:i" %}
       <br>
-      <p id='webid' style="background-color: red;padding:10px;"></p>
       <div class='row m-auto'>
-        <div class='col-12 m-auto text-center'>
+        <div class="col-12">
+          <div class="btn-group" role="group" aria-label="Nested Button Group">
+            <a class="btn btn-warning"  href="{% url 'machine:call_list'  %}">CALL LIST</a>
+            <a class="btn btn-warning" href="{% url 'engineer:engineer_review_create'  %}">CREATE REVIEW</a>
+
+            <!-- <button type="button" class="btn btn-primary">Button 1</button>
+            <button type="button" class="btn btn-info">Button 2</button> -->
+
+
+              <div class="btn-group" role="group">
+                <button id="nested1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Machine
+                </button>
+                <div class="dropdown-menu" aria-labelledby="nested1">
+                  <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important; margin:0px !important;"
+                    href="{% url 'machine:list'  %}">Machine list</a>
+  
+                  <div class="dropdown-divider"></div>
+                  <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important;" href="{% url 'machine:create'  %}">Create Machine</a>
+                  <div class="dropdown-divider"></div>
+
+                  <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important;" href="{% url 'machine:machine_manage'  %}">Create/Update machine</a>
+
+  
+                </div>
+                <div class="btn-group" role="group">
+                  <button id="nested1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Call
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="nested1">
+                    <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important;"
+                      href="{% url 'machine:call_list'  %}">Call list</a>
+    
+                    <div class="dropdown-divider"></div>
+                    <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important; margin:0px !important;" href="{% url 'machine:call_create'  %}">Create Call</a>
+                    <div class="dropdown-divider"></div>
+
+                    <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important;" href="{% url 'machine:call_manage'  %}">Create/update call </a>
+
+    
+                  </div>
+                </div>
+                <div class="btn-group" role="group">
+                  <button id="nested1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Engineer
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="nested1">
+                    
+                    <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important;" href="{% url 'engineer:engineer_create'  %}">Create Engineer</a>
+
+
+    
+                  </div>
+                </div>
+            <div class="btn-group" role="group">
+              <button id="nested1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Customers
+              </button>
+              <div class="dropdown-menu" aria-labelledby="nested1">
+                <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important;"
+                  href="{% url 'customer:customer-list'  %}">Customer list</a>
+                <div class="dropdown-divider"></div>
+                <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important; margin:0px !important;"
+                  href="{% url 'customer:customer-create'  %}">Create Customer</a>
+                <div class="dropdown-divider"></div>
+
+                <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important; margin:0px !important;"
+                  href="{% url 'customer:department-create'  %}">Create department</a>
+              </div>
+            </div>
+          </div>
           
-          {% if request.user.is_superuser %}
-          <a class="btn btn-primary machine-create" href="{% url 'machine:create'  %}">Create Machine</a>
+        </div>
+
+        <div class='col-12 m-auto text-center'>
+
+          <!-- {% if request.user.is_superuser %}
           <a class="btn btn-primary machine-create" href="{% url 'machine:call_create'  %}">Create Call</a>
-          <a class="btn btn-primary machine-create" href="{% url 'engineer:engineer_create'  %}">Create Engineer</a>
-          <a class="btn btn-primary machine-create" href="{% url 'customer:customer-create'  %}">Create Customer</a>
-          <a class="btn btn-primary machine-create" href="{% url 'customer:department-create'  %}">Create department</a>
+
           <a class="btn btn-primary machine-create" href="{% url 'machine:call_manage'  %}">create call with contacts</a>
-            
           {% endif %}
-            
+
 
 
 
           <a class="btn btn-primary machine-create" href="{% url 'machine:call_list'  %}">Call List</a>
-          <a class="btn btn-primary machine-create" href="{% url 'engineer:engineer_review_create'  %}">Create review</a>
+          <a class="btn btn-primary machine-create" href="{% url 'engineer:engineer_review_create'  %}">Create
+            review</a> -->
 
-          <div class="d-inline-block bg-gray" style="background-color: gray !important;box-sizing: border-box;margin:10px;height: 44px;padding:0px 5px;">
-            <form method="GET" action="{% url 'machine:machine_list_custom' %}"  class='from-inline'>
-              
-              <div class='d-inline-block'>
-                <div class='d-inline-block'>
-                  <input id='name-id' type="radio" name='category' value="name"/>
-  
-                </div>
-                <label class='d-inline-block' for='name-id'>Name</label>
-  
-              </div>
-              
-              
-              <div class='d-inline-block'>
-                <div class='d-inline-block'>
-                  <input id='customer-id' type="radio" name='category' value="customer"/>
-  
-                </div>
-                <label class='d-inline-block' for='customer-id'>Customer</label>
-  
-              </div>
-              
-      
-              <div class='d-inline-block'>
-                <div class='d-inline-block'>
-                  <input id='serial-id' type="radio" name='category' value="serial"/>
-  
-                </div>
-                <label class='d-inline-block' for='serial-id'>Serial</label>
-  
-              </div>            
-      
-  
-              <input  type="text" name="query" />
-              <button type="submit" class="btn btn-primary">
-                  search for machines
-              </button>
-          </form>
+         
+      <div style="display: flex;flex-direction: column; justify-content: center;align-content: center;">
+        <div class="d-inline-block bg-gray" style="background-color: gray !important;box-sizing: border-box;margin:10px 0px 100px 0px;height: 44px;padding:0px 5px;">
+        <form method="GET" action="{% url 'machine:machine_list_custom' %}" class='from-inline'>
+
+          <div class='d-inline-block'>
+            <div class='d-inline-block'>
+              <input id='name-id' type="radio" name='category' value="name" />
+
+            </div>
+            <label class='d-inline-block' for='name-id'>Name</label>
+
           </div>
-          
+
+
+          <div class='d-inline-block'>
+            <div class='d-inline-block'>
+              <input id='customer-id' type="radio" name='category' value="customer" />
+
+            </div>
+            <label class='d-inline-block' for='customer-id'>Customer</label>
+
+          </div>
+
+
+          <div class='d-inline-block'>
+            <div class='d-inline-block'>
+              <input id='serial-id' type="radio" name='category' value="serial" />
+
+            </div>
+            <label class='d-inline-block' for='serial-id'>Serial</label>
+
+          </div>
+
+
+          <input type="text" name="query" />
+          <button type="submit" class="btn btn-primary">
+            search for machines
+          </button>
+        </form>
+      </div>
+
+
+
+        <div>
+          <form class="form" action="{% url 'customer:customer-list' %}" method="GET">
+            <div class='form-group' style='display:flex; flex-direction: row;margin-top: 1rem;'>
+              <input class="form-control mr-1" type="search" placeholder="Search" aria-label="Search" name="q">
+              <button class="btn btn-outline-success" type="submit">Search Customer/s</button>
+            </div>
+
+          </form>
         </div>
+
+      </div>
+      <div style="width:100%; border-bottom: 3px solid red;margin: 10px 0px;">
+
+      </div>
+      <p id='webid' style="border-left: 2px solid red;padding:10px;background-color: lightgray;"></p>
+      <div  style="width:100%; border-top: 3px solid red; margin-top: 0px !important;margin-bottom: 20px !important;">
 
       </div>
       {% endblock heading %}
@@ -252,9 +386,9 @@
 
 
       {% if messages %}
-        {% for message in messages %}
-          <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
-        {% endfor %}
+      {% for message in messages %}
+      <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+      {% endfor %}
       {% endif %}
       <div class="container-fluid">
         {% block content %}
@@ -262,7 +396,7 @@
         {% endblock content %}
       </div>
 
-      
+
 
     </div><!-- /container -->
 
@@ -284,6 +418,7 @@
       
               console.log('event ', strr)
               let b = document.getElementById('webid')
+              let l = document.createElement('li')
               let text = document.createTextNode(strr['data'])
               b.innerText=strr['data']
               // setInterval(()=>(1), 10000)
@@ -309,24 +444,24 @@
       
       
         </script>
-        
+
       </div>
       <div class="row">
         <div class="col-9" style="width: fit-content;">
-          
+
           {% block main %}
-          
-          
+
+
           {% endblock main %}
         </div>
         <div class="col-3 border-left">
           {% block sidebar%}
-          
+
           {% endblock %}
         </div>
       </div>
     </div>
-    
+
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
