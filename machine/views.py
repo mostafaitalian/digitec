@@ -4,8 +4,8 @@ from .models import Machine, Call, Category, Report, Contract
 from .forms import CreateMachineForm, CallForm, CategoryForm, ReportForm, ReportForm1, CallFormSet,CallForm1, CallForm2, MachineForm, ContractForm
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect
-from engineer.models import Engineer
-
+from engineer.models import Engineer, Area
+from customer.bulk_machines import create_bulk
 from customer.models import Department, Customer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import BaseAuthentication, SessionAuthentication
@@ -321,7 +321,7 @@ class CallUpdateView(UpdateView):
         m = 'you got a new call with notification number {} its assigned date {} you have {} to respond to machine'.format(self.object.notification_number,
         self.object.assigned_date, self.object.machine.machine_response_time)
         
-        send_mail(subject=s, message=m, from_email=settings.DEFAULT_FROM_EMAIL, recipient_list=['myossef@digitecxerox.com'])
+        send_mail(subject=s, message=m, from_email=settings.DEFAULT_FROM_EMAIL, recipient_list=['myossef@digitecxerox.com'],)
 
         return super().form_valid(form)
 
@@ -395,3 +395,21 @@ def create_update_machine(request, serial_number=None):
             return redirect(reverse('machine:machine_detail', kwargs={'pk':created_machine.id}))
     # print('{}---{}'.format(call.notification_number, call.created_date))
     return render(request, 'machine/manage_machine.html', {'machine_form':machine_form, 'contract_form':contract_form, 'serial_number': machine.serial})
+
+
+def bulk(request):
+    customers = Customer.objects.all()
+    data_list = create_bulk(customers)
+    da = json.loads(json.dumps(data_list,indent=4, ensure_ascii=False).encode('utf-8'))
+    print(da)
+    daa = [item['fields'] for item in da]
+    print(json.loads(json.dumps(daa)))
+    for d in daa:
+        customer = Customer.objects.get(id=d['customer'])
+        d['customer']=customer
+        area = Area.objects.get(id=d['area'])
+        d['area'] = area
+        department = Department.objects.get(id=d['department'])
+        d['department'] = department
+    Machine.objects.bulk_create([Machine(**i) for i in daa])
+    return redirect('machine:list')

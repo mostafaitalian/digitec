@@ -9,6 +9,14 @@ export default class LikeButton extends Component {
     handleDoubleClick= (e)=>{
         if(this.state.isLiked ===true){
             this.setState((prev)=>{
+                if (prev.isLiked === false){
+                    return{
+                        counter: prev.counter +1,
+                        isLiked : true
+                    }
+
+                }
+                else if(prev.isliked ===true) 
                 return{
                     counter: prev.counter -1,
                     isLiked : false
@@ -27,11 +35,16 @@ export default class LikeButton extends Component {
         }
     }
     render() {
+        let liked_classes = cx({
+            'like_button': true,
+            'liked':this.state.isLiked,
+
+        })
         return (
             <>
                 <div>
                     <h2>Like Button</h2>
-                    <button className={this.state.isLiked?'liked like-button':'like-button'} onDoubleClick={this.handleDoubleClick} onClick={this.handle_onClick}>Like<span> | {this.state.counter}</span></button>
+                    <button className={liked_classes} onDoubleClick={this.handleDoubleClick} onClick={this.handle_onClick}>Like<span> | {this.state.counter}</span></button>
 
 
 

@@ -20,6 +20,12 @@ if READ_DOT_ENV_FILE:
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = env.bool('DJANGO_DEBUG', False)
 SECRET_KEY= 'R02glmqmdf3fI2MpOlRlyqT39QviTl28FWGXAqZooJY15FwNtW9MlfWWX5uzbkr4'
+ALLOWED_HOSTS = [
+    "localhost",
+    "0.0.0.0",
+    "127.0.0.1",
+    "178.79.144.93",
+]
 # Local time zone. Choices are
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # though not all of them may be available with every OS.
@@ -358,11 +364,11 @@ JWT_AUTH  = {
 #     'TOKEN_TYPE_CLAIM': 'token_type',
 # }
 
-# CHANNEL_LAYERS = {
-#     'default': {
-#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
-#         'CONFIG': {
-#             'hosts': [('127.0.0.1', 6379)],
-#         },
-#     },
-# }
+CHANNELS_LAYER = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('127.0.0.1', 6379)],
+        },
+    },
+}

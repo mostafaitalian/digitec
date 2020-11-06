@@ -1,0 +1,2931 @@
+[
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Emirates NBD",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000339",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Toyota Egypt(FDT)",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000489",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Toyota Egypt(FDT)",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000489",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "GAC - GULF AGENCY COMPANY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000200",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Eng. Consultants Group",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000697",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Delta Insurance Company LTD",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000183",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000005",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "GAC - GULF AGENCY COMPANY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000200",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "TOYOTA TSUSHO",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000490",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Amlak Investment Co",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000807",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ECOLE SAINT GABRIAL",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000199",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "CONSULATE OF PLASTIN",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000171",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ECOLE SAINT GABRIAL",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000199",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000005",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000005",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000005",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ECOLE SAINT GABRIAL",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000199",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "EGYPTIAN OPERATING COMPANY - ELNG",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000315",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Misr Bank",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000752",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alexandria University",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000080",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "The United Bank",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000484",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alexandria University",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000080",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "GENERAL CO. FOR PASSING TRANSPORT",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000204",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000005",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000005",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "GAC - GULF AGENCY COMPANY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000200",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Faculty of Law",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000678",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Faculty of Law",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000678",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "KPMG Hazem Hassan",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000272",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Cairo    Bank",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000889",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Cairo    Bank",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000889",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alexandria University",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000080",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Egyption Corporation For Childhood",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000980",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "\u0645\u062d\u0627\u0641\u0638\u0629 \u0627\u0644\u0627\u0633\u0643\u0646\u062f\u0631\u064a\u0629",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000010",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "\u0645\u062d\u0627\u0641\u0638\u0629 \u0627\u0644\u0627\u0633\u0643\u0646\u062f\u0631\u064a\u0629",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000010",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "\u0645\u062d\u0627\u0641\u0638\u0629 \u0627\u0644\u0627\u0633\u0643\u0646\u062f\u0631\u064a\u0629",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000010",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "GAC - GULF AGENCY COMPANY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000200",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Arebian African International Bank (AAIB)",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00001115",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Elkhateep Graphics",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00001206",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Etal Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00001232",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "GAC - GULF AGENCY COMPANY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000200",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "El Kayar Imp Exp Corp",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000326",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "High Institute for Researches",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000227",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "High Institute for Researches",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000227",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "BANNA TOURS",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000142",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Faculty Of Agriculture",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000347",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Faculty Of Medicine - Alex",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000349",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Bab Sharq Police Station",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000729",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "SANITARY WARES TRADE CO.",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000453",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Faculty Of Medicine - Alex",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000349",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Shatby Hospital for Obstetricions & Gynecologist",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000723",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Emirates NBD",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000339",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "GAC - GULF AGENCY COMPANY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000200",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Nada Medical",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000595",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "High Institute for Researches",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000227",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Al Hamd for Trading",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000719",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "AL ZAHRAA LANGUGE SCHOOL",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000058",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Pharmaceuticals",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000009",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Agial Hospital",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000024",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Agial Hospital - Feto Clinic",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000871",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ECOLE SAINT GABRIAL",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000199",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "TOYOTA TSUSHO",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000490",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Health Insurance Authority",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000222",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Health Insurance Authority",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000222",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ECOLE SAINT GABRIAL",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000199",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Toyota Egypt(FDT)",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000489",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Toyota Egypt(FDT)",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000489",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "EGC",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000302",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Fast Press",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00001203",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Egyptian American Co. For Steel Rolling Mill",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000308",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Medical Research Institute",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000093",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Medical Research Institute",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000093",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Co. for  Electric  Distribution",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000030",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "\u0645\u062d\u0627\u0641\u0638\u0629 \u0627\u0644\u0627\u0633\u0643\u0646\u062f\u0631\u064a\u0629",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000010",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Medical Research Institute",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000093",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex for Educational Services",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00001207",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "GAC - GULF AGENCY COMPANY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000200",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "High Institute for Researches",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000227",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alexandria University",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000080",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alexandria University",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000080",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alexandria University",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000080",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Eyes Royal Center",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000346",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ECOLE SAINT GABRIAL",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000199",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Marine Industries & Services Org - Triumph",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000637",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Agility Egypt For Shipping and Freight",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000025",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Omega Shipping EG",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000837",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Medical Research Institute",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000093",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Faculty Of Engineering",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000348",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ECOLE SAINT GABRIAL",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000199",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Office Tech - Suez Canal Auth",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000811",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "\u0645\u062d\u0627\u0641\u0638\u0629 \u0627\u0644\u0627\u0633\u0643\u0646\u062f\u0631\u064a\u0629",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000010",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alexandria Water Company",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000575",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "PHILIPS    EGYPT         P.O.  4514714794",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000370",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alexandria University",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000080",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "The Global Hospital",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000102",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "CONRAD HOTELS and RESORTS",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000168",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "\u0634\u0631\u0643\u0629 \u0627\u0648\u0648\u0644 \u0627\u0646 \u0634\u064a\u0628\u064a\u0646\u062c \u0633\u064a\u0631\u0641\u064a\u0633\u0632",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00001450",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alexandria Water Company",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000575",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Greek Consulate",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000210",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Prime Scan",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00001458",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "El Kayar Imp Exp Corp",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000326",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "\u062f / \u0633\u0627\u0645\u062d \u0641\u062a\u062d\u064a \u0645\u0631\u0643\u0632 \u0627\u0644\u0627\u0634\u0639\u0629 \u0627\u0644\u062f\u0627\u062e\u0644\u064a\u0629 \u0648\u0627\u0644\u0644\u064a\u0632\u0631",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00001475",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alexandria University",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000080",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "CLASS N K",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000163",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Lagoon for Tourism Investment",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000062",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ECOLE SAINT GABRIAL",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000199",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alexandria University",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000080",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "EGC",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": "00000302",
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": null,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    }
+]

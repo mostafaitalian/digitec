@@ -6,11 +6,23 @@ import datetime
 from django.utils import timezone
 from django.db import transaction
 from dateutil.relativedelta import relativedelta
-
+from functools import wraps
+def skip_signal():
+        def _skip_signal(signal_func):
+                @wraps(signal_func)
+                def _decorator(sender, instance, **kwargs):
+                        if(hasattr(instance, 'skip_signal')):
+                                return None
+                        return signal_func(sender, instance, **kwargs)
+                return _decorator
+        return _skip_signal
 workcentre_black_category = ['b7025', 'b7030', 'b7035',
-'b405',
-'b8045', 'b8055', 'b8065',
+'7025B', '7030B', '7035B',
+'7025b', '7030b', '7035b',
+'b405','405B', '405b',
+'b8045', 'b8055', 'b8065', '8045B', '8055B', '8065B', '8045b', '8055b', '8065b',
 '5945', '5955',
+'5855', '5845', '5865',
 '5325', '5330', '5335', 
 '5225', '5230', '5235', '5225A', '5230A', '5235A',
 '128', '133',
@@ -20,23 +32,25 @@ workcentre_black_category = ['b7025', 'b7030', 'b7035',
 '5735', '5745', '5755', '5765', '5790',
 ]
 workcentre_color_category = [
-     'c7025', 'c7030', 'c7035',
-     'c8035', 'c8045', 'c8055', 'c8065', 'c8075',
-     'c405',
-     '7225', '7220',
-     '7120',
+     'c7025', 'c7030', 'c7035','7025C', '7030C', '7035C',
+     
+     'c8030', 'c8035', 'c8045', 'c8055', 'c8065', 'c8075', '8035C', '8030C', '8045C', '8055C', '8065C',
+     'c405', '405C',
+     '7225', '7220', '7230',
+     '7120', '7125', '7132', '7232',
      '7835', '7845', '7855',
      '7990',
-     'c605',
+     'c605', '605C',
 
 ]
-phasor_black_category = ['3615', '3655', '3635', '3310', '3315']
-phasor_color_category = []
-radiology_category = ['c60', '550', '560']
-production_color_category = ['180', '2100', '3100']
+phasor_black_category = ['3615', '3655', '3635', '3310', '3315',]
+phasor_color_category = ['8880', '8870',]
+radiology_category = ['c60', '550', '560', 'c70', 'j70',]
+production_color_category = ['180', '2100', '3100',]
 production_black_category = []
 
 @receiver(post_save, sender=Machine)
+@skip_signal()
 def handle_machine_save(sender, instance, created, **kwargs):
         if created:
                 print('1')
@@ -87,15 +101,17 @@ def handle_machine_save(sender, instance, created, **kwargs):
                                 print('9')
                                 pass
 
+                instance.skip_signal = True
+                instance.save(update_fields=['machine_callback_time','machine_response_time','machine_category',])
 
                 department = Department.objects.get(pk=instance.department.id)
                 department.no_of_machine +=1
 
                 department.save(update_fields=['no_of_machine'])
                 instance.department = department
-                if instance.customer:
-                        if instance.customer.organization:
-                                instance.customer.organization.save(update_fields=['organization_machines_number'])
+                # if instance.customer:
+                #         if instance.customer.organization:
+                #                 instance.customer.organization.save(update_fields=['organization_machines_number'])
                         
                 if instance.contract and instance.contract.contract_type != 'Warranty':
                         print('h3')
@@ -103,6 +119,7 @@ def handle_machine_save(sender, instance, created, **kwargs):
                         contract.machine_serial=instance.serial
                         # instance.contract = 
                         contract.save(update_fields=['machine_serial'])
+                        
                 if instance.contract and instance.installation_date:
                         print(instance.installation_date, instance.added)
                         x = instance.installation_date.date() == instance.added.date()
@@ -128,22 +145,68 @@ def handle_machine_save(sender, instance, created, **kwargs):
                                 instance.save()
 
         else:
-                if instance.contract is not None:
-                        print('h4')
-                        contract = Contract.objects.get(id=instance.contract.id)
-                        contract.machine_serial=instance.serial
-                        contract.save(update_fields=['machine_serial'])
-@receiver(post_delete, sender=Machine)
-def handle_delete_machine(sender, instance, using, **kwargs):
+                if instance.machine_model:
+                        if instance.machine_model in workcentre_black_category:
+                                print('22')
+                                instance.machine_category = 'mono workcentre'
+                                instance.machine_response_time = 6
+                                instance.machine_callback_time = 7
+                                # instance.save()
+                                # instance.save(update_fields=['machine_category'])
+                        elif instance.machine_model in workcentre_color_category:
+                                print('3')
+                                instance.machine_category = 'color workcentre'
+                                instance.machine_response_time = 6
+                                instance.machine_callback_time = 7
+                        elif instance.machine_model in phasor_black_category:
+                                print('4')
+                                instance.machine_category = 'mono phasor'
+                                instance.machine_response_time = 9
+                                instance.machine_callback_time = 7
+                        elif instance.machine_model in phasor_color_category:
+                                print('5')
+                                instance.machine_category = 'color phasor'
+                                instance.machine_response_time = 9
+                                instance.machine_callback_time = 7
+                        elif instance.machine_model in radiology_category:
+                                print('6')
+                                instance.machine_category = 'radiology'
+                                instance.machine_response_time = 6
+                                instance.machine_callback_time = 7
+                        elif instance.machine_model in production_black_category:
+                                print('7')
+                                instance.machine_category = 'mono production'
+                                instance.machine_response_time = 4
+                                instance.machine_callback_time = 4
+                        elif instance.machine_model in production_color_category:
+                                print('8')
+                                instance.machine_category = 'color production'
+                                instance.machine_response_time = 4
+                                instance.machine_callback_time = 4
+                        else:
+                                print('9')
+                print(instance.machine_category)
+                instance.skip_signal = True
+                instance.save(update_fields=['machine_callback_time','machine_response_time','machine_category',])
 
-        department = Department.objects.get(pk=instance.department.id)
-        department.no_of_machine -=1
+                        #instance.save()
+                # if instance.contract is not None:
+                #         print('h4')
+                #         contract = Contract.objects.get(id=instance.contract.id)
+                #         contract.machine_serial=instance.serial
+                #         contract.save(update_fields=['machine_serial'])
+# @receiver(post_delete, sender=Machine)
+# def handle_delete_machine(sender, instance, using, **kwargs):
 
-        department.save(update_fields=['no_of_machine'])
-        instance.department = department
-        if instance.customer:
-                if instance.customer.organization:
-                        instance.customer.organization.save(update_fields=['organization_machines_number'])
+#         department = Department.objects.get(pk=instance.department.id)
+#         department.no_of_machine -=1
+
+#         department.save(update_fields=['no_of_machine'])
+#         instance.department = department
+        # if instance.customer:
+        #         if instance.customer.organization:
+        #                 instance.customer.organization.save(update_fields=['organization_machines_number'])
+
 
 
 

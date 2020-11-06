@@ -5,6 +5,7 @@ from django.utils import timezone
 from datetime import datetime, timedelta
 from django.db.transaction import atomic
 from django.contrib.auth import get_user_model
+import datetime
 # Create your models here.
 #print(datetime.now()+datetime)
 
@@ -19,13 +20,18 @@ def get_upload_name(instance, filename):
         return filename
 speed_choices=((10,10), (15,15), (20,20),(25,25),(30,30),(35,35),(45,45),(55,55),(65,65),(75,75),(90,90))
 class MachineDetail(models.Model):
+    #machine model choices
     model_choices = (('5855', '5855'), ('5845', '5845'), ('5955', '5955'), ('5945', '5945'),
     ('5865', '5865'), ('5875', '5875'), ('7830', '7830'), ('7845', '7845'), ('7855', '7855'),
-    ('7835', '7835'), ('7225', '7225'), ('7120', '7120'),
+    ('7835', '7835'),
+    ('7220','7220'), ('7225', '7225'), ('7120', '7120'), ('7125', '7125'), ('7132','7132'),('7232', '7232'),
+
     ('c60', 'c60'), ('c70', 'c70'),
     ('560', '560'), ('550', '550'),
     ('j60', 'j60'),
     ('b7025', 'b7025'), ('b7030', 'b7030'), ('b7035', 'b7035'),
+    ('7025B', '7025B'), ('7030B', '7030B'), ('7035B', '7035B'),
+    ('7025b', '7025b'), ('7030b', '7030b'), ('7035b', '7035b'),
     ('5325', '5325'), ('5330', '5330'), ('5335', '5335'),
     ('5016', '5016'), ('5020', '5020'),
     ('5019', '5019'), ('5021', '5021'),
@@ -38,11 +44,13 @@ class MachineDetail(models.Model):
     ('8880', '8880'), ('8870', '8870'),
     ('5225', '5225'), ('5230', '5230'), ('5235', '5235'), ('5225A', '5225A'), ('5230A', '5230A'), ('5235A', '5235A'),
     ('4150', '4150'), ('4260', '4260'),
-    ('b405', 'b405'), ('c405', 'c405'),
-    ('c7025', 'c7025'), ('c7030', 'c7030'), ('c7035', 'c7035'),
-    ('b8045', 'b8045'), ('b8055', 'b8055'),
+    ('b405', 'b405'), ('c405', 'c405'),('405B', '405B'),('405C', '405C'),
+    ('c7025', 'c7025'), ('c7030', 'c7030'), ('c7035', 'c7035'),('7025C','7025C'), ('7030C',  '7030C'), ('7035C', '7035C'),
+    ('b8045', 'b8045'), ('b8055', 'b8055'),('8045B', '8045B'), ('8055B', '8055B'),
     ('c8035', 'c8035'), ('c8045', 'c8045'), ('c8055', 'c8055'), ('c8065', 'c8065'), ('c8075', 'c8075'),
+    ('8030C', '8030C'), ('8035C', '8035C'), ('8045C', '8045C'), ('8055C', '8055C'), ('8065C', '8065C'), ('8075C', '8075C'),
     ('180', '180'), ('2100', '2100'), ('3100', '3100'))
+    #response and return times
     production  = 4
     workcentre_radiology = 6
     phasor = 9
@@ -51,7 +59,18 @@ class MachineDetail(models.Model):
     office_radiology_return = 7
     office_return_meter = 5000
     radiology_return_meter = 5000
-    
+    #weekdays choices
+    Saturday = 5
+    Sunday = 6
+    Monday = 0
+    Tuesday = 1
+    Wednesday = 2
+    Thursday = 3
+    Friday = 4
+    NoDayoff = 7
+    weekday_choices = ((Monday, 'Monday'),(Tuesday, 'Tuesday'),(Wednesday, 'Wednesday'),(Thursday, 'Thursday'),(Friday, 'Friday'),(Saturday, 'Saturday'),(Sunday, 'Sunday'),(NoDayoff, 'NoDayoff'))
+
+
     response_choices_hours = ((production, 'Production'),(workcentre_radiology, 'Workcentre/radiology'), (phasor, 'Phasor'))
     return_choices_days = ((production_return, 'Production'), (office_radiology_return, 'Office/radiology'))
     # name= models.CharField(max_length=200)
@@ -60,13 +79,18 @@ class MachineDetail(models.Model):
     # machine_model = models.CharField(max_length=100)
     machine_model =models.CharField('model of machine',max_length=10, choices=model_choices, default='no model')
     # slug = models.SlugField(unique=True)
-    description = models.TextField(null=True, blank=True)
+    machine_location = models.TextField(null=True, blank=True)
     installation_date = models.DateTimeField(blank=True, null=True)
     added = models.DateTimeField(auto_now_add=True)
     # speed = models.IntegerField(blank = True, null=True, choices=speed_choices)
     machine_points = models.FloatField(default=1)
     machine_response_time = models.IntegerField(choices=response_choices_hours, null=True, blank=True)
     machine_callback_time = models.IntegerField(choices=return_choices_days, null=True, blank=True) 
+    begin_at = models.TimeField(default=datetime.time(hour=8, minute=0, second=0))
+    finish_at = models.TimeField(default=datetime.time(hour=16, minute=0, second=0))
+    #organization = models.ForeignKey(to='CustomerOrganization',on_delete=models.CASCADE, related_name='customers',null=True, blank=True)
+    first_week_dayoff = models.IntegerField(choices=weekday_choices, default=7)
+    second_week_dayoff = models.IntegerField(choices=weekday_choices, default=7)
     class Meta:
         abstract=True
 class Category(models.Model):
@@ -97,16 +121,22 @@ class Machine(MachineDetail):
     # category = models.ForeignKey(Category, on_delete=models.CASCADE,  blank=True, null=True)
     machine_category = models.CharField('Machine Category',max_length=100,choices=category_choices, blank=True,null=True)
     customer = models.ForeignKey(Customer,related_name='machines', on_delete=models.CASCADE)
-    department = models.ForeignKey(Department, related_name='machines_dep', on_delete=models.CASCADE)
+    department = models.ForeignKey(Department, related_name='machines_dep', on_delete=models.CASCADE, null=True, blank=True)
     area = models.ForeignKey(Area, related_name='machines', on_delete=models.CASCADE, blank=True,null=True)
     # engineers = models.ManyToManyField(Engineer, related_name='machines', blank=True)
     contract = models.OneToOneField(to='Contract', on_delete=models.DO_NOTHING, related_name='machine', null=True, blank=True)
+    #contact = models.ForeignKey(to='MachineContact', on_delete=models.CASCADE,related_name='')
     #call = models.OneToOneField()
     objects = models.Manager()
     objects1 = MachineManager()
+    class Meta:
+        unique_together = ['serial', 'machine_model']
+
     def __str__(self):
-        
-        return '{}'.format(self.serial) + ' ' +self.machine_model + "  " + self.department.department_name
+        if hasattr(self.department,'department_name'):
+            return '{}'.format(self.serial) + ' ' +self.machine_model + "  " + self.department.department_name
+        else:
+            return '{}'.format(self.serial) + ' ' +self.machine_model
     # def save(self,*args,**kwargs):
     #     department = Department.objects.get(pk=self.department.id)
     #     department.no_of_machine +=1
@@ -158,7 +188,7 @@ class Call(models.Model):
 
     class Meta:
         get_latest_by=['notification_number']
-   
+        # indexes=['notification_number']
     def __str__(self):
         if self.engineer:
                 return (Engineer.objects.get(id=self.engineer.id).name) + ' ' + self.customer.name + ' ' + self.machine.machine_model + ' ' +str(self.notification_number)
@@ -318,7 +348,10 @@ class Contract(models.Model):
                     
 
     def __str__(self):
-        return self.contract_type + ' {}'.format(self.machine_serial)
+        if self.contract_type:
+            return self.contract_type + ' {}'.format(self.machine_serial)
+        else:
+            return '{}'.format(self.machine_serial)
     
 
 
@@ -378,14 +411,14 @@ class ImageReview(ImageAbstract):
     review = models.ForeignKey(EngineerReview, related_name='images', on_delete=models.CASCADE)
     
     def __str__(self):
-        return self.image_name + ' ' + self.review.machine.name + ' ' +self.review.review_title
+        return self.image_name + ' ' + self.review.machine.machine_model + ' ' +self.review.review_title
 
 
 class FileReview(models.Model):
     review = models.ForeignKey(EngineerReview, related_name='files', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.file_name + ' ' + self.review.machine.name + ' ' +self.review.review_title
+        return self.file_name + ' ' + self.review.machine_model + ' ' +self.review.review_title
 
 
 class ImageReport(ImageAbstract):
@@ -410,9 +443,16 @@ class Contact(models.Model):
     mobile = models.IntegerField()
     telephone = models.PositiveIntegerField(null=True, blank=True)
     email_address = models.EmailField(null=True,blank=True)
-    call = models.ForeignKey(Call, on_delete=models.DO_NOTHING, related_name='call_contacts')
+    call = models.ForeignKey(Call, on_delete=models.CASCADE, related_name='call_contacts')
 
-
+class MachineContact(models.Model):
+    # user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='contact', null=True, blank=True)
+    first_name = models.CharField('First name', max_length=100)
+    last_name = models.CharField('Last name', max_length=100)
+    mobile = models.IntegerField()
+    telephone = models.PositiveIntegerField(null=True, blank=True)
+    email_address = models.EmailField(null=True,blank=True)
+    machine = models.ForeignKey(Machine, on_delete=models.CASCADE, related_name='machine_contacts')
 
 
 

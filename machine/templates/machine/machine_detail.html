@@ -9,6 +9,9 @@
     h2{
       color: black !important;
     }
+    table tr th{
+      padding-left:5px !important;
+    }
   </style>
 {% endblock css1 %}
   
@@ -25,7 +28,7 @@
     {% for engineer in machine.area.engineer_set.all %}
     {% if engineer.user.username == request.user.username or request.user.is_superuser %}
     <div>
-      <table class="table table-hover">
+      <table class="table table-hover table-boardered" style='border: 1px solid black;'>
         <thead class="table-primary">
           <tr class="p-auto">
             <th scope="col">Serial number</th>
@@ -82,11 +85,11 @@
           </tr>
           <tr>
             <th scope="row">Machine address</th>
-            <td>{{machine.customer.location}}</td>
+            <td>{{machine.machine_location}}</td>
 
           </tr>
           <tr>
-            <th scope="row">Machine location</th>
+            <th scope="row">Machine department</th>
             <td>{{machine.department.department_name}}</td>
 
           </tr>
@@ -123,50 +126,51 @@
           </tr>
           <tr>
             <th scope="row">Customer working hours</th>
-            <td id='sc'>{{machine.customer.begin_at}} : {{ machine.customer.finish_at }}</td>
+            <td id='sc'>{{machine.begin_at}} : {{ machine.finish_at }}</td>
 
           </tr>
           <tr>
-            <th scope="row">Customer days off</th>
+            <th scope="row">Machine days off</th>
             <td>
-              
-              {% if machine.customer.first_week_dayoff and machine.customer.first_week_dayoff != 7 %}
+              <!-- {{machine.first_week_dayoff}}-{{machine.second_week_dayoff}} -->
+              {% if machine.first_week_dayoff and machine.first_week_dayoff != 7 %}
                 
-                {% if machine.customer.first_week_dayoff == 0 %}
+                {% if machine.first_week_dayoff == 0 %}
                 Monday
-                {% elif machine.customer.first_week_dayoff == 1 %}
+                {% elif machine.first_week_dayoff == 1 %}
                 Tuesday
-                {% elif machine.customer.first_week_dayoff == 2 %}
+                {% elif machine.first_week_dayoff == 2 %}
                 Wednesday
-                {% elif machine.customer.first_week_dayoff == 3 %}
+                {% elif machine.first_week_dayoff == 3 %}
                 Thursday
-                {% elif machine.customer.first_week_dayoff == 4 %}
+                {% elif machine.first_week_dayoff == 4 %}
                 Friday
-                {% elif machine.customer.first_week_dayoff == 5 %}
+                {% elif machine.first_week_dayoff == 5 %}
                 Saturday
-                {% elif machine.customer.first_week_dayoff == 6 %}
+                {% elif machine.first_week_dayoff == 6 %}
                 Sunday  
                 {% endif %}
                   
               {% endif %}
-              {% if machine.customer.second_week_dayoff and machine.customer.second_week_dayoff != 7 %}
+              {% if machine.second_week_dayoff and machine.second_week_dayoff != 7 %}
                 
-                {% if machine.customer.second_week_dayoff == 0 %}
+                {% if machine.second_week_dayoff == 0 %}
                 , Monday
-                {% elif machine.customer.second_week_dayoff == 1 %}
+                {% elif machine.second_week_dayoff == 1 %}
                 , Tuesday
-                {% elif machine.customer.second_week_dayoff == 2 %}
+                {% elif machine.second_week_dayoff == 2 %}
                 , Wednesday
-                {% elif machine.customer.second_week_dayoff == 3 %}
+                {% elif machine.second_week_dayoff == 3 %}
                 , Thursday
-                {% elif machine.customer.second_week_dayoff == 4 %}
+                {% elif machine.second_week_dayoff == 4 %}
                 , Friday
-                {% elif machine.customer.second_week_dayoff == 5 %}
+                {% elif machine.second_week_dayoff == 5 %}
                 , Saturday
-                {% elif machine.customer.second_week_dayoff == 6 %}
+                {% elif machine.second_week_dayoff == 6 %}
                 , Sunday  
                 {% endif %}
-                  
+              {% else %}
+                no days-off
               {% endif %}  
             </td>
 

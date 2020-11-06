@@ -27,4 +27,5 @@ urlpatterns = [path('create/', views.CreateMachineView1.as_view(), name="create"
                path('call/<pk>/report/create/', views.create_report, name='create_report1'),
                path('report/list/', views.ReportList.as_view(), name='report_list'),
                path('machine/list/cutom/', views.MachineListCustom.as_view(),  name='machine_list_custom'),
+               path('machine/bulk', views.bulk, name='machine_bulk'),
                path('', include(serialize_urls))]

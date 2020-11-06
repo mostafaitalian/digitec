@@ -18,7 +18,7 @@ def get_machine_number(instance):
         return 0
 
 class CustomerDetail(models.Model):
-    name = models.CharField(unique=True, max_length=100)
+    name = models.CharField(unique=True, max_length=200)
     # slug = models.SlugField(help_text='donot fill this it will be filled automatically',unique=True, blank=True)
     class Meta:
         abstract=True
@@ -33,7 +33,7 @@ class Department(models.Model):
              ('others','others'))
     department_name = models.CharField(choices=section,max_length=200,blank=True)
     no_of_machine = models.PositiveIntegerField('machines number', default=0)
-    customer = models.ForeignKey(to='Customer', related_name='departments', on_delete=models.CASCADE )
+    customer = models.ForeignKey(to='Customer', related_name='departments', on_delete=models.CASCADE, blank=True, null=True )
     def __str__(self):
         return self.department_name + "  " + self.customer.name
 class Customer(CustomerDetail):
@@ -50,22 +50,23 @@ class Customer(CustomerDetail):
 
     #departments = models.ManyToManyField(to=Department, related_name='customer')
     location = models.CharField('Address location',max_length=255)
-    address = models.URLField('address site')
+    address_site = models.URLField('address site')
+    customer_id = models.IntegerField(unique=True, blank=True, null=True)
     telephone = models.PositiveIntegerField("telephone", null=True, blank=True)
     #machines = models.ForeignKey(Machine, on_delete=models.CASCADE)
     # area = models.ForeignKey(to=Area, related_name='customers',to_field='slug', on_delete=models.CASCADE)
     engineers = models.ManyToManyField(to=Engineer, related_name='customers', blank=True)
     begin_at = models.TimeField(default=datetime.time(hour=8, minute=0, second=0))
     finish_at = models.TimeField(default=datetime.time(hour=16, minute=0, second=0))
-    organization = models.ForeignKey(to='CustomerOrganization',on_delete=models.CASCADE, related_name='customers',null=True, blank=True)
+    #organization = models.ForeignKey(to='CustomerOrganization',on_delete=models.CASCADE, related_name='customers',null=True, blank=True)
     first_week_dayoff = models.IntegerField(choices=weekday_choices, default=7)
     second_week_dayoff = models.IntegerField(choices=weekday_choices, default=7)
     
 
 
-    def save(self, *args, **kwargs):
-        self.slug = self.name + '_' + str(random.randint(a=1,b=9999999))
-        super().save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     self.slug = self.name + '_' + str(random.randint(a=1,b=9999999))
+    #     super().save(*args, **kwargs)
     
     def get_absolute_url(self):
         return reverse_lazy('customer:customer-detail', id=self.id)
@@ -76,6 +77,8 @@ class Customer(CustomerDetail):
         else:
             return 0
     
+
+
     def __str__(self):
         return self.name
 
@@ -169,3 +172,22 @@ class ContactPerson(models.Model):
             return self.name + "(" + self.customer.name +")"
         else:
             return self.name
+class CustomerContact(models.Model):
+    # user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='contact', null=True, blank=True)
+    first_name = models.CharField('First name', max_length=100)
+    last_name = models.CharField('Last name', max_length=100)
+    title = models.CharField(max_length=100)
+    mobile = models.IntegerField()
+
+    telephone = models.PositiveIntegerField(null=True, blank=True)
+    email_address = models.EmailField(null=True,blank=True)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='customer_contacts')
+
+
+
+    def __str__(self):
+        # if self.user is None:
+        #     return self.first_name + " " +self.last_name
+        # else:
+        #     return self.first_name + " " +self.last_name + " " + self.user.username
+        return self.first_name+ ''+self.last_name

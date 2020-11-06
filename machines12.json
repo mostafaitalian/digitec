@@ -1,0 +1,178 @@
+[
+    {
+        "model": "machine.machine",
+        "fields": {
+            "serial2": null,
+            "machine_model": "no model",
+            "Machine_location": "no location",
+            "installation_date": null,
+            "added": null,
+            "machine_points": 1.0,
+            "machine_response_time": null,
+            "machine_callback_time": null,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 7,
+            "second_week_dayoff": 7,
+            "machine_category": null,
+            "customer_id": null,
+            "department": null,
+            "area": null,
+            "contract": null
+        }
+    },
+    {
+        "model": "machine.machine",
+        "fields": {
+            "serial2": null,
+            "machine_model": "no model",
+            "Machine_location": "no location",
+            "installation_date": null,
+            "added": null,
+            "machine_points": 1.0,
+            "machine_response_time": null,
+            "machine_callback_time": null,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 7,
+            "second_week_dayoff": 7,
+            "machine_category": null,
+            "customer_id": null,
+            "department": null,
+            "area": null,
+            "contract": null
+        }
+    },
+    {
+        "model": "machine.machine",
+        "fields": {
+            "serial2": null,
+            "machine_model": "no model",
+            "Machine_location": "no location",
+            "installation_date": null,
+            "added": null,
+            "machine_points": 1.0,
+            "machine_response_time": null,
+            "machine_callback_time": null,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 7,
+            "second_week_dayoff": 7,
+            "machine_category": null,
+            "customer_id": null,
+            "department": null,
+            "area": null,
+            "contract": null
+        }
+    },
+    {
+        "model": "machine.machine",
+        "fields": {
+            "serial2": null,
+            "machine_model": "no model",
+            "Machine_location": "no location",
+            "installation_date": null,
+            "added": null,
+            "machine_points": 1.0,
+            "machine_response_time": null,
+            "machine_callback_time": null,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 7,
+            "second_week_dayoff": 7,
+            "machine_category": null,
+            "customer_id": null,
+            "department": null,
+            "area": null,
+            "contract": null
+        }
+    },
+    {
+        "model": "machine.machine",
+        "fields": {
+            "serial2": null,
+            "machine_model": "no model",
+            "Machine_location": "no location",
+            "installation_date": null,
+            "added": null,
+            "machine_points": 1.0,
+            "machine_response_time": null,
+            "machine_callback_time": null,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 7,
+            "second_week_dayoff": 7,
+            "machine_category": null,
+            "customer_id": null,
+            "department": null,
+            "area": null,
+            "contract": null
+        }
+    },
+    {
+        "model": "machine.machine",
+        "fields": {
+            "serial": 6004,
+            "machine_model": "5655",
+            "Machine_location": "11 Ibrahim Elsayd - Alex",
+            "installation_date": null,
+            "added": null,
+            "machine_points": 1.0,
+            "machine_response_time": null,
+            "machine_callback_time": null,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 7,
+            "second_week_dayoff": 7,
+            "machine_category": null,
+            "customer_id": 339,
+            "department": null,
+            "area": null,
+            "contract": null
+        }
+    },
+    {
+        "model": "machine.machine",
+        "fields": {
+            "serial2": null,
+            "machine_model": "no model",
+            "Machine_location": "no location",
+            "installation_date": null,
+            "added": null,
+            "machine_points": 1.0,
+            "machine_response_time": null,
+            "machine_callback_time": null,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 7,
+            "second_week_dayoff": 7,
+            "machine_category": null,
+            "customer_id": null,
+            "department": null,
+            "area": null,
+            "contract": null
+        }
+    },
+    {
+        "model": "machine.machine",
+        "fields": {
+            "serial": 123411,
+            "machine_model": "8870",
+            "Machine_location": "Kabary Road - Moharem Bec - Alexandria",
+            "installation_date": null,
+            "added": null,
+            "machine_points": 1.0,
+            "machine_response_time": null,
+            "machine_callback_time": null,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 7,
+            "second_week_dayoff": 7,
+            "machine_category": null,
+            "customer_id": 489,
+            "department": null,
+            "area": null,
+            "contract": null
+        }
+    }
+]

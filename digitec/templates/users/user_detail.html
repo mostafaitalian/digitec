@@ -5,7 +5,7 @@
 {% block css1%}
   <style type="text/css">
       .ex{
-          margin-bottom: 20px;
+          margin-bottom: 5px;
           margin-top: 10px;
           /* background-color: aqua; */
           border-bottom: 1px solid black;
@@ -99,27 +99,25 @@
 <!-- </div> -->
 <!-- End Action buttons -->
 
-  <div class="row ex">
-    <div class="col-sm-12">
+  <div class="row ex" style="background-color: lightgray;">
+    <div class="col-12">
 
-      <h2 class="d-inline-block">{{ object.username}} </h2><span style='font-size: 25px;'> {{engineer}}</span>
+      <!-- <h2 class="d-inline-block">{{ object.username}} </h2> -->
+      <h2 style='font-size: 25px;'>{{engineer}}</h2>
       {% if object == request.user %}
       <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">My Info</a>
       <a class="btn btn-primary" href="{% url 'account_email' %}" role="button">E-Mail</a>
       {% endif %}
-
-      {% if object.name %}
-        <p>{{ object.name }}</p>
-        
+      {% if object.first_name %}
+       <b> {{ object.first_name }} {{object.last_name}}</b>
       {% endif %}
     </div>
-
     {% if engineer.user == request.user %}
-    <div>
-      you have {{engineer.machines.all.count}} machine{{engineer.machines.all.count|pluralize}}
+    <div style="padding: 5px;background-color: lightsteelblue; display: block;width: 100%;margin: 5px 0px;">
+      You have {{engineer.area.machines.all.count}} machine{{engineer.area.machines.all.count|pluralize}} in your area
       <br>
-      you have {{engineer.call_set.all.count}} call{{engineer.calls.all.count|pluralize}}
-      you have {{dispatched_calls.count}} already dispatched calls as well as you have {{pending_calls.count}} pending calls as well as {{completed_calls.count}} completed calls 
+      You have {{engineer.call_set.all.count}} call{{engineer.calls.all.count|pluralize}}, 
+      You have {{dispatched_calls.count}} already dispatched calls as well as you have {{pending_calls.count}} pending calls as well as {{completed_calls.count}} completed calls 
     </div>
     {% endif %}
 

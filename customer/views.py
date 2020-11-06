@@ -7,7 +7,7 @@ from django.urls.base import  reverse
 from .mixin import CustemerGetObjectMixin, CustemerGetObject1Mixin, CustomerActionMixin
 from .utils import can_customer, check_can_add_customer
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from .bulk_machines import create_bulk
 from rest_framework.generics import ListCreateAPIView
 from .serializers import CustomerSerializer
 
@@ -20,7 +20,7 @@ class CustomerListCreateApi(ListCreateAPIView):
 
 # Create your views here.
 
-class CustomerListView(ListView):
+class CustomerListView(LoginRequiredMixin, ListView):
     model = Customer
     template_name='customer_list.html'
     context_object_name='customers'
@@ -117,3 +117,4 @@ class DepartmentCreateView(CreateView):
             return reverse_lazy('customer:customer-detail', kwargs={'id':self.object.customer.id})
         else:
             return reverse_lazy('customer:customer-list')
+

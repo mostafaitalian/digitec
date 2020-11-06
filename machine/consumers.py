@@ -110,6 +110,8 @@ class MachineConsumer3(WebsocketConsumer):
 
         return super().recieve(text_data=text_data)
 
+
+
     
     def disconnect(self):
         self.close()

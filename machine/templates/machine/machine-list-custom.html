@@ -85,13 +85,13 @@
     <div class="col-11 col-md-5  mb-3" style=' box-sizing: border-box;'>
         <div class="card shadow-lg rounded p-3">
             <div class="card-header text-center">
-                <h2><a href="{% url 'machine:list'  %}" style='text-decoration: none;'>{{machine.customer.name|title}}-{{machine.name}}</a></h2>
+                <h3><a href="{% url 'machine:list'  %}" style='text-decoration: none;'>{{machine.customer.name|title}}-{{machine.machine_model|default:'nomodel added'}}</a></h3>
 
             </div>
             <div class="card-body">
               <h5 class="card-title">Serial-{{machine.serial}}</h5>
               <p class="card-text">
-                  {{ machine.description|truncatewords:20 }}   
+                  {{ machine.machine_location }}   
                 </p>
                 <a href="{% url 'machine:machine_detail' machine.id %}">
                     Read more&hellip;</a>

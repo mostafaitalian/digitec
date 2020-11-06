@@ -88,7 +88,7 @@ class ReportForm(ModelForm):
 class ReportForm1(ModelForm):
     
     call = forms.ModelChoiceField(queryset=Call.objects.filter(Q(status='incomplete')|Q(status='unassigned')|Q(status='dispatched')))
-    customer_name = forms.CharField(max_length=50)
+    # customer_name = forms.CharField(max_length=50)
     engineer = forms.ModelChoiceField(queryset=Engineer.objects.all())
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

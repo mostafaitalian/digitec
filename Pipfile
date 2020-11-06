@@ -30,6 +30,8 @@ Django = "~=2.2.15"
 django-cors-headers = "*"
 djangorestframework-jwt = "*"
 channels = "~=2.2"
+channels-redis = "*"
+excel2json-3 = "*"
 
 [requires]
 python_version = "3.8"
