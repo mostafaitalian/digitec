@@ -92,13 +92,16 @@ class MachineConsumer3(WebsocketConsumer):
             pending_engineer_calls = Call.objects.filter(status='pending').count()
             dispatched_engineer_calls = Call.objects.filter(status='dispatched').count()
             completed_engineer_calls = Call.objects.filter(status='completed').count()
-            self.send(text_data='You have {} calls.\nYou have {} calls still at unassigned stage.\nYou have {} calls still at dispatching stage.\nYou have {} calls still at pending stage.\nYou have {} calls still at completed stage.'.format(total_calls, unassigned_engineer_calls, dispatched_engineer_calls, pending_engineer_calls, completed_engineer_calls))
-
+            self.send(text_data='You have {} calls.\nYou have {} calls unassigned.\nYou have {} calls dispatched.\nYou have {} calls pending.\nYou have {} calls completed.'.format(total_calls, unassigned_engineer_calls, dispatched_engineer_calls, pending_engineer_calls, completed_engineer_calls))
+            self.send(text_data='s' + str(unassigned_engineer_calls))
         elif self.scope['user'].engineer and self.scope['user'].is_authenticated:
             dispatched_engineer_calls = Call.objects.filter(engineer__user=self.scope['user']).filter(status='dispatched').count()
+            completed_engineer_calls = Call.objects.filter(engineer__user=self.scope['user']).filter(status='completed').count()
+            pending_engineer_calls = Call.objects.filter(engineer__user=self.scope['user']).filter(status='pending').count()
             
             dispatched_engineer_calls_before_second = Call.objects.filter(engineer__user=self.scope['user']).filter(status='dispatched').filter(assigned_date__lt=datetime.datetime.now()-datetime.timedelta(seconds=1)).count()
-            self.send(text_data='you have {} calls dispatched for you'.format(dispatched_engineer_calls))
+            self.send(text_data='You have {} calls dispatched.\nYou have {} calls still at pending stage.\nYou have {} calls still at completed stage.'.format(dispatched_engineer_calls, pending_engineer_calls, completed_engineer_calls))
+            
         # if(dispatched_engineer_calls != dispatched_engineer_calls_before_second):
         #     # i=500
         #     # while(i<501):

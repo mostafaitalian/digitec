@@ -3,9 +3,12 @@
 {% block title%}assign call{% endblock %}
 
 {% block main %}
+<div style='border-radius: 5px; border: 2px solid rgb(190, 66, 66); padding: 20px 10px;margin-bottom: 5px;'>
+<h5>create Call</h5>
 <form method="post" action="">
 {% csrf_token %}
 {{ form|crispy }}
 <button type="submit" class="btn btn-primary">assign a call</button>
 </form>
+</div>
 {% endblock %}

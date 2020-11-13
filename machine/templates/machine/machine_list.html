@@ -105,15 +105,22 @@
 
 </div> -->
 <div class='row'>
+    <!-- <div class="left-right">
+        <div class="slider">Welcome !</div>
+      </div> -->
 {% for machine in machine_list %}
 
-    <div class="col-11 col-md-6  mb-3" style=' box-sizing: border-box;'>
+    <div class="col-11 col-md-5 mb-3 mr-3" style=' box-sizing: border-box;'>
         <div class="card shadow-lg rounded p-3">
+
+
             <div class="card-header text-center">
                 <h3><a href="{% url 'machine:machine_detail' machine.id %}" style='text-decoration: none;'>{{machine.customer.name|title}}-{{machine.machine_model|default_if_none:"not added yet"}}</a></h3>
 
             </div>
             <div class="card-body">
+
+                
               <h5 class="card-title">Serial-{{machine.serial}}</h5>
               <p class="card-text">
                   {{ machine.machine_location}}
@@ -133,11 +140,28 @@
                     {% endfor %}
                 </ul>
 
+                <div class="left-right">
+                    <div class="slider">
+                        Area: {{machine.area|default:'No area'}}
+                        <br/>
+                        Engineer: {% if machine.area %}
+                        {% for engineer in machine.area.engineer_set.all %}
+                        {{engineer.user.username|title}} : 
+                        {{engineer.name}}
+                        {% empty %}
+                        <h3>
+                          no engineer
+                        </h3>
+                        {% endfor %}
+                        {% endif %}
+                        
+                    </div>
+                    <time datetime="{{ machine.added|date:'DATE_FORMAT' }}"></time>
 
-                <time datetime="{{ machine.added|date:'DATE_FORMAT' }}"></time>
+                    <p class="lead" style='font-size: large;font-weight: bold;font-family: Franklin Gothic Medium; display: inline;'>Added:</p>{{machine.added|date:"l, F j Y"}}
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
 
-                <p class='lead' style='font-size: large;font-weight: bold;font-family: Franklin Gothic Medium; display: inline;'>Added:</p>{{machine.added|date:"l, F j Y"}}
-              <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
     </div>

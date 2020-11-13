@@ -6,10 +6,17 @@
 
 
 {% block main %}
+<div style='border-radius: 5px; border: 2px solid rgb(190, 66, 66); padding: 20px 10px;margin-bottom: 5px;'>
+    <p style="list-style-type: square;">
+        You can search by call notification number to update it from the form below.
+    </p>
     <form method="GET" action="{% url 'machine:call_manage' %}">
         <input class='form-control' type="number" name="serial"/>
         <button class='btn btn-secondary' type="submit">search by serial</button> 
     </form>
+</div>
+<div style='border-radius: 5px; border: 2px solid rgb(190, 66, 66); padding: 20px 10px;margin-bottom: 5px;'>
+    <h5 class='text-center'>Call Form</h5>
     <form method="POST">
         {% csrf_token %}
         <input type="number" value={{ notification_number }} readonly/>
@@ -17,11 +24,12 @@
         {{formset|crispy}}
         <button class='btn btn-primary' type='submit'>
             Add Call
-            {% if notification_number_number %}
+            {% if notification_number %}
                 Update call
             {% else %}
                 Add call
             {% endif %}
         </button>
     </form>
+</div>
 {% endblock main %}

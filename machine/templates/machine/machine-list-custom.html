@@ -107,11 +107,27 @@
                     {% endfor %}
                 </ul>
 
+                <div class="left-right">
+                    <div class="slider">
+                        Area: {{machine.area|default:'No area'}}
+                        <br/>
+                        Engineer: {% if machine.area %}
+                        {% for engineer in machine.area.engineer_set.all %}
+                        {{engineer.user.username|title}} : 
+                        {{engineer.name}}
+                        {% empty %}
+                        <h3>
+                          no engineer
+                        </h3>
+                        {% endfor %}
+                        {% endif %}
+                        
+                    </div>
+                    <time datetime="{{ machine.added|date:'DATE_FORMAT' }}"></time>
 
-                <time datetime="{{ machine.added|date:"DATE_FORMAT" }}"></time>
-
-                <p class='lead' style='font-size: large;font-weight: bold;font-family: Franklin Gothic Medium; display: inline;'>Added:</p>{{machine.added|date:"l, F j Y"}}
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <p class="lead" style='font-size: large;font-weight: bold;font-family: Franklin Gothic Medium; display: inline;'>Added:</p>{{machine.added|date:"l, F j Y"}}
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
             </div>
           </div>
     </div>

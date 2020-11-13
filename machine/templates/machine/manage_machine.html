@@ -6,23 +6,33 @@
 
 
 {% block main %}
+<div style='border-radius: 5px; border: 2px solid rgb(190, 66, 66); padding: 20px 10px;margin-bottom: 5px;'>
+    <p style="list-style-type: square;">
+        You can search by machine serial to update it from the form below.
+    </p>
     <form method="GET" action="{% url 'machine:machine_manage' %}">
         <input class='form-control' type="number" name="serial"/>
         <button class='btn btn-secondary' type="submit">search by serial</button> 
     </form>
+
+</div>
+<div style='border-radius: 5px; border: 2px solid rgb(190, 66, 66); padding: 20px 10px;margin-bottom: 5px;'>
+    <h4 class='text-center'>Machine Form</h4>
+
     <form method="POST">
         {% csrf_token %}
-        <input type="number" value={{ serial_number }} readonly/>
+        <!-- <input type="number" value={{ serial_number }} readonly/> -->
         
-        {% for field in machine_form.fields %}
+        <!-- {% for field in machine_form.fields %} -->
         
-        {% if field.name == 'serial' %}
+        <!-- {% if field.name == 'serial' %}
         {{field}}
             
         {% endif %}
             
             
-        {% endfor %}
+        {% endfor %} -->
+
             
         {{machine_form|crispy}}
         {{contract_form|crispy}}
@@ -36,4 +46,5 @@
 
         </button>
     </form>
+</div>
 {% endblock main %}

@@ -6,6 +6,8 @@
 {% block title %}{{ block.super}} - Create Engineer{% endblock %}
 
 {% block main %}
+<div style='border-radius: 5px; border: 2px solid rgb(190, 66, 66); padding: 20px 10px;margin-bottom: 5px;'>
+<h5>you can add engineer from form below</h5>
 <div class="row">
     <div class="col-12 col-md-6">
         <h3><em>Create an Engineer</em></h3>
@@ -16,14 +18,7 @@
         </form>
 
     </div>
-    <div class="col-12 col-md-6">
-        {% include "./create_area.html" %}
-    </div>
+
 </div>
-<h3><em>Create an Engineer</em></h3>
-<form method="post" action="" role="form">
-{% csrf_token %}
-{{form|crispy}}
-<button type="button" class="btn btn-primary">Create engineer now</button>
-</form>
+</div>
 {% endblock %}

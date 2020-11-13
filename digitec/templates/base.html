@@ -26,6 +26,10 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/skeleton.css' %}">
   <script src="{% static 'js/reconnecting-websocket.js' %}"></script>
+   <!-- Font Awesome JS -->
+   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
 
   <!-- Your stuff: Third-party CSS libraries go here -->
   {% compress css %}
@@ -33,6 +37,8 @@
 
   <link href="{% static 'css/project.css' %}" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/new.css' %}">
+
   {% endcompress %}
   {% endblock %}
   {% block css1 %}
@@ -46,7 +52,18 @@
     .m {
       margin: 4px;
     }
+    #sidebar {
+    /* min-width: 200px; */
+    max-width: 150px;
+    min-height: 250vh;
+    position: fixed;
+    top:55px;
+    left:0;
+  }
 
+    #sidebar.active {
+    margin-left: -250px;
+}
     li.nav-item {
       border-bottom: 1px solid pink;
       margin-right: 20px;
@@ -54,20 +71,77 @@
 
 
     }
+    #sidebar.active {
+    margin-left: -250px;
+}
+    @media (max-width: 750px) {
+    li ul li a{
+      font-size: small !important;
+      padding-left: 10px !important;
+
+    }
+    li ul li {
+      text-align: center;
+    }
+
+    #sidebar {
+        margin-left: 0px;
+        margin-top: 0px;
+        position: static;
+        top:55px;
+
+        left:0;
+        z-index: 0;
+        font-size: x-small;
+    }
+    #sidebarCollapse{
+      position: fixed;
+      z-index:10;
+      top:10px;
+      right:40% !important;
+      background-color: white !important;
+
+      /* left:5%;
+      top: 50px; */
+    }
+    #sidebarCollapse:hover{
+      color:black !important;
+      background-color: #999;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
+
 
     .form-inline button {
 
       margin-bottom: 1.35rem !important;
 
     }
+    .wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+a[data-toggle="collapse"] {
+    position: relative;
+}
 
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 2px;
+    transform: translateY(-50%);
+}
     .dropdown button:hover {
       color: black !important;
     }
 
     li.nav-item:hover {
       border-bottom: 1px solid black;
-      margin-right: 20px;
+      margin-right: 2px;
       background-color: white !important;
       color: black;
       border-top-left-radius: 5px;
@@ -89,9 +163,23 @@
 
     nav {
       background-color: red !important;
+      opacity: 80%;
       position: relative;
+      width:100%;
+      z-index: 10;
+      /* margin-bottom: 100px; */
     }
-
+    #sidebarCollapse{
+      position: fixed;
+      bottom: 1%;
+      right: 1%;
+      z-index: 20;
+    }
+    .navbar{
+      position: fixed;
+      top:0;
+      left:0;
+    }
     div ul li a.nav-link {
       color:
         white !important;
@@ -118,18 +206,91 @@
       justify-content: center;
       align-content: center;
     }
+    /*
+    ADDITIONAL DEMO STYLE, NOT IMPORTANT TO MAKE THINGS WORK BUT TO MAKE IT A BIT NICER :)
+*/
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    /* background: #7386D5; */
+    /* color: #fff; */
+    color:white;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    font-size: small;
+    /* background: #6d7fcc; */
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid white;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    /* color: #7386D5; */
+    background: #fff;
+    color:black;
+    transform-style: preserve-3d;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: gray;
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    /* background: #6d7fcc; */
+}
   </style>
 </head>
 
-<body>
+<body style="margin:0px; padding: 0px; width:100%;">
 
-  <div class="mb-1 container-fluid">
+  <div class="container-fluid">
     <nav class="navbar navbar-expand-md navbar-light">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
+
+
       <a class="navbar-brand" href="{% url 'home' %}">Digitec</a>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -216,252 +377,580 @@
 
   </div>
 
-  <div class="container-fluid">
-
-    {% if user.is_authenticated %}
-    {% block heading %}
-    <div class="container-fluid ">
-      it is {% now "jS F Y H:i" %}
-      <br>
-      <div class='row m-auto'>
-        <div class="col-12">
-          <div class="btn-group" role="group" aria-label="Nested Button Group">
-            <a class="btn btn-warning"  href="{% url 'machine:call_list'  %}">CALL LIST</a>
-            <a class="btn btn-warning" href="{% url 'engineer:engineer_review_create'  %}">CREATE REVIEW</a>
-
-            <!-- <button type="button" class="btn btn-primary">Button 1</button>
-            <button type="button" class="btn btn-info">Button 2</button> -->
 
 
-              <div class="btn-group" role="group">
-                <button id="nested1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  Machine
-                </button>
-                <div class="dropdown-menu" aria-labelledby="nested1">
-                  <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important; margin:0px !important;"
-                    href="{% url 'machine:list'  %}">Machine list</a>
-  
-                  <div class="dropdown-divider"></div>
-                  <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important;" href="{% url 'machine:create'  %}">Create Machine</a>
-                  <div class="dropdown-divider"></div>
 
-                  <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important;" href="{% url 'machine:machine_manage'  %}">Create/Update machine</a>
 
-  
-                </div>
+
+  <div class="container-fluid" style="margin-top: 60px !important;">
+    <div class='row'>
+      <div class='col-2' style='width: 100% !important; padding: 0px; margin: 0px;'>
+        <div class="wrapper">
+          <!-- Sidebar -->
+          {% if request.user.is_authenticated %}
+            {% if request.user.is_superuser %}
+            <nav id="sidebar" class="collapse navbar-collapse">
+              <!-- <div class="sidebar-header">
+                  <h5>Bootstrap Sidebar</h5>
+              </div> -->
+      
+              <ul class="list-unstyled components">
+                  <p>{{request.user|capfirst}}</p>
+                  <li class="{% if request.path == '/machine' %} active{% endif %}">
+                    <a href="#machineSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Machine</a>
+                    <ul class="collapse list-unstyled ml-0" id="machineSubmenu">
+                        <li>
+                            <a href="{% url 'machine:list'  %}">Machine List</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'machine:create'  %}">Machine Create</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'machine:machine_manage'  %}">Machinee Create Update</a>
+                        </li>
+                    </ul>
+                </li>
+                
+                  <li>
+                      <a href="#callSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Call</a>
+                      <ul class="collapse list-unstyled ml-0" id="callSubmenu">
+                          <li>
+                              <a href="{% url 'machine:call_list'  %}">Call List</a>
+                          </li>
+                          <li>
+                              <a href="{% url 'machine:call_create'  %}">Create Call</a>
+                          </li>
+                          <li>
+                              <a href="{% url 'machine:call_manage' %}">Create Update Call</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#customerSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Customer</a>
+                    <ul class="collapse list-unstyled ml-0" id="customerSubmenu">
+                        <li>
+                            <a href="{% url 'customer:customer-list' %}">Customer List</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'customer:customer-create' %}">Create Customer</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'customer:department-create' %}">Create Department</a>
+                        </li>
+                        <li>
+                          <a href="#">Create Update Customer</a>
+                      </li>
+                    </ul>
+                </li>
+                <li>
+                  <a href="#engineerSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Engineer</a>
+                  <ul class="collapse list-unstyled ml-0" id="engineerSubmenu">
+
+                      <li>
+                          <a href="{% url 'engineer:engineer_create'  %}">Create Engineer</a>
+                      </li>
+                      <li>
+                          <a href="{% url 'engineer:engineer_review_create'  %}">Create Review</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'engineer:area_create'%}">Create department</a>
+                      </li>
+                  </ul>
+              </li>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                  <li>
+                    <a href="/contact-us/">Contact</a>
+                </li>
+                  <li>
+                      <a href="/about/">About</a>
+                  </li>
+
+                  <li>
+                      <a href="#">Portfolio</a>
+                  </li>
+
+              </ul>
+          </nav>
+            {% elif request.user.engineer%}
+            <nav id="sidebar" class="collapse navbar-collapse">
+              <!-- <div class="sidebar-header">
+                  <h5>Bootstrap Sidebar</h5>
+              </div> -->
+      
+              <ul class="list-unstyled components">
+                  <p>{{request.user|capfirst}}({{request.user.engineer.name}})</p>
+                  <li class="{% if request.path == '/machine' %} active{% endif %}">
+                    <a href="#machineSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Machine</a>
+                    <ul class="collapse list-unstyled ml-0" id="machineSubmenu">
+                        <li>
+                            <a href="{% url 'machine:list'  %}">Machine List</a>
+                        </li>
+                        <!-- <li>
+                            <a href="#">Machine Create</a>
+                        </li>
+                        <li>
+                            <a href="#">Machinee Create Update</a>
+                        </li> -->
+                    </ul>
+                </li>
+                
+                  <li>
+                      <a href="#callSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Call</a>
+                      <ul class="collapse list-unstyled ml-0" id="callSubmenu">
+                          <li>
+                              <a href="{% url 'machine:call_list'  %}">Call List</a>
+                          </li>
+                          <!-- <li>
+                              <a href="#">Create Call</a>
+                          </li>
+                          <li>
+                              <a href="#">Create Update Call</a>
+                          </li> -->
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#customerSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Customer</a>
+                    <ul class="collapse list-unstyled ml-0" id="customerSubmenu">
+                        <li>
+                            <a href="{% url 'customer:customer-list'  %}">Customer List</a>
+                        </li>
+                        <!-- <li>
+                            <a href="#">Create Customer</a>
+                        </li>
+                        <li>
+                            <a href="#">Create Department</a>
+                        </li>
+                        <li>
+                          <a href="#">Create Update Customer</a>
+                      </li> -->
+                    </ul>
+                </li>
+                <li>
+                  <a href="#engineerSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Engineer</a>
+                  <ul class="collapse list-unstyled ml-0" id="engineerSubmenu">
+                      <!-- <li>
+                          <a href="{% url 'engineer:engineer_create'  %}">Engineer List</a>
+                      </li> -->
+                      <!-- <li>
+                          <a href="#">Create Engineer</a>
+                      </li> -->
+                      <li>
+                          <a href="{% url 'engineer:engineer_review_create'  %}">Create Review</a>
+                      </li>
+                  </ul>
+              </li>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                  <li>
+                    <a href="/contact-us/">Contact</a>
+                </li>
+                  <li>
+                      <a hr
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      ef="/about/">About</a>
+                  </li>
+
+                  <li>
+                      <a href="#">Portfolio</a>
+                  </li>
+
+              </ul>
+          </nav>
+            {% endif %}
+          {% else %}
+          <nav id="sidebar" class="collapse navbar-collapse">
+            <!-- <div class="sidebar-header">
+                <h5>Bootstrap Sidebar</h5>
+            </div> -->
+    
+            <ul class="list-unstyled components">
+                <p>Welcome..</p>
+                <!-- <li class="{% if request.path == '/machine' %} active{% endif %}">
+                  <a href="#machineSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Machine</a>
+                  <ul class="collapse list-unstyled ml-0" id="machineSubmenu">
+                      <li>
+                          <a href="#">Machine List</a>
+                      </li>
+                      <li>
+                          <a href="#">Machine Create</a>
+                      </li>
+                      <li>
+                          <a href="#">Machinee Create Update</a>
+                      </li>
+                  </ul>
+              </li>
+              
+                <li>
+                    <a href="#callSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Call</a>
+                    <ul class="collapse list-unstyled ml-0" id="callSubmenu">
+                        <li>
+                            <a href="#">Call List</a>
+                        </li>
+                        <li>
+                            <a href="#">Create Call</a>
+                        </li>
+                        <li>
+                            <a href="#">Create Update Call</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                  <a href="#customerSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Customer</a>
+                  <ul class="collapse list-unstyled ml-0" id="customerSubmenu">
+                      <li>
+                          <a href="#">Customer List</a>
+                      </li>
+                      <li>
+                          <a href="#">Create Customer</a>
+                      </li>
+                      <li>
+                          <a href="#">Create Department</a>
+                      </li>
+                      <li>
+                        <a href="#">Create Update Customer</a>
+                    </li>
+                  </ul>
+              </li>
+              <li>
+                <a href="#engineerSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Engineer</a>
+                <ul class="collapse list-unstyled ml-0" id="engineerSubmenu">
+                    <li>
+                        <a href="#">Engineer List</a>
+                    </li>
+                    <li>
+                        <a href="#">Create Engineer</a>
+                    </li>
+                    <li>
+                        <a href="#">Create Review</a>
+                    </li>
+                </ul>
+            </li> -->
+              <li>
+                  <a href="/">Home</a>
+              </li>
+                <li>
+                  <a href="/contact-us/">Contact</a>
+              </li>
+                <li>
+                    <a href="/about/">About</a>
+                </li>
+
+                <li>
+                    <a href="#">Portfolio</a>
+                </li>
+
+            </ul>
+        </nav>
+          {% endif %}
+
+      
+      </div>
+      </div>
+      <div class='col-10' style="width: 100% !important;padding: 10px;margin: 0px;">
+        <button type="button" id="sidebarCollapse" class="navbar-toggler navbar-toggler-right btn btn-outline-danger" type="button" data-toggle="collapse"
+        data-target="#sidebar" aria-controls="sidebar" aria-expanded="true"
+        aria-label="Toggle navigation">>
+            <i class="fas fa-align-right"></i>
+            <span>Toggle Sidebar</span>
+        </button>
+        {% if user.is_authenticated %}
+        {% block heading %}
+        <div class="container-fluid ">
+          it is {% now "jS F Y H:i" %}
+          <br>
+
+          <div class='row'>
+            <!-- <div class="col-12">
+              <div class="btn-group" role="group" aria-label="Nested Button Group">
+                <a class="btn btn-warning"  href="{% url 'machine:call_list'  %}">CALL LIST</a>
+                <a class="btn btn-warning" href="{% url 'engineer:engineer_review_create'  %}">CREATE REVIEW</a> -->
+    
+                <!-- <button type="button" class="btn btn-primary">Button 1</button>
+                <button type="button" class="btn btn-info">Button 2</button> -->
+    
+    
+                  <!-- <div class="btn-group" role="group">
+                    <button id="nested1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      Machine
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="nested1">
+                      <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important; margin:0px !important;"
+                        href="{% url 'machine:list'  %}">Machine list</a>
+      
+                      <div class="dropdown-divider"></div>
+                      <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important;" href="{% url 'machine:create'  %}">Create Machine</a>
+                      <div class="dropdown-divider"></div>
+    
+                      <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important;" href="{% url 'machine:machine_manage'  %}">Create/Update machine</a>
+    
+      
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button id="nested1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Call
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="nested1">
+                        <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important;"
+                          href="{% url 'machine:call_list'  %}">Call list</a>
+        
+                        <div class="dropdown-divider"></div>
+                        <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important; margin:0px !important;" href="{% url 'machine:call_create'  %}">Create Call</a>
+                        <div class="dropdown-divider"></div>
+    
+                        <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important;" href="{% url 'machine:call_manage'  %}">Create/update call </a>
+    
+        
+                      </div>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button id="nested1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Engineer
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="nested1">
+                        
+                        <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important;" href="{% url 'engineer:engineer_create'  %}">Create Engineer</a>
+    
+    
+        
+                      </div>
+                    </div>
                 <div class="btn-group" role="group">
                   <button id="nested1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    Call
+                    Customers
                   </button>
                   <div class="dropdown-menu" aria-labelledby="nested1">
                     <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important;"
-                      href="{% url 'machine:call_list'  %}">Call list</a>
-    
+                      href="{% url 'customer:customer-list'  %}">Customer list</a>
                     <div class="dropdown-divider"></div>
-                    <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important; margin:0px !important;" href="{% url 'machine:call_create'  %}">Create Call</a>
+                    <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important; margin:0px !important;"
+                      href="{% url 'customer:customer-create'  %}">Create Customer</a>
                     <div class="dropdown-divider"></div>
-
-                    <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important;" href="{% url 'machine:call_manage'  %}">Create/update call </a>
-
     
+                    <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important; margin:0px !important;"
+                      href="{% url 'customer:department-create'  %}">Create department</a>
                   </div>
                 </div>
-                <div class="btn-group" role="group">
-                  <button id="nested1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Engineer
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="nested1">
-                    
-                    <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important;" href="{% url 'engineer:engineer_create'  %}">Create Engineer</a>
-
-
-    
-                  </div>
-                </div>
-            <div class="btn-group" role="group">
-              <button id="nested1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Customers
-              </button>
-              <div class="dropdown-menu" aria-labelledby="nested1">
-                <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important;margin:0px !important;"
-                  href="{% url 'customer:customer-list'  %}">Customer list</a>
-                <div class="dropdown-divider"></div>
-                <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important; margin:0px !important;"
-                  href="{% url 'customer:customer-create'  %}">Create Customer</a>
-                <div class="dropdown-divider"></div>
-
-                <a class="btn btn-primary machine-create" style="width: 100% !important;height: 100% !important; margin:0px !important;"
-                  href="{% url 'customer:department-create'  %}">Create department</a>
               </div>
-            </div>
+              
+            </div> -->
+    
+            <!-- <div class='col-12 m-auto text-center'> -->
+    
+              <!-- {% if request.user.is_superuser %}
+              <a class="btn btn-primary machine-create" href="{% url 'machine:call_create'  %}">Create Call</a>
+    
+              <a class="btn btn-primary machine-create" href="{% url 'machine:call_manage'  %}">create call with contacts</a>
+              {% endif %}
+    
+    
+    
+    
+              <a class="btn btn-primary machine-create" href="{% url 'machine:call_list'  %}">Call List</a>
+              <a class="btn btn-primary machine-create" href="{% url 'engineer:engineer_review_create'  %}">Create
+                review</a> -->
+    
+             
+          <div style="display: flex;flex-direction: column; justify-content: center;align-content: center;">
+            <div class="d-inline-block bg-gray" style="background-color: gray !important;box-sizing: border-box;margin:10px 0px 100px 0px;height: 44px;padding:0px 5px;">
+            <form method="GET" action="{% url 'machine:machine_list_custom' %}" class='from-inline'>
+    
+              <div class='d-inline-block'>
+                <div class='d-inline-block'>
+                  <input id='name-id' type="radio" name='category' value="name" />
+    
+                </div>
+                <label class='d-inline-block' for='name-id'>Name</label>
+    
+              </div>
+    
+    
+              <div class='d-inline-block'>
+                <div class='d-inline-block'>
+                  <input id='customer-id' type="radio" name='category' value="customer" />
+    
+                </div>
+                <label class='d-inline-block' for='customer-id'>Customer</label>
+    
+              </div>
+    
+    
+              <div class='d-inline-block'>
+                <div class='d-inline-block'>
+                  <input id='serial-id' type="radio" name='category' value="serial" />
+    
+                </div>
+                <label class='d-inline-block' for='serial-id'>Serial</label>
+    
+              </div>
+    
+    
+              <input type="text" name="query" />
+              <button type="submit" class="btn btn-primary">
+                search for machines
+              </button>
+            </form>
           </div>
-          
-        </div>
-
-        <div class='col-12 m-auto text-center'>
-
-          <!-- {% if request.user.is_superuser %}
-          <a class="btn btn-primary machine-create" href="{% url 'machine:call_create'  %}">Create Call</a>
-
-          <a class="btn btn-primary machine-create" href="{% url 'machine:call_manage'  %}">create call with contacts</a>
+    
+    
+    
+            <div>
+              <form class="form" action="{% url 'customer:customer-list' %}" method="GET">
+                <div class='form-group' style='display:flex; flex-direction: row;margin-top: 1rem;'>
+                  <input class="form-control mr-1" type="search" placeholder="Search" aria-label="Search" name="q">
+                  <button class="btn btn-outline-success" type="submit">Search Customer/s</button>
+                </div>
+    
+              </form>
+            </div>
+    
+          </div>
+          <div style="width:100%; border-bottom: 3px solid red;margin: 10px 0px;">
+    
+          </div>
+          <p id='webid' style="border-left: 2px solid red;padding:10px;background-color: lightgray;"></p>
+          <div  style="width:100%; border-top: 3px solid red; margin-top: 0px !important;margin-bottom: 20px !important;">
+          </div>
+          </div>
+          {% endblock heading %}
+    
           {% endif %}
+    
+    
+    
+          {% if messages %}
+          {% for message in messages %}
+          <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+          {% endfor %}
+          {% endif %}
+          <div style="width:20%; height: 20%; background-color: aqua;">
+            <div style="width: 30%;height: 30%; border-radius: 50%; background-color: red;">
+                <p id='unassigned' style="color: black;">
 
-
-
-
-          <a class="btn btn-primary machine-create" href="{% url 'machine:call_list'  %}">Call List</a>
-          <a class="btn btn-primary machine-create" href="{% url 'engineer:engineer_review_create'  %}">Create
-            review</a> -->
-
-         
-      <div style="display: flex;flex-direction: column; justify-content: center;align-content: center;">
-        <div class="d-inline-block bg-gray" style="background-color: gray !important;box-sizing: border-box;margin:10px 0px 100px 0px;height: 44px;padding:0px 5px;">
-        <form method="GET" action="{% url 'machine:machine_list_custom' %}" class='from-inline'>
-
-          <div class='d-inline-block'>
-            <div class='d-inline-block'>
-              <input id='name-id' type="radio" name='category' value="name" />
+                </p>
+            </div>
+            <div style="width: 30%;height: 30%; border-radius: 50%; background-color: red;">
 
             </div>
-            <label class='d-inline-block' for='name-id'>Name</label>
+            <div style="width: 30%;height: 30%; border-radius: 50%; background-color: red;">
 
+            </div>
           </div>
-
-
-          <div class='d-inline-block'>
-            <div class='d-inline-block'>
-              <input id='customer-id' type="radio" name='category' value="customer" />
-
-            </div>
-            <label class='d-inline-block' for='customer-id'>Customer</label>
-
-          </div>
-
-
-          <div class='d-inline-block'>
-            <div class='d-inline-block'>
-              <input id='serial-id' type="radio" name='category' value="serial" />
-
-            </div>
-            <label class='d-inline-block' for='serial-id'>Serial</label>
-
-          </div>
-
-
-          <input type="text" name="query" />
-          <button type="submit" class="btn btn-primary">
-            search for machines
-          </button>
-        </form>
-      </div>
-
-
-
-        <div>
-          <form class="form" action="{% url 'customer:customer-list' %}" method="GET">
-            <div class='form-group' style='display:flex; flex-direction: row;margin-top: 1rem;'>
-              <input class="form-control mr-1" type="search" placeholder="Search" aria-label="Search" name="q">
-              <button class="btn btn-outline-success" type="submit">Search Customer/s</button>
-            </div>
-
-          </form>
-        </div>
-
-      </div>
-      <div style="width:100%; border-bottom: 3px solid red;margin: 10px 0px;">
-
-      </div>
-      <p id='webid' style="border-left: 2px solid red;padding:10px;background-color: lightgray;"></p>
-      <div  style="width:100%; border-top: 3px solid red; margin-top: 0px !important;margin-bottom: 20px !important;">
-
-      </div>
-      {% endblock heading %}
-
-      {% endif %}
-
-
-
-      {% if messages %}
-      {% for message in messages %}
-      <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
-      {% endfor %}
-      {% endif %}
-      <div class="container-fluid">
-        {% block content %}
-
-        {% endblock content %}
-      </div>
-
-
-
-    </div><!-- /container -->
-
-    <div class="container-fluid" style="box-sizing: border-box !important;">
-      <div class="row">
-        <script>
-          console.log('iam here')
-          let url = 'ws://' + window.location.host + `/machine/list1/`
-          const websocket = new ReconnectingWebSocket(url)
-          websocket.onopen = (event)=>{
-            console.log('connection oppened')
-            console.log('type of event',event.type)
-            websocket.send('hello')
-            console.log('message is sent from customer')
-          }
-          websocket.onmessage = (strr)=>{
+          {% block content %}
+    
+          {% endblock content %}
+          <!-- /container -->
+    
+        <div class="container-fluid" style="box-sizing: border-box !important;">
+          <div class="row">
+            <script>
+              console.log('iam here')
+              let url = 'ws://' + window.location.host + `/machine/list1/`
+              const websocket = new ReconnectingWebSocket(url)
+              websocket.onopen = (event)=>{
+                console.log('connection oppened')
+                console.log('type of event',event.type)
+                websocket.send('hello')
+                console.log('message is sent from customer')
+              }
+              websocket.onmessage = (strr)=>{
+              
           
-      
-      
-              console.log('event ', strr)
-              let b = document.getElementById('webid')
-              let l = document.createElement('li')
-              let text = document.createTextNode(strr['data'])
-              b.innerText=strr['data']
-              // setInterval(()=>(1), 10000)
-              // console.log('1')
-              // setTimeout(()=>(1),1000)
-              // text = document.createTextNode('')
-              // b.appendChild(text)
-              // b.innerText = strr
-              // websocket.onopen()
-              // websocket.send(data=strr['data'])
-              // console.log('message is sent again')
-          }
-          websocket.onclose=()=>{
-      
-      
-              console.log('connection closed')
-              
-          }
-         
-          if(websocket.readyState===WebSocket.OPEN){
-              
-          }
-      
-      
-        </script>
+          
+                  console.log('event ', strr)
+                  if(strr['data'].startsWith('s')){
+                    console.log('script base websocket receive')
+                    const strmodified = strr['data'].substring(1)
+                    const nu= parseInt(strmodified)
+                    let u = document.getElementById('unassigned')
+                    u.style.width='100px';
+                    let text = document.createTextNode(strmodified)
+                    u.innerText=nu
 
-      </div>
-      <div class="row">
-        <div class="col-9" style="width: fit-content;">
+                    console.log(nu, 'nuuuuuuuuuuuuuuuuuuuuuuu')
+                  }
+                  else{
+                    let b = document.getElementById('webid')
+                    let l = document.createElement('li')
+                    let text = document.createTextNode(strr['data'])
+                    b.innerText=strr['data']
 
-          {% block main %}
+                  }
 
-
-          {% endblock main %}
+                  // setInterval(()=>(1), 10000)
+                  // console.log('1')
+                  // setTimeout(()=>(1),1000)
+                  // text = document.createTextNode('')
+                  // b.appendChild(text)
+                  // b.innerText = strr
+                  // websocket.onopen()
+                  // websocket.send(data=strr['data'])
+                  // console.log('message is sent again')
+              }
+              websocket.onclose=()=>{
+          
+          
+                  console.log('connection closed')
+                  
+              }
+             
+              if(websocket.readyState===WebSocket.OPEN){
+                  
+              }
+          
+                  const comp = document.getElementById(sidebar)
+                  // comp.addEventListener()
+            </script>
+    
+          </div>
+          <div class="row">
+            <div class="col-9" style="width: fit-content;">
+              {% block main %}
+    
+    
+              {% endblock main %}
+            </div>
+            <div class="col-3 border-left">
+              {% block sidebar%}
+    
+              {% endblock %}
+            </div>
+          </div>
         </div>
-        <div class="col-3 border-left">
-          {% block sidebar%}
-
-          {% endblock %}
+          </div>
+    
+    
+    
         </div>
+        
       </div>
     </div>
-
+    
+    
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
