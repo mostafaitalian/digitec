@@ -35,8 +35,8 @@ class MachineSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Machine
-        fields= ('id','machine_category', 'customer', 'department', 'area','name', 'serial',
-        'serial2', 'reviews', 'machine_model', 'slug', 'description', 'added', 'speed','engineers' )
+        fields= ('id','machine_category','customer', 'department', 'area', 'serial',
+        'serial2', 'reviews', 'machine_model', 'machine_location', 'added')
         # exclude=('engineers',)
         depth=1
 

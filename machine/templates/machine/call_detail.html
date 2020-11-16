@@ -49,7 +49,7 @@
   Call Detail
 {% endblock title %}
 
-{% block main %}
+{% block content %}
     {% with calll as call %}
     <h5 class="pre-title">
       Welcome {{request.user}} {% if request.user == call.engineer.user %}(<span>{{user.engineer.name}}</span>){% endif %}
@@ -69,7 +69,9 @@
         
       
     {% endif %}
-          {{call.notification_number}}
+          <!-- {{call.notification_number}} -->
+          <div style='border-radius: 5px; border: 2px solid rgb(190, 66, 66); padding: 20px 10px;margin-bottom: 5px;'>
+            <h4 class='text-center'>Call detail</h4>
           <table class="table table-hover">
               <caption>List of users</caption>
               <thead class="table-primary">
@@ -89,17 +91,22 @@
                 </tr>
                 <tr>
                   <th scope="row">Customer name</th>
-                  <td>{{call.customer_name}}</td>
+                  <td>{{call.customer.name}}</td>
   
                 </tr>
                 <tr>
                   <th scope="row">Machine-Location</th>
-                  <td>{{call.machine.department.department_name}}</td>
+                  <td>{{call.machine.machine_location}}</td>
   
                 </tr>
                 <tr>
                   <th scope="row">Department-Total-Machines</th>
-                  <td>{{call.machine.department.no_of_machine}}</td>
+                  <td>{{call.machine.department.machines_dep.all.count}}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">Call Type</th>
+                  <td>{{call.status}}</td>
   
                 </tr>
   
@@ -141,6 +148,66 @@
                   <td>{{call.optimum_completed_date}}</td>
   
                 </tr>
+                <th scope="row">Machine response time</th>
+                <td id='sc'>{{call.machine.machine_response_time|default_if_none:"Not added yet" }} {% if call.machine.machine_response_time %} hours {% endif %}</td>
+    
+              </tr>
+              <tr>
+                <th scope="row">Machine callback time</th>
+                <td id='sc'>{{call.machine.machine_callback_time|default_if_none:"Not added yet" }} {% if machine.machine_callback_time %} days {% endif %}</td>
+    
+              </tr>
+              <tr>
+                <th scope="row">Customer working hours</th>
+                <td id='sc'>{{call.machine.begin_at}} : {{ call.machine.finish_at }}</td>
+    
+              </tr>
+              <tr>
+                <th scope="row">Machine days off</th>
+                <td>
+                  <!-- {{machine.first_week_dayoff}}-{{machine.second_week_dayoff}} -->
+                  {% if call.machine.first_week_dayoff and call.machine.first_week_dayoff != 7 %}
+                    
+                    {% if call.machine.first_week_dayoff == 0 %}
+                    Monday
+                    {% elif call.machine.first_week_dayoff == 1 %}
+                    Tuesday
+                    {% elif call.machine.first_week_dayoff == 2 %}
+                    Wednesday
+                    {% elif call.machine.first_week_dayoff == 3 %}
+                    Thursday
+                    {% elif call.machine.first_week_dayoff == 4 %}
+                    Friday
+                    {% elif call.machine.first_week_dayoff == 5 %}
+                    Saturday
+                    {% elif call.machine.first_week_dayoff == 6 %}
+                    Sunday  
+                    {% endif %}
+                      
+                  {% endif %}
+                  {% if call.machine.second_week_dayoff and call.machine.second_week_dayoff != 7 %}
+                    
+                    {% if call.machine.second_week_dayoff == 0 %}
+                    , Monday
+                    {% elif call.machine.second_week_dayoff == 1 %}
+                    , Tuesday
+                    {% elif call.machine.second_week_dayoff == 2 %}
+                    , Wednesday
+                    {% elif call.machine.second_week_dayoff == 3 %}
+                    , Thursday
+                    {% elif call.machine.second_week_dayoff == 4 %}
+                    , Friday
+                    {% elif call.machine.second_week_dayoff == 5 %}
+                    , Saturday
+                    {% elif call.machine.second_week_dayoff == 6 %}
+                    , Sunday  
+                    {% endif %}
+                  {% else %}
+                    no days-off
+                  {% endif %}  
+                </td>
+    
+              </tr>
 
                 <tr>
                   <th scope="row">Completed Date</th>
@@ -224,6 +291,7 @@
                   
               </tbody>
             </table>
+            </div>
       {% else %}
   
           <h3>
@@ -267,7 +335,7 @@
   
   
     </table>
-  {% if call.is_assigned %}
+  {% if call.is_assigned  or call.status == 'incomplete' %}
     <h4 class="pre-title">
       Submit report
   </h4>
@@ -416,4 +484,4 @@
       {% endif %}    
     {% endwith %}
   
-{% endblock main %}
+{% endblock %}

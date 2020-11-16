@@ -1,0 +1,669 @@
+{% extends 'base.html' %}
+{% block css1 %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.2/redux.min.js"></script>
+  <script src="https://unpkg.com/react@16.3.0-alpha.1/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.3.0-alpha.1/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  <script src="https://tylermcginnis.com/goals-todos-api/index.js"></script>
+  <script src="https://unpkg.com/redux-thunk@2.2.0/dist/redux-thunk.min.js"></script>
+
+{% endblock css1 %}
+
+{% block title %}
+    Report List
+{% endblock title %}
+
+
+
+{% block main %}
+    <div>
+      <div class="todo">
+        <h1>Todos</h1>
+        <input type="text" id="todo" placeholder="add todo">
+        <button id="todoBtn">add Todo</button>
+        <ul id="todos">
+    
+        </ul>
+      </div>
+      <div class="goal-div">
+        <h1>Goals</h1>
+        <input type="text" id="goal" placeholder="add goal">
+        <button id="goalBtn">add Goal</button>
+        <ul id="goals">
+    
+        </ul>
+    
+      </div>
+      <hr>
+      <div id='app'>
+    
+      </div>
+    </div>
+    {% for report in reports %}
+
+      <div class="row">
+        <div class="card" style="width: 50rem; border-radius: 15px; ">
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          
+          <div id="carouselExampleControls card-img-top" class="carousel slide" data-ride="carousel" style='height:100%;border-top-left-radius: 15px;border-top-right-radius: 15px;margin: 3px;'>
+                <div class="carousel-inner" style='border-top-left-radius: 15px;border-top-right-radius: 15px;'>
+                <div class="carousel-item active">
+                    <img src="{{ report.image.url }}" class="d-block w-100 h-auto" alt="..."/>
+                </div>
+        
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+          <div class="card-body">
+            <h5 class="card-title">Summary</h5>
+            <p class="card-text">{{report.summary}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Engineer: {{report.engineer.name}}</li>
+            <li class="list-group-item">notification_number: {{report.call.notification_number}}</li>
+            <li class="list-group-item">Machine serial: {{report.call.machine.serial}}</li>
+            <li class="list-group-item">Report Status: {{ report.status }}</li>
+            <li class="list-group-item">Call Status: {{ report.call.status }}</li>
+            <li class="list-group-item">Machine model: {{report.call.machine.machine_model}}</li>
+            <li class="list-group-item">Report link:
+              <a href='{{report.report_copy.url}}'>
+                  Report
+              </a>
+            </li>
+
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+      </div>
+    
+    {% endfor %}
+    <script type="text/javascript">
+      //         function createStore (reducer) {
+      //   // The store should have four parts
+      //   // 1. The state
+      //   // 2. Get the state.
+      //   // 3. Listen to changes on the state.
+      //   // 4. Update the state
+  
+      //   let state
+      //   let listeners = []
+  
+      //   const getState = () => state
+  
+      //   const subscribe = (listener) => {
+      //     listeners.push(listener)
+      //     return () => {
+      //       listeners = listeners.filter((l) => l !== listener)
+      //     }
+      //   }
+  
+      //   const dispatch = (action) => {
+      //     state = reducer(state, action)
+      //     listeners.forEach((listener) => listener())
+      //   }
+  
+      //   return {
+      //     getState,
+      //     subscribe,
+      //     dispatch,
+      //   }
+      // }
+  
+      // App Code
+      const ADD_TODO = 'ADD_TODO'
+      const REMOVE_TODO = 'REMOVE_TODO'
+      const TOGGLE_TODO = 'TOGGLE_TODO'
+      const ADD_GOAL = 'ADD_GOAL'
+      const REMOVE_GOAL = 'REMOVE_GOAL'
+      const RECEIVE_TODOS_ACTIONS = 'RECEIVE_TODOS_ACTIONS'
+      function addTodoAction(todo) {
+        return {
+          type: ADD_TODO,
+          todo,
+        }
+      }
+  
+      function removeTodoAction(id) {
+        return {
+          type: REMOVE_TODO,
+          id,
+        }
+      }
+  
+      function toggleTodoAction(id) {
+        return {
+          type: TOGGLE_TODO,
+          id,
+        }
+      }
+  
+      function addGoalAction(goal) {
+        return {
+          type: ADD_GOAL,
+          goal,
+        }
+      }
+  
+      function removeGoalAction(id) {
+        return {
+          type: REMOVE_GOAL,
+          id,
+        }
+      }
+        function receiveTodosGoalsAction(todos,goals){
+          return{
+            type: RECEIVE_TODOS_ACTIONS,
+            todos: todos,
+            goals: goals
+  
+          }
+        }
+  
+        function handleDeleteTodo(todo){
+          //const dispatch = store.dispatch
+          return(dispatch)=>{
+            dispatch(removeTodoAction(todo.id))
+          return API.deleteTodo(todo.id).catch(()=>{
+            dispatch(addTodoAction(todo))
+            alert('something wrong, try again')
+          })
+          }
+        }
+  function handleRemoveGoal(goal){
+    return (dispatch)=>{
+      dispatch(removeGoalAction(goal.id))
+      return API.deleteGoal(goal.id).catch(()=>{
+        dispatch(addGoalAction(goal))
+        alert('somethin is wrong while deleteing goal')
+      })
+    }
+  }
+  function handleSaveTodo(value, cb){
+    return (dispatch) => {
+      return API.saveTodo(value).then((todo)=>{
+            dispatch(addTodoAction(todo))
+            //this.input.value = ''
+            cb()
+          }).catch(()=>{
+            alert('something is wrong')
+          })
+        }
+  }
+  function handleSaveGoal(value, cb){
+    return (dispatch)=>{
+      return API.saveGoal(value)
+      .then((goal)=>{
+      dispatch(addGoalAction(goal))
+      cb()
+      console.log('api goals', API.goals)
+      })
+      .catch(()=>{
+        alert('something wrong happened while adding new goal')
+      })
+      
+    }
+  }
+  function handleToggleTodo(id){
+    return (dispatch)=>{
+          dispatch(toggleTodoAction(id))
+          return API.saveTodoToggle(id).catch(()=>{
+            dispatch(toggleTodoAction(id))
+            alert('something wrong, try again')
+          })
+    }
+  }
+  function handleMountData(){
+    return (dispatch)=>{
+      return Promise.all([API.fetchTodos(),API.fetchGoals()]).then(([todos,goals])=>{
+        console.log('todos and goals ',  [...todos, ...goals])
+        dispatch(receiveTodosGoalsAction(todos, goals))
+      }).catch((error=>console.log('error :', error)))
+    }
+  } 
+      function todos(state = [], action) {
+        switch (action.type) {
+          case ADD_TODO:
+            return state.concat([action.todo])
+          case REMOVE_TODO:
+            return state.filter((todo) => todo.id !== action.id)
+          case TOGGLE_TODO:
+            return state.map((todo) => todo.id !== action.id ? todo :
+              Object.assign({}, todo, { complete: !todo.complete }))
+            case RECEIVE_TODOS_ACTIONS:
+              return action.todos;
+          default:
+            return state
+        }
+      }
+  
+      function goals(state = [], action) {
+        switch (action.type) {
+          case ADD_GOAL:
+            return state.concat([action.goal])
+          case REMOVE_GOAL:
+            return state.filter((goal) => goal.id !== action.id)
+          case RECEIVE_TODOS_ACTIONS:
+            return action.goals;
+          default:
+            return state
+        }
+      }
+      function loading(state=true, action){
+        switch(action.type){
+          case RECEIVE_TODOS_ACTIONS:
+            return false
+          default:
+            return state  
+        }
+      } 
+      // function app (state = {}, action) {
+      //   return {
+      //     todos: todos(state.todos, action),
+      //     goals: goals(state.goals, action),
+      //   }
+      // }
+      function checker(store) {
+        return function (next) {
+          return function (action) {
+            if (action.type === ADD_TODO && action.todo.name.toLowerCase().includes('bitcoin')) {
+              return alert('no, bitcoin is not allowed in add todo')
+            }
+            if (action.type === ADD_GOAL && action.goal.name.toLowerCase().includes('bitcoin')) {
+              return alert('no, bitcoin is not allowed in add goal')
+            }
+            return next(action)
+          }
+        }
+      }
+  
+  
+  
+  
+  
+      // function checkBeforeDispatch(store, action){
+      //   if(action.type===ADD_TODO && action.todo.name.toLowerCase().includes('bitcoin')){
+      //     return alert('no, bitcoin is not allowed in add todo')
+      //   }
+      //   if(action.type===ADD_GOAL && action.goal.name.toLowerCase().includes('bitcoin')){
+      //     return alert('no, bitcoin is not allowed in add goal')
+      //   }
+      //   return store.dispatch(action)
+      // }
+  
+      const checkerr = (store) => (next) => (action) => {
+        if (action.type === ADD_TODO && action.todo.name.toLowerCase().includes('bitcoin')) {
+          return alert('no, bitcoin is not allowed in add todo')
+        }
+        if (action.type === ADD_GOAL && action.goal.name.toLowerCase().includes('bitcoin')) {
+          return alert('no, bitcoin is not allowed in add goal')
+        }
+        return next(action)
+      }
+      const logger = (store) => (next) => (action) => {
+        console.group(action.type)
+        const result = next(action)
+        console.log('new state', store.getState())
+        console.groupEnd()
+        return result
+      }
+  
+      // const thunk = (store)=>(next)=>(action)=>{
+      //   if(typeof action==='function'){
+      //     return action(store.dispatch)
+      //   }
+      //   return next(action)
+      // }
+      // const thunks = (store)=>(next)=>(action)=>{
+      //   if(typeof action==='function'){
+      //     return action(store.dispatch)
+      //   }
+      //   return next(action)
+      // }
+      const store = Redux.createStore(Redux.combineReducers({
+        todos,
+        goals,
+        loading,
+      }), Redux.applyMiddleware(ReduxThunk.default, checkerr, logger))
+  
+      store.subscribe(() => {
+        console.log('The new state is: ', store.getState())
+        const { goals, todos } = store.getState()
+        document.getElementById('todos').innerHTML = ''
+        document.getElementById('goals').innerHTML = ''
+        todos.forEach(todo => addTodoToDOM(todo))
+        goals.forEach(goal => addGoalToDOM(goal))
+      })
+  
+      // store.dispatch(addTodoAction({
+      //   id: 0,
+      //   name: 'Walk the dog',
+      //   complete: false,
+      // }))
+  
+      // store.dispatch(addTodoAction({
+      //   id: 1,
+      //   name: 'Wash the car',
+      //   complete: false,
+      // }))
+  
+      // store.dispatch(addTodoAction({
+      //   id: 2,
+      //   name: 'Go to the gym',
+      //   complete: true,
+      // }))
+  
+      // store.dispatch(removeTodoAction(1))
+  
+      // store.dispatch(toggleTodoAction(0))
+  
+      // store.dispatch(addGoalAction({
+      //   id: 0,
+      //   name: 'Learn Redux'
+      // }))
+  
+      // store.dispatch(addGoalAction({
+      //   id: 1,
+      //   name: 'Lose 20 pounds'
+      // }))
+  
+      // store.dispatch(removeGoalAction(0))
+      function getId() {
+        return Math.random.toString(36).substring(2) + new Date().getTime().toString(36)
+      }
+      function addTodo() {
+        const input = document.getElementById('todo')
+        const name = input.value
+        input.value = ''
+        store.dispatch(addTodoAction({
+          id: getId(),
+          name,
+          complete: false
+        }))
+  
+      }
+      const todoBtn = document.getElementById('todoBtn')
+      todoBtn.addEventListener('click', addTodo)
+      function addGoal() {
+        const input = document.getElementById('goal')
+        const name = input.value
+        input.value = ''
+        store.dispatch(addGoalAction({ id: getId(), name }))
+      }
+      const goalBtn = document.getElementById('goalBtn')
+      goalBtn.addEventListener('click', addGoal)
+      function addTodoToDOM(todo) {
+        const todoUl = document.getElementById('todos')
+        const element = document.createElement('li')
+        const textNode = document.createTextNode(todo.name)
+        const buttonClose = document.createElement('button')
+        buttonClose.textContent = 'close'
+        buttonClose.addEventListener('click', () => {
+          store.dispatch(removeTodoAction(todo.id))
+          element.remove()
+        })
+        //element.style.display = 'block'
+        element.appendChild(textNode)
+        element.appendChild(buttonClose)
+        //buttonClose.style.float = 'center'
+        buttonClose.style.marginLeft = '50px'
+        element.style.textDecoration = todo.complete ? 'line-through' : 'none'
+        element.addEventListener('click', () => {
+          store.dispatch(toggleTodoAction(todo.id))
+        })
+  
+        todoUl.appendChild(element)
+      }
+      function addGoalToDOM(goal) {
+        const element = document.createElement('li')
+        const textNode = document.createTextNode(goal.name)
+        element.appendChild(textNode)
+        const buttonClose = document.createElement('button')
+        buttonClose.innerText = 'close'
+        buttonClose.style.marginLeft = '50px'
+        buttonClose.addEventListener('click', () => {
+          store.dispatch(removeGoalAction(goal.id))
+        })
+        element.appendChild(buttonClose)
+        const todoGoal = document.getElementById('goals')
+        todoGoal.appendChild(element)
+      }
+    </script>
+    <script type="text/babel">
+      
+      
+      class Todos extends React.Component {
+        addItem = (e) => {
+          e.preventDefault();
+          const value = this.input.value
+          this.props.dispatch(handleSaveTodo(value,
+           ()=>this.input.value=''))
+  
+  
+          // this.input.value = ''
+          // this.props.store.dispatch(addTodoAction({
+          //   type: ADD_TODO,
+          //   id: getId(),
+          //   name: value,
+          //   complete: false
+          // }
+          // ))
+        }
+        removeItem = (todo)=>{
+  
+          this.props.dispatch(handleDeleteTodo(todo))
+          // this.props.store.dispatch(removeTodoAction(todo.id))
+          // return API.deleteTodo(todo.id).catch(()=>{
+          //   this.props.store.dispatch(addTodoAction(todo))
+          //   alert('something wrong, try again')
+          // })
+        }
+        toggleItem = (id)=>{
+          this.props.dispatch(handleToggleTodo(id))
+  
+        }
+        render() {
+          return (
+            <div>
+              <h2>Todos</h2>
+              <input
+                type="text"
+                placeholder="enter todo item"
+                ref={(input) => this.input = input}
+              />
+              <button onClick={this.addItem}>Add todo</button>
+              <List toggleItem={this.toggleItem} removeItem={this.removeItem} items={this.props.todos}/>
+            </div>
+          )
+        }
+      }
+      class Goals extends React.Component {
+        addGoal = (e)=>{
+          e.preventDefault()
+          const value = this.inputElement.value;
+          this.props.dispatch(handleSaveGoal(value, ()=>this.inputElement.value=''))
+          
+        }
+        removeItem = (goal)=>{
+          // this.props.store.dispatch(removeGoalAction(goal.id))
+          // return API.deleteGoal(goal.id).catch(()=>{
+          //   this.props.store.dispatch(addGoalAction(goal))
+          //   alert('something was wrong, try again')
+          // })
+          this.props.dispatch(handleRemoveGoal(goal))
+        }
+        render() {
+          return (
+            <div>
+              <h2>Goals</h2>
+              <input type='text'
+              placeholder='add a goal'
+              ref={(input)=>this.inputElement=input}/>
+              <button onClick={this.addGoal}>add goal</button>
+              <List removeItem={this.removeItem} items={this.props.goals} />
+            </div>
+          )
+        }
+      }
+      const context = React.createContext()
+  
+      const ConnectedApp = connect((state)=>{
+          loading: state.loading
+        })(App)
+        const ConnectedGoals = connect(state=>{
+          goals:state.goals
+        })(Goals)
+  
+        const ConnectedTodos = connect((state)=>{
+          todos:state.todos
+        })(Todos)
+      
+      function connect(mapStateToPtops){
+  
+        return (Component)=>{
+          class Received extends React.Component{
+            componentDidMount(){
+              const {subscribe} = this.props.store
+              this.unsubscribe = subscribe(()=>{
+                this.forceUpdate()
+              })
+            }
+            componentWillUnmount(){
+              this.unsubscribe()
+            }
+            render(){
+              const {dispatch, getState} = this.props.store
+              const state = getState()
+              const neededState = mapStateToPtops(state)
+              
+              
+              return(
+   
+                <Component state={...neededState} dispatch={dispatch}/>
+              )
+            }
+  }
+  
+  
+  
+          class ConnectedComponent extends React.Component{
+  
+            render(){
+              return(
+                <connect.Consumer>
+                {(store)=>{
+                  <Received store={store}/>
+                }}  
+                </connect.Consumer>
+              )
+            }
+          }
+          return ConnectedComponent
+        }
+      }
+  
+  
+      class Provider extends React.Component{
+        render(){
+          return(
+            <context.Provider value={this.props.store}>
+            {this.props.children}  
+            </context.Provider>
+          )
+        }
+      }
+      class ConnectedApp extends React.Component{
+        render(){
+          return(
+            <context.Consumer>
+            {(store)=>(
+              <App store={store}/>
+            )}  
+            </context.Consumer>
+          )
+        }
+      }
+  
+  
+  
+      class ConnectedGoals extends React.Component{
+  
+        render(){
+          return(
+            <context.Consumer>
+              {(store)=>
+                <Goals goals={store.getState().goals} dispatch={store.dispatch} store={store}/>
+              }  
+            </context.Consumer>
+          )
+        }
+      }
+  
+      class ConnectedTodos extends React.Component{
+        render(){
+  
+          return(
+            <context.Consumer>
+            {(store)=><Todos  store={store} dispatch={store.dispatch} todos={store.getState().todos}/>}
+            </context.Consumer>
+          )
+        }
+      }
+  
+      class App extends React.Component {
+        componentDidMount(){
+          const store = this.props.store
+          API.fetchTodos().then(result=>console.log('todos', result))
+          API.fetchGoals().then(result=>console.log('goals', result))
+          // Promise.all([API.fetchTodos(), API.fetchGoals()]).then((result)=>console.log('result', result))
+          // Promise.all([API.fetchTodos(),API.fetchGoals()]).then(([todoss,goals])=>{
+          //   store.dispatch(receiveTodosGoalsAction(todoss,goals ));
+          //   console.log('todos',todoss);
+          //   console.log('goalss', goals)
+        //})
+          store.dispatch(handleMountData())
+          store.subscribe(()=>{
+            this.forceUpdate()
+          })
+        }
+        render() {
+          const store = this.props.store
+          const{todos, goals, loading} = store.getState()
+          if(loading){
+            return(
+              <div><h1>Loading</h1></div>
+            )
+          }
+          return (
+            <div>
+              <ConnectedTodos/>
+              <ConnectedGoals/>
+            </div>
+          );
+  
+  
+        }
+      }
+      ReactDOM.render(<Provider store={store}><ConnectedApp /></Provider>, document.getElementById('app'))
+    </script>
+
+
+
+
+{% endblock main %}
+
+
+
+{% block sidebar %}
+  
+{% endblock sidebar %}
+    

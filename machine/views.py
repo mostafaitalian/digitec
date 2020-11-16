@@ -413,3 +413,18 @@ def bulk(request):
         d['department'] = department
     Machine.objects.bulk_create([Machine(**i) for i in daa])
     return redirect('machine:list')
+
+
+class ReportList(ListView):
+    model = Report
+    template_name='machine/report-list.html'
+    context_object_name = 'reports'
+    def get_queryset(self, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            if self.request.user.is_superuser:
+                q = self.model.objects.all()
+            elif hasattr(self.request.user, 'engineer'):
+                q = self.model.objects.filter(engineer=self.request.user.engineer)
+        else:
+            q= None
+        return q                

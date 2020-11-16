@@ -27,8 +27,9 @@
 
     {% for engineer in machine.area.engineer_set.all %}
     {% if engineer.user.username == request.user.username or request.user.is_superuser %}
-    <div>
-      <table class="table table-hover table-boardered" style='border: 1px solid black;'>
+    <div style='border-radius: 5px; border: 2px solid rgb(190, 66, 66); padding: 20px 10px;margin-bottom: 5px;'>
+      <h4 class='text-center'>Machine detail</h4>
+      <table class="table table-hover">
         <thead class="table-primary">
           <tr class="p-auto">
             <th scope="col">Serial number</th>

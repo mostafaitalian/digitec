@@ -40,7 +40,7 @@
     </style>
 
 {% endblock %}
-{% block main %}
+{% block content %}
 <!-- <script>
     console.log('iam here')
     let url = 'ws://' + window.location.host + `/machine/list1/`
@@ -167,6 +167,9 @@
     </div>
 </div>
 </div>
+{% endblock %}
+{% block main %}
+    <div>hello</div>
 {% endblock %}
 {% block sidebar %}
 {% if machine_list %}

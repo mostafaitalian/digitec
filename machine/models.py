@@ -422,7 +422,7 @@ class FileReview(models.Model):
 
 
 class ImageReport(ImageAbstract):
-    report = models.ForeignKey(Report, related_name='images', on_delete=models.CASCADE)
+    report = models.ForeignKey(Report, related_name='report_images', on_delete=models.CASCADE)
 
 
     def __str__(self):
@@ -430,7 +430,7 @@ class ImageReport(ImageAbstract):
 
 
 class FileReport(FileAbstract):
-    Report = models.ForeignKey(Report, related_name='files', on_delete=models.CASCADE)
+    Report = models.ForeignKey(Report, related_name='report_files', on_delete=models.CASCADE)
 
 
     def __str__(self):
