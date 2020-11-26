@@ -4,7 +4,7 @@ from collections import OrderedDict
 import json
 
 
-if __name__ == "__main__":
+def create_bulk_customers(customers):
     excel2json.convert_from_file('Mostafa1.xls')
     wb =xlrd.open_workbook("TA01.xls")
     sh = wb.sheet_by_index(0)
@@ -14,24 +14,38 @@ if __name__ == "__main__":
     
     for rownum in range(7, sh.nrows):
         fdata_list.append(sh.row_values(rownum)[7])
-    print(fdata_list)
+    # print(fdata_list)
     a=set(fdata_list)
     fffdata_list= list(a)
     fffdata_list.remove((''))
-    print(fffdata_list, len(fffdata_list))
+    # print(fffdata_list, len(fffdata_list))
+    idss = customers.values_list('customer_id', flat=True)
+    ffffdata_list = []
+    for d in fffdata_list:
+        print('out idsss')
+        if int(d) in idss:
+            print('in idss')
+            print(d)
+        else:
+            ffffdata_list.append(d)
+    
+    # print(fffdata_list, len(fffdata_list))
+
     ffdata_list = []
+    
+
     for d in fdata_list:
         #print(fdata_list.index(d), max(loc for loc, val in enumerate(fdata_list) if val==d))
         if(fdata_list.index(d)== max(loc for loc, val in enumerate(fdata_list) if val==d)):
             ffdata_list.append(d)
-    print(ffdata_list)
+    # print(ffdata_list)
 
 
-    print(sh.nrows)
+    # print(sh.nrows)
     for rownum in range(7, sh.nrows):
-            print(sh.row_values(rownum))
-        # if sh.row_values(rownum)[7] in fffdata_list:
-        #     fffdata_list.remove(sh.row_values(rownum)[6])
+        # print(sh.row_values(rownum))
+        if sh.row_values(rownum)[7] in ffffdata_list:
+            ffffdata_list.remove(sh.row_values(rownum)[7])
             if(sh.row_values(rownum)[7]!=''):
 
                 data =OrderedDict()
@@ -89,6 +103,8 @@ if __name__ == "__main__":
         #data['Customer_name'] = row_values[7]
 
                 data_list.append(data)
+    #print(data_list)
         # sdata_list = [dict(t) for t in {tuple(d.items()) for d in data_list}]
-    with open('TA02_customer6.json', 'w', encoding='utf-8') as writeJsonfile:
-        json.dump(data_list, writeJsonfile, indent=4, ensure_ascii=False)
+    # with open('TA02_customer6.json', 'w', encoding='utf-8') as writeJsonfile:
+    #     json.dump(data_list, writeJsonfile, indent=4, ensure_ascii=False)
+    return data_list

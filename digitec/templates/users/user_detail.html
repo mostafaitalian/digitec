@@ -13,12 +13,12 @@
       }
       .ex-1{
         border-bottom: 2px solid black;
-        color: black;
+        color: hsl(0, 0%, 0%);
 
       }
       tr.machine-row{
         
-        background-color: lightgrey !important;
+        background-color: white !important;
         padding: 10px;
       }
       tr th,td{
@@ -75,7 +75,7 @@
       }
       span{
         border-bottom: 2px solid black;
-        background-color: gray;
+        background-color:red;
       }
 
   </style>
@@ -93,7 +93,7 @@
   <div class="col-sm-12">
     <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">My Info</a>
     <a class="btn btn-primary" href="{% url 'account_email' %}" role="button">E-Mail</a>
-    <!-- Your Stuff: Custom user template urls -->
+    Your Stuff: Custom user template urls -->
   <!-- </div> -->
 
 <!-- </div> -->
@@ -132,7 +132,7 @@
 <tr class="machine-row">
   <th class="machine-row center">
     <div>
-      {{machine.serial}} - {{machine.customer}} - {{machine.name}}
+      {{machine.serial}} - {{machine.customer}} - {{machine.machine_model}}
 
     </div>
   </th>
@@ -152,7 +152,7 @@
     <div class="center">
       <div class="call-div" >
         <div class="call-div-p" >
-          <span class="call-span">Title: </span><p>{{call.notification_number}}-{{call.machine.name}}</p>
+          <span class="call-span">Title: </span><p>{{call.notification_number}}-{{call.machine.machine_model}}--{{call.machine.serial}}</p>
           <br>
           <span class="call-span">Created at: </span><p>{{call.created_date}}</p>
           <br>
@@ -182,7 +182,6 @@
     <h2>
       there is no calls for this machine yet
     </h2>
-
   {% endfor %}
   <br>
 {% endfor %}
@@ -197,7 +196,7 @@
  <tr class="machine-row">
    <th class="machine-row center">
      <div>
-       {{machine.serial}} - {{machine.customer}} - {{machine.name}}
+       {{machine.serial}} - {{machine.customer}} - {{machine.machine_model}}
 
      </div>
    </th>
@@ -217,7 +216,7 @@
      <div class="center">
        <div class="call-div" >
          <div class="call-div-p" >
-           <span class="call-span">Title: </span><p>{{call.notification_number}}-{{call.machine.name}}</p>
+           <span class="call-span">Title: </span><p>{{call.notification_number}}-{{call.machine.machine_model}}--{{ call.machine.serial }}</p>
            <br>
            <span class="call-span">Created at: </span><p>{{call.created_date}}</p>
            <br>
@@ -265,7 +264,7 @@
   <tr>
     <th>
       <p class="center m-auto bg-danger p-2">
-        {{ call.notification_number }}-{{ call.machine.name }}
+        {{ call.notification_number }}-{{ call.machine.machine_model }}--{{ call.machine.serial }}
       </p>
   </th>
     <td>

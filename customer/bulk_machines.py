@@ -5,7 +5,7 @@ import json
 from customer.models import Department
 from engineer.models import Area
 def create_bulk(customers):
-    wb =xlrd.open_workbook("Mostafa.xls")
+    wb =xlrd.open_workbook("TA02.xls")
     sh = wb.sheet_by_index(0)
 
     data_list = []
@@ -13,7 +13,7 @@ def create_bulk(customers):
     #     row_values = sh.row_values(rownum)
     #     print(row_values(rownum))
 
-    for rownum in range(7, sh.nrows-1):
+    for rownum in range(7, sh.nrows):
         #print(sh)
     
         if(sh.row_values(rownum)[1] != ''):
@@ -38,7 +38,10 @@ def create_bulk(customers):
                 fields['machine_location'] = 'no location'
             fields['installation_date'] = None
             fields['added'] = None
-            fields['machine_points'] = 1.0
+            if row_values[6] != '':
+                fields['machine_points'] = row_values[6]
+            else:
+                fields['machine_points'] = 1.0
             fields['machine_response_time']= None
             fields['machine_callback_time'] = None
             fields["begin_at"] = "08:00:00"
@@ -47,12 +50,12 @@ def create_bulk(customers):
             fields["second_week_dayoff"] = 7
             fields['machine_category'] = None
     
-            if(row_values[6]!='' and row_values[6]!= 'Customer'):
-                fields['customer'] = customers.get(customer_id=int(row_values[6])).id
+            if(row_values[7]!='' and row_values[7]!= 'Customer'):
+                fields['customer'] = customers.get(customer_id=int(row_values[7])).id
             else:
                 fields['customer'] = None
-            fields['department'] =Department.objects.get(customer__id=customers.get(customer_id=int(row_values[6])).id).id
-            fields['area'] = Area.objects.get(name='TA03').id
+            fields['department'] =Department.objects.get(customer__id=customers.get(customer_id=int(row_values[7])).id).id
+            fields['area'] = Area.objects.get(name='TA02').id
             fields['contract'] = None
             #data['Customer_name'] = row_values[7]
             if('serial' not in fields):

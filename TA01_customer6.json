@@ -1,0 +1,4384 @@
+[
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Sheraton Montaza Hotel",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 14,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Almaamoura For Paper  &  Carton",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 823,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex fertilizers",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 15,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex fertilizers",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 15,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Sheraton Montaza Hotel",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 14,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Hammam Group",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 859,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Sheraton Montaza Hotel",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 14,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Sheraton Montaza Hotel",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 14,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Sheraton Montaza Hotel",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 14,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Corona School",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 172,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Sheraton Montaza Hotel",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 14,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Sheraton Montaza Hotel",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 14,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Sheraton Montaza Hotel",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 14,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex fertilizers",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 15,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 5,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "YARA ARG",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 505,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ABCO",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 110,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "GAS TEC",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 201,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 5,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 5,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 5,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 5,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 5,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "EL NASR EXCHANGE",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 325,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Cairo    Bank",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 889,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Rawdet EL Shikh Zayed  Language  School",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 936,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Abdel Monem Wasel   School",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 986,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Commercial International Bank (CIB)",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 6,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Abo Quir Fertalizers Co",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 12,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Aswaq  Fathalla  Gomla",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 356,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Hilton Alexandria Hotel",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 18,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Hilton Alexandria Hotel",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 18,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "El Montazah for Tourism & Investment",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1197,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "El Montazah for Tourism & Investment",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1197,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "PETROMAINT",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 368,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "LECICO",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 274,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "EGYPTIAN OPERATING COMPANY - ELNG",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 315,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "SOCIAL FUND FOR DEVELOPME",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 468,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Textiles Support Fund",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 480,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Textiles Support Fund",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 480,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "SOCIAL FUND FOR DEVELOPME",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 468,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Carbon Black",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 31,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Atlas Copco Equipment Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 618,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "AL EZZ DEKHEILA STEEL CO.ALEXANDRIA",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 84,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex fertilizers",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 15,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex fertilizers",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 15,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex fertilizers",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 15,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex fertilizers",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 15,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex fertilizers",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 15,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "NATGAS",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 433,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Co. for  Electric  Distribution",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 30,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "UNIRAB SPNNING AND WEAVING",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 104,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "NATGAS",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 433,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Abo Quir Fertalizers Co",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 12,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Abo Quir Fertalizers Co",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 12,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Housing & Development Bank   HDB",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 231,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Abo Quir Fertalizers Co",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 12,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Abo Quir Fertalizers Co",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 12,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Sheraton Montaza Hotel",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 14,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Sheraton Montaza Hotel",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 14,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Sheraton Montaza Hotel",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 14,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Royality  Language",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 851,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Pharmaceuticals",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 9,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "LECICO",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 274,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Governorate",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 10,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "AL EZZ DEKHEILA STEEL CO.ALEXANDRIA",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 84,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "LECICO",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 274,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Emirates NBD",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 339,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Governorate",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 10,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Bank Audi Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 141,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "MANSOUR GROUP - SICLAM",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 282,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "MANSOUR GROUP - SICLAM",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 282,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "MANSOUR GROUP - SICLAM",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 282,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "MANSOUR GROUP - SICLAM",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 282,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "MANSOUR GROUP - SICLAM",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 282,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "MANSOUR GROUP - SICLAM",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 282,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "MANSOUR GROUP - SICLAM",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 282,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "MANSOUR GROUP - SICLAM",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 282,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Hilton Alexandria Hotel",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 18,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Hilton Alexandria Hotel",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 18,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "UNIRAB SPNNING AND WEAVING",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 104,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "النصر للمباني والإنشاءات - EGYCO",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1230,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "مدينة البعوث الاسلامية بالاسكندرية",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1217,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "المعهد العالي للسياحة والفنادق",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1486,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 5,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 5,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 5,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 5,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "EGYPTIAN OPERATING COMPANY - ELNG",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 315,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "MANSOUR GROUP - SICLAM",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 282,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "EGYPTIAN COMPANY FOR ELECTRIC TRANSPT",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 177,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "IEMSA",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 239,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "TE Data",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 477,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Abo Quir Fertalizers Co",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 12,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "SAUDI  ARABIAN  AIRLINES",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1027,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Abo Quir Fertalizers Co",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 12,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "QNB",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 677,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Etisalat Misr",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 344,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Etisalat Misr",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 344,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Etisalat Misr",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 344,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Etisalat Misr",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 344,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Etisalat Misr",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 344,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Etisalat Misr",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 344,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Etisalat Misr",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 344,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ALEXANDRIA LANG SCHOOL (ALS)",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 129,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Faisal Islamic Bank",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 644,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Faisal Islamic Bank",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 644,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Al Ahli Bank of Kuwait",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 767,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ELAB",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 334,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Al Ahli Bank of Kuwait",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 767,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Al Ahli Bank of Kuwait",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 767,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "NATGAS",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 433,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ALEXANDRIA LANG SCHOOL (ALS)",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 129,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Marseilia For Assets Management - Florence",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1053,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Corona School",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 172,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "AL EZZ DEKHEILA STEEL CO.ALEXANDRIA",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 84,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "MANSOUR GROUP - SICLAM",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 282,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alexandria Water Company",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 575,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alexandria Water Company",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 575,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Orkila",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 649,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Kindergarden School of Agricult Official Languages",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 732,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Fatima Zahraa School",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 660,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "American Power Technology",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1117,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "COLD ALEX",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 571,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "MASR AMERYA FOR REAL STAT",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 293,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "SAN STEFANO FOR REAL STAT",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 452,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Prometeon    Tyre   Egypt  Co",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 374,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "West Delta For Elec. production",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 106,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "FARAGALLAH",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 354,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "RHI",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 387,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Abo Quir Fertalizers Co",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 12,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Middle East Oil Refinery - Midor",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 403,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "MANSOUR GROUP - SICLAM",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 282,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Elvy Weaving",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 336,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "EGYPTION COMPANY FOR TRAD",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 320,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "MINISTRY OF FORIGN AFFAIR",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 94,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Gomla Market",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1099,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "PRINCE STEEL & ENGINEERIN",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 380,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "PRINCE STEEL & ENGINEERIN",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 380,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "PORTO MARINA TOWERS",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 112,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Health Insurance Authority",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 222,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "UNIRAB SPNNING AND WEAVING",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 104,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Scan",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 76,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "EMAK CONTRACTING CO",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 337,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "GOLF PORTO MARINA",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 90,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "The Egyptian Co. for Mobile Services-Orange",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 584,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Red Line",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1460,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "The Egyptian Co. for Mobile Services-Orange",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 584,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "MANSOUR GROUP - SICLAM",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 282,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "MANSOUR GROUP - SICLAM",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 282,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 5,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "UNIRAB SPNNING AND WEAVING",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 104,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Modern Seouf Plastic",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 418,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "EGYPTIAN OPERATING COMPANY - ELNG",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 315,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Commercial International Bank (CIB)",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 6,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Commercial International Bank (CIB)",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 6,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "LECICO",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 274,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Emirates NBD",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 339,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Emirates NBD",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 339,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Dril Quip Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 192,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Health Insurance Authority",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 222,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "MANSOUR GROUP - SICLAM",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 282,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Health Insurance Authority",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 222,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Aswaq  Fathalla  Gomla",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 356,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Aswaq  Fathalla  Gomla",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 356,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "شركة ضامن للمدفوعات الالكترونية",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1462,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "General  Company  For  Petrolium",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 999,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Aswaq  Fathalla  Gomla",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 356,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Aswaq  Fathalla  Gomla",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 356,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Abo Quir Fertalizers Co",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 12,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "UNIRAB SPNNING AND WEAVING",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 104,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "GENERAL CO. FOR PASSING TRANSPORT",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 204,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Abo Quir Fertalizers Co",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 12,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "US EMBASSY(ALEX)",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 500,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "US EMBASSY(ALEX)",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 500,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Aswaq  Fathalla  Gomla",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 356,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Aswaq  Fathalla  Gomla",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 356,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Carlo  Gavezzi",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 930,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Carlo  Gavezzi",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 930,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Commercial International Bank (CIB)",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 6,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Commercial International Bank (CIB)",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 6,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ELAB",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 334,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Abo Quir Fertalizers Co",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 12,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "AL EZZ DEKHEILA STEEL CO.ALEXANDRIA",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 84,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "اكاديمية الشرطة - ادارة تدريب كلاب الشرطة",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1219,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "TE Data",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 477,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 5,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 5,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 5,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "NAEEM BROKERAGE",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 430,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Amid - ElMousa For Elec. Machine",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 852,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Gomla Market",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1099,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Mabaret Al Asafra Hospital",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 686,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Gomla Market",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1099,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Gomla Market",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1099,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Gomla Market",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1099,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 5,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Telecom Egypt",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 5,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Pharmaceuticals",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 9,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Pharmaceuticals",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 9,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Pharmaceuticals",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 9,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Pharmaceuticals",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 9,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Pharmaceuticals",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 9,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Pharmaceuticals",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 9,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Pharmaceuticals",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 9,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Pharmaceuticals",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 9,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Pharmaceuticals",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 9,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Pharmaceuticals",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 9,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Pharmaceuticals",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 9,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Pharmaceuticals",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 9,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Pharmaceuticals",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 9,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Pharmaceuticals",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 9,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Alex Pharmaceuticals",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 9,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Misr Bank",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 752,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Victoria College",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1086,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Victoria College",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1086,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "ARAB MARITIME ACADEMY",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 7,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Misr Bank",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 752,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Amreyah Cement co.",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 839,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Amreyah Cement co.",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 839,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Amreyah Cement co.",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 839,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Amreyah Cement co.",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 839,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Amreyah Cement co.",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 839,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Amreyah Cement co.",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 839,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    },
+    {
+        "model": "customer.customer",
+        "fields": {
+            "name": "Abo Quir Hospital",
+            "location": "no location",
+            "address_site": "http://www.google.com",
+            "customer_id": 1083,
+            "telephone": 1,
+            "begin_at": "08:00:00",
+            "finish_at": "16:00:00",
+            "first_week_dayoff": 6,
+            "second_week_dayoff": 7
+        }
+    }
+]

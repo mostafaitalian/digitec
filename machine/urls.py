@@ -17,6 +17,8 @@ urlpatterns = [path('create/', views.CreateMachineView1.as_view(), name="create"
         
                path('call/manage/', views.create_update_call_formset, name="call_manage"),
                path('call/manage/serial/<int:serial>/', views.create_update_call_formset, name="call_manage_serial"),
+               path('report/manage/', views.create_update_report_formset, name="report_manage"),
+               path('report/manage/update/<int:id>/', views.create_update_report_formset, name="report_manage_update"),
 
                path('call/assign/<pk>/', views.CallUpdateView.as_view(), name='call_assign_engineer'),
                path('call/list/', views.CallListView.as_view(), name='call_list'),

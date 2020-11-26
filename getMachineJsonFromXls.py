@@ -7,7 +7,7 @@ import json
 
 if __name__ == "__main__":
     excel2json.convert_from_file('Mostafa1.xls')
-    wb =xlrd.open_workbook("Mostafa.xls")
+    wb =xlrd.open_workbook("TA01_mm.xlsx")
     sh = wb.sheet_by_index(0)
     #print(wb._sheet_names)
     data_list = []
@@ -15,7 +15,7 @@ if __name__ == "__main__":
     #     row_values = sh.row_values(rownum)
     #     print(row_values(rownum))
 
-    for rownum in range(7, sh.nrows):
+    for rownum in range(7, sh.nrows-2):
         #print(sh)
     
         if(sh.row_values(rownum)[1] != ''):
@@ -33,6 +33,7 @@ if __name__ == "__main__":
                 fields['machine_model'] = row_values[4]
             else:
                 fields['machine_model'] = 'no model'
+            
             if(row_values[15]!='' and row_values[15]!="Machine Location"):
             
                 fields['Machine_location'] = row_values[15]
@@ -40,7 +41,7 @@ if __name__ == "__main__":
                 fields['Machine_location'] = 'no location'
             fields['installation_date'] = None
             fields['added'] = None
-            fields['machine_points'] = 1.0
+            fields['machine_points'] = row_values[6]
             fields['machine_response_time']= None
             fields['machine_callback_time'] = None
             fields["begin_at"] = "08:00:00"

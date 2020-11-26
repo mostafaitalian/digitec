@@ -15,6 +15,8 @@ def get_upload_name(instance, filename):
         return u'{}/{}/{}_{}'.format(instance.engineer.name, instance.review_title, instance.review_title, filename)
     elif hasattr(instance, 'review'):
         return u'{}/{}/{}_{}'.format(instance.review.engineer.name, instance.review.review_title, instance.review.review_title, filename)
+    elif hasattr(instance, 'report'):
+        return u'{}/{}/{}_{}'.format(instance.report.engineer.name, instance.report.call.notification_number, instance.report.id, filename)
 
     else:
         return filename
@@ -426,7 +428,11 @@ class ImageReport(ImageAbstract):
 
 
     def __str__(self):
-        return self.image_name + ' ' + self.report.call.notification_number
+        if self.image_name:
+
+            return self.image_name + ' ' + str(self.report.call.notification_number)
+        else:
+            return str(self.report.call.notification_number)
 
 
 class FileReport(FileAbstract):

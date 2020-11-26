@@ -1,7 +1,7 @@
 from django.shortcuts import render, reverse
 from django.views.generic import CreateView, ListView, DetailView, UpdateView
 from .models import Machine, Call, Category, Report, Contract
-from .forms import CreateMachineForm, CallForm, CategoryForm, ReportForm, ReportForm1, CallFormSet,CallForm1, CallForm2, MachineForm, ContractForm
+from .forms import CreateMachineForm, CallForm, CategoryForm, ReportForm,ReportForm2, ReportForm1, CallFormSet,CallForm1, CallForm2, MachineForm, ContractForm, ReportFormSet
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect
 from engineer.models import Engineer, Area
@@ -61,11 +61,36 @@ class MachineList(LoginRequiredMixin,ListView):
     model = Machine
     template_name = "machine/machine_list.html"
     context_object_name = 'machine_list'
-    paginate_by=4
+    paginate_by=8
+    def get_queryset(self):
+        # ctx = super().get_context_data(**kwargs)
+        # ctx['all_machines'] = Machine.objects.all()
+        # return ctx
+        if self.request.user.is_superuser:
+            q=Machine.objects.all()
+        else:
+            q=None
+        return q
+
+        
+    #         ctx['all_machines'] = all_machines
+    #         return ctx
+            
+    #     # elif self.request.user.is_authenticated and hasattr(self.request.user, 'engineer'):
+    #     #     all_machines = Machine.objects.filter(area=self.request.user.engineer.area)
+    #     else:
+    #         all_machines = None
+    #         ctx['all_machines'] = all_machines
+    #         return ctx
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["machiness"] =Machine.objects.all() 
+        return context
+    
 class MachineCreateReadView(ListCreateAPIView):
     # queryset=Machine.objects.all()
     serializer_class = MachineSerializer
-    lookup_field = 'slug'
+    # lookup_field = 'slug'
     permission_classes = (IsAuthenticated,)
     def get_queryset(self):
         if self.request.user.is_superuser:
@@ -415,12 +440,34 @@ def bulk(request):
     return redirect('machine:list')
 
 
-class ReportList(ListView):
+class ReportList(LoginRequiredMixin, ListView):
     model = Report
     template_name='machine/report-list.html'
     context_object_name = 'reports'
     def get_queryset(self, *args, **kwargs):
         if self.request.user.is_authenticated:
+            query=self.request.GET.get('query','')
+            print(self.request.GET.get('query'), self.request.GET.get('categoryy'))
+
+            if self.request.GET.get('categoryy','') == 'notification_number':
+                reports = Report.objects.filter(call__notification_number=query)
+                # total_page = machines.count()/self.paginate_by
+
+
+                return reports
+            elif self.request.GET.get('categoryy', '') == 'serial':
+                reports = Report.objects.filter(call__machine__serial=query)
+                return reports
+            elif self.request.GET.get('categoryy','') == 'customer':
+
+                reports = Report.objects.filter(call__customer__name__icontains=query)
+                return reports
+            elif self.request.GET.get('categoryy','') == 'engineer':
+                
+                reports = Report.objects.filter(call__engineer__name__icontains=query)
+                return reports
+            else:
+                return super().get_queryset()
             if self.request.user.is_superuser:
                 q = self.model.objects.all()
             elif hasattr(self.request.user, 'engineer'):
@@ -428,3 +475,31 @@ class ReportList(ListView):
         else:
             q= None
         return q                
+def create_update_report_formset(request, id=None):
+    if id:
+        report = Report.objects.get(id=id)
+    else:
+        report = Report()
+    report_form = ReportForm1(instance=report)
+    formset = ReportFormSet(instance=report)
+    if request.method =='POST':
+        if id:
+            created_report_form = ReportForm2(request.POST,request.FILES, instance=report)
+        else:
+            created_report_form = ReportForm1(request.POST,request.FILES, instance=report)
+
+        # created_call_form = call_form.save(commit=False)
+        created_formset = ReportFormSet(request.POST, request.FILES, instance=report)
+        if created_report_form.is_valid():
+            print('inside POst valid')
+            created_report= created_report_form.save()
+            if created_formset.is_valid():
+
+                # created_call.save()
+                created_formset.save()
+
+                return redirect(reverse('machine:report_list'))
+    # print('{}---{}'.format(call.notification_number, call.created_date))
+    if id:
+        return render(request, 'machine/manage_report.html', {'report_form':ReportForm2(instance=report), 'formset':formset, 'id':id}) 
+    return render(request, 'machine/manage_report.html', {'report_form':report_form, 'formset':formset, 'id':id})

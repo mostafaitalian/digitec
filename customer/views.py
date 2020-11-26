@@ -10,8 +10,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .bulk_machines import create_bulk
 from rest_framework.generics import ListCreateAPIView
 from .serializers import CustomerSerializer
-
-
+from .bulk_customers import create_bulk_customers
+import json
 class CustomerListCreateApi(ListCreateAPIView):
     serializer_class= CustomerSerializer
     queryset = Customer.objects.all()
@@ -24,7 +24,7 @@ class CustomerListView(LoginRequiredMixin, ListView):
     model = Customer
     template_name='customer_list.html'
     context_object_name='customers'
-    paginate_by=2
+    paginate_by= 8
     query=''
     def get_queryset(self,queryset=None):
         # queryset=super().get_queryset()
@@ -117,4 +117,24 @@ class DepartmentCreateView(CreateView):
             return reverse_lazy('customer:customer-detail', kwargs={'id':self.object.customer.id})
         else:
             return reverse_lazy('customer:customer-list')
+
+def bulk_customers_view(request):
+    customers = Customer.objects.all()
+    data_list = create_bulk_customers(customers)
+    da = json.loads(json.dumps(data_list,indent=4, ensure_ascii=False).encode('utf-8'))
+    print(da)
+    daa = [item['fields'] for item in da]
+    print([d['customer_id'] for d in daa])
+    print(json.loads(json.dumps(daa)))
+
+    Customer.objects.bulk_create([Customer(**i) for i in daa])
+    for c in Customer.objects.all():
+        print('11111')
+        if c.departments.count() == 0:
+            print('22222')
+            department = Department(department_name='others', customer=c)
+            department.save()
+    return redirect('customer:customer-list')
+
+
 

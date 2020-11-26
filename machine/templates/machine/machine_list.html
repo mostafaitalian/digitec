@@ -39,6 +39,12 @@
         }
         .card .card-header h2 a:hover{
             color:white;
+
+        }
+        @media screen and (max-width:900px) { 
+            th, td {
+                display: block;
+            }
         }
     </style>
 
@@ -46,6 +52,9 @@
 {% block content %}
 <form class='form-boardered' method="GET" action="{% url 'machine:machine_bulk' %}">
     <button type="submit">Add machines</button>
+</form>
+<form class='form-boardered' method="GET" action="{% url 'customer:customer_bulk' %}">
+    <button type="submit">Add customers</button>
 </form>
 <!-- <script>
     console.log('iam here')
@@ -202,9 +211,73 @@
 </div>
 </div>
 {% endblock %}
-{% block main %}
-<div>
-    hellooo
+<!-- {% block main %}
+<div class='row' style='border-radius: 5px; border: 2px solid rgb(190, 66, 66); padding: 20px 10px;margin-bottom: 5px;'>
+    <h4>machine page list</h4>
+    <div class='col-12'>
+    <table class="table table-hover">
+       <tr>
+        <th>Seial</th>
+        <th>Model</th>
+        <th>Customer</th>
+        <th>Area</th>
+        <th>Location</th>
+        <th>Category</th>
+        <th>Total calls</th>
+        <th>Last call</th>
+        <th>Creation date</th>
+       </tr>
+        {% for machine in machine_list  %}
+
+       <tr>
+           <td style='font-weight: bold;'>{{ machine.serial }}</td>
+           <td>{{ machine.machine_model }}</td>
+           <td>{{ machine.customer.name }}</td>
+           <td>{{ machine.area.name }} </td>
+           <td>{{ machine.machine_location }} </td>
+           <td>{{ machine.machine_category }} </td>
+           <td>{{ machine.calls.all.count }} </td>
+           <td>{{ machine.calls.last}}</td>
+
+           <td>{{ machine.added }}</td>
+
+       </tr>
+       {% endfor %}
+
+   </table>
+   </div>
+
+       
+</div>
+<div class='row' style='border-radius: 5px; border: 2px solid rgb(190, 66, 66); padding: 20px 10px;margin-bottom: 5px;'>
+    <h4>all machine list</h4>
+    <table class="table table-hover">
+        <tr>
+         <th>Seial</th>
+         <th>Model</th>
+         <th>Customer</th>
+         <th>Area</th>
+         <th>Location</th>
+         <th>Category</th>
+         <th>Total calls</th>
+         <th>Last call</th>
+         <th>Creation date</th>
+        </tr>
+    {% for m in machiness %}
+    <tr>
+     <td style='font-weight: bold;'>{{ m.serial }}</td>
+     <td>{{ m.machine_model }}</td>
+     <td>{{ m.customer.name }}</td>
+     <td>{{ m.area.name }} </td>
+     <td>{{ m.machine_location }} </td>
+     <td>{{ m.machine_category }} </td>
+     <td>{{ m.calls.all.count }} </td>
+     <td>{{ m.calls.last}}</td>
+     <td>{{ m.added }}</td>
+ 
+ </tr>
+    {% endfor %}
+</table>
 </div>
 {% endblock %}
 {% block sidebar %}
@@ -222,5 +295,5 @@
     <div class="machine-advertisement">
     </div>
 {% endif %}
-{% endblock %}
+{% endblock %} -->
 

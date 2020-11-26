@@ -1,5 +1,5 @@
 from django.forms import Form, ModelForm
-from .models import Machine, Call, Category,Report, Contact, Contract
+from .models import Machine, Call, Category,Report, Contact, Contract, ImageReport
 from customer.models import Department, Customer
 from django import forms
 from engineer.models import Engineer
@@ -97,6 +97,12 @@ class ReportForm1(ModelForm):
     class Meta:
         model=Report
         fields='__all__'
+
+class ReportForm2(ModelForm):
+
+    class Meta:
+        model = Report
+        fields = '__all__'
 class CallForm2(ModelForm):
     class Meta:
         model=Call
@@ -131,6 +137,9 @@ class MachineForm(ModelForm):
         }
 CallFormSet  = inlineformset_factory(Call, Contact, fields=['first_name', 'last_name', 'mobile'], extra=2)
 # MachineFormSet = inlineformset_factory(Machine, Contract, fields=['contact_type', 'monthly_fees'])
+ReportFormSet  = inlineformset_factory(Report, ImageReport, fields=['image_name', 'image', 'image_description'], extra=2)
+
+
 class ContractForm(ModelForm):
     class Meta:
         model=Contract

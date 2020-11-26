@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    manage report
+{% endblock title %}
+
+
+{% block main %}
+<div style='border-radius: 5px; border: 2px solid rgb(190, 66, 66); padding: 20px 10px;margin-bottom: 5px;'>
+    <p style="list-style-type: square;">
+        You can search by call notification number to update it from the form below.
+    </p>
+    <form method="GET" action="{% url 'machine:call_manage' %}">
+        <input class='form-control' type="number" name="serial"/>
+        <button class='btn btn-secondary' type="submit">search by serial</button> 
+    </form>
+</div>
+<div style='border-radius: 5px; border: 2px solid rgb(190, 66, 66); padding: 20px 10px;margin-bottom: 5px;'>
+    <h5 class='text-center'>Report Form</h5>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="number" value={{ id }} readonly/>
+        {{report_form|crispy}}
+        {{formset|crispy}}
+        <button class='btn btn-primary' type='submit'>
+            {% if id %}
+                Update report
+            {% else %}
+                Add report
+            {% endif %}
+        </button>
+    </form>
+</div>
+{% endblock main %}
