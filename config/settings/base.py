@@ -243,7 +243,7 @@ EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT ='587'
 
 EMAIL_HOST_USER='mostafaitalian1379@gmail.com'
-EMAIL_HOST_PASSWORD = '100aa100'
+EMAIL_HOST_PASSWORD = ''
 DEFAULT_FROM_EMAIL = 'mostafaitalian1379@gmail.com'
 SERVER_EMAIL = 'eng_mustafa_yossef@hotmail.com'
 TWEET_APPROVER_EMAIL = 'eng_mustafa_yossef@hotmail.com'
