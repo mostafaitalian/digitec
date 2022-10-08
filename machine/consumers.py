@@ -116,7 +116,7 @@ class MachineConsumer3(WebsocketConsumer):
         # self.send(text_data='kkkkkk')
         # self.send(text_data='{}'.format(dispatched_engineer_calls))
 
-        return super().recieve(text_data=text_data)
+        # return super().recieve(text_data=text_data)
 
 
 

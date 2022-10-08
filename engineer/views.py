@@ -5,12 +5,12 @@ from django.db import transaction
 from .models import Engineer, Area
 from django.core.mail import send_mail
 from django.conf import settings
-from django.views.generic import DetailView, View, CreateView
+from django.views.generic import DetailView, View, CreateView, ListView
 from django.core.exceptions import ObjectDoesNotExist
 from django.http.response import HttpResponseRedirect
 from numpy.distutils.from_template import template_name_re
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models.aggregates import Count
+from django.db.models.aggregates import Count, Sum, Min, Max
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import permission_required, login_required
 from twython import Twython
@@ -19,13 +19,44 @@ from django.core.mail.backends.smtp import EmailBackend
 from django.core.mail import get_connection
 from django.core.mail import EmailMessage
 import datetime
-from rest_framework.generics import ListCreateAPIView
-from .serializers import EngineerSerializer, AreaSerializer
-from rest_framework.permissions import IsAdminUser
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from .serializers import EngineerSerializer, AreaSerializer, AreaAreaSerializer
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from machine.models import EngineerReview, Comment
+from rest_framework import viewsets
+
+
+class EngineerListApi(ListCreateAPIView):
+    serializer_class = EngineerSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            return Engineer.objects.all()
+        elif self.request.user.engineer:
+            return Engineer.objects.filter(id=self.request.user.engineer.id)
+        else:
+            return None
+
+class AreaListApi1(viewsets.ModelViewSet):
+    serializer_class = AreaSerializer
+    permission_classes = [IsAuthenticated,]
+    queryset=Area.objects.all()
+class AreaListApi(ListCreateAPIView):
+    serializer_class = AreaSerializer
+    permission_classes = [IsAuthenticated,]
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            return Area.objects.all()
+        elif self.request.user.engineer:
+            return Area.objects.filter(id=self.request.user.engineer.area.id)
+        else:
+            return None
+    
 
 
 class AreaEngineerCreateView(CreateView):
+
     template_name="engineer/create_area_with_engineer.html"
     model = Area
     form_class = AreaForm
@@ -254,13 +285,27 @@ def send_rejection_email(review, new_comment):
     template_name='engineer/approval.html'''
 
 
-class EngineerApiView(ListCreateAPIView):
-    queryset=Engineer.objects.all()
-    serializer_class = EngineerSerializer
-    # permission_classes = (IsAdminUser,) 
+# class EngineerApiView(ListCreateAPIView):
+#     queryset=Engineer.objects.all()
+#     serializer_class = EngineerSerializer
+#     # permission_classes = (IsAdminUser,) 
 
-class AreaApiView(ListCreateAPIView):
-    queryset=Area.objects.all()
-    serializer_class = AreaSerializer   
+# class AreaApiView(ListCreateAPIView):
+#     queryset=Area.objects.all()
+#     serializer_class = AreaSerializer   
 
 
+class AreaList(LoginRequiredMixin, ListView):
+    model = Area
+    context_object_name = 'areas'
+    template_name='engineer/area_list.html'
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            q = Area.objects.all()
+        elif hasattr(self.request.user, 'engineer'):
+            if hasattr(self.request.user.engineer, 'area'):
+                q=Area.objects.get(name=self.request.user.engineer.area.name)
+        else:
+            q= None
+        return q 
+    

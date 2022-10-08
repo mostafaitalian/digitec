@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% load my_templatetag %}
 {% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{{ form.media }}
+
 {% block css1 %}
+  {{ form.media }}
     <style>
       form.report-form{
         background-color: lightgray;
@@ -23,6 +27,9 @@
         background-color: lightsteelblue;
         text-align: center;
         opacity: 0.5;
+      }
+      th, td{
+        padding: 5px !important;
       }
       .report-form .form-group:hover{
 
@@ -51,9 +58,12 @@
 
 {% block content %}
     {% with calll as call %}
-    <h5 class="pre-title">
-      Welcome {{request.user}} {% if request.user == call.engineer.user %}(<span>{{user.engineer.name}}</span>){% endif %}
-    </h5>
+    <div style='height: 100px; width:100%; background-color: beige; display: flex; flex: 1; flex-direction: column;justify-content: center;align-items: center;border-top-left-radius: 5px;border-top-right-radius: 5px; '>
+      <h5 class="pre-title">
+        Welcome {{request.user|capfirst}} {% if request.user == call.engineer.user %}(<span>{{user.engineer.name}}</span>){% endif %}
+      </h5>
+    </div>
+
       {% if request.user == call.engineer.user or request.user.is_superuser or request.user.engineer %}
       {% if request.user.is_superuser %}
       
@@ -71,197 +81,280 @@
     {% endif %}
           <!-- {{call.notification_number}} -->
           <div style='border-radius: 5px; border: 2px solid rgb(190, 66, 66); padding: 20px 10px;margin-bottom: 5px;'>
-            <h4 class='text-center'>Call detail</h4>
-          <table class="table table-hover">
-              <caption>List of users</caption>
+            <h4 class='text-center'>Call {{call.notification_number}} information</h4>
+          <table class="table table-hover table-warning table-bordered">
               <thead class="table-primary">
+
                 <tr class="p-auto">
                   <th scope="col">Notification_number</th>
                   <td scope="col">{{call.notification_number}}</td>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Engineer</th>
-                  <td>{% if call.engineer %}
-                    {{call.engineer.user.username|title}} : 
-                    {{call.engineer.name}}
-                  {% endif %}</td>
-          
-                </tr>
-                <tr>
-                  <th scope="row">Customer name</th>
-                  <td>{{call.customer.name}}</td>
-  
-                </tr>
-                <tr>
-                  <th scope="row">Machine-Location</th>
-                  <td>{{call.machine.machine_location}}</td>
-  
-                </tr>
-                <tr>
-                  <th scope="row">Department-Total-Machines</th>
-                  <td>{{call.machine.department.machines_dep.all.count}}</td>
-  
-                </tr>
-                <tr>
-                  <th scope="row">Call Type</th>
-                  <td>{{call.status}}</td>
-  
-                </tr>
-  
-                <tr>
-                  <th scope="row">status</th>
-                  <td>{{call.status}}</td>
-  
-                </tr>
-  
-  
-                
-                <tr>
-                  <th scope="row">Is_assigned</th>
-                  <td>{{call.is_assigned}}</td>
-  
-                </tr>
-                <tr>
-                  <th scope="row">Creation Date</th>
-                  <td>{{call.created_date}}</td>
-  
-                </tr>
-                <tr>
-                  <th scope="row">Updated Date</th>
-                  <td>{{call.updated_date}}</td>
-  
-                </tr>
-                <tr>
-                  <th scope="row">Assign Date</th>
-                  <td>{{call.assigned_date}}</td>
-  
-                </tr>
-                <tr>
-                  <th scope="row">Response time</th>
-                  <td>{{call.response_time_end_date}}</td>
-  
-                </tr>
-                <tr>
-                  <th scope="row">Optimum completed date</th>
-                  <td>{{call.optimum_completed_date}}</td>
-  
-                </tr>
-                <th scope="row">Machine response time</th>
-                <td id='sc'>{{call.machine.machine_response_time|default_if_none:"Not added yet" }} {% if call.machine.machine_response_time %} hours {% endif %}</td>
-    
-              </tr>
-              <tr>
-                <th scope="row">Machine callback time</th>
-                <td id='sc'>{{call.machine.machine_callback_time|default_if_none:"Not added yet" }} {% if machine.machine_callback_time %} days {% endif %}</td>
-    
-              </tr>
-              <tr>
-                <th scope="row">Customer working hours</th>
-                <td id='sc'>{{call.machine.begin_at}} : {{ call.machine.finish_at }}</td>
-    
-              </tr>
-              <tr>
-                <th scope="row">Machine days off</th>
-                <td>
-                  <!-- {{machine.first_week_dayoff}}-{{machine.second_week_dayoff}} -->
-                  {% if call.machine.first_week_dayoff and call.machine.first_week_dayoff != 7 %}
-                    
-                    {% if call.machine.first_week_dayoff == 0 %}
-                    Monday
-                    {% elif call.machine.first_week_dayoff == 1 %}
-                    Tuesday
-                    {% elif call.machine.first_week_dayoff == 2 %}
-                    Wednesday
-                    {% elif call.machine.first_week_dayoff == 3 %}
-                    Thursday
-                    {% elif call.machine.first_week_dayoff == 4 %}
-                    Friday
-                    {% elif call.machine.first_week_dayoff == 5 %}
-                    Saturday
-                    {% elif call.machine.first_week_dayoff == 6 %}
-                    Sunday  
-                    {% endif %}
-                      
-                  {% endif %}
-                  {% if call.machine.second_week_dayoff and call.machine.second_week_dayoff != 7 %}
-                    
-                    {% if call.machine.second_week_dayoff == 0 %}
-                    , Monday
-                    {% elif call.machine.second_week_dayoff == 1 %}
-                    , Tuesday
-                    {% elif call.machine.second_week_dayoff == 2 %}
-                    , Wednesday
-                    {% elif call.machine.second_week_dayoff == 3 %}
-                    , Thursday
-                    {% elif call.machine.second_week_dayoff == 4 %}
-                    , Friday
-                    {% elif call.machine.second_week_dayoff == 5 %}
-                    , Saturday
-                    {% elif call.machine.second_week_dayoff == 6 %}
-                    , Sunday  
-                    {% endif %}
-                  {% else %}
-                    no days-off
-                  {% endif %}  
-                </td>
-    
-              </tr>
 
-                <tr>
-                  <th scope="row">Completed Date</th>
-                  <td>{{call.completed_date}}</td>
-  
-                </tr>
-                <tr>
-                  <th scope="row">Machine Model</th>
-                  <td>{{call.machine.machine_model}}</td>
-  
-                </tr>
-                <tr>
-                  <th scope="row">Machine Serial</th>
-                  <td>{{call.machine.serial}}</td>
-  
-                </tr>
-                <tr>
-                  <th scope="row">Machine fault</th>
-                  <td>{{call.fault}}</td>
-  
-                </tr>
-  
-  
-                <tr>
-                  <th scope="row">Territory</th>
-                  <td>{% if call.machine.area %}
-                      {{call.machine.area.name}}
-                  
-                      {% else %}
-                      this machine has no Area assigned yet
+
+                  <tr>
+                    <th scope="row">Engineer</th>
+                    <td>{% if call.engineer %}
+                      {{call.engineer.user.username|title}} : 
+                      {{call.engineer.name}}
+                    {% endif %}</td>
+            
+                  </tr>
+                  <tr>
+                    <th scope="row">Customer name</th>
+                    <td>{{call.customer.name}}</td>
+    
+                  </tr>
+                  <tr>
+                    <th scope="row">Machine-Location</th>
+                    <td>{{call.machine.machine_location}}</td>
+    
+                  </tr>
+                  <tr>
+                    <th scope="row">Department-Total-Machines</th>
+                    <td>{{call.machine.department.machines_dep.all.count}}</td>
+    
+                  </tr>
+                  <tr>
+                    <th scope="row">Call Type</th>
+                    <td>{{call.status}}</td>
+    
+                  </tr>
+                            
+                  <table class="table table-hover table-primary table-bordered">
+                    <tr>
+                      <th scope="row">Status</th>
+                      <td>{{call.status}}</td>
+      
+                    </tr>
+      
+      
+                    
+                    <tr>
+                      <th scope="row">Is_assigned</th>
+                      <td>{{call.is_assigned}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">Creation Date</th>
+                      <td>{{call.created_date}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">Updated Date</th>
+                      <td>{{call.updated_date}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">Assign Date</th>
+                      <td>{{call.assigned_date}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">Response time end date</th>
+
+                      <td>{{call.response_time_end_date}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">Response time tail end date</th>
+
+                      <td>{{call.response_time_tail_end_date}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">Down time end date</th>
+
+                      <td>{{call.down_time_end_date}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">Response time date acheived</th>
+
+                      <td>{{call.start_of_call}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">Down time date acheived</th>
+
+                      <td>{{call.real_completed_date}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">Completed Date</th>
+                      <td>{{call.real_completed_date}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">Response time(working hours)</th>
+
+                      <td>{{call.response_time}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">Down_time(working hours)</th>
+
+                      <td>{{call.down_time}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">Response time success</th>
+
+                      <td>{{call.response_success_call}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">Response time tail success</th>
+
+                      <td>{{call.response_tail_success_call}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">Down time success</th>
+
+                      <td>{{call.down_success_call}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">First time finished</th>
+
+                      <td>{{call.first_time_finish}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">Callback call</th>
+
+                      <td>{{call.callback_call}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">Delayed call</th>
+
+                      <td>{{call.delayed_call}}</td>
+      
+                    </tr>
+                    <tr>
+                      <th scope="row">Total visits</th>
+
+                      <td>{{call.no_of_visits}}</td>
+      
+                    </tr>
+                  </table>
+                <table class='table table-hover table-danger table-bordered'>
+                  <tr>
+                    <th scope="row">Territory</th>
+                    <td>{% if call.machine.area %}
+                        {{call.machine.area.name}}
+                    
+                        {% else %}
+                        this machine has no Area assigned yet
+                        {% endif %}
+                    </td>
+    
+                  </tr>
+                  <tr>
+                    <th scope="row">Machine Serial</th>
+                    <td>{{call.machine.serial}}</td>
+    
+                  </tr>
+                  <tr>
+                    <th scope="row">Machine Model</th>
+                    <td>{{call.machine.machine_model}}</td>
+    
+                  </tr>
+                  <tr>
+                    <th scope="row">Machine fault</th>
+                    <td>{{call.fault}}</td>
+    
+                  </tr>
+                  <tr>
+                    <th scope="row">Machine response time</th>
+                    <td id='sc'>{{call.machine.machine_response_time|default_if_none:"Not added yet" }} {% if call.machine.machine_response_time %} hours {% endif %}</td>
+        
+                  </tr>
+                  <tr>
+                    <th scope="row">Machine callback time</th>
+                    <td id='sc'>{{call.machine.machine_callback_time|default_if_none:"Not added yet" }} {% if call.machine.machine_callback_time %} days {% endif %}</td>
+        
+                  </tr>
+                  <tr>
+                    <th scope="row">Customer working hours</th>
+                    <td id='sc'>{{call.machine.begin_at}} : {{ call.machine.finish_at }}</td>
+        
+                  </tr>
+                  <tr>
+                    <th scope="row">Machine days off</th>
+                    <td>
+                      <!-- {{machine.first_week_dayoff}}-{{machine.second_week_dayoff}} -->
+                      {% if call.machine.first_week_dayoff and call.machine.first_week_dayoff != 7 %}
+                        
+                        {% if call.machine.first_week_dayoff == 0 %}
+                        Monday
+                        {% elif call.machine.first_week_dayoff == 1 %}
+                        Tuesday
+                        {% elif call.machine.first_week_dayoff == 2 %}
+                        Wednesday
+                        {% elif call.machine.first_week_dayoff == 3 %}
+                        Thursday
+                        {% elif call.machine.first_week_dayoff == 4 %}
+                        Friday
+                        {% elif call.machine.first_week_dayoff == 5 %}
+                        Saturday
+                        {% elif call.machine.first_week_dayoff == 6 %}
+                        Sunday  
+                        {% endif %}
+                          
                       {% endif %}
-                  </td>
-  
-                </tr>
-                {% if call.machine.contract %}
-                <tr>
-                  <th scope="row">Contract Type</th>
-                  <td>{{call.machine.contract.contract_type}}</td>
-  
-                </tr>
-                <tr>
-                  <th scope="row">Contract End Date</th>
-                  <td>{{call.machine.contract.end_of_contract}}</td>
-  
-                </tr>
-                {% else %}
-                <tr>
-                  <th scope="row">contract</th>
-                  <td>No Contract</td>
-  
-                </tr>
-                {% endif %}
+                      {% if call.machine.second_week_dayoff and call.machine.second_week_dayoff != 7 %}
+                        
+                        {% if call.machine.second_week_dayoff == 0 %}
+                        , Monday
+                        {% elif call.machine.second_week_dayoff == 1 %}
+                        , Tuesday
+                        {% elif call.machine.second_week_dayoff == 2 %}
+                        , Wednesday
+                        {% elif call.machine.second_week_dayoff == 3 %}
+                        , Thursday
+                        {% elif call.machine.second_week_dayoff == 4 %}
+                        , Friday
+                        {% elif call.machine.second_week_dayoff == 5 %}
+                        , Saturday
+                        {% elif call.machine.second_week_dayoff == 6 %}
+                        , Sunday  
+                        {% endif %}
+                      {% else %}
+                        no days-off
+                      {% endif %}  
+                    </td>
+        
+                  </tr>
+                  {% if call.machine.contract %}
+                  <tr>
+                    <th scope="row">Contract Type</th>
+                    <td>{{call.machine.contract.contract_type}}</td>
+    
+                  </tr>
+                  <tr>
+                    <th scope="row">Contract End Date</th>
+                    <td>{{call.machine.contract.end_of_contract}}</td>
+    
+                  </tr>
+                  {% else %}
+                  <tr>
+                    <th scope="row">Contract</th>
+                    <td>No Contract</td>
+    
+                  </tr>
+                  {% endif %}    
+
+
+
+
+                </table>  
+              
                 
                 {% if call.call_contacts %}
+                <table class='table table-hover table-dark table-bordered'>
                   <th scope="row">Contacts</th>
                   <tr class='bg-blue text-white' style="background-color: black;">
                     <th>First name</th>
@@ -282,14 +375,12 @@
                     </tr>
                     
                   {% endfor %}
-                  <table>
-
-                  </table>
                 {% else %}
                 <td>No contacts</td>
+                </table>
                 {% endif %}
                   
-              </tbody>
+
             </table>
             </div>
       {% else %}

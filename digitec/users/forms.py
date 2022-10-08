@@ -1,9 +1,16 @@
 from django.contrib.auth import get_user_model, forms
+from django.forms import ModelForm
 from django.core.exceptions import ValidationError
-from django.utils.translation import ugettext_lazy as _
+# from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
+from .models import NotificationToken
 User = get_user_model()
-
+class NotificationTokenForm(ModelForm):
+    
+    class Meta:
+        model=NotificationToken
+        fields = '__all__'
 
 class UserChangeForm(forms.UserChangeForm):
 

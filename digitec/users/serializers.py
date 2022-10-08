@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework_jwt.settings import api_settings
-from .models import User
+from .models import User, NotificationToken
 from engineer.serializers import EngineerSerializer
 
 
@@ -12,6 +12,11 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields ='__all__'
 
+class NotificationTokenSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = NotificationToken
+        fields ='__all__'
 
 class UserSerializerWithToken(serializers.ModelSerializer):
     token = serializers.SerializerMethodField()

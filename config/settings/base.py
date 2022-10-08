@@ -3,7 +3,9 @@ Base settings to build other settings files upon.
 """
 
 import environ
-
+import django
+from django.utils.encoding import smart_str
+django.utils.encoding.smart_text = smart_str
 
 ROOT_DIR = environ.Path(__file__) - 3  # (digitec/config/settings/base.py - 3 = digitec/)
 APPS_DIR = ROOT_DIR.path('digitec')
@@ -89,6 +91,9 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'corsheaders',
     'crispy_forms',
+    'django_filters',
+    'widget_tweaks',
+    'import_export',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -99,11 +104,17 @@ LOCAL_APPS = [
     'customer',
     'service',
     'engineer',
+    'bootstrap4',
+    'bootstrap_datepicker_plus',
     # 'store.apps.StoreConfig',
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
+# Import Export settings
+IMPORT_EXPORT_USE_TRANSACTIONS = True
+
 
 # MIGRATIONS
 # ------------------------------------------------------------------------------
@@ -239,7 +250,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 FIXTURE_DIRS = (
     str(APPS_DIR.path('fixtures')),
 )
-
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}
 # SECURITY
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#session-cookie-httponly
@@ -327,7 +340,7 @@ STATICFILES_FINDERS += ['compressor.finders.CompressorFinder']
 REST_FRAMEWORK = {
 
     'DEFAULT_AUTHENTICATION_CLASSES':[
-    'rest_framework_jwt.authentication.JSONWebTokenAuthentication',    
+    'rest_framework_simplejwt.authentication.JWTAuthentication',
     'rest_framework.authentication.SessionAuthentication',
     'rest_framework.authentication.BasicAuthentication',
 

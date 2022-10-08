@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <form method="get">
+    {{ filter.form|crispy }}
+    <button type="submit">Search</button>
+  </form>
+  <ul>
+  {% for customer in filter.qs %}
+    <li>{{ customer.name }} - {{ customer.get_machine_number }}</li>
+  {% endfor %}
+  </ul>
+{% endblock content %}  <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+  <ul>
+  {% for user in filter.qs %}
+    <li>{{ user.username }} - {{ user.get_full_name }}</li>
+  {% endfor %}
+  </ul>

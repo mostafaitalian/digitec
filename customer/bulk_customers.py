@@ -6,15 +6,16 @@ import json
 
 def create_bulk_customers(customers):
     excel2json.convert_from_file('Mostafa1.xls')
-    wb =xlrd.open_workbook("TA01.xls")
+    wb =xlrd.open_workbook("TA09.xls")
+
     sh = wb.sheet_by_index(0)
     #print(wb._sheet_names,wb.xf_list)
     data_list = []
     fdata_list = []
     
     for rownum in range(7, sh.nrows):
-        fdata_list.append(sh.row_values(rownum)[7])
-    # print(fdata_list)
+        fdata_list.append(sh.row_values(rownum)[6])
+    print("fdata_list",fdata_list)
     a=set(fdata_list)
     fffdata_list= list(a)
     fffdata_list.remove((''))
@@ -30,7 +31,7 @@ def create_bulk_customers(customers):
             ffffdata_list.append(d)
     
     # print(fffdata_list, len(fffdata_list))
-
+    print("ffffdata_list", ffffdata_list)
     ffdata_list = []
     
 
@@ -38,15 +39,15 @@ def create_bulk_customers(customers):
         #print(fdata_list.index(d), max(loc for loc, val in enumerate(fdata_list) if val==d))
         if(fdata_list.index(d)== max(loc for loc, val in enumerate(fdata_list) if val==d)):
             ffdata_list.append(d)
-    # print(ffdata_list)
+    print("ffdata_list",ffdata_list)
 
 
     # print(sh.nrows)
     for rownum in range(7, sh.nrows):
         # print(sh.row_values(rownum))
-        if sh.row_values(rownum)[7] in ffffdata_list:
-            ffffdata_list.remove(sh.row_values(rownum)[7])
-            if(sh.row_values(rownum)[7]!=''):
+        if sh.row_values(rownum)[6] in ffffdata_list:
+            ffffdata_list.remove(sh.row_values(rownum)[6])
+            if(sh.row_values(rownum)[6]!=''):
 
                 data =OrderedDict()
                 fields = OrderedDict()
@@ -54,12 +55,12 @@ def create_bulk_customers(customers):
                 #print(row_values)
                 data['model'] = 'customer.customer'
                 data['fields'] = fields
-                if(row_values[8] != '' and row_values[8] != 'Customer'):
-                    fields['name'] = row_values[8].rstrip('\r\n')
+                if(row_values[7] != '' and row_values[7] != 'Customer'):
+                    fields['name'] = row_values[7].rstrip('\r\n')
                 fields["location"] = "no location"
                 fields["address_site"] = "http://www.google.com"
-                if(row_values[7]!='' and row_values[7]!='Customer'):
-                    fields["customer_id"] = int(row_values[7])
+                if(row_values[6]!='' and row_values[6]!='Customer'):
+                    fields["customer_id"] = int(row_values[6])
                 else:
                     fields["customer_id"] = None
                 fields["telephone"] = 1
@@ -67,7 +68,7 @@ def create_bulk_customers(customers):
                 fields["finish_at"] = "16:00:00"
                 fields["first_week_dayoff"] = 6
                 fields["second_week_dayoff"] = 7
-                fields["engineers"]: []
+                # fields["engineers"] = []
 
         # if((row_values[1] != '')and ( row_values[1] != 'Machine Serial' and row_values[1].find('Toner') == -1)):
         #     fields['serial'] = int(row_values[1])
@@ -103,7 +104,8 @@ def create_bulk_customers(customers):
         #data['Customer_name'] = row_values[7]
 
                 data_list.append(data)
-    #print(data_list)
+    print("data_list")
+    print(data_list)
         # sdata_list = [dict(t) for t in {tuple(d.items()) for d in data_list}]
     # with open('TA02_customer6.json', 'w', encoding='utf-8') as writeJsonfile:
     #     json.dump(data_list, writeJsonfile, indent=4, ensure_ascii=False)

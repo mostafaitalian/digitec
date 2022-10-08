@@ -114,13 +114,36 @@
     </div>
     {% if engineer.user == request.user %}
     <div style="padding: 5px;background-color: lightsteelblue; display: block;width: 100%;margin: 5px 0px;">
-      You have {{engineer.area.machines.all.count}} machine{{engineer.area.machines.all.count|pluralize}} in your area
+      Total machines: {{engineer.area.machines.all.count}} machine{{engineer.area.machines.all.count|pluralize}} in your area
+    <br>
+      total points: {{total_points}} points
       <br>
-      You have {{engineer.call_set.all.count}} call{{engineer.calls.all.count|pluralize}}, 
-      You have {{dispatched_calls.count}} already dispatched calls as well as you have {{pending_calls.count}} pending calls as well as {{completed_calls.count}} completed calls 
+      Total calls: {{engineer.calls.all.count}} call{{engineer.calls.all.count|pluralize}}
+      <br> 
+      Assigned calls: {{dispatched_calls.count}} calls
+      <br> 
+      Incomplete calls: {{pending_calls.count}} calls
+      <br>
+      Completed calls: {{completed_calls.count}} calls 
     </div>
-    {% endif %}
 
+    {% endif %}
+    
+    {% if request.user.is_superuser %}
+    Total machines: {{machines.count}} machines
+    total points: {{total_points}}
+    <br>
+    Area TA01: {{total_points_TA01}}
+    <br>
+    Area TA02: {{total_points_TA02}}
+    <br>
+    Area TA03: {{total_points_TA03}}
+    <br>
+    Area TA04: {{total_points_TA04}}
+    <br>
+    Area TA05: {{total_points_TA05}}  
+    {% endif %}
+      
 
   </div>
   
@@ -129,7 +152,7 @@
   
   <table>
 
-<tr class="machine-row">
+<tr class="machine-row border" style='border: 1px solid black;'>
   <th class="machine-row center">
     <div>
       {{machine.serial}} - {{machine.customer}} - {{machine.machine_model}}
@@ -144,7 +167,7 @@
 <div class="item-data">
 
 
-<h3 class='ex-1'>Previous calls for this machine</h3>
+<h5 class="lead">Previous calls for this machine</h5>
 {% for call in machine.calls.all %}
 <table>
 <tr style="border-left: 2px solid red;">
@@ -179,9 +202,14 @@
 
 
   {% empty %}
-    <h2>
+    <h6>
       there is no calls for this machine yet
-    </h2>
+    </h6>
+    
+    {% if request.user.is_superuser %}
+       <a href="{% url 'machine:call_manage' %}" class="btn btn-primary" >Create a call</a>
+    {% endif %}
+      
   {% endfor %}
   <br>
 {% endfor %}

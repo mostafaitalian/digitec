@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+  <form method="get">
+    <div class="well">
+      <h4 style="margin-top: 0">Filter</h4>
+      <div class="row">
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.serial.label_tag }}
+          {% render_field filter.form.serial class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.machine_category.label_tag }}
+          {% render_field filter.form.machine_category class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.machine_model.label_tag }}
+          {% render_field filter.form.machine_model class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+            {{ filter.form.area.label_tag }}
+            {% render_field filter.form.area class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+            {{ filter.form.customer.label_tag }}
+            {% render_field filter.form.customer class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+            {{ filter.form.department.label_tag }}
+            {% render_field filter.form.department class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+            {{ filter.form.contract.label_tag }}
+            {% render_field filter.form.contract class="form-control" %}
+        </div>
+        
+      </div>
+      <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-search"></span> Search
+      </button>
+    </div>
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="table table-hover" >
+  <thead>
+    <tr>
+      <th>Seial</th>
+      <th>Model</th>
+      <th>Customer</th>
+      <th>Area</th>
+      <th>Engineer Area</th>
+      <th>Location</th>
+      <th>Total calls</th>
+      <th>Last call</th>
+     </tr>
+  </thead>
+  <tbody>
+    {% for machine in filter.qs  %}
+
+    <tr>
+        <td style='font-weight: bold;'>{{ machine.serial }}</td>
+        <td>{{ machine.machine_model }}</td>
+        <td>{{ machine.customer.name }}</td>
+        <td>{{ machine.area.name }} </td>
+        <td>{{ machine.area.engineer_set.all|join:',' }}</td>
+        <td>{{ machine.machine_location }} </td>
+        <td>{{ machine.calls.all.count }} </td>
+        <td>{{ machine.calls.last}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>  
+     
+
+</table>
+{% endblock %}

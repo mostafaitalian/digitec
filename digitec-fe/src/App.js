@@ -130,9 +130,7 @@ class App extends Component {
           this.props.dispatch(addLoggedInUser(data.user))
         }).catch(errors => {
           console.warn(errors)
-          this.setState({
 
-          })
         })
     //     fetch('http://127.0.0.1:8000/users/api/user-list/',{
     //       method:'GET',

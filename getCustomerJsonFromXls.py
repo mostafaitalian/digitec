@@ -6,7 +6,7 @@ import json
 
 if __name__ == "__main__":
     excel2json.convert_from_file('Mostafa1.xls')
-    wb =xlrd.open_workbook("TA01.xls")
+    wb =xlrd.open_workbook("TA03.xls")
     sh = wb.sheet_by_index(0)
     #print(wb._sheet_names,wb.xf_list)
     data_list = []
@@ -32,7 +32,7 @@ if __name__ == "__main__":
             print(sh.row_values(rownum))
         # if sh.row_values(rownum)[7] in fffdata_list:
         #     fffdata_list.remove(sh.row_values(rownum)[6])
-            if(sh.row_values(rownum)[7]!=''):
+            if(sh.row_values(rownum)[6]!=''):
 
                 data =OrderedDict()
                 fields = OrderedDict()
@@ -40,12 +40,12 @@ if __name__ == "__main__":
                 #print(row_values)
                 data['model'] = 'customer.customer'
                 data['fields'] = fields
-                if(row_values[8] != '' and row_values[8] != 'Customer'):
-                    fields['name'] = row_values[8].rstrip('\r\n')
+                if(row_values[7] != '' and row_values[7] != 'Customer'):
+                    fields['name'] = row_values[7].rstrip('\r\n')
                 fields["location"] = "no location"
                 fields["address_site"] = "http://www.google.com"
-                if(row_values[7]!='' and row_values[7]!='Customer'):
-                    fields["customer_id"] = int(row_values[7])
+                if(row_values[6]!='' and row_values[6]!='Customer'):
+                    fields["customer_id"] = int(row_values[6])
                 else:
                     fields["customer_id"] = None
                 fields["telephone"] = 1
@@ -53,7 +53,7 @@ if __name__ == "__main__":
                 fields["finish_at"] = "16:00:00"
                 fields["first_week_dayoff"] = 6
                 fields["second_week_dayoff"] = 7
-                fields["engineers"]: []
+                fields["engineers"]= []
 
         # if((row_values[1] != '')and ( row_values[1] != 'Machine Serial' and row_values[1].find('Toner') == -1)):
         #     fields['serial'] = int(row_values[1])
@@ -90,5 +90,5 @@ if __name__ == "__main__":
 
                 data_list.append(data)
         # sdata_list = [dict(t) for t in {tuple(d.items()) for d in data_list}]
-    with open('TA02_customer6.json', 'w', encoding='utf-8') as writeJsonfile:
+    with open('TA03_customern.json', 'w', encoding='utf-8') as writeJsonfile:
         json.dump(data_list, writeJsonfile, indent=4, ensure_ascii=False)

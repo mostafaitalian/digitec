@@ -1,0 +1,99 @@
+{% load static i18n compress%}
+<nav class="navbar navbar-expand-md navbar-light">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+
+    <a class="navbar-brand" href="{% url 'home' %}">Digitec</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item text-center">
+          <a class="nav-link text-center" href="{% url 'machine:list' %}">Machine-list</a>
+        </li>
+        <li class="nav-item text-center">
+          <a class="nav-link text-center" href="{% url 'customer:customer-list' %}">Customer-list</a>
+        </li>
+        <!-- <form action="{% url 'customer:customer-list' %}" method="GET">
+            <input type="text" name="q" />
+            <button type="submit" class='btn btn-outline-danger'>search</button>
+          </form> -->
+
+
+
+        
+        {% if request.user.is_authenticated %}
+        <li class="nav-item" style="height: 35px !important;">
+          <div class="dropdown">
+            <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Data
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <a class="dropdown-item" type="button">Inventory</a>
+              <a class="dropdown-item" type="button">Result</a>
+              <a class="dropdown-item" type="button">Unsolved Problems</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item" style="height: 35px !important;">
+          <div class="dropdown">
+            <button class="dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+                              Advanced Search
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+              <a href="{% url 'customer:customer_list_filter' %}" class="dropdown-item" type="button">Customer</a>
+              <a href="{% url 'machine:machine_list_filter' %}" class="dropdown-item" type="button">Machine</a>
+              <a href="{% url 'machine:call_list_filter' %}" class="dropdown-item" type="button">Call</a>
+            </div>
+          </div>
+        </li>
+        {% else %}
+        <li class="nav-item">
+
+          <a class="nav-link" href="{% url 'contact-us' %}">Contact us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+        {% endif %}
+
+        
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          {# URL provided by django-allauth/account/urls.py #}
+          <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
+        </li>
+
+
+
+
+        <li class="nav-item" style='float: right !important; position: absolute; right:2%;'>
+          {# URL provided by django-allauth/account/urls.py #}
+          <a class="nav-link " href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          {# URL provided by django-allauth/account/urls.py #}
+          <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
+        </li>
+        <li class="nav-item">
+          {# URL provided by django-allauth/account/urls.py #}
+          <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
+        </li>
+
+        {% endif %}
+      </ul>
+
+    </div>
+
+  </nav>

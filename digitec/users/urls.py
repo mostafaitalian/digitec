@@ -8,11 +8,14 @@ from digitec.users.views import (
     current_user,
     current_user2,
     UserList,
-    UserList1
+    UserList1,
+    NotificationTokenView,
+    CreateNotificationToken,
 )
 
 app_name = "users"
 urlpatterns = [
+    path('api/user/ntoken/',CreateNotificationToken.as_view(), name="notification_token_create"),
     path('api/current-user/', current_user),
     path('api/token-user/', current_user2),
     path('api/user-list1/', UserList1.as_view()),

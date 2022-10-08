@@ -3,49 +3,11 @@
 {% block title %}{{block.super}}-- machine list{% endblock %}
 
 {% block css1 %}
+<link rel="stylesheet" href="../../../digitec/static/css/machine.list.css">
 <script src="{% static 'js/reconnecting-websocket.js' %}"></script>
 
     <style>
-        body{
-            margin:0px
-        }
-        p.p-react{
 
-            background-color: rgb(255, 15, 15);
-            color:black;
-            padding:10px;
-        }
-
-        a.machine-create{
-            margin:5px;
-
-        }
-        a.machine-create:hover{
-            background-color: beige;
-            color:black;
-        }
-        .card{
-            border-radius: 50px !important;
-        }
-        .card .card-header:hover{
-            background-color: lightblue;
-            color: white !important;
-            border-top-left-radius: 50px !important;
-            border-top-right-radius: 50px !important;
-
-        }
-        .card .card-header h2 a{
-            color: black;
-        }
-        .card .card-header h2 a:hover{
-            color:white;
-
-        }
-        @media screen and (max-width:900px) { 
-            th, td {
-                display: block;
-            }
-        }
     </style>
 
 {% endblock %}
@@ -113,36 +75,32 @@
     <p id='webid' class='block'></p>
 
 </div> -->
-<div class='row'>
-    <!-- <div class="left-right">
-        <div class="slider">Welcome !</div>
-      </div> -->
+<!-- <div class='row'>
 {% for machine in machine_list %}
 
-    <div class="col-11 col-md-5 mb-3 mr-3" style=' box-sizing: border-box;'>
-        <div class="card shadow-lg rounded p-3">
+    <div class="col-11 col-md-5 mb-3 mr-3">
+        <div class="card shadow-lg rounded p-3" style=' box-sizing: border-box; min-height:600px !important;background-color: rgba(31, 154, 165, 0.5);'>
 
 
             <div class="card-header text-center">
-                <h3><a href="{% url 'machine:machine_detail' machine.id %}" style='text-decoration: none;'>{{machine.customer.name|title}}-{{machine.machine_model|default_if_none:"not added yet"}}</a></h3>
+                <h3><a href="{% url 'machine:machine_detail' machine.id %}" style='text-decoration: none;background-color: none;'>{{machine.customer.name|title}}-{{machine.machine_model|default_if_none:"not added yet"}}</a></h3>
 
             </div>
             <div class="card-body">
 
                 
               <h5 class="card-title">Serial-{{machine.serial}}</h5>
-              <p class="card-text">
-                  {{ machine.machine_location}}
-                  <!-- |truncatewords:20     -->
+              <p class="card-text" style="color: white;">
+                  {{ machine.machine_location|truncatewords:20 }}    
                 </p>
                 <a href="{% url 'machine:machine_detail' machine.id %}">
                     Read more&hellip;</a>
                 <br>
                 <h5 class="border-bottom shadow-sm " >Calls</h5>
-                <ul style="list-style: none;" >
+                <ul style="display: flex;flex-direction: row;flex-wrap: wrap; list-style: none;" >
                     {% for call in machine.calls.all %}
                         <li>
-                           <a class="btn btn-outline-success" href='{% url "machine:call_detail" call.notification_number %}' style="color: black !important;"> {{call.notification_number}}-{{call.created_date}}
+                           <a class="btn btn-warning" href='{% url "machine:call_detail" call.notification_number %}' style="color: black !important;"> {{call.notification_number}}-{{call.created_date}}
                         </li></a>
                     {% empty %}
                         no calls for this machine yet
@@ -180,12 +138,47 @@
 {% empty %}
 <p><em>There isn't any machines added Available</em></p>
 {% endfor %}
+</div> -->
+
+
+
+
+
+<div class="row">
+    <table>
+        <thead>
+            <th>Count</th>
+            <th>Machine Serial</th>
+            <th>Machine Model</th>
+            <th>Machine Area</th>
+            <th>Machine Points</th>
+            <th>Machine location</th>
+        </thead>
+       <tbody>
+        {% for machine in machine_list %}
+        <tr>
+        <th scope="row"><a href="{% url 'machine:machine_detail' machine.id  %}" class="stretched-link">
+            {{ forloop.counter }}
+        </a></th>
+            <td>{{machine.serial}}</td>
+            <td>{{ machine.machine_model }}</td>
+            <td>{{machine.area}}</td>
+            <td>{{ machine.machine_points }}</td>
+            <td>{{ machine.machine_location }}</td>
+            
+        </tr>
+        {% empty %}
+<p><em>There isn't any machines added Available</em></p>
+        {% endfor %}
+    </tbody>
+    </table>
+    
 </div>
 </div>
 <div style='height:100px;'>
 
 </div>
-<div class='row' style='position: relative;bottom: 20px;z-index: 250;'> 
+<div class='row' style='position: relative;bottom: 20px;z-index: 250; font-size: small;font-weight: 300; font-family: sans-serif;'> 
 <div class='col-12 text-center text-danger'>
 
     <div class="pagination text-center" style='display: flex; justify-content: center;'>
@@ -210,90 +203,9 @@
     </div>
 </div>
 </div>
+
+
+
+
 {% endblock %}
-<!-- {% block main %}
-<div class='row' style='border-radius: 5px; border: 2px solid rgb(190, 66, 66); padding: 20px 10px;margin-bottom: 5px;'>
-    <h4>machine page list</h4>
-    <div class='col-12'>
-    <table class="table table-hover">
-       <tr>
-        <th>Seial</th>
-        <th>Model</th>
-        <th>Customer</th>
-        <th>Area</th>
-        <th>Location</th>
-        <th>Category</th>
-        <th>Total calls</th>
-        <th>Last call</th>
-        <th>Creation date</th>
-       </tr>
-        {% for machine in machine_list  %}
-
-       <tr>
-           <td style='font-weight: bold;'>{{ machine.serial }}</td>
-           <td>{{ machine.machine_model }}</td>
-           <td>{{ machine.customer.name }}</td>
-           <td>{{ machine.area.name }} </td>
-           <td>{{ machine.machine_location }} </td>
-           <td>{{ machine.machine_category }} </td>
-           <td>{{ machine.calls.all.count }} </td>
-           <td>{{ machine.calls.last}}</td>
-
-           <td>{{ machine.added }}</td>
-
-       </tr>
-       {% endfor %}
-
-   </table>
-   </div>
-
-       
-</div>
-<div class='row' style='border-radius: 5px; border: 2px solid rgb(190, 66, 66); padding: 20px 10px;margin-bottom: 5px;'>
-    <h4>all machine list</h4>
-    <table class="table table-hover">
-        <tr>
-         <th>Seial</th>
-         <th>Model</th>
-         <th>Customer</th>
-         <th>Area</th>
-         <th>Location</th>
-         <th>Category</th>
-         <th>Total calls</th>
-         <th>Last call</th>
-         <th>Creation date</th>
-        </tr>
-    {% for m in machiness %}
-    <tr>
-     <td style='font-weight: bold;'>{{ m.serial }}</td>
-     <td>{{ m.machine_model }}</td>
-     <td>{{ m.customer.name }}</td>
-     <td>{{ m.area.name }} </td>
-     <td>{{ m.machine_location }} </td>
-     <td>{{ m.machine_category }} </td>
-     <td>{{ m.calls.all.count }} </td>
-     <td>{{ m.calls.last}}</td>
-     <td>{{ m.added }}</td>
- 
- </tr>
-    {% endfor %}
-</table>
-</div>
-{% endblock %}
-{% block sidebar %}
-{% if machine_list %}
-    <div class="container">
-        <h4>Advertisment</h4>
-
-        <h5>Our biggest clients</h5>
-        <ul>
-        {% for customer in customers %}
-          <li style="text-align: justify ; color: blue;font-size: large; list-style: decimal">{{customer.name}} with {{customer.machines.count}} machine{{customer.machines.count|pluralize}}</li>
-        {% endfor %}
-        </ul>
-    </div>
-    <div class="machine-advertisement">
-    </div>
-{% endif %}
-{% endblock %} -->
 

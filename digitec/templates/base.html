@@ -1,9 +1,18 @@
+<!DOCTYPE html>
 {% load static i18n compress%}
 
-<!DOCTYPE html>
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+
+
 <html lang="en">
 
 <head>
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>{% block title %}Digitec{% endblock title %}</title>
@@ -25,6 +34,8 @@
     integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/skeleton.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/base.style.css' %}">
+
   <script src="{% static 'js/reconnecting-websocket.js' %}"></script>
   <!-- Font Awesome JS -->
   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
@@ -49,392 +60,17 @@
 
   {% endblock %}
   <style type="text/css">
-    body {
+    /* body {
       background-color: rgb(230, 227, 222) !important;
-    }
-
-    .m {
-      margin: 4px;
-    }
-
-    #sidebar {
-      /* min-width: 200px; */
-      max-width: 150px;
-      min-height: 250vh;
-      position: fixed;
-      top: 55px;
-      left: 0;
-    }
-
-    #sidebar.active {
-      margin-left: -250px;
-    }
-
-    li.nav-item {
-      border-bottom: 1px solid pink;
-      margin-right: 20px;
-      text-align: center;
-
-
-    }
-
-    #sidebar.active {
-      margin-left: -250px;
-    }
-
-    @media (max-width: 750px) {
-      li ul li a {
-        font-size: small !important;
-        padding-left: 10px !important;
-
-      }
-
-      li ul li {
-        text-align: center;
-      }
-
-      #sidebar {
-        margin-left: 0px;
-        margin-top: 0px;
-        position: static;
-        top: 55px;
-
-        left: 0;
-        z-index: 0;
-        font-size: x-small;
-      }
-
-      #sidebarCollapse {
-        position: fixed;
-        z-index: 10;
-        top: 10px;
-        right: 40% !important;
-        background-color: white !important;
-
-        /* left:5%;
-      top: 50px; */
-      }
-
-      #sidebarCollapse:hover {
-        color: black !important;
-        background-color: #999;
-      }
-
-      #sidebar.active {
-        margin-left: 0;
-      }
-    }
-
-
-    .form-inline button {
-
-      margin-bottom: 1.35rem !important;
-
-    }
-
-    .wrapper {
-      display: flex;
-      width: 100%;
-      align-items: stretch;
-    }
-
-    a[data-toggle="collapse"] {
-      position: relative;
-    }
-
-    .dropdown-toggle::after {
-      display: block;
-      position: absolute;
-      top: 50%;
-      right: 2px;
-      transform: translateY(-50%);
-    }
-
-    .dropdown button:hover {
-      color: black !important;
-    }
-
-    li.nav-item:hover {
-      border-bottom: 1px solid black;
-      margin-right: 2px;
-      background-color: white !important;
-      color: black;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      box-shadow: 3px 3px 2px -2px #DDDDDD;
-    }
-
-    a.nav-link:hover {
-      margin-right: 20px;
-      color: black !important;
-    }
-
-    a.navbar-brand {
-      font-size: 26px;
-      font-weight: bold;
-      font-family: fantasy;
-      margin-right: 20px;
-    }
-
-    nav {
-      background-color: red !important;
-      opacity: 80%;
-      position: relative;
-      width: 100%;
-      z-index: 10;
-      /* margin-bottom: 100px; */
-    }
-
-    #sidebarCollapse{
-      position: fixed;
-      bottom: 1%;
-      right: 1%;
-      z-index: 300;
-    }
-    .nott {
-      position: fixed;
-      bottom: 8%;
-      right: 1%;
-      z-index: 300;
-    }
-
-
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-    }
-
-    div ul li a.nav-link {
-      color:
-        white !important;
-    }
-
-    div {
-      margin: 0px;
-    }
-
-    .btn-group .btn.btn-warning {
-      height: 3.8rem !important;
-      display: flex !important;
-      flex-direction: column !important;
-      align-content: center !important;
-      justify-content: center !important;
-      text-align: center !important;
-      font-size: small;
-      font-weight: bold;
-      /* font-style: oblique; */
-    }
-
-    .col-12 .btn-group {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-content: center;
-    }
-
-    /*
-    ADDITIONAL DEMO STYLE, NOT IMPORTANT TO MAKE THINGS WORK BUT TO MAKE IT A BIT NICER :)
-*/
-    @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #fafafa;
-    }
-
-    p {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.1em;
-      font-weight: 300;
-      line-height: 1.7em;
-      color: #999;
-    }
-
-    a,
-    a:hover,
-    a:focus {
-      color: inherit;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-
-    #sidebar {
-      /* don't forget to add all the previously mentioned styles here too */
-      /* background: #7386D5; */
-      /* color: #fff; */
-      color: white;
-      transition: all 0.3s;
-    }
-
-    #sidebar .sidebar-header {
-      padding: 20px;
-      font-size: small;
-      /* background: #6d7fcc; */
-    }
-
-    #sidebar ul.components {
-      padding: 20px 0;
-      border-bottom: 1px solid white;
-    }
-
-    #sidebar ul p {
-      color: #fff;
-      padding: 10px;
-    }
-
-    #sidebar ul li a {
-      padding: 10px;
-      font-size: 1.1em;
-      display: block;
-    }
-
-    #sidebar ul li a:hover {
-      /* color: #7386D5; */
-      background: #fff;
-      color: black;
-      transform-style: preserve-3d;
-    }
-
-    #sidebar ul li.active>a,
-    a[aria-expanded="true"] {
-      color: #fff;
-      background: gray;
-    }
-
-    ul ul a {
-      font-size: 0.9em !important;
-      padding-left: 30px !important;
-      /* background: #6d7fcc; */
-    }
-    .notification {
-  background-color: #555;
-  color: white;
-  text-decoration: none;
-  padding: 15px 26px;
-  position: relative;
-  display: inline-block;
-  border-radius: 2px;
-}
-
-.notification:hover {
-  background: red;
-}
-
-.notification .badge {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  padding: 5px 10px;
-  border-radius: 50%;
-  background: red;
-  color: white;
-}
-#mySidenav .notification{
-  margin:10px 10px;
-  padding: 2px 3px;
-}
+    } */
+    
   </style>
 </head>
 
-<body style="margin:0px; padding: 0px; width:100%;">
+<body>
 
   <div class="container-fluid">
-    <nav class="navbar navbar-expand-md navbar-light">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-
-
-      <a class="navbar-brand" href="{% url 'home' %}">Digitec</a>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-          </li>
-
-          <li class="nav-item text-center">
-            <a class="nav-link text-center" href="{% url 'machine:list' %}">Machine-list</a>
-          </li>
-          <li class="nav-item text-center">
-            <a class="nav-link text-center" href="{% url 'customer:customer-list' %}">Customer-list</a>
-          </li>
-          <!-- <form action="{% url 'customer:customer-list' %}" method="GET">
-              <input type="text" name="q" />
-              <button type="submit" class='btn btn-outline-danger'>search</button>
-            </form> -->
-
-
-          <li class="nav-item">
-
-            <a class="nav-link" href="{% url 'contact-us' %}">Contact us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}">About</a>
-          </li>
-          <li class="nav-item" style="height: 35px !important;">
-            <div class="dropdown">
-              <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false"
-                style="border-style: none !important;color:white;font-size: 12px;font-weight: normal !important;">
-                Data
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button">Inventory</button>
-                <button class="dropdown-item" type="button">Result</button>
-                <button class="dropdown-item" type="button">Unsolved Problems</button>
-              </div>
-            </div>
-          </li>
-          {% if request.user.is_authenticated %}
-          <li class="nav-item">
-            {# URL provided by django-allauth/account/urls.py #}
-            <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
-          </li>
-
-
-
-
-          <li class="nav-item" style='float: right !important; position: absolute; right:2%;'>
-            {# URL provided by django-allauth/account/urls.py #}
-            <a class="nav-link " href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            {# URL provided by django-allauth/account/urls.py #}
-            <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
-          </li>
-          <li class="nav-item">
-            {# URL provided by django-allauth/account/urls.py #}
-            <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
-          </li>
-          <!-- <div class="d-block" style="background-color: yellow !important;">
-            <form class="form-inline my-2 my-lg-0" action="{% url 'customer:customer-list' %}" method="GET">
-              <div class='form-group' style='display:flex; flex-direction: row;'>
-                <input class="form-control mr-1" type="search" placeholder="Search" aria-label="Search" name="q">
-                <button class="btn btn-outline-success" type="submit">Search Customer/s</button>
-              </div>
-
-          </div>
-
-
-          </form> -->
-
-
-          {% endif %}
-
-        </ul>
-
-      </div>
-
-    </nav>
-
+{% include "nav.html" %}
   </div>
 
 
@@ -449,23 +85,23 @@
       <a href="#">Services</a>
       <a href="#">Clients</a>
       <a href="#">Contact</a> -->
-      <a href="#" class="notification">
+      <a href="{% url 'machine:call_list_status' status='unassigned' %}" class="notification">
         <span>unassigned</span>
         <span class="badge" id='unassigned'></span>
       </a>
-      <a href="#" class="notification">
+      <a href="{% url 'machine:call_list_status'  status='dispatched' %}" class="notification">
         <span>dispatched</span>
         <span class="badge" id='dispatched'></span>
       </a>
-      <a href="#" class="notification">
+      <a href="{% url 'machine:call_list_status' status='incomplete'  %}" class="notification">
         <span>incomplete</span>
         <span class="badge" id='incomplete'></span>
       </a>
-      <a href="#" class="notification">
+      <a href="{% url 'machine:call_list_status' status='completed' %}" class="notification">
         <span>complete</span>
         <span class="badge" id='complete'></span>
       </a>
-  </div>
+    </div>
     <div class='row'>
       <div class='col-2' style='width: 100% !important; padding: 0px; margin: 0px;'>
         <div class="wrapper">
@@ -544,15 +180,14 @@
                 </ul>
               </li>
               <li>
-                <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false"
-                  class="dropdown-toggle">Report</a>
+                <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Report</a>
                 <ul class="collapse list-unstyled ml-0" id="reportSubmenu">
                   <li>
-                          <a href="{% url 'machine:report_list'  %}">Report List</a>
-                      </li>
+                    <a href="{% url 'machine:report_list'  %}">Report List</a>
+                  </li>
                   <li>
-                          <a href="{% url 'machine:create_report'  %}">Create Report</a>
-                      </li>
+                    <a href="{% url 'machine:create_report'  %}">Create Report</a>
+                  </li>
                   <!-- <li>
                     <a href="{% url 'engineer:engineer_review_create'  %}">Create Review</a>
                   </li> -->
@@ -647,15 +282,14 @@
                 </ul>
               </li>
               <li>
-                <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false"
-                  class="dropdown-toggle">Report</a>
+                <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Report</a>
                 <ul class="collapse list-unstyled ml-0" id="reportSubmenu">
                   <li>
-                          <a href="{% url 'machine:report_list'  %}">Report List</a>
-                      </li>
+                    <a href="{% url 'machine:report_list'  %}">Report List</a>
+                  </li>
                   <li>
-                          <a href="{% url 'machine:create_report'  %}">Create Report</a>
-                      </li>
+                    <a href="{% url 'machine:create_report'  %}">Create Report</a>
+                  </li>
                   <!-- <li>
                     <a href="{% url 'engineer:engineer_review_create'  %}">Create Review</a>
                   </li> -->
@@ -770,11 +404,12 @@
       <div class='col-10' id='main' style="width: 100% !important;padding: 10px;margin: 0px;">
         <button type="button" id="sidebarCollapse" class="navbar-toggler navbar-toggler-right btn btn-outline-danger"
           type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="true"
-          aria-label="Toggle navigation">>
-          <i class="fas fa-align-right"></i>
+          aria-label="Toggle navigation">
+          <i class="fa fa-align-right"></i>
           <span>Toggle Sidebar</span>
         </button>
-        <button type="button" class="btn btn-outline-danger nott" onclick="openNav()" ondblclick="closeNave()">toggle notification</button>
+        <button type="button" class="btn btn-outline-danger nott" onclick="openNav()" ondblclick="closeNave()">toggle
+          notification</button>
 
         {% if user.is_authenticated %}
         {% block heading %}
@@ -875,11 +510,12 @@
               <a class="btn btn-primary machine-create" href="{% url 'machine:call_list'  %}">Call List</a>
               <a class="btn btn-primary machine-create" href="{% url 'engineer:engineer_review_create'  %}">Create
                 review</a> -->
-
+{% block searchbox %}
             <div class='col-10 offset-1'>
-            <div style='border-radius: 5px; border: 2px solid rgb(190, 66, 66); padding: 20px 10px;margin-bottom: 5px;'>
-              <h5 class='text-center'>Search section</h5>
-              <div style="display: flex;flex-direction: column; justify-content: center;align-content: center;">
+              <div
+                style='border-radius: 5px; border: 2px solid rgb(190, 66, 66); padding: 20px 10px;margin-bottom: 5px;'>
+                <h5 class='text-center'>Search section</h5>
+                <div style="display: flex;flex-direction: column; justify-content: center;align-content: center;">
                   <div class='form-group'
                     style='display:flex; flex-direction: row;margin-top: 1rem;font-size: small;flex:0.4;'>
                     <div style='flex: 33%;'>
@@ -911,8 +547,8 @@
 
                     </div>
                   </div>
-              
-<!--                 
+
+                  <!--                 
                 
                 
                 <div class="d-inline-block bg-gray"
@@ -934,33 +570,37 @@
                   </form>
                 </div> -->
 
-                <div>
-                  <form class="form" id='m-form' method="GET" action="{% url 'machine:machine_list_custom' %}">
-                    <div class='form-group' style='display:flex; flex-direction: row;margin-top: 1rem;'>
-                      <input class="form-control mr-1" type="search" placeholder="Search" aria-label="Search" name="query">
-                      <button class="btn btn-outline-success" type="submit">Search Machine/s</button>
-                    </div>
+                  <div>
+                    <form class="form" id='m-form' method="GET" action="{% url 'machine:machine_list_custom' %}">
+                      <div class='form-group'>
+                        <input class="form-control mr-1" type="search" placeholder="Search" aria-label="Search"
+                          name="query">
+                        <button class="btn btn-outline-success" type="submit">Search Machine/s</button>
+                      </div>
 
-                  </form>
+                    </form>
+                  </div>
+
+                  <div>
+                    <form class="form" action="{% url 'customer:customer-list' %}" method="GET">
+                      <div class='form-group'>
+                        <input class="form-control mr-1" type="search" placeholder="Search" aria-label="Search"
+                          name="q">
+                        <button class="btn btn-outline-success" type="submit">Search Customer/s</button>
+                      </div>
+
+                    </form>
+                  </div>
+
                 </div>
-
-                <div>
-                  <form class="form" action="{% url 'customer:customer-list' %}" method="GET">
-                    <div class='form-group' style='display:flex; flex-direction: row;margin-top: 1rem;'>
-                      <input class="form-control mr-1" type="search" placeholder="Search" aria-label="Search" name="q">
-                      <button class="btn btn-outline-success" type="submit">Search Customer/s</button>
-                    </div>
-
-                  </form>
-                </div>
-
               </div>
             </div>
-            </div>
+
+{% endblock searchbox %}
             <div style="width:100%; border-bottom: 3px solid red;margin: 10px 0px;">
 
             </div>
-            <p id='webid' style="border-left: 2px solid red;padding:10px;background-color: lightgray;"></p>
+            <p id='webid'></p>
             <div
               style="width:100%; border-top: 3px solid red; margin-top: 0px !important;margin-bottom: 20px !important;">
             </div>
@@ -977,12 +617,12 @@
           {% endfor %}
           {% endif %}
           <!-- <div style="width:20%; height: 20%; background-color: aqua;"> -->
-            <!-- <div style="width: 30%;height: 30%; border-radius: 50%; background-color: red;"> -->
-              <!-- <p id='unassigned' style="color: black;"> -->
+          <!-- <div style="width: 30%;height: 30%; border-radius: 50%; background-color: red;"> -->
+          <!-- <p id='unassigned' style="color: black;"> -->
 
-              <!-- </p> -->
-            <!-- </div> -->
-            <!-- <div style="width: 30%;height: 30%; border-radius: 50%; background-color: red;">
+          <!-- </p> -->
+          <!-- </div> -->
+          <!-- <div style="width: 30%;height: 30%; border-radius: 50%; background-color: red;">
 
             </div>
             <div style="width: 30%;height: 30%; border-radius: 50%; background-color: red;">
@@ -1016,7 +656,7 @@
                     const strmodified = strr['data'].substring(1)
                     const nu = parseInt(strmodified)
                     let u = document.getElementById('unassigned')
-                    
+
                     let text = document.createTextNode(strmodified)
                     u.innerText = nu
 
@@ -1027,7 +667,7 @@
                     const strmodified = strr['data'].substring(1)
                     const nu = parseInt(strmodified)
                     let u = document.getElementById('dispatched')
-                    
+
                     let text = document.createTextNode(strmodified)
                     u.innerText = nu
 
@@ -1038,7 +678,7 @@
                     const strmodified = strr['data'].substring(1)
                     const nu = parseInt(strmodified)
                     let u = document.getElementById('incomplete')
-                    
+
                     let text = document.createTextNode(strmodified)
                     u.innerText = nu
 
@@ -1049,7 +689,7 @@
                     const strmodified = strr['data'].substring(1)
                     const nu = parseInt(strmodified)
                     let u = document.getElementById('complete')
-                    
+
                     // let text = document.createTextNode(strmodified)
                     u.innerText = nu
 
@@ -1085,30 +725,51 @@
                 }
 
                 const comp = document.getElementById(sidebar)
-                  // comp.addEventListener()
-                  let isOpened = true;
-                  document.getElementById("main").style.marginRight = "150px";
-    function openNav() {
-        
-        if(isOpened === false){
-            document.getElementById("mySidenav").style.width = "150px";
-            document.getElementById("main").style.marginRight = "150px";
-            isOpened = true;
-        }
-        else if(isOpened == true){
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginRight = "0";
-            isOpened = false;
-        }
-        // document.getElementById("mySidenav").style.width = "250px";
-        // document.getElementById("main").style.marginLeft = "250px";
-      }
-      
-      /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
-      function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-        document.getElementById("main").style.marginRight = "0";
-      }
+                // comp.addEventListener()
+                let isOpened = true;
+                document.getElementById("main").style.marginRight = "150px";
+                function openNav() {
+
+                  if (isOpened === false) {
+                    document.getElementById("mySidenav").style.width = "150px";
+                    document.getElementById("main").style.marginRight = "150px";
+                    isOpened = true;
+                  }
+                  else if (isOpened == true) {
+                    document.getElementById("mySidenav").style.width = "0";
+                    document.getElementById("main").style.marginRight = "0";
+                    isOpened = false;
+                  }
+                  // document.getElementById("mySidenav").style.width = "250px";
+                  // document.getElementById("main").style.marginLeft = "250px";
+                }
+
+                /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+                function closeNav() {
+                  document.getElementById("mySidenav").style.width = "0";
+                  document.getElementById("main").style.marginRight = "0";
+                }
+                function openNav2() {
+
+if (isOpened === false) {
+  document.getElementById("sidebar").style.width = "150px";
+  document.getElementById("main").style.marginRight = "150px";
+  isOpened = true;
+}
+else if (isOpened == true) {
+  document.getElementById("sidebar").style.width = "0";
+  document.getElementById("main").style.marginRight = "0";
+  isOpened = false;
+}
+// document.getElementById("mySidenav").style.width = "250px";
+// document.getElementById("main").style.marginLeft = "250px";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav2() {
+document.getElementById("sidebar").style.width = "0";
+document.getElementById("main").style.marginRight = "0";
+}
               </script>
 
             </div>

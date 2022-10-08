@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block css1 %}
+  <style>
+      /* *, *::before, *::after{
+          margin: 0px !important;
+          padding: 0px !important;
+          box-sizing: inherit !important;
+
+      } */
+        html{
+            margin: 0px !important;
+            padding: 0px !important;
+            box-sizing: border-box;
+            font-size: 62.5%;
+        }
+        @media only screen and (max-width: 75em){
+            html{
+                font-size: 50%;
+            }
+            
+        }
+        body{
+            background-image: url("/static/images/print5.jpg") !important;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            font-family: sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+              
+  </style>
+{% endblock css1 %}
+
+{% block title %}
+    
+{% endblock title %}
+
+
+
+{% block main %}
+<div class="container">
+    <section class="calls">
+        <div class="call">
+            <img src="http://127.0.0.1:8000/static/images/1.jpg"  class="call__image"/>
+            <h5 class="call__statistics">statistics</h5>
+            <div class="call__date__1">
+                <p>date 1</p>
+            </div>
+            <div class="call__date__1">
+                <p>date 2</p>
+            </div>
+            <div class="call__date__1">
+                <p>date 3</p>
+            </div>
+
+        </div>
+    </section>
+</div>
+{% endblock %}

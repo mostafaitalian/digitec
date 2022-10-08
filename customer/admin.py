@@ -3,8 +3,8 @@ from .models import Customer, Department, CustomerOrganization, CustomerBranch
 # Register your models here.
 @admin.register(Customer)
 class CustomerAdmin(admin.ModelAdmin):
-    search_fields=['customer_id',]
-    pass
+    search_fields=['customer_id', 'name']
+   
 @admin.register(Department)
 class DepartmentAdmin(admin.ModelAdmin):
     pass

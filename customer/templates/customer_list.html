@@ -2,6 +2,16 @@
 
 {% block css1 %}
 <style type='text/css'>
+    body{
+            background-image: url("/static/images/print4.jpg") !important;
+            background-position: center !important;
+            background-size: cover !important;
+            background-repeat: no-repeat !important;
+
+            font-family: sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+        }
 
     
     article {
@@ -10,6 +20,8 @@
         box-sizing: border-box;
         padding: 5px;
         box-shadow: 4px 4px 3px black;
+        min-height: 600px;
+        /* height: 600; */
     }
 
     ul {
@@ -79,9 +91,9 @@
 {% for customer in customers %}
     
 <div class='col-lg-6 col-sm-12'>
-    <article>
-        <header class='text-center bg-primary'>
-            <h2><a>{{customer.name|title}}</a></h2>
+    <article style="background-color: rgba(119, 111, 111, 0.5);">
+        <header class='text-center bg-primary' style="border-radius: 10px;">
+            <h3><a>{{customer.name|title}}</a></h3>
         </header>
         <main>
             <div style="display: flex;flex-direction: column;justify-content: flex-start;align-items: flex-start;">
@@ -90,7 +102,7 @@
                 {% if request.user.is_superuser %}
                 <form method="GET" action="{% url 'machine:call_create' %}">
                     <input type="hidden" name="customer-name" value={{customer.name}} />
-                    <button type="submit" class="btn btn-outline-danger">Add Call</button>
+                    <button type="submit" class="btn btn-danger">Add Call</button>
                 </form>
     
                 {% endif %}
@@ -143,10 +155,10 @@
                 {% for dep in customer.departments.all %}
                 <li><a class="bg-primary text-white"><span class='span-header'>{{dep.department_name}}</span> has {{dep.machines_dep.count}}
                         machine{{dep.no_of_machine|pluralize}}</a>
-                    <ul style="display: flex;flex-direction: column;justify-content: center;align-content: center;">
+                    <ul style="display: flex;flex-direction: row;flex-wrap: wrap;">
                         {% for machine in dep.machines_dep.all %}
                         <li>
-                            <a class='btn btn-outline-danger'
+                            <a class='btn btn-danger'
                                 href="{% url 'machine:machine_detail' machine.id %}">{{machine.machine_model}}-{{machine.serial}}</a>
                         </li>
                         {% empty %}
@@ -186,11 +198,8 @@
             </ul>
         </main>
         <footer>
-            <div>
-                <h4>Working Times</h4>
-                <p>from {{customer.begin_at}} to {{customer.finish_at}}</p>
-                <p>start at: <span>{{customer.begin_at}}</span></p>
-                <p>finish at: <span>{{customer.finish_at}}</span></p>
+            <div style="background-color: #6465da; height:10px">
+
             </div>
         </footer>
     
@@ -228,8 +237,3 @@
 
 </div>
 {% endblock %}
-<!-- {% block sidebar %}
-<div class="customer-advertisement"><a
-        href="{% url 'customer:customer-detail' cu.id %}">{{cu.name}}-{{cu.departments.all|join:','}}</a></div>
-</div>
-{% endblock %} -->

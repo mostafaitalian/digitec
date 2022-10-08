@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load my_templatetag %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{{ form.media }}
+
+{% block css1 %}
+  {{ form.media }}
+    <style>
+      form.report-form{
+        background-color: lightgray;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        align-items: center;
+        width:80%;
+        margin:auto;
+        padding-top: 20px ;
+        margin-bottom: 20px;
+        border-radius: 10px;
+      }
+     .report-form .form-group{
+        width: 80%;
+        border:1px solid black;
+        border-radius: 10px;
+        background-color: lightsteelblue;
+        text-align: center;
+        opacity: 0.5;
+      }
+      .report-form .form-group:hover{
+
+        opacity: 1;
+        color:white;
+        
+
+
+      }
+
+
+     .report-form .form-control *{
+        width:100%;
+      }
+      .pre-title{
+        border-bottom: 3px solid black;
+      }
+      h5.pre-title span{
+        color:steelblue;
+      } 
+    </style>
+{% endblock css1 %}
+{% block title %}
+  Call Information
+{% endblock title %}
+
+{% block content %}
+    {% with calll as call %}
+    <h5 class="pre-title">
+      Welcome {{request.user}} {% if request.user == call.engineer.user %}(<span>{{user.engineer.name}}</span>){% endif %}
+    </h5>
+      {% if request.user == call.engineer.user or request.user.is_superuser or request.user.engineer %}
+      {% if request.user.is_superuser %}
+      
+      {% if call.status == 'unassigned' or call.status == 'dispatched' %}
+      <form method="POST" action="{% url 'machine:call_assign_engineer' call.notification_number %}">
+        {% csrf_token %}
+        {{ assign_form|crispy }}
+        <button type="submit" class='btn btn-secondary'>
+          Assign to engineer
+        </button>
+      </form>  
+      {% endif %}
+        
+      
+    {% endif %}

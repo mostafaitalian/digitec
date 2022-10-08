@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block css1 %}
+  <style>
+      .wrapper{
+          height: 800px;
+          width: 800px;
+          display: grid;
+          grid-template-columns: repeat(12, [col-start] 1fr);
+          /* grid-template-rows: 1fr 3fr 1fr; */
+          column-gap: 10px;
+      }
+      .fot, .hd{
+          grid-column: 1 / 13;
+          grid-row: 2;
+          background-color: aqua;
+      }
+      .left{
+        grid-column: 1 / 4;
+        grid-row: 4;
+        background-color: brown;
+      }
+      .middle{
+        grid-column: 4/ 10;
+        grid-row: 4;
+        background-color: wheat;
+      }
+      .right{
+        grid-column: 10 / 13;
+        grid-row: 4;
+        background-color: steelblue;
+      }
+  </style>
+{% endblock css1 %}
+
+{% block title %}
+    Call summary
+{% endblock title %}
+
+
+{% block main %}
+  
+    <div class="wrapper">
+        <div class="hd">header</div>
+        <div class="left">leeft</div>
+        <div class="middle">miidle</div>
+        <div class="right">rigght</div>
+        <div class="fot">footter</div>
+    </div>
+
+{% endblock main %}
+

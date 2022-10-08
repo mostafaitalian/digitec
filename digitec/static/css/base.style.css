@@ -1,0 +1,341 @@
+@font-face {
+	font-family: 'Chapbook';
+	src: url('../../static/fonts/Chapbook/Chapbook.eot');
+	src: local('Chapbook'), url('../../static/fonts/Chapbook/Chapbook.woff') format('woff'), url('../../static/fonts/Chapbook/Chapbook.ttf') format('truetype');
+}
+/* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_80467">Text with this font applied</p> */
+.font-chabook {
+	font-family: 'Chapbook' !important;
+}
+
+body{
+    /* background-image: url("/static/images/print4.jpg") !important; */
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    margin:0px;
+    padding: 0px; width:100%;
+    font-family: sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+} 
+.m {
+margin: 4px;
+}
+
+#sidebar {
+/* min-width: 200px; */
+max-width: 150px;
+min-height: 250vh;
+position: fixed;
+top: 59px;
+left: 0;
+}
+
+#sidebar.active {
+margin-left: -250px;
+}
+
+li.nav-item {
+border-bottom: 1px solid pink;
+margin-right: 20px;
+text-align: center;
+color: black;
+}
+
+/* #sidebar.active {
+margin-left: -250px;
+} */
+
+@media (max-width: 750px) {
+li ul li a {
+font-size: small !important;
+padding-left: 10px !important;
+
+}
+
+li ul li {
+text-align: center;
+}
+
+#sidebar {
+margin-left: 0px;
+margin-top: 0px;
+position: static;
+top: 59px;
+
+left: 0;
+z-index: 0;
+font-size: x-small;
+}
+
+#sidebarCollapse {
+position: fixed;
+z-index: 10;
+top: 10px;
+right: 40% !important;
+background-color: white !important;
+
+/* left:5%;
+top: 50px; */
+}
+
+#sidebarCollapse:hover {
+color: black !important;
+background-color: #999;
+}
+
+#sidebar.active {
+margin-left: 0;
+}
+}
+
+
+.form-inline button {
+
+margin-bottom: 1.35rem !important;
+
+}
+
+.wrapper {
+display: flex;
+width: 100%;
+align-items: stretch;
+}
+
+a[data-toggle="collapse"] {
+position: relative;
+}
+
+.dropdown-toggle::after {
+display: block;
+position: absolute;
+top: 50%;
+right: 2px;
+transform: translateY(-50%);
+}
+
+.dropdown button:hover {
+color: black !important;
+}
+
+li.nav-item:hover {
+/* border-bottom: 1px solid black;
+margin-right: 2px;
+background-color: white !important;
+color: black;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+box-shadow: 3px 3px 2px -2px #DDDDDD; */
+color: red;
+background-color: white;
+}
+a.nav-link{
+    color: black;
+}
+a.nav-link:hover {
+margin-right: 20px;
+color: black !important;
+}
+
+a.navbar-brand {
+font-size: 26px;
+font-weight: bold;
+font-family: 'Chapbook';
+margin-right: 20px;
+}
+
+nav {
+/* background-color: red !important; */
+/* opacity: 80%; */
+position: relative;
+width: 100%;
+z-index: 10;
+
+/* margin-bottom: 100px; */
+}
+
+#sidebarCollapse {
+position: fixed;
+bottom: 1%;
+right: 1%;
+z-index: 300;
+}
+
+.nott {
+position: fixed;
+bottom: 8%;
+right: 1%;
+z-index: 300;
+}
+
+
+.navbar {
+position: fixed;
+top: 0;
+left: 0;
+border-bottom: #555 1px solid;
+box-shadow: 1px 1px 2px 2px #555;
+opacity: 100 !important;
+background-color: whitesmoke;
+}
+
+div ul li a.nav-link {
+color:linear-gradient(#56d0df, #555) !important;
+}
+
+div {
+margin: 0px;
+}
+
+.btn-group .btn.btn-warning {
+height: 3.8rem !important;
+display: flex !important;
+flex-direction: column !important;
+align-content: center !important;
+justify-content: center !important;
+text-align: center !important;
+font-size: small;
+font-weight: bold;
+/* font-style: oblique; */
+}
+
+.col-12 .btn-group {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+align-content: center;
+}
+
+/*
+ADDITIONAL DEMO STYLE, NOT IMPORTANT TO MAKE THINGS WORK BUT TO MAKE IT A BIT NICER :)
+*/
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+body {
+font-family: 'Poppins', sans-serif;
+background: #fafafa;
+}
+
+p {
+font-family: 'Poppins', sans-serif;
+font-size: 1.1em;
+font-weight: 300;
+line-height: 1.7em;
+color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+color: inherit;
+text-decoration: none;
+transition: all 0.3s;
+}
+
+#sidebar {
+/* don't forget to add all the previously mentioned styles here too */
+/* background: #7386D5; */
+/* color: #fff; */
+color: linear-gradient(#56d0df, #999);
+transition: all 0.3s;
+background-color: white;
+border-top-right-radius: 3px;
+box-shadow: 1px 0px 7px 0px gray;
+}
+
+#sidebar .sidebar-header {
+padding: 20px;
+font-size: small;
+/* background: #6d7fcc; */
+}
+
+#sidebar ul.components {
+padding: 20px 0;
+border-bottom: 1px solid white;
+}
+
+#sidebar ul p {
+color: red;
+padding: 10px;
+font-family: 'Chapbook';
+
+}
+
+#sidebar ul li a {
+padding: 10px;
+font-size: 1.1em;
+display: block;
+font-family: 'Chapbook';
+
+}
+
+#sidebar ul li a:hover {
+/* color: #7386D5; */
+background: #fff;
+color: red;
+transform-style: preserve-3d;
+box-shadow: 1px 1px 20px lightgrey;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+color: #fff;
+background: gray;
+}
+
+ul ul a {
+font-size: 0.9em !important;
+padding-left: 30px !important;
+/* background: #6d7fcc; */
+}
+
+.notification {
+background-color: #555;
+color: white;
+text-decoration: none;
+padding: 15px 26px;
+position: relative;
+display: inline-block;
+border-radius: 2px;
+}
+
+.notification:hover {
+background: red;
+}
+
+.notification .badge {
+position: absolute;
+top: -10px;
+right: -10px;
+padding: 5px 10px;
+border-radius: 50%;
+background: red;
+color: white;
+}
+
+#mySidenav .notification {
+margin: 10px 10px;
+padding: 2px 3px;
+}
+
+div.dropdown button.dropdown-toggle{
+    border-style: none !important;
+    color:linear-gradient(#56d0df, #999) !important;
+    font-size: 12px;
+    font-weight: normal !important;
+}
+
+.form .form-group{
+    display:flex;
+    flex-direction: row;
+    margin-top: 1rem;
+}
+
+#webid{
+    border-left: 2px solid red;
+    padding:10px;
+    background-color: lightgray;
+}

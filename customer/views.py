@@ -12,9 +12,12 @@ from rest_framework.generics import ListCreateAPIView
 from .serializers import CustomerSerializer
 from .bulk_customers import create_bulk_customers
 import json
+from .filters import CustomerFilter
+
 class CustomerListCreateApi(ListCreateAPIView):
     serializer_class= CustomerSerializer
     queryset = Customer.objects.all()
+
 
 
 
@@ -121,13 +124,28 @@ class DepartmentCreateView(CreateView):
 def bulk_customers_view(request):
     customers = Customer.objects.all()
     data_list = create_bulk_customers(customers)
+    print("data list from bulk customer view",data_list)
     da = json.loads(json.dumps(data_list,indent=4, ensure_ascii=False).encode('utf-8'))
-    print(da)
+    print('dictionary da',da)
     daa = [item['fields'] for item in da]
-    print([d['customer_id'] for d in daa])
+    print('customer idintity',[d['customer_id'] for d in daa])
     print(json.loads(json.dumps(daa)))
+    print("database customer identity", Customer.objects.values_list('customer_id', flat=True))
+    print(8 in Customer.objects.values_list('customer_id', flat=True))
+    for x in Customer.objects.values_list('customer_id', flat=True):
+        print(x)
 
-    Customer.objects.bulk_create([Customer(**i) for i in daa])
+    daaa=[]
+    for c in daa:
+        if c['customer_id'] in Customer.objects.values_list('customer_id', flat=True) or c['customer_id'] in [di['customer_id'] for di in daaa]:
+            print("33333")
+            pass
+        else:
+            print("4444")
+            daaa.append(c)
+
+    print("daaaaaaaaaaaaaaaa", daaa)
+    Customer.objects.bulk_create([Customer(**i) for i in daaa])
     for c in Customer.objects.all():
         print('11111')
         if c.departments.count() == 0:
@@ -138,3 +156,7 @@ def bulk_customers_view(request):
 
 
 
+def search(request):
+    customer_list = Customer.objects.all()
+    customer_filter =  CustomerFilter(request.GET, queryset=customer_list)   
+    return render(request, 'customer/customer_list_filter.html', {'filter': customer_filter})

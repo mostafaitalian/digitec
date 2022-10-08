@@ -1,0 +1,430 @@
+{% extends 'base.html' %}
+{% block css1 %}
+    <style>
+        /* body {
+  margin: 40px;
+}
+
+  .wrapper {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 150px 100px 150px 100px ;
+    grid-template-rows: repeat(3,minmax(100px,auto));
+    background-color: #fff;
+    color: #444;
+  }
+
+  .box {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+
+  }
+
+  .box .box {
+    background-color: #ccc;
+    color: #444;
+  }
+
+  .a {
+    grid-column: 1 / 3;
+  }
+
+  .b {
+    grid-column: 4 ;
+  }
+
+  .c {
+    grid-column: 1;
+    grid-row: 2 / 4;
+  }
+
+  .d{
+    
+    grid-column: 2 / 5;
+    grid-row: 2 / 4;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+  }
+
+  html, body {
+  height: 100%;
+}
+
+.main-grid {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  background: lightcoral;
+  grid-column-gap: 10px;
+  grid-row-gap: 8px;
+}
+
+.new, .new:last-child {
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+          -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.new {
+  background: lightcyan;
+}
+
+.new:last-child {
+  -ms-grid-column: 4;
+  grid-column: 4;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1 / span 2;
+  background: lawngreen;
+} */
+/*# sourceMappingURL=css.css.map */
+*, *::after, **::before{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.grid-container, .grid-container1 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  /* Set Row height */
+  grid-auto-rows: 200px;
+  grid-auto-flow: row;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  margin: 20px;
+}
+
+
+
+.news, .news1 {
+  background-color: #e5e5e5;
+  box-shadow: 2px 2px 2px 2px gray;
+}
+.h, .h1{
+  background-color: #14213d;
+  /* Place in the fourth column */
+  grid-column: 1 / 7;
+  /* Make two rows tall (Spans from row 1 to the beginning of row 3) */
+  grid-row: 1 / 2;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  text-align: center;
+  color: white;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+}
+.f, .f1{
+  background-color: #000000;
+  /* Place in the fourth column */
+  grid-column: 1 / 7;
+  grid-row: auto;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  /* Make two rows tall (Spans from row 1 to the beginning of row 3) */
+}
+.news.double, .news1.double {
+  background-color: #fca311;
+  /* Place in the fourth column */
+  grid-column: 4 / 6;
+  /* Make two rows tall (Spans from row 1 to the beginning of row 3) */
+  grid-row: 3 / 5;
+}
+.news.double1, .news1.double1 {
+  background-color: #5b6d5b;
+  /* Place in the fourth column */
+  grid-column: 2 / 4;
+  /* Make two rows tall (Spans from row 1 to the beginning of row 3) */
+  grid-row: auto;
+  /* z-index: 10; */
+  }
+.news.double2, .news1.double2{
+  background-color: #e40017;
+  /* Place in the fourth column */
+  grid-column: 1 / 3;
+  /* Make two rows tall (Spans from row 1 to the beginning of row 3) */
+  grid-row: 4 / 6;
+}
+.news, .news1{
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 50em){
+    .grid-container {
+  width: 100%;
+  display: grid;
+  /* grid-template-columns: 2fr; */
+  /* Set Row height */
+  /* grid-auto-rows: 150px; */
+  grid-template-columns: repeat(3,[col-start] 1fr [col-end]);
+  grid-template-rows: auto;
+  /* grid-auto-flow: column; */
+  
+  grid-row-gap: 30px;
+  /* grid-column-gap: 10px; */
+  margin: 2px;
+}
+.news{
+    grid-column: col-start 1/ col-end 4;
+}
+.news.double {
+  /* background-color: blue; */
+  /* Place in the fourth column */
+  grid-column: col-start 1 / col-end 4;
+  /* Make two rows tall (Spans from row 1 to the beginning of row 3) */
+  /* grid-row: 2; */
+}
+.news.double1 {
+  /* background-color: blue; */
+  /* Place in the fourth column */
+  grid-column: col-start 1 / col-end 4;
+  /* Make two rows tall (Spans from row 1 to the beginning of row 3) */
+  /* grid-row: 2; */
+}
+.news.double2 {
+  /* background-color: blue; */
+  /* Place in the fourth column */
+  grid-column: col-start 1/ col-end 4;
+  /* Make two rows tall (Spans from row 1 to the beginning of row 3) */
+  /* grid-row: 2; */
+}
+.h{
+    grid-column: col-start 1 / col-end 4;
+
+}
+.f{
+    grid-column: col-start 1 / col-end 4;
+
+}
+  
+}
+
+    </style>
+{% endblock css1 %}
+
+{% block content %}
+<!-- <div class="wrapper">
+    <div class="box a">A</div>
+    <div class="box b">B</div>
+    <div class="box c">C</div>
+    <div class="box d">
+      <div class="box e">E</div>
+      <div class="box f">F</div>
+      <div class="box g">G</div>
+      <div class="box h">H</div>
+      <div class="box i">I</div>
+      <div class="box j">J</div>
+      <div class="box k">K</div>
+      <div class="box l">L</div>
+      <div class="box m">M</div>
+    </div>
+  </div> -->
+
+    <!-- <div class="main-grid">
+        <div class="new">Item 1</div>
+        <div class="new">Item 2</div>
+        <div class="new">Item 3</div>
+        <div class="new">Item 4</div>
+        <div class="new">Item 5</div>
+        <div class="new">Item 6</div>
+        <div class="new">Item 7</div>
+    </div> -->
+
+    <!-- {% if all_calls %}
+
+    <div class="grid-container">
+        <div class="h">
+          <h5>
+            All {{ status }} calls
+          </h5>
+          <p>You have {{all_calls.count}} call{{all_calls.count|pluralize}}</p>
+        </div>
+        
+        {% for call in all_calls %}
+          {% if call.response_success_call %}
+          <div class="news double">
+              <h5>{{ call.notification_number }}</h5>
+          </div>
+          {% elif call.down_success_call %}
+          <div class="news double1">
+            <h5>{{ call.notification_number }}</h5>
+        </div>
+        {% elif call.delayed_call %}
+        <div class="news double">
+          <h5>{{ call.notification_number }}</h5>
+      </div>
+          {% else %}
+            <div class="news">
+                <h5>
+                    {{ call.notification_number }}
+                </h5>
+            </div>
+          {% endif %}
+        {% endfor %}  
+
+          
+        
+       
+        <div class="f"></div>
+        {% endif %}    
+    </div> -->
+    {% if all_calls %}
+    <div class="grid-container">
+        <div class="h">
+        <h5>
+          All {{ status }} calls
+        </h5>
+        <p>You have {{all_calls.count}} call{{all_calls.count|pluralize}}</p>
+        </div>
+        
+        
+           
+        {% for call in all_calls %}
+        {% if call.delayed_call %}
+        <div class="news"  style="display: flex;flex-direction: column;justify-content: flex-start;align-items: center;">
+               
+          <h6>
+              {{ call.notification_number }}
+          </h6>
+              {% if status == 'dispatched' %}
+              <div>
+                <p style="color: #000000;">should start call before: </p>
+                <p style="font-size: small;">{{call.response_time_end_date}}</p>
+              </div>
+              {% elif status == 'completed' %}
+              <div>
+                <p style="color: #000000;">Call finished at: </p>
+                <p style="font-size: small;">{{call.real_completed_date}}</p>
+              </div>
+              {% endif %}
+              <div>
+                <a href="{% url 'machine:call_detail' call.notification_number %}" style="display: block;width:180px;" class="btn btn-warning">
+                  {{ call.notification_number }}-{{call.machine.serial}}
+                  </a>
+              </div>
+
+
+        </div>
+        {% else %}
+        <div class="news"  style="display: flex;flex-direction: column;justify-content: flex-start;align-items: center;">
+               
+          <h6>
+              {{ call.notification_number }}
+          </h6>
+              {% if status == 'dispatched' %}
+              <div>
+                <p style="color: #000000;">should start call before: </p>
+                <p style="font-size: small;">{{call.response_time_end_date}}</p>
+              </div>
+              {% elif status == 'completed' %}
+              <div>
+                <p style="color: #000000;">Call finished at: </p>
+                <p style="font-size: small;">{{call.real_completed_date}}</p>
+              </div>
+              {% endif %}
+              <div>
+                <a href="{% url 'machine:call_detail' call.notification_number %}" style="display: block;width:180px;" class="btn btn-danger">
+                  {{ call.notification_number }}-{{call.machine.serial}}
+                  </a>
+              </div>
+
+
+        </div>
+        {% endif %}
+      {% endfor %}
+  
+
+
+        <div class="f"></div>
+    </div>
+    {% endif %}
+    {% if own_calls %}
+    <div class="grid-container">
+        <div class="h">
+        <h5>
+          Your {{ status }} calls
+        </h5>
+        <p>You have {{own_calls.count}} call{{own_calls.count|pluralize}}</p>
+        </div>
+        
+        
+           
+        {% for call in own_calls %}
+        {% if call.delayed_call %}
+        <div class="news"  style="display: flex;flex-direction: column;justify-content: flex-start;align-items: center;">
+               
+          <h6>
+              {{ call.notification_number }}
+          </h6>
+              {% if status == 'dispatched' %}
+              <div>
+                <p style="color: #000000;">should start call before: </p>
+                <p style="font-size: small;">{{call.response_time_end_date}}</p>
+              </div>
+              {% elif status == 'completed' %}
+              <div>
+                <p style="color: #000000;">Call finished at: </p>
+                <p style="font-size: small;">{{call.real_completed_date}}</p>
+              </div>
+              {% endif %}
+              <div>
+                <a href="{% url 'machine:call_detail' call.notification_number %}" style="display: block;width:180px;" class="btn btn-warning">
+                  {{ call.notification_number }}-{{call.machine.serial}}
+                  </a>
+              </div>
+
+
+        </div>
+        {% else %}
+            <div class="news"  style="display: flex;flex-direction: column;justify-content: flex-start;align-items: center;">
+               
+            <h6>
+                {{ call.notification_number }}
+            </h6>
+                {% if status == 'dispatched' %}
+                <div>
+                  <p style="color: #000000;">should start call before: </p>
+                  <p>{{call.response_time_end_date}}</p>
+                </div>
+                {% elif status == 'completed' %}
+                <div>
+                  <p style="color: #000000;">Call finished at: </p>
+                  <p>{{call.real_completed_date}}</p>
+                </div>
+                {% endif %}
+                <div>
+                  <a href="{% url 'machine:call_detail' call.notification_number %}" style="display: block;width:180px;" class="btn btn-danger">
+                    {{ call.notification_number }}-{{call.machine.serial}}
+                    </a>
+                </div>
+
+
+          </div>
+        {% endif %}
+      {% endfor %}
+  
+
+
+        <div class="f"></div>
+    </div>
+    {% endif %}
+{% endblock %}
+    

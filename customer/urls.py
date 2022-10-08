@@ -15,5 +15,6 @@ urlpatterns = [
     path('<int:id>/delete', views.CustomerDeleteView.as_view(), name='customer-delete'),
     path('department/create/', views.DepartmentCreateView.as_view(), name='department-create'),
     path('customer/bulk', views.bulk_customers_view, name='customer_bulk'),
-    path('api/', include(serializer_urls))
+    path('api/', include(serializer_urls)),
+    path('search/', views.search, name='customer_list_filter')
     ]

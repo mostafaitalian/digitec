@@ -4,10 +4,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
-from rest_framework_jwt.views import (obtain_jwt_token,
- RefreshJSONWebToken,
- ObtainJSONWebToken,
- )
+# from rest_framework_jwt.views import (obtain_jwt_token,
+#  RefreshJSONWebToken,
+#  ObtainJSONWebToken,
+#  )
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 from machine.models import Call
 
 urlpatterns = [
@@ -15,8 +19,11 @@ urlpatterns = [
     path('customer/', include('customer.urls', namespace='customer')),
     path('machine/', include('machine.urls', namespace='machine')),
     path('engineer/', include('engineer.urls', namespace='engineer')),
-    path("", TemplateView.as_view(template_name="pages/home.html", extra_context={'pending_calls': Call.objects.filter(status='pending').order_by('-created_date')[:3],
-    'completed_calls': Call.objects.filter(status='completed').order_by('-created_date')[:3]}), name="home"),
+    path("", TemplateView.as_view(template_name="pages/home.html",
+    extra_context={'dispatched_calls': Call.objects.filter(status='dispatched').order_by('-created_date')[:4],
+    'pending_calls': Call.objects.filter(status='incomplete').order_by('-created_date')[:4],
+    'completed_calls': Call.objects.filter(status='completed').order_by('-created_date')[:4]}),
+    name="home"),
     
     path(
         "about/",
@@ -38,10 +45,11 @@ urlpatterns = [
         include("digitec.users.urls", namespace="users"),
     ),
     path("accounts/", include("allauth.urls")),
-    path('token-auth/', obtain_jwt_token),
-    path('api/token-auth2/', ObtainJSONWebToken.as_view()),
-    path('token-auth-refresh/', RefreshJSONWebToken.as_view())
-
+    # path('token-auth/', obtain_jwt_token),
+    # path('api/token-auth2/', ObtainJSONWebToken.as_view()),
+    # path('token-auth-refresh/', RefreshJSONWebToken.as_view())
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     # Your stuff: custom urls includes go here
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT

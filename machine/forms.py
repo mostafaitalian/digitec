@@ -6,7 +6,8 @@ from engineer.models import Engineer
 from itertools import chain
 from django.db.models import Q
 from django.forms import inlineformset_factory
-
+# from bootstrap_datepicker_plus import DateTimePickerInput
+from bootstrap_datepicker_plus.widgets import DateTimePickerInput
 
 class CreateMachineForm(ModelForm):
     
@@ -97,6 +98,10 @@ class ReportForm1(ModelForm):
     class Meta:
         model=Report
         fields='__all__'
+        widgets = {
+            'starts_at': DateTimePickerInput(),
+            'finishs_at': DateTimePickerInput(),
+        }
 
 class ReportForm2(ModelForm):
 
